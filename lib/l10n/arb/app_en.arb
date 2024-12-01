@@ -1,0 +1,480 @@
+{
+    "@@locale": "en",
+    "agents": "Agents",
+    "@agents": {
+        "description": "Agents label"
+    },
+    "nAgents": "{count, plural, other{{count} agents} zero{No agents} one{1 agent}}",
+    "@nAgents": {
+        "description": "Number of Agents",
+        "placeholders": {
+            "count": {
+                "type": "int",
+                "example": "1"
+            }
+        }
+    },
+    "equalPoints": "each with {count} points",
+    "@equalPoints": {
+        "description": "Equal points",
+        "placeholders": {
+            "count": {
+                "type": "double",
+                "example": "10.0",
+                "format": "decimalPattern"
+            }
+        }
+    },
+    "nearlyEqualPoints": "each with around {count} points",
+    "@nearlyEqualPoints": {
+        "description": "Nearly equal points",
+        "placeholders": {
+            "count": {
+                "type": "double",
+                "example": "10.0",
+                "format": "decimalPattern"
+            }
+        }
+    },
+    "differentPointsRange": "{count, plural, other{{count} different points from {low} to {high}}}",
+    "@differentPointsRange": {
+        "description": "Different points range",
+        "placeholders": {
+            "count": {
+                "type": "int",
+                "example": "1"
+            },
+            "low": {
+                "type": "double",
+                "example": "10.0",
+                "format": "decimalPattern"
+            },
+            "high": {
+                "type": "double",
+                "example": "12.0",
+                "format": "decimalPattern"
+            }
+        }
+    },
+    "defaultLabel": "Default",
+    "@defaultLabel": {
+        "description": "The label for Default Roster"
+    },
+    "builtIn": "Built-in",
+    "@builtIn": {
+        "description": "The label for Built-in Rosters"
+    },
+    "agentsStats": "Agents Stats",
+    "@agentsStats": {
+        "description": "The label for Agents Stats button"
+    },
+    "addAgents": "Add Agents",
+    "@addAgents": {
+        "description": "Add agents"
+    },
+    "addMatches": "Add Matches",
+    "@addMatches": {
+        "description": "Add matches"
+    },
+    "rosterNameLabel": "Roster Name",
+    "@rosterNameLabel": {
+        "description": "Roster name label"
+    },
+    "emptyRosterNameError": "Roster Name cannot be empty.",
+    "@emptyRosterNameError": {
+        "description": "The error text if Roster Name is left empty."
+    },
+    "selectJsonFile": "Select a JSON file",
+    "@selectJsonFile": {
+        "description": "Select json file"
+    },
+    "selectJsonFilePlease": "Please select a JSON file",
+    "@selectJsonFilePlease": {
+        "description": "Select json file please"
+    },
+    "importAgentsJson": "Import Agents JSON",
+    "@importAgentsJson": {
+        "description": "The label for button to import agents JSON file"
+    },
+    "importAgentsHelp": "Copy one of the JSON samples to create your own agents rating JSON file. Importing Agents is temporary (for now) and does not leave your browser.",
+    "@importAgentsHelp": {
+        "description": "Help Text describing how to create and import Agents JSON"
+    },
+    "copyMinAgentsSample": "Copy minimal Agents JSON",
+    "@copyMinAgentsSample": {
+        "description": "The label for button to copy minimal agents sample."
+    },
+    "copyMinAgentsHelp": "Copies a JSON sample with minimum required fields to the clipboard.",
+    "@copyMinAgentsHelp": {
+        "description": "Help text for what copyMinAgentsSample does"
+    },
+    "copyAgentsSample": "Copy Agents JSON",
+    "@copyAgentsSample": {
+        "description": "The label for button to copy agents sample"
+    },
+    "copyAgentsHelp": "Copies a JSON sample with all the fields for agents ratings to the clipboard.",
+    "@copyAgentsHelp": {
+        "description": "Copy agents help"
+    },
+    "addAgentRatings": "Add Agents Ratings",
+    "@addAgentRatings": {
+        "description": "Add agent ratings"
+    },
+    "invalidAgentsFormat": "The selected file is likely invalid. Please try again. Copy the samples if necessary",
+    "@invalidAgentsFormat": {
+        "description": "The error text for invalid agents format."
+    },
+    "agentsAdded": "Agent Ratings added successfully as '{name}'.",
+    "@agentsAdded": {
+        "description": "Agents added",
+        "placeholders": {
+            "name": {
+                "type": "String",
+                "example": "SD2 ratings for Patch 9.10"
+            }
+        }
+    },
+    "downloadAgentsSampleMin": "Download Agents CSV (min)",
+    "@downloadAgentsSampleMin": {
+        "description": "The label for button that downloads minimal agents CSV"
+    },
+    "downloadAgentsSample": "Download Agents CSV",
+    "@downloadAgentsSample": {
+        "description": "The label for button that downloads sample agents CSV"
+    },
+    "matchesCollectionNameLabel": "Event/Collection Name",
+    "@matchesCollectionNameLabel": {
+        "description": "The label for matches collection name"
+    },
+    "emptyMatchesCollectionNameError": "Event/Collection Name cannot be empty",
+    "@emptyMatchesCollectionNameError": {
+        "description": "The error text for when matches collection name is left empty"
+    },
+    "selectRibMatchesCsv": "Select a csv file with matches from Run it Back(rib.gg)",
+    "@selectRibMatchesCsv": {
+        "description": "The label for Select rib matches csv"
+    },
+    "pleaseSelectRibMatchesCsv": "Please select a csv file with matches from Run it Back(rib.gg)",
+    "@pleaseSelectRibMatchesCsv": {
+        "description": "The label for Select rib matches csv"
+    },
+    "importMatchesCsv": "Import Matches CSV",
+    "@importMatchesCsv": {
+        "description": "The label for button to import CSV files"
+    },
+    "invalidMatchesCsvError": "The selected matches CSV is invalid. Please check the csv and ensure the csv has same format as output of rib matches.",
+    "@invalidMatchesCsvError": {
+        "description": "Invalid matches csv error"
+    },
+    "matchesAdded": "The matches from {csvFile} was successfully added as {name}.",
+    "@matchesAdded": {
+        "description": "Matches added",
+        "placeholders": {
+            "csvFile": {
+                "type": "String",
+                "example": "VCT Champions.csv"
+            },
+            "name": {
+                "type": "String",
+                "example": "VCT Champions 2024"
+            }
+        }
+    },
+    "rosterName": "Roster Name",
+    "@rosterName": {
+        "description": "The label for Agents Roster Name input"
+    },
+    "saveLabel": "Save",
+    "@saveLabel": {
+        "description": "The label for Save button"
+    },
+    "comps": "Comps",
+    "@comps": {
+        "description": "The label for comps/compositions"
+    },
+    "compsStyleDescription": "{compsCount, plural, other{{compsCount} Comps} zero{No Comps} one{Single Comp}} of {stylesCount, plural, other{{stylesCount} different styles} one{singular Style}}",
+    "@compsStyleDescription": {
+        "description": "Comps style description",
+        "placeholders": {
+            "compsCount": {
+                "type": "int",
+                "example": "1"
+            },
+            "stylesCount": {
+                "type": "int",
+                "example": "1"
+            }
+        }
+    },
+    "nCompsOfStyle": "{count, plural, other{{count} Comps} zero{No Comps} one{1 Comp}} of {style} style",
+    "@nCompsOfStyle": {
+        "description": "N comps of style",
+        "placeholders": {
+            "count": {
+                "type": "int",
+                "example": "1"
+            },
+            "style": {
+                "type": "String",
+                "example": "20-17-13"
+            }
+        }
+    },
+    "nCompsOfDifferentStyle": "{count, plural, other{{count} Comps} zero{No Comps} one{1 Comp}} of {styleCount, plural, other{{styleCount} different styles} one{single style}}",
+    "@nCompsOfDifferentStyle": {
+        "description": "N comps of style",
+        "placeholders": {
+            "count": {
+                "type": "int",
+                "example": "1"
+            },
+            "styleCount": {
+                "type": "int",
+                "example": "1"
+            }
+        }
+    },
+    "noCompsForFilter": "No Comps matching selected filters. Try Resetting",
+    "@noCompsForFilter": {
+        "description": "The message shown when no comps match selected filter"
+    },
+    "nDifferentComps": "{count, plural, other{{count} different Comps} zero{No comps} one{Single Comp}}",
+    "@nDifferentComps": {
+        "description": "N different comps",
+        "placeholders": {
+            "count": {
+                "type": "int",
+                "example": "1"
+            }
+        }
+    },
+    "styledComps": "{style} Comps",
+    "@styledComps": {
+        "description": "The label for Compositions of given style",
+        "placeholders": {
+            "style": {
+                "type": "String",
+                "example": "21-24-5",
+                "description": "SD Style Points"
+            }
+        }
+    },
+    "filters": "Filters",
+    "@filters": {
+        "description": "The label for filters button"
+    },
+    "resetFilters": "Reset Filters",
+    "@resetFilters": {
+        "description": "Reset filters"
+    },
+    "compositions": "Compositions",
+    "@compositions": {
+        "description": "The label for compositions header"
+    },
+    "matches": "Matches",
+    "@matches": {
+        "description": "Matches"
+    },
+    "matchesTitle": "Matches Database",
+    "@matchesTitle": {
+        "description": "The title of the Matches list page"
+    },
+    "nMatches": "{count, plural, other{{count} Matches} zero{No Matches} one{A single match}}",
+    "@nMatches": {
+        "description": "N matches",
+        "placeholders": {
+            "count": {
+                "type": "int",
+                "example": "1"
+            }
+        }
+    },
+    "mapSelect": "Select Maps",
+    "@mapSelect": {
+        "description": "Map select label"
+    },
+    "excludeMatches": "Exclude Matches",
+    "@excludeMatches": {
+        "description": "Exclude matches label"
+    },
+    "sameStyles": "Styles",
+    "@sameStyles": {
+        "description": "The label for excluding matches with same stylistic points"
+    },
+    "sameComps": "Comps",
+    "@sameComps": {
+        "description": "The label for excluding matches with same compositions"
+    },
+    "excludeNone": "None",
+    "@excludeNone": {
+        "description": "The label for excluding none of the matches i.e. include all of the matches"
+    },
+    "viewStats": "View Stats",
+    "@viewStats": {
+        "description": "The label for button to view stats"
+    },
+    "viewMatches": "View Matches",
+    "@viewMatches": {
+        "description": "The label for button to view matches"
+    },
+    "statsFor": "{collectionName} Stats",
+    "@statsFor": {
+        "description": "The header for matches stats page",
+        "placeholders": {
+            "collectionName": {
+                "type": "String",
+                "description": "The name of matches collection"
+            }
+        }
+    },
+    "attack": "Attack",
+    "@attack": {
+        "description": "attack"
+    },
+    "defense": "Defense",
+    "@defense": {
+        "description": "defense"
+    },
+    "overallScore": "Overall Score",
+    "@overallScore": {
+        "description": "Overall score"
+    },
+    "attackScore": "Attack Score",
+    "@attackScore": {
+        "description": "Attack score"
+    },
+    "defenseScore": "Defense Score",
+    "@defenseScore": {
+        "description": "Defense score"
+    },
+    "winRatePercent": "{winRate}",
+    "@winRatePercent": {
+        "description": "Win rate percent",
+        "placeholders": {
+            "winRate": {
+                "type": "double",
+                "example": "0.4",
+                "description": "The win rate from 0 to 1, i.e. rounds won divided by rounds played",
+                "format": "decimalPercentPattern",
+                "optionalParameters": {
+                    "decimalDigits": 2
+                }
+            }
+        }
+    },
+    "styledMatches": "{style} Matches",
+    "@styledMatches": {
+        "description": "Styled matches",
+        "placeholders": {
+            "style": {
+                "type": "String",
+                "example": "21-24-5",
+                "description": "SD Style Points"
+            }
+        }
+    },
+    "stylisticMatchupLabel": "{styleA} vs {styleB} Matches",
+    "@stylisticMatchupLabel": {
+        "description": "The label for matches between two Styles",
+        "placeholders": {
+            "styleA": {
+                "type": "String",
+                "example": "21-24-5",
+                "description": "First Style"
+            },
+            "styleB": {
+                "type": "String",
+                "example": "21-24-5",
+                "description": "Second Style"
+            }
+        }
+    },
+    "veryPositiveWinRate": "{styleA} beats {styleB} heavily",
+    "@veryPositiveWinRate": {
+        "description": "The label for when styleA wins heavily against styleB",
+        "placeholders": {
+            "styleA": {
+                "type": "String",
+                "example": "21-24-5",
+                "description": "First Style"
+            },
+            "styleB": {
+                "type": "String",
+                "example": "21-24-5",
+                "description": "Second Style"
+            }
+        }
+    },
+    "positiveWinRate": "{styleA} beats {styleB}",
+    "@positiveWinRate": {
+        "description": "The label for when styleA wins against styleB",
+        "placeholders": {
+            "styleA": {
+                "type": "String",
+                "example": "21-24-5",
+                "description": "First Style"
+            },
+            "styleB": {
+                "type": "String",
+                "example": "21-24-5",
+                "description": "Second Style"
+            }
+        }
+    },
+    "tiedWinRate": "{styleA} is tied against {styleB}",
+    "@tiedWinRate": {
+        "description": "The label for when styleA is tied against styleB",
+        "placeholders": {
+            "styleA": {
+                "type": "String",
+                "example": "21-24-5",
+                "description": "First Style"
+            },
+            "styleB": {
+                "type": "String",
+                "example": "21-24-5",
+                "description": "Second Style"
+            }
+        }
+    },
+    "negativeWinRate": "{styleA} loses to {styleB}",
+    "@negativeWinRate": {
+        "description": "The label for when styleA loses against styleB",
+        "placeholders": {
+            "styleA": {
+                "type": "String",
+                "example": "21-24-5",
+                "description": "First Style"
+            },
+            "styleB": {
+                "type": "String",
+                "example": "21-24-5",
+                "description": "Second Style"
+            }
+        }
+    },
+    "veryNegativeWinRate": "{styleA} loses heavily to {styleB}",
+    "@veryNegativeWinRate": {
+        "description": "The label for when styleA loses heavily against styleB",
+        "placeholders": {
+            "styleA": {
+                "type": "String",
+                "example": "21-24-5",
+                "description": "First Style"
+            },
+            "styleB": {
+                "type": "String",
+                "example": "21-24-5",
+                "description": "Second Style"
+            }
+        }
+    },
+    "versusLabel": "vs",
+    "@versusLabel": {
+        "description": "Versus label"
+    },
+    "viewSource": "View Source Code",
+    "@viewSource": {
+        "description": "The tooltip label for button to view the source code of the app."
+    }
+}

@@ -1,0 +1,35 @@
+name: 🌎 Deploy to Cloudflare Pages
+
+on:
+  # Trigger the workflow every time you push to the `main` branch
+  push:
+    branches: [main]
+  # Allows you to run this workflow manually from the Actions tab on GitHub.
+  workflow_dispatch:
+
+# Allow this job to clone the repo
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Build Flutter app
+        uses: subosito/flutter-action@v2
+        with:
+          channel: beta
+          cache: true
+      - run: flutter pub get
+      - run: flutter build web --wasm --target lib/main_production.dart
+      - name: Deploy app
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy ./build/web --project-name=vsdat
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

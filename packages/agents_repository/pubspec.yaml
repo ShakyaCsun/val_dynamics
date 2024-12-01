@@ -1,0 +1,19 @@
+name: agents_repository
+description: A repository for agents and their style points scoring
+version: 0.1.0+1
+publish_to: none
+
+environment:
+  sdk: ^3.6.0-0
+
+resolution: workspace
+
+dependencies:
+  rxdart: ^0.28.0
+  valorant_agents:
+    path: ../valorant_agents
+
+dev_dependencies:
+  mocktail: ^1.0.4
+  test: ^1.25.8
+  very_good_analysis: ^6.0.0

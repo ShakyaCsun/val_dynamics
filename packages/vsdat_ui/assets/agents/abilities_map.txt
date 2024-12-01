@@ -1,0 +1,125 @@
+Astra
+Ability1: Nova Pulse
+Ability2: Nebula  / Dissipate
+Ability3: Gravity Well
+Ultimate: Astral Form / Cosmic Divide
+Breach
+Ability1: Flashpoint
+Ability2: Fault Line
+Ability3: Aftershock
+Ultimate: Rolling Thunder
+Brimstone
+Ability1: Incendiary
+Ability2: Sky Smoke
+Ability3: Stim Beacon
+Ultimate: Orbital Strike
+Chamber
+Ability1: Headhunter
+Ability2: Rendezvous
+Ability3: Trademark
+Ultimate: Tour De Force
+Clove
+Ability1: Meddle
+Ability2: Ruse
+Ability3: Pick-me-up
+Ultimate: Not Dead Yet
+Cypher
+Ability1: Cyber Cage
+Ability2: Spycam
+Ability3: Trapwire
+Ultimate: Neural Theft
+Deadlock
+Ability1: Sonic Sensor
+Ability2: Barrier Mesh
+Ability3: GravNet
+Ultimate: Annihilation
+Fade
+Ability1: Seize
+Ability2: Haunt
+Ability3: Prowler
+Ultimate: Nightfall
+Gekko
+Ability1: Wingman
+Ability2: Dizzy
+Ability3: Mosh Pit
+Ultimate: Thrash
+Harbor
+Ability1: Cove
+Ability2: High Tide
+Ability3: Cascade
+Ultimate: Reckoning
+Iso
+Ability1: Undercut
+Ability2: Double Tap
+Ability3: Contingency
+Ultimate: Kill Contract
+Jett
+Ability1: Updraft
+Ability2: Tailwind
+Ability3: Cloudburst
+Ultimate: Blade Storm
+KAY/O
+Ability1: FLASH/drive
+Ability2: ZERO/point
+Ability3: FRAG/ment
+Ultimate: NULL/cmd
+Killjoy
+Ability1: ALARMBOT
+Ability2: TURRET
+Ability3: Nanoswarm
+Ultimate: Lockdown
+Neon
+Ability1: Relay Bolt
+Ability2: High Gear
+Ability3: Fast Lane
+Ultimate: Overdrive
+Omen
+Ability1: Paranoia
+Ability2: Dark Cover
+Ability3: Shrouded Step
+Ultimate: From the Shadows
+Phoenix
+Ability1: Curveball
+Ability2: Hot Hands
+Ability3: Blaze
+Ultimate: Run it Back
+Raze
+Ability1: Blast Pack
+Ability2: Paint Shells
+Ability3: Boom Bot
+Ultimate: Showstopper
+Reyna
+Ability1: Devour
+Ability2: Dismiss
+Ability3: Leer
+Ultimate: Empress
+Sage
+Ability1: Slow Orb
+Ability2: Healing Orb
+Ability3: Barrier Orb
+Ultimate: Resurrection
+Skye
+Ability1: Trailblazer
+Ability2: Guiding Light
+Ability3: Regrowth
+Ultimate: Seekers
+Sova
+Ability1: Shock Bolt
+Ability2: Recon Bolt
+Ability3: Owl Drone
+Ultimate: Hunter's Fury
+Viper
+Ability1: Poison Cloud
+Ability2: Toxic Screen
+Ability3: Snake Bite
+Ultimate: Viper's Pit
+Vyse
+Ability1: Shear
+Ability2: Arc Rose
+Ability3: Razorvine
+Ultimate: Steel Garden
+Yoru
+Ability1: BLINDSIDE
+Ability2: GATECRASH
+Ability3: FAKEOUT
+Ultimate: DIMENSIONAL DRIFT
