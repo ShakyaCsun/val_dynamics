@@ -15,8 +15,6 @@ List<AgentComp> selectedAgentComps(
     filteredCompositionsProvider(rosterName: rosterName),
   );
   return filteredCompositions
-      .where(
-        (comp) => comp.stylePoints == stylePoints,
-      )
+      .where((comp) => comp.stylePoints == stylePoints)
       .toList();
 }

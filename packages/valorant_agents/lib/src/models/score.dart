@@ -2,10 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
 class Score extends Equatable implements Comparable<Score> {
-  const Score({
-    required this.won,
-    required this.lost,
-  }) : played = won + lost;
+  const Score({required this.won, required this.lost}) : played = won + lost;
 
   static const zero = Score(won: 0, lost: 0);
 

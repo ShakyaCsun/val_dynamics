@@ -39,21 +39,15 @@ class AvailableMapsFamily extends Family<Set<String>> {
   const AvailableMapsFamily();
 
   /// See also [availableMaps].
-  AvailableMapsProvider call({
-    required String collectionName,
-  }) {
-    return AvailableMapsProvider(
-      collectionName: collectionName,
-    );
+  AvailableMapsProvider call({required String collectionName}) {
+    return AvailableMapsProvider(collectionName: collectionName);
   }
 
   @override
   AvailableMapsProvider getProviderOverride(
     covariant AvailableMapsProvider provider,
   ) {
-    return call(
-      collectionName: provider.collectionName,
-    );
+    return call(collectionName: provider.collectionName);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -74,24 +68,23 @@ class AvailableMapsFamily extends Family<Set<String>> {
 /// See also [availableMaps].
 class AvailableMapsProvider extends AutoDisposeProvider<Set<String>> {
   /// See also [availableMaps].
-  AvailableMapsProvider({
-    required String collectionName,
-  }) : this._internal(
-          (ref) => availableMaps(
-            ref as AvailableMapsRef,
-            collectionName: collectionName,
-          ),
-          from: availableMapsProvider,
-          name: r'availableMapsProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$availableMapsHash,
-          dependencies: AvailableMapsFamily._dependencies,
-          allTransitiveDependencies:
-              AvailableMapsFamily._allTransitiveDependencies,
+  AvailableMapsProvider({required String collectionName})
+    : this._internal(
+        (ref) => availableMaps(
+          ref as AvailableMapsRef,
           collectionName: collectionName,
-        );
+        ),
+        from: availableMapsProvider,
+        name: r'availableMapsProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$availableMapsHash,
+        dependencies: AvailableMapsFamily._dependencies,
+        allTransitiveDependencies:
+            AvailableMapsFamily._allTransitiveDependencies,
+        collectionName: collectionName,
+      );
 
   AvailableMapsProvider._internal(
     super._createNotifier, {
@@ -145,13 +138,15 @@ class AvailableMapsProvider extends AutoDisposeProvider<Set<String>> {
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin AvailableMapsRef on AutoDisposeProviderRef<Set<String>> {
+mixin AvailableMapsRef
+    on AutoDisposeProviderRef<Set<String>> {
   /// The parameter `collectionName` of this provider.
   String get collectionName;
 }
 
 class _AvailableMapsProviderElement
-    extends AutoDisposeProviderElement<Set<String>> with AvailableMapsRef {
+    extends AutoDisposeProviderElement<Set<String>>
+    with AvailableMapsRef {
   _AvailableMapsProviderElement(super.provider);
 
   @override
@@ -170,21 +165,15 @@ class SelectedMapsFamily extends Family<Set<String>> {
   const SelectedMapsFamily();
 
   /// See also [selectedMaps].
-  SelectedMapsProvider call({
-    required String collectionName,
-  }) {
-    return SelectedMapsProvider(
-      collectionName: collectionName,
-    );
+  SelectedMapsProvider call({required String collectionName}) {
+    return SelectedMapsProvider(collectionName: collectionName);
   }
 
   @override
   SelectedMapsProvider getProviderOverride(
     covariant SelectedMapsProvider provider,
   ) {
-    return call(
-      collectionName: provider.collectionName,
-    );
+    return call(collectionName: provider.collectionName);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -205,24 +194,23 @@ class SelectedMapsFamily extends Family<Set<String>> {
 /// See also [selectedMaps].
 class SelectedMapsProvider extends AutoDisposeProvider<Set<String>> {
   /// See also [selectedMaps].
-  SelectedMapsProvider({
-    required String collectionName,
-  }) : this._internal(
-          (ref) => selectedMaps(
-            ref as SelectedMapsRef,
-            collectionName: collectionName,
-          ),
-          from: selectedMapsProvider,
-          name: r'selectedMapsProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$selectedMapsHash,
-          dependencies: SelectedMapsFamily._dependencies,
-          allTransitiveDependencies:
-              SelectedMapsFamily._allTransitiveDependencies,
+  SelectedMapsProvider({required String collectionName})
+    : this._internal(
+        (ref) => selectedMaps(
+          ref as SelectedMapsRef,
           collectionName: collectionName,
-        );
+        ),
+        from: selectedMapsProvider,
+        name: r'selectedMapsProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$selectedMapsHash,
+        dependencies: SelectedMapsFamily._dependencies,
+        allTransitiveDependencies:
+            SelectedMapsFamily._allTransitiveDependencies,
+        collectionName: collectionName,
+      );
 
   SelectedMapsProvider._internal(
     super._createNotifier, {
@@ -237,9 +225,7 @@ class SelectedMapsProvider extends AutoDisposeProvider<Set<String>> {
   final String collectionName;
 
   @override
-  Override overrideWith(
-    Set<String> Function(SelectedMapsRef provider) create,
-  ) {
+  Override overrideWith(Set<String> Function(SelectedMapsRef provider) create) {
     return ProviderOverride(
       origin: this,
       override: SelectedMapsProvider._internal(
@@ -276,13 +262,15 @@ class SelectedMapsProvider extends AutoDisposeProvider<Set<String>> {
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin SelectedMapsRef on AutoDisposeProviderRef<Set<String>> {
+mixin SelectedMapsRef
+    on AutoDisposeProviderRef<Set<String>> {
   /// The parameter `collectionName` of this provider.
   String get collectionName;
 }
 
 class _SelectedMapsProviderElement
-    extends AutoDisposeProviderElement<Set<String>> with SelectedMapsRef {
+    extends AutoDisposeProviderElement<Set<String>>
+    with SelectedMapsRef {
   _SelectedMapsProviderElement(super.provider);
 
   @override
@@ -294,9 +282,7 @@ String _$matchesHash() => r'b68c639c8c032367e6916b91ad8d90e372f60eb0';
 abstract class _$Matches extends BuildlessAutoDisposeNotifier<MatchesState> {
   late final String collectionId;
 
-  MatchesState build({
-    required String collectionId,
-  });
+  MatchesState build({required String collectionId});
 }
 
 /// See also [Matches].
@@ -309,21 +295,13 @@ class MatchesFamily extends Family<MatchesState> {
   const MatchesFamily();
 
   /// See also [Matches].
-  MatchesProvider call({
-    required String collectionId,
-  }) {
-    return MatchesProvider(
-      collectionId: collectionId,
-    );
+  MatchesProvider call({required String collectionId}) {
+    return MatchesProvider(collectionId: collectionId);
   }
 
   @override
-  MatchesProvider getProviderOverride(
-    covariant MatchesProvider provider,
-  ) {
-    return call(
-      collectionId: provider.collectionId,
-    );
+  MatchesProvider getProviderOverride(covariant MatchesProvider provider) {
+    return call(collectionId: provider.collectionId);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -345,20 +323,19 @@ class MatchesFamily extends Family<MatchesState> {
 class MatchesProvider
     extends AutoDisposeNotifierProviderImpl<Matches, MatchesState> {
   /// See also [Matches].
-  MatchesProvider({
-    required String collectionId,
-  }) : this._internal(
-          () => Matches()..collectionId = collectionId,
-          from: matchesProvider,
-          name: r'matchesProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$matchesHash,
-          dependencies: MatchesFamily._dependencies,
-          allTransitiveDependencies: MatchesFamily._allTransitiveDependencies,
-          collectionId: collectionId,
-        );
+  MatchesProvider({required String collectionId})
+    : this._internal(
+        () => Matches()..collectionId = collectionId,
+        from: matchesProvider,
+        name: r'matchesProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$matchesHash,
+        dependencies: MatchesFamily._dependencies,
+        allTransitiveDependencies: MatchesFamily._allTransitiveDependencies,
+        collectionId: collectionId,
+      );
 
   MatchesProvider._internal(
     super._createNotifier, {
@@ -373,12 +350,8 @@ class MatchesProvider
   final String collectionId;
 
   @override
-  MatchesState runNotifierBuild(
-    covariant Matches notifier,
-  ) {
-    return notifier.build(
-      collectionId: collectionId,
-    );
+  MatchesState runNotifierBuild(covariant Matches notifier) {
+    return notifier.build(collectionId: collectionId);
   }
 
   @override
@@ -418,7 +391,8 @@ class MatchesProvider
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin MatchesRef on AutoDisposeNotifierProviderRef<MatchesState> {
+mixin MatchesRef
+    on AutoDisposeNotifierProviderRef<MatchesState> {
   /// The parameter `collectionId` of this provider.
   String get collectionId;
 }
@@ -431,5 +405,6 @@ class _MatchesProviderElement
   @override
   String get collectionId => (origin as MatchesProvider).collectionId;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

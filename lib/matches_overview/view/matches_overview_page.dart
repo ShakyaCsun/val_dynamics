@@ -12,9 +12,7 @@ class MatchesOverviewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(context.l10n.matchesTitle),
-      ),
+      appBar: AppBar(title: Text(context.l10n.matchesTitle)),
       body: const MatchesOverviewView(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -49,10 +47,7 @@ class MatchesOverviewView extends ConsumerWidget {
             onRosterChange: (rosterName) {
               ref
                   .read(matchesCollectionListProvider.notifier)
-                  .changeRosterToUse(
-                    index,
-                    rosterName,
-                  );
+                  .changeRosterToUse(index, rosterName);
             },
           ),
         );

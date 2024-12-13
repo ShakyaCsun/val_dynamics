@@ -39,9 +39,7 @@ class TeamCompsRedirectRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const Center(
-      child: Text('Please do not build this'),
-    );
+    return const Center(child: Text('Please do not build this'));
   }
 }
 
@@ -53,9 +51,7 @@ class TeamCompsRedirectRoute extends GoRouteData {
         TypedGoRoute<AddAgentsRoute>(path: 'agents/add'),
         TypedGoRoute<AgentsRoute>(
           path: 'agents/:rosterName',
-          routes: [
-            TypedGoRoute<AgentsStatRoute>(path: 'stats'),
-          ],
+          routes: [TypedGoRoute<AgentsStatRoute>(path: 'stats')],
         ),
       ],
     ),
@@ -77,12 +73,8 @@ class TeamCompsRedirectRoute extends GoRouteData {
             TypedGoRoute<StyledMatchesRoute>(
               path: 'acm/:acm',
               routes: [
-                TypedGoRoute<StyledMatchesListRoute>(
-                  path: 'matches',
-                ),
-                TypedGoRoute<StyledMatchupListRoute>(
-                  path: 'vs/:opponentAcm',
-                ),
+                TypedGoRoute<StyledMatchesListRoute>(path: 'matches'),
+                TypedGoRoute<StyledMatchupListRoute>(path: 'vs/:opponentAcm'),
               ],
             ),
           ],
@@ -96,44 +88,32 @@ class HomeScreenRoute extends ShellRouteData {
   const HomeScreenRoute();
 
   @override
-  Widget builder(
-    BuildContext context,
-    GoRouterState state,
-    Widget navigator,
-  ) {
+  Widget builder(BuildContext context, GoRouterState state, Widget navigator) {
     return ValSD2HomeScreen(child: navigator);
   }
 }
 
 @immutable
 class AgentsRoute extends GoRouteData {
-  const AgentsRoute({
-    required this.rosterName,
-  });
+  const AgentsRoute({required this.rosterName});
 
   final String rosterName;
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return AgentsPage(
-      rosterName: rosterName,
-    );
+    return AgentsPage(rosterName: rosterName);
   }
 }
 
 @immutable
 class AgentsStatRoute extends GoRouteData {
-  const AgentsStatRoute({
-    required this.rosterName,
-  });
+  const AgentsStatRoute({required this.rosterName});
 
   final String rosterName;
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return AgentsStatsPage(
-      rosterName: rosterName,
-    );
+    return AgentsStatsPage(rosterName: rosterName);
   }
 }
 
@@ -278,8 +258,8 @@ class StyledMatchupListRoute extends GoRouteData {
     required this.collectionName,
     required StylePoints acm,
     required StylePoints opponentAcm,
-  })  : acm = AcmString.fromStyles(acm),
-        opponentAcm = AcmString.fromStyles(opponentAcm);
+  }) : acm = AcmString.fromStyles(acm),
+       opponentAcm = AcmString.fromStyles(opponentAcm);
 
   final String collectionName;
   final String acm;
@@ -318,9 +298,7 @@ class TeamCompsRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return TeamCompsPage(
-      rosterName: rosterName,
-    );
+    return TeamCompsPage(rosterName: rosterName);
   }
 }
 

@@ -33,27 +33,28 @@ class _RosterSelectButtonState extends State<RosterSelectButton> {
   Widget build(BuildContext context) {
     return MenuAnchor(
       childFocusNode: _buttonFocusNode,
-      menuChildren: widget.rosterNames.map((roster) {
-        return MenuItemButton(
-          onPressed: () {
-            if (roster == widget.selectedRoster) {
-              return;
-            }
-            widget.onChange(roster);
-          },
-          child: switch (widget.selectedRoster) {
-            final selected when selected == roster => Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(roster),
-                  const SizedBox(width: 4),
-                  const Icon(Icons.check),
-                ],
-              ),
-            _ => Text(roster)
-          },
-        );
-      }).toList(),
+      menuChildren:
+          widget.rosterNames.map((roster) {
+            return MenuItemButton(
+              onPressed: () {
+                if (roster == widget.selectedRoster) {
+                  return;
+                }
+                widget.onChange(roster);
+              },
+              child: switch (widget.selectedRoster) {
+                final selected when selected == roster => Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(roster),
+                    const SizedBox(width: 4),
+                    const Icon(Icons.check),
+                  ],
+                ),
+                _ => Text(roster),
+              },
+            );
+          }).toList(),
       builder: (context, controller, child) {
         return FilledButton.icon(
           icon: Icon(

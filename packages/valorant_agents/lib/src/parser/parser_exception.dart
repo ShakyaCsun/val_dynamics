@@ -6,7 +6,7 @@ sealed class ParserException implements Exception {
 
 class IncorrectFilePathException extends ParserException {
   const IncorrectFilePathException(String path)
-      : super('File: $path cannot be read');
+    : super('File: $path cannot be read');
 }
 
 class InvalidCsvHeadersException extends ParserException {

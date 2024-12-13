@@ -29,7 +29,7 @@ extension AgentColorExtension on Agent {
       'viper' => const Color(0xFF8DD952),
       'vyse' => const Color(0xFF817DDF),
       'yoru' => const Color(0xFF5FA6EC),
-      _ => const Color(0xFFABCDEF)
+      _ => const Color(0xFFABCDEF),
     };
   }
 }

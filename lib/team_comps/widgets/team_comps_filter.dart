@@ -35,11 +35,9 @@ class TeamCompsFilter extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final rosterName = context.compRosterName!;
     final agents = ref.watch(
-      compFiltersProvider(rosterName: rosterName).select(
-        (value) {
-          return value.agentsWithStatus;
-        },
-      ),
+      compFiltersProvider(rosterName: rosterName).select((value) {
+        return value.agentsWithStatus;
+      }),
     );
     List<List<(Agent, AgentStatus)>> groupedAgents(int count) {
       return [
@@ -129,15 +127,17 @@ class AgentsRow extends StatelessWidget {
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(2),
-                    child: agent.iconUrl == null
-                        ? defaultAgentIcon(agent.name)?.image() ??
-                            Center(
-                              child: Text(
-                                agent.name,
-                                style: Theme.of(context).textTheme.titleMedium,
-                              ),
-                            )
-                        : Image.network(agent.iconUrl!),
+                    child:
+                        agent.iconUrl == null
+                            ? defaultAgentIcon(agent.name)?.image() ??
+                                Center(
+                                  child: Text(
+                                    agent.name,
+                                    style:
+                                        Theme.of(context).textTheme.titleMedium,
+                                  ),
+                                )
+                            : Image.network(agent.iconUrl!),
                   ),
                 ),
               ),
@@ -155,11 +155,9 @@ class RoleRangeSlider extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final rosterName = context.compRosterName!;
     final roleRanges = ref.watch(
-      compFiltersProvider(rosterName: rosterName).select(
-        (value) {
-          return value.roleFilters;
-        },
-      ),
+      compFiltersProvider(rosterName: rosterName).select((value) {
+        return value.roleFilters;
+      }),
     );
     final textTheme = Theme.of(context).textTheme;
     return Column(
@@ -168,10 +166,7 @@ class RoleRangeSlider extends ConsumerWidget {
         for (final MapEntry(key: role, value: range) in roleRanges.entries)
           Column(
             children: [
-              Text(
-                role.value,
-                style: textTheme.titleMedium,
-              ),
+              Text(role.value, style: textTheme.titleMedium),
               RangeSlider(
                 values: RangeValues(range.min.toDouble(), range.max.toDouble()),
                 onChanged: (value) {

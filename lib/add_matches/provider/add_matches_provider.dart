@@ -36,14 +36,15 @@ class AddMatches extends _$AddMatches {
         final matchesCsv = await state.csvFile.value!.readAsString();
         final matches = ValorantMatches.rawMatchesFrom(csv: matchesCsv);
         final defaultRosterName = ref.read(defaultRosterNameProvider);
-        final addedName =
-            ref.read(matchesCollectionListProvider.notifier).addCollection(
-                  MatchesCollection(
-                    collectionName: state.collectionName.value,
-                    rawMatches: matches,
-                    rosterName: defaultRosterName,
-                  ),
-                );
+        final addedName = ref
+            .read(matchesCollectionListProvider.notifier)
+            .addCollection(
+              MatchesCollection(
+                collectionName: state.collectionName.value,
+                rawMatches: matches,
+                rosterName: defaultRosterName,
+              ),
+            );
 
         state = state.copyWith(
           collectionName: NameInput.dirty(addedName),
@@ -117,10 +118,8 @@ class AddMatchesForm extends Equatable with FormzMixin {
 sealed class AddMatchesError with _$AddMatchesError {
   const factory AddMatchesError.none() = NoAddMatchesError;
   const factory AddMatchesError.invalidForm() = InvalidAddMatchesFormError;
-  const factory AddMatchesError.invalidCsv({
-    required String message,
-  }) = InvalidMatchesCsvError;
-  const factory AddMatchesError.unknown({
-    required Object error,
-  }) = UnknownMatchesError;
+  const factory AddMatchesError.invalidCsv({required String message}) =
+      InvalidMatchesCsvError;
+  const factory AddMatchesError.unknown({required Object error}) =
+      UnknownMatchesError;
 }

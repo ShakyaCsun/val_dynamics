@@ -20,8 +20,8 @@ class MatchesStatCard extends StatelessWidget {
         :matchesCount,
         :scoreOne,
         :attackScoreOne,
-        :defenseScoreOne
-      )
+        :defenseScoreOne,
+      ),
     ) = matchesStat;
     final l10n = context.l10n;
     return Card(
@@ -38,19 +38,10 @@ class MatchesStatCard extends StatelessWidget {
               ],
             ),
             Text(l10n.nMatches(matchesCount)),
-            Text(
-              scoreOne.winRatePercent,
-              style: textTheme.titleLarge,
-            ),
-            Text(
-              '${l10n.overallScore}: ${scoreOne.winRateFraction}',
-            ),
-            Text(
-              '${l10n.attackScore}: ${attackScoreOne.winRateFraction}',
-            ),
-            Text(
-              '${l10n.defenseScore}: ${defenseScoreOne.winRateFraction}',
-            ),
+            Text(scoreOne.winRatePercent, style: textTheme.titleLarge),
+            Text('${l10n.overallScore}: ${scoreOne.winRateFraction}'),
+            Text('${l10n.attackScore}: ${attackScoreOne.winRateFraction}'),
+            Text('${l10n.defenseScore}: ${defenseScoreOne.winRateFraction}'),
             OverflowBar(
               spacing: getBreakpointOf(context).padding,
               overflowSpacing: getBreakpointOf(context).padding,

@@ -3,11 +3,7 @@ import 'package:valorant_agents/valorant_agents.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';
 
 class LabelledAcm extends StatelessWidget {
-  const LabelledAcm({
-    required this.acm,
-    this.isMain = false,
-    super.key,
-  });
+  const LabelledAcm({required this.acm, this.isMain = false, super.key});
 
   final StylePoints acm;
   final bool isMain;
@@ -71,9 +67,7 @@ class _StatTile extends StatelessWidget {
         Text(
           value.formatted,
           style: (isMain ? textTheme.displayLarge : textTheme.displayMedium)
-              ?.copyWith(
-                color: ValColors.style(style).of(context),
-              )
+              ?.copyWith(color: ValColors.style(style).of(context))
               .responsive(context),
         ),
       ],

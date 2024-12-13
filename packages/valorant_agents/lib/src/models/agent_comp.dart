@@ -59,23 +59,16 @@ class AgentComp extends Equatable {
   final Agent agent5;
 
   (Agent, Agent, Agent, Agent, Agent) get tuple {
-    return (
-      agents[0],
-      agents[1],
-      agents[2],
-      agents[3],
-      agents[4],
-    );
+    return (agents[0], agents[1], agents[2], agents[3], agents[4]);
   }
 
-  List<Agent> get agents => [agent1, agent2, agent3, agent4, agent5]..sort(
-      (a, b) {
+  List<Agent> get agents =>
+      [agent1, agent2, agent3, agent4, agent5]..sort((a, b) {
         if (a.role == b.role) {
           return a.name.compareTo(b.name);
         }
         return a.role.index.compareTo(b.role.index);
-      },
-    );
+      });
 
   List<List<Agent>> get agentsGroup {
     final group = <List<Agent>>[];
@@ -101,12 +94,12 @@ class AgentComp extends Equatable {
   }
 
   StylePoints get stylePoints {
-    return agents.fold(
-      (aggro: 0, control: 0, midrange: 0),
-      (previousValue, element) {
-        return previousValue + element.stylePoints;
-      },
-    );
+    return agents.fold((aggro: 0, control: 0, midrange: 0), (
+      previousValue,
+      element,
+    ) {
+      return previousValue + element.stylePoints;
+    });
   }
 
   bool hasAgent(Agent agent) {

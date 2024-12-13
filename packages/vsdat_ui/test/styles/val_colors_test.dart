@@ -5,11 +5,9 @@ import 'package:vsdat_ui/vsdat_ui.dart';
 void main() {
   group('Light Theme', () {
     late Color background;
-    setUp(
-      () {
-        background = const VsdatTheme().lightTheme.colorScheme.surfaceContainer;
-      },
-    );
+    setUp(() {
+      background = const VsdatTheme().lightTheme.colorScheme.surfaceContainer;
+    });
     testWidgets('aggro color meets textContrastGuideline', (tester) async {
       await tester.testTextContrast(
         background: background,
@@ -31,11 +29,9 @@ void main() {
   });
   group('Dark Theme', () {
     late Color background;
-    setUp(
-      () {
-        background = const VsdatTheme().darkTheme.colorScheme.surfaceContainer;
-      },
-    );
+    setUp(() {
+      background = const VsdatTheme().darkTheme.colorScheme.surfaceContainer;
+    });
     testWidgets('aggro color meets textContrastGuideline', (tester) async {
       await tester.testTextContrast(
         background: background,
@@ -67,15 +63,10 @@ extension TextContrastTester on WidgetTester {
       color: background,
       child: Text(
         'Text contrast test',
-        style: TextStyle(
-          fontSize: 20,
-          color: foreground,
-        ),
+        style: TextStyle(fontSize: 20, color: foreground),
       ),
     );
-    await pumpWidget(
-      MaterialApp(home: Scaffold(body: content)),
-    );
+    await pumpWidget(MaterialApp(home: Scaffold(body: content)));
     await expectLater(this, meetsGuideline(textContrastGuideline));
     handle.dispose();
   }

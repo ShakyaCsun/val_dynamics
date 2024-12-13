@@ -18,11 +18,7 @@ sealed class MatchupType extends Equatable {
     final (:primary, :secondary, :tertiary) = diff.orderedPercents(
       totalPoints: one.total,
     );
-    final major = [primary, secondary, tertiary]
-        .map(
-          (e) => e.abs(),
-        )
-        .max;
+    final major = [primary, secondary, tertiary].map((e) => e.abs()).max;
     if (major <= 4.0) {
       return const StylisticallySimilar();
     }
@@ -63,15 +59,13 @@ sealed class MatchupType extends Equatable {
     // if (major <= 4.0) {
     //   return const StylisticallySimilar();
     // }
-    final slope = math.sqrt(3) *
+    final slope =
+        math.sqrt(3) *
         (two.aggro - one.aggro) /
         (2 * (two.midrange - one.midrange) + two.aggro - one.aggro);
     final angle = math.atan(slope) * 180 / math.pi;
 
-    bool nearsAngle(
-      double targetAngle, {
-      double buffer = 7,
-    }) {
+    bool nearsAngle(double targetAngle, {double buffer = 7}) {
       return angle > targetAngle - buffer && angle < targetAngle + buffer;
     }
 

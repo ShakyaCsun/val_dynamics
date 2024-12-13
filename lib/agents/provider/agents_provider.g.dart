@@ -55,21 +55,13 @@ class AgentsFamily extends Family<Agents> {
   const AgentsFamily();
 
   /// See also [agents].
-  AgentsProvider call({
-    required String rosterName,
-  }) {
-    return AgentsProvider(
-      rosterName: rosterName,
-    );
+  AgentsProvider call({required String rosterName}) {
+    return AgentsProvider(rosterName: rosterName);
   }
 
   @override
-  AgentsProvider getProviderOverride(
-    covariant AgentsProvider provider,
-  ) {
-    return call(
-      rosterName: provider.rosterName,
-    );
+  AgentsProvider getProviderOverride(covariant AgentsProvider provider) {
+    return call(rosterName: provider.rosterName);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -90,23 +82,17 @@ class AgentsFamily extends Family<Agents> {
 /// See also [agents].
 class AgentsProvider extends AutoDisposeProvider<Agents> {
   /// See also [agents].
-  AgentsProvider({
-    required String rosterName,
-  }) : this._internal(
-          (ref) => agents(
-            ref as AgentsRef,
-            rosterName: rosterName,
-          ),
-          from: agentsProvider,
-          name: r'agentsProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$agentsHash,
-          dependencies: AgentsFamily._dependencies,
-          allTransitiveDependencies: AgentsFamily._allTransitiveDependencies,
-          rosterName: rosterName,
-        );
+  AgentsProvider({required String rosterName})
+    : this._internal(
+        (ref) => agents(ref as AgentsRef, rosterName: rosterName),
+        from: agentsProvider,
+        name: r'agentsProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product') ? null : _$agentsHash,
+        dependencies: AgentsFamily._dependencies,
+        allTransitiveDependencies: AgentsFamily._allTransitiveDependencies,
+        rosterName: rosterName,
+      );
 
   AgentsProvider._internal(
     super._createNotifier, {
@@ -121,9 +107,7 @@ class AgentsProvider extends AutoDisposeProvider<Agents> {
   final String rosterName;
 
   @override
-  Override overrideWith(
-    Agents Function(AgentsRef provider) create,
-  ) {
+  Override overrideWith(Agents Function(AgentsRef provider) create) {
     return ProviderOverride(
       origin: this,
       override: AgentsProvider._internal(
@@ -159,7 +143,8 @@ class AgentsProvider extends AutoDisposeProvider<Agents> {
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin AgentsRef on AutoDisposeProviderRef<Agents> {
+mixin AgentsRef
+    on AutoDisposeProviderRef<Agents> {
   /// The parameter `rosterName` of this provider.
   String get rosterName;
 }
@@ -177,9 +162,7 @@ String _$selectedAgentHash() => r'65a4a711658b47d00291bd585d0639717ab67407';
 abstract class _$SelectedAgent extends BuildlessAutoDisposeNotifier<Agent?> {
   late final String rosterName;
 
-  Agent? build({
-    required String rosterName,
-  });
+  Agent? build({required String rosterName});
 }
 
 /// See also [SelectedAgent].
@@ -192,21 +175,15 @@ class SelectedAgentFamily extends Family<Agent?> {
   const SelectedAgentFamily();
 
   /// See also [SelectedAgent].
-  SelectedAgentProvider call({
-    required String rosterName,
-  }) {
-    return SelectedAgentProvider(
-      rosterName: rosterName,
-    );
+  SelectedAgentProvider call({required String rosterName}) {
+    return SelectedAgentProvider(rosterName: rosterName);
   }
 
   @override
   SelectedAgentProvider getProviderOverride(
     covariant SelectedAgentProvider provider,
   ) {
-    return call(
-      rosterName: provider.rosterName,
-    );
+    return call(rosterName: provider.rosterName);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -228,21 +205,20 @@ class SelectedAgentFamily extends Family<Agent?> {
 class SelectedAgentProvider
     extends AutoDisposeNotifierProviderImpl<SelectedAgent, Agent?> {
   /// See also [SelectedAgent].
-  SelectedAgentProvider({
-    required String rosterName,
-  }) : this._internal(
-          () => SelectedAgent()..rosterName = rosterName,
-          from: selectedAgentProvider,
-          name: r'selectedAgentProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$selectedAgentHash,
-          dependencies: SelectedAgentFamily._dependencies,
-          allTransitiveDependencies:
-              SelectedAgentFamily._allTransitiveDependencies,
-          rosterName: rosterName,
-        );
+  SelectedAgentProvider({required String rosterName})
+    : this._internal(
+        () => SelectedAgent()..rosterName = rosterName,
+        from: selectedAgentProvider,
+        name: r'selectedAgentProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$selectedAgentHash,
+        dependencies: SelectedAgentFamily._dependencies,
+        allTransitiveDependencies:
+            SelectedAgentFamily._allTransitiveDependencies,
+        rosterName: rosterName,
+      );
 
   SelectedAgentProvider._internal(
     super._createNotifier, {
@@ -257,12 +233,8 @@ class SelectedAgentProvider
   final String rosterName;
 
   @override
-  Agent? runNotifierBuild(
-    covariant SelectedAgent notifier,
-  ) {
-    return notifier.build(
-      rosterName: rosterName,
-    );
+  Agent? runNotifierBuild(covariant SelectedAgent notifier) {
+    return notifier.build(rosterName: rosterName);
   }
 
   @override
@@ -302,7 +274,8 @@ class SelectedAgentProvider
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin SelectedAgentRef on AutoDisposeNotifierProviderRef<Agent?> {
+mixin SelectedAgentRef
+    on AutoDisposeNotifierProviderRef<Agent?> {
   /// The parameter `rosterName` of this provider.
   String get rosterName;
 }
@@ -315,5 +288,6 @@ class _SelectedAgentProviderElement
   @override
   String get rosterName => (origin as SelectedAgentProvider).rosterName;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

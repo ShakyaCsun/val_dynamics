@@ -12,9 +12,7 @@ class AddAgentsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(context.l10n.addAgents),
-      ),
+      appBar: AppBar(title: Text(context.l10n.addAgents)),
       body: const AddAgentsView(),
     );
   }
@@ -57,9 +55,7 @@ class AddAgentsView extends StatelessWidget {
                             .updateJsonFile(file);
                       },
                       inputFile: ref.watch(
-                        addAgentsProvider.select(
-                          (value) => value.jsonFile,
-                        ),
+                        addAgentsProvider.select((value) => value.jsonFile),
                       ),
                     );
                   },
@@ -89,73 +85,56 @@ class _SubmitButton extends ConsumerWidget {
     final l10n = context.l10n;
 
     ref
-      ..listen(
-        addAgentsProvider.select(
-          (value) => value.error,
-        ),
-        (previous, next) {
-          switch (next) {
-            case NoAddAgentsError():
-              return;
-            case InvalidAddAgentsFormError():
-              context.showSnackbar(
-                const SnackBar(content: Text('Invalid Data')),
-              );
-            case InvalidAgentsJsonError():
-              context.showSnackbar(
-                SnackBar(content: Text(l10n.invalidAgentsFormat)),
-              );
-            case UnknownAgentsError():
-              context.showSnackbar(
-                const SnackBar(
-                  content: Text('Unknown Error occurred'),
-                ),
-              );
-          }
-        },
-      )
-      ..listen(
-        addAgentsProvider.select(
-          (value) => value.status,
-        ),
-        (previous, next) {
-          if (next.isSuccess) {
-            final addedName = ref.read(
-              addAgentsProvider.select(
-                (value) => value.rosterName.value,
-              ),
+      ..listen(addAgentsProvider.select((value) => value.error), (
+        previous,
+        next,
+      ) {
+        switch (next) {
+          case NoAddAgentsError():
+            return;
+          case InvalidAddAgentsFormError():
+            context.showSnackbar(const SnackBar(content: Text('Invalid Data')));
+          case InvalidAgentsJsonError():
+            context.showSnackbar(
+              SnackBar(content: Text(l10n.invalidAgentsFormat)),
             );
-            context
-              ..pop()
-              ..showSnackbar(
-                SnackBar(
-                  content: Text(l10n.agentsAdded(addedName)),
-                ),
-              );
-          }
-        },
-      );
+          case UnknownAgentsError():
+            context.showSnackbar(
+              const SnackBar(content: Text('Unknown Error occurred')),
+            );
+        }
+      })
+      ..listen(addAgentsProvider.select((value) => value.status), (
+        previous,
+        next,
+      ) {
+        if (next.isSuccess) {
+          final addedName = ref.read(
+            addAgentsProvider.select((value) => value.rosterName.value),
+          );
+          context
+            ..pop()
+            ..showSnackbar(
+              SnackBar(content: Text(l10n.agentsAdded(addedName))),
+            );
+        }
+      });
     final isValid = ref.watch(
-      addAgentsProvider.select(
-        (value) => value.isValid,
-      ),
+      addAgentsProvider.select((value) => value.isValid),
     );
     final isInProgress = ref.watch(
-      addAgentsProvider.select(
-        (value) => value.status.isInProgress,
-      ),
+      addAgentsProvider.select((value) => value.status.isInProgress),
     );
     if (isInProgress) {
-      return const Center(
-        child: CircularProgressIndicator(),
-      );
+      return const Center(child: CircularProgressIndicator());
     }
     return ElevatedButton(
-      onPressed: isValid
-          ? () {
-              ref.read(addAgentsProvider.notifier).submit();
-            }
-          : null,
+      onPressed:
+          isValid
+              ? () {
+                ref.read(addAgentsProvider.notifier).submit();
+              }
+              : null,
       child: Text(l10n.addAgentRatings),
     );
   }

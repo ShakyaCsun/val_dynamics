@@ -12,7 +12,8 @@ part of 'team_comps_provider.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$CompositionsState {
@@ -29,8 +30,9 @@ mixin _$CompositionsState {
 /// @nodoc
 abstract class $CompositionsStateCopyWith<$Res> {
   factory $CompositionsStateCopyWith(
-          CompositionsState value, $Res Function(CompositionsState) then) =
-      _$CompositionsStateCopyWithImpl<$Res, CompositionsState>;
+    CompositionsState value,
+    $Res Function(CompositionsState) then,
+  ) = _$CompositionsStateCopyWithImpl<$Res, CompositionsState>;
   @useResult
   $Res call({Agents agents, List<AgentComp> allCompositions});
 }
@@ -49,29 +51,32 @@ class _$CompositionsStateCopyWithImpl<$Res, $Val extends CompositionsState>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? agents = null,
-    Object? allCompositions = null,
-  }) {
-    return _then(_value.copyWith(
-      agents: null == agents
-          ? _value.agents
-          : agents // ignore: cast_nullable_to_non_nullable
-              as Agents,
-      allCompositions: null == allCompositions
-          ? _value.allCompositions
-          : allCompositions // ignore: cast_nullable_to_non_nullable
-              as List<AgentComp>,
-    ) as $Val);
+  $Res call({Object? agents = null, Object? allCompositions = null}) {
+    return _then(
+      _value.copyWith(
+            agents:
+                null == agents
+                    ? _value.agents
+                    : agents // ignore: cast_nullable_to_non_nullable
+                        as Agents,
+            allCompositions:
+                null == allCompositions
+                    ? _value.allCompositions
+                    : allCompositions // ignore: cast_nullable_to_non_nullable
+                        as List<AgentComp>,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$CompositionsStateImplCopyWith<$Res>
     implements $CompositionsStateCopyWith<$Res> {
-  factory _$$CompositionsStateImplCopyWith(_$CompositionsStateImpl value,
-          $Res Function(_$CompositionsStateImpl) then) =
-      __$$CompositionsStateImplCopyWithImpl<$Res>;
+  factory _$$CompositionsStateImplCopyWith(
+    _$CompositionsStateImpl value,
+    $Res Function(_$CompositionsStateImpl) then,
+  ) = __$$CompositionsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Agents agents, List<AgentComp> allCompositions});
@@ -81,28 +86,30 @@ abstract class _$$CompositionsStateImplCopyWith<$Res>
 class __$$CompositionsStateImplCopyWithImpl<$Res>
     extends _$CompositionsStateCopyWithImpl<$Res, _$CompositionsStateImpl>
     implements _$$CompositionsStateImplCopyWith<$Res> {
-  __$$CompositionsStateImplCopyWithImpl(_$CompositionsStateImpl _value,
-      $Res Function(_$CompositionsStateImpl) _then)
-      : super(_value, _then);
+  __$$CompositionsStateImplCopyWithImpl(
+    _$CompositionsStateImpl _value,
+    $Res Function(_$CompositionsStateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of CompositionsState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? agents = null,
-    Object? allCompositions = null,
-  }) {
-    return _then(_$CompositionsStateImpl(
-      agents: null == agents
-          ? _value.agents
-          : agents // ignore: cast_nullable_to_non_nullable
-              as Agents,
-      allCompositions: null == allCompositions
-          ? _value._allCompositions
-          : allCompositions // ignore: cast_nullable_to_non_nullable
-              as List<AgentComp>,
-    ));
+  $Res call({Object? agents = null, Object? allCompositions = null}) {
+    return _then(
+      _$CompositionsStateImpl(
+        agents:
+            null == agents
+                ? _value.agents
+                : agents // ignore: cast_nullable_to_non_nullable
+                    as Agents,
+        allCompositions:
+            null == allCompositions
+                ? _value._allCompositions
+                : allCompositions // ignore: cast_nullable_to_non_nullable
+                    as List<AgentComp>,
+      ),
+    );
   }
 }
 
@@ -110,10 +117,11 @@ class __$$CompositionsStateImplCopyWithImpl<$Res>
 
 class _$CompositionsStateImpl extends _CompositionsState
     with DiagnosticableTreeMixin {
-  _$CompositionsStateImpl(
-      {required this.agents, required final List<AgentComp> allCompositions})
-      : _allCompositions = allCompositions,
-        super._();
+  _$CompositionsStateImpl({
+    required this.agents,
+    required final List<AgentComp> allCompositions,
+  }) : _allCompositions = allCompositions,
+       super._();
 
   @override
   final Agents agents;
@@ -145,15 +153,18 @@ class _$CompositionsStateImpl extends _CompositionsState
         (other.runtimeType == runtimeType &&
             other is _$CompositionsStateImpl &&
             const DeepCollectionEquality().equals(other.agents, agents) &&
-            const DeepCollectionEquality()
-                .equals(other._allCompositions, _allCompositions));
+            const DeepCollectionEquality().equals(
+              other._allCompositions,
+              _allCompositions,
+            ));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(agents),
-      const DeepCollectionEquality().hash(_allCompositions));
+    runtimeType,
+    const DeepCollectionEquality().hash(agents),
+    const DeepCollectionEquality().hash(_allCompositions),
+  );
 
   /// Create a copy of CompositionsState
   /// with the given fields replaced by the non-null parameter values.
@@ -162,14 +173,16 @@ class _$CompositionsStateImpl extends _CompositionsState
   @pragma('vm:prefer-inline')
   _$$CompositionsStateImplCopyWith<_$CompositionsStateImpl> get copyWith =>
       __$$CompositionsStateImplCopyWithImpl<_$CompositionsStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _CompositionsState extends CompositionsState {
-  factory _CompositionsState(
-          {required final Agents agents,
-          required final List<AgentComp> allCompositions}) =
-      _$CompositionsStateImpl;
+  factory _CompositionsState({
+    required final Agents agents,
+    required final List<AgentComp> allCompositions,
+  }) = _$CompositionsStateImpl;
   _CompositionsState._() : super._();
 
   @override
@@ -219,20 +232,22 @@ class _$RoleRangeCopyWithImpl<$Res, $Val extends RoleRange>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? min = null,
-    Object? max = null,
-  }) {
-    return _then(_value.copyWith(
-      min: null == min
-          ? _value.min
-          : min // ignore: cast_nullable_to_non_nullable
-              as int,
-      max: null == max
-          ? _value.max
-          : max // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
+  $Res call({Object? min = null, Object? max = null}) {
+    return _then(
+      _value.copyWith(
+            min:
+                null == min
+                    ? _value.min
+                    : min // ignore: cast_nullable_to_non_nullable
+                        as int,
+            max:
+                null == max
+                    ? _value.max
+                    : max // ignore: cast_nullable_to_non_nullable
+                        as int,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -240,8 +255,9 @@ class _$RoleRangeCopyWithImpl<$Res, $Val extends RoleRange>
 abstract class _$$RoleRangeImplCopyWith<$Res>
     implements $RoleRangeCopyWith<$Res> {
   factory _$$RoleRangeImplCopyWith(
-          _$RoleRangeImpl value, $Res Function(_$RoleRangeImpl) then) =
-      __$$RoleRangeImplCopyWithImpl<$Res>;
+    _$RoleRangeImpl value,
+    $Res Function(_$RoleRangeImpl) then,
+  ) = __$$RoleRangeImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int min, int max});
@@ -252,27 +268,29 @@ class __$$RoleRangeImplCopyWithImpl<$Res>
     extends _$RoleRangeCopyWithImpl<$Res, _$RoleRangeImpl>
     implements _$$RoleRangeImplCopyWith<$Res> {
   __$$RoleRangeImplCopyWithImpl(
-      _$RoleRangeImpl _value, $Res Function(_$RoleRangeImpl) _then)
-      : super(_value, _then);
+    _$RoleRangeImpl _value,
+    $Res Function(_$RoleRangeImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RoleRange
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? min = null,
-    Object? max = null,
-  }) {
-    return _then(_$RoleRangeImpl(
-      min: null == min
-          ? _value.min
-          : min // ignore: cast_nullable_to_non_nullable
-              as int,
-      max: null == max
-          ? _value.max
-          : max // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
+  $Res call({Object? min = null, Object? max = null}) {
+    return _then(
+      _$RoleRangeImpl(
+        min:
+            null == min
+                ? _value.min
+                : min // ignore: cast_nullable_to_non_nullable
+                    as int,
+        max:
+            null == max
+                ? _value.max
+                : max // ignore: cast_nullable_to_non_nullable
+                    as int,
+      ),
+    );
   }
 }
 
@@ -280,10 +298,10 @@ class __$$RoleRangeImplCopyWithImpl<$Res>
 
 class _$RoleRangeImpl extends _RoleRange with DiagnosticableTreeMixin {
   const _$RoleRangeImpl({required this.min, required this.max})
-      : assert(min >= 0 && min <= 5, 'min value must be between 0 to 5.'),
-        assert(max >= 0 && max <= 5, 'max value must be between 0 to 5.'),
-        assert(min <= max, 'min value cannot be more than max.'),
-        super._();
+    : assert(min >= 0 && min <= 5, 'min value must be between 0 to 5.'),
+      assert(max >= 0 && max <= 5, 'max value must be between 0 to 5.'),
+      assert(min <= max, 'min value cannot be more than max.'),
+      super._();
 
   @override
   final int min;

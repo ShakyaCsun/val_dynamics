@@ -32,10 +32,7 @@ class ImportCsvButton extends StatelessWidget {
       spacing: getBreakpointOf(context).padding,
       children: [
         text,
-        FilledButton(
-          onPressed: _onTap,
-          child: Text(l10n.importMatchesCsv),
-        ),
+        FilledButton(onPressed: _onTap, child: Text(l10n.importMatchesCsv)),
       ],
     );
   }

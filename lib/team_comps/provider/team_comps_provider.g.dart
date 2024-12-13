@@ -40,21 +40,15 @@ class FilteredCompositionsFamily extends Family<List<AgentComp>> {
   const FilteredCompositionsFamily();
 
   /// See also [filteredCompositions].
-  FilteredCompositionsProvider call({
-    required String rosterName,
-  }) {
-    return FilteredCompositionsProvider(
-      rosterName: rosterName,
-    );
+  FilteredCompositionsProvider call({required String rosterName}) {
+    return FilteredCompositionsProvider(rosterName: rosterName);
   }
 
   @override
   FilteredCompositionsProvider getProviderOverride(
     covariant FilteredCompositionsProvider provider,
   ) {
-    return call(
-      rosterName: provider.rosterName,
-    );
+    return call(rosterName: provider.rosterName);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -76,24 +70,23 @@ class FilteredCompositionsFamily extends Family<List<AgentComp>> {
 class FilteredCompositionsProvider
     extends AutoDisposeProvider<List<AgentComp>> {
   /// See also [filteredCompositions].
-  FilteredCompositionsProvider({
-    required String rosterName,
-  }) : this._internal(
-          (ref) => filteredCompositions(
-            ref as FilteredCompositionsRef,
-            rosterName: rosterName,
-          ),
-          from: filteredCompositionsProvider,
-          name: r'filteredCompositionsProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$filteredCompositionsHash,
-          dependencies: FilteredCompositionsFamily._dependencies,
-          allTransitiveDependencies:
-              FilteredCompositionsFamily._allTransitiveDependencies,
+  FilteredCompositionsProvider({required String rosterName})
+    : this._internal(
+        (ref) => filteredCompositions(
+          ref as FilteredCompositionsRef,
           rosterName: rosterName,
-        );
+        ),
+        from: filteredCompositionsProvider,
+        name: r'filteredCompositionsProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$filteredCompositionsHash,
+        dependencies: FilteredCompositionsFamily._dependencies,
+        allTransitiveDependencies:
+            FilteredCompositionsFamily._allTransitiveDependencies,
+        rosterName: rosterName,
+      );
 
   FilteredCompositionsProvider._internal(
     super._createNotifier, {
@@ -147,7 +140,8 @@ class FilteredCompositionsProvider
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin FilteredCompositionsRef on AutoDisposeProviderRef<List<AgentComp>> {
+mixin FilteredCompositionsRef
+    on AutoDisposeProviderRef<List<AgentComp>> {
   /// The parameter `rosterName` of this provider.
   String get rosterName;
 }
@@ -175,21 +169,15 @@ class TeamCompsTernaryDataFamily
   const TeamCompsTernaryDataFamily();
 
   /// See also [teamCompsTernaryData].
-  TeamCompsTernaryDataProvider call({
-    required String rosterName,
-  }) {
-    return TeamCompsTernaryDataProvider(
-      rosterName: rosterName,
-    );
+  TeamCompsTernaryDataProvider call({required String rosterName}) {
+    return TeamCompsTernaryDataProvider(rosterName: rosterName);
   }
 
   @override
   TeamCompsTernaryDataProvider getProviderOverride(
     covariant TeamCompsTernaryDataProvider provider,
   ) {
-    return call(
-      rosterName: provider.rosterName,
-    );
+    return call(rosterName: provider.rosterName);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -211,24 +199,23 @@ class TeamCompsTernaryDataFamily
 class TeamCompsTernaryDataProvider
     extends AutoDisposeProvider<Map<AgentCompsTernaryData, TernaryPoint>> {
   /// See also [teamCompsTernaryData].
-  TeamCompsTernaryDataProvider({
-    required String rosterName,
-  }) : this._internal(
-          (ref) => teamCompsTernaryData(
-            ref as TeamCompsTernaryDataRef,
-            rosterName: rosterName,
-          ),
-          from: teamCompsTernaryDataProvider,
-          name: r'teamCompsTernaryDataProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$teamCompsTernaryDataHash,
-          dependencies: TeamCompsTernaryDataFamily._dependencies,
-          allTransitiveDependencies:
-              TeamCompsTernaryDataFamily._allTransitiveDependencies,
+  TeamCompsTernaryDataProvider({required String rosterName})
+    : this._internal(
+        (ref) => teamCompsTernaryData(
+          ref as TeamCompsTernaryDataRef,
           rosterName: rosterName,
-        );
+        ),
+        from: teamCompsTernaryDataProvider,
+        name: r'teamCompsTernaryDataProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$teamCompsTernaryDataHash,
+        dependencies: TeamCompsTernaryDataFamily._dependencies,
+        allTransitiveDependencies:
+            TeamCompsTernaryDataFamily._allTransitiveDependencies,
+        rosterName: rosterName,
+      );
 
   TeamCompsTernaryDataProvider._internal(
     super._createNotifier, {
@@ -245,8 +232,9 @@ class TeamCompsTernaryDataProvider
   @override
   Override overrideWith(
     Map<AgentCompsTernaryData, TernaryPoint> Function(
-            TeamCompsTernaryDataRef provider)
-        create,
+      TeamCompsTernaryDataRef provider,
+    )
+    create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -264,7 +252,7 @@ class TeamCompsTernaryDataProvider
 
   @override
   AutoDisposeProviderElement<Map<AgentCompsTernaryData, TernaryPoint>>
-      createElement() {
+  createElement() {
     return _TeamCompsTernaryDataProviderElement(this);
   }
 
@@ -312,21 +300,15 @@ class CompositionsReadyFamily extends Family<bool> {
   const CompositionsReadyFamily();
 
   /// See also [compositionsReady].
-  CompositionsReadyProvider call({
-    required String rosterName,
-  }) {
-    return CompositionsReadyProvider(
-      rosterName: rosterName,
-    );
+  CompositionsReadyProvider call({required String rosterName}) {
+    return CompositionsReadyProvider(rosterName: rosterName);
   }
 
   @override
   CompositionsReadyProvider getProviderOverride(
     covariant CompositionsReadyProvider provider,
   ) {
-    return call(
-      rosterName: provider.rosterName,
-    );
+    return call(rosterName: provider.rosterName);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -347,24 +329,23 @@ class CompositionsReadyFamily extends Family<bool> {
 /// See also [compositionsReady].
 class CompositionsReadyProvider extends AutoDisposeProvider<bool> {
   /// See also [compositionsReady].
-  CompositionsReadyProvider({
-    required String rosterName,
-  }) : this._internal(
-          (ref) => compositionsReady(
-            ref as CompositionsReadyRef,
-            rosterName: rosterName,
-          ),
-          from: compositionsReadyProvider,
-          name: r'compositionsReadyProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$compositionsReadyHash,
-          dependencies: CompositionsReadyFamily._dependencies,
-          allTransitiveDependencies:
-              CompositionsReadyFamily._allTransitiveDependencies,
+  CompositionsReadyProvider({required String rosterName})
+    : this._internal(
+        (ref) => compositionsReady(
+          ref as CompositionsReadyRef,
           rosterName: rosterName,
-        );
+        ),
+        from: compositionsReadyProvider,
+        name: r'compositionsReadyProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$compositionsReadyHash,
+        dependencies: CompositionsReadyFamily._dependencies,
+        allTransitiveDependencies:
+            CompositionsReadyFamily._allTransitiveDependencies,
+        rosterName: rosterName,
+      );
 
   CompositionsReadyProvider._internal(
     super._createNotifier, {
@@ -379,9 +360,7 @@ class CompositionsReadyProvider extends AutoDisposeProvider<bool> {
   final String rosterName;
 
   @override
-  Override overrideWith(
-    bool Function(CompositionsReadyRef provider) create,
-  ) {
+  Override overrideWith(bool Function(CompositionsReadyRef provider) create) {
     return ProviderOverride(
       origin: this,
       override: CompositionsReadyProvider._internal(
@@ -417,7 +396,8 @@ class CompositionsReadyProvider extends AutoDisposeProvider<bool> {
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin CompositionsReadyRef on AutoDisposeProviderRef<bool> {
+mixin CompositionsReadyRef
+    on AutoDisposeProviderRef<bool> {
   /// The parameter `rosterName` of this provider.
   String get rosterName;
 }
@@ -436,9 +416,7 @@ abstract class _$Compositions
     extends BuildlessAutoDisposeAsyncNotifier<CompositionsState> {
   late final String rosterName;
 
-  FutureOr<CompositionsState> build({
-    required String rosterName,
-  });
+  FutureOr<CompositionsState> build({required String rosterName});
 }
 
 /// See also [Compositions].
@@ -451,21 +429,15 @@ class CompositionsFamily extends Family<AsyncValue<CompositionsState>> {
   const CompositionsFamily();
 
   /// See also [Compositions].
-  CompositionsProvider call({
-    required String rosterName,
-  }) {
-    return CompositionsProvider(
-      rosterName: rosterName,
-    );
+  CompositionsProvider call({required String rosterName}) {
+    return CompositionsProvider(rosterName: rosterName);
   }
 
   @override
   CompositionsProvider getProviderOverride(
     covariant CompositionsProvider provider,
   ) {
-    return call(
-      rosterName: provider.rosterName,
-    );
+    return call(rosterName: provider.rosterName);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -484,24 +456,24 @@ class CompositionsFamily extends Family<AsyncValue<CompositionsState>> {
 }
 
 /// See also [Compositions].
-class CompositionsProvider extends AutoDisposeAsyncNotifierProviderImpl<
-    Compositions, CompositionsState> {
+class CompositionsProvider
+    extends
+        AutoDisposeAsyncNotifierProviderImpl<Compositions, CompositionsState> {
   /// See also [Compositions].
-  CompositionsProvider({
-    required String rosterName,
-  }) : this._internal(
-          () => Compositions()..rosterName = rosterName,
-          from: compositionsProvider,
-          name: r'compositionsProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$compositionsHash,
-          dependencies: CompositionsFamily._dependencies,
-          allTransitiveDependencies:
-              CompositionsFamily._allTransitiveDependencies,
-          rosterName: rosterName,
-        );
+  CompositionsProvider({required String rosterName})
+    : this._internal(
+        () => Compositions()..rosterName = rosterName,
+        from: compositionsProvider,
+        name: r'compositionsProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$compositionsHash,
+        dependencies: CompositionsFamily._dependencies,
+        allTransitiveDependencies:
+            CompositionsFamily._allTransitiveDependencies,
+        rosterName: rosterName,
+      );
 
   CompositionsProvider._internal(
     super._createNotifier, {
@@ -519,9 +491,7 @@ class CompositionsProvider extends AutoDisposeAsyncNotifierProviderImpl<
   FutureOr<CompositionsState> runNotifierBuild(
     covariant Compositions notifier,
   ) {
-    return notifier.build(
-      rosterName: rosterName,
-    );
+    return notifier.build(rosterName: rosterName);
   }
 
   @override
@@ -542,7 +512,7 @@ class CompositionsProvider extends AutoDisposeAsyncNotifierProviderImpl<
 
   @override
   AutoDisposeAsyncNotifierProviderElement<Compositions, CompositionsState>
-      createElement() {
+  createElement() {
     return _CompositionsProviderElement(this);
   }
 
@@ -569,12 +539,14 @@ mixin CompositionsRef
 }
 
 class _CompositionsProviderElement
-    extends AutoDisposeAsyncNotifierProviderElement<Compositions,
-        CompositionsState> with CompositionsRef {
+    extends
+        AutoDisposeAsyncNotifierProviderElement<Compositions, CompositionsState>
+    with CompositionsRef {
   _CompositionsProviderElement(super.provider);
 
   @override
   String get rosterName => (origin as CompositionsProvider).rosterName;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -12,7 +12,8 @@ part of 'team.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$Team {
@@ -55,32 +56,40 @@ class _$TeamCopyWithImpl<$Res, $Val extends Team>
     Object? attackScore = null,
     Object? agents = null,
   }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      score: null == score
-          ? _value.score
-          : score // ignore: cast_nullable_to_non_nullable
-              as int,
-      attackScore: null == attackScore
-          ? _value.attackScore
-          : attackScore // ignore: cast_nullable_to_non_nullable
-              as int,
-      agents: null == agents
-          ? _value.agents
-          : agents // ignore: cast_nullable_to_non_nullable
-              as AgentComp,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            name:
+                null == name
+                    ? _value.name
+                    : name // ignore: cast_nullable_to_non_nullable
+                        as String,
+            score:
+                null == score
+                    ? _value.score
+                    : score // ignore: cast_nullable_to_non_nullable
+                        as int,
+            attackScore:
+                null == attackScore
+                    ? _value.attackScore
+                    : attackScore // ignore: cast_nullable_to_non_nullable
+                        as int,
+            agents:
+                null == agents
+                    ? _value.agents
+                    : agents // ignore: cast_nullable_to_non_nullable
+                        as AgentComp,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$TeamImplCopyWith<$Res> implements $TeamCopyWith<$Res> {
   factory _$$TeamImplCopyWith(
-          _$TeamImpl value, $Res Function(_$TeamImpl) then) =
-      __$$TeamImplCopyWithImpl<$Res>;
+    _$TeamImpl value,
+    $Res Function(_$TeamImpl) then,
+  ) = __$$TeamImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, int score, int attackScore, AgentComp agents});
@@ -91,7 +100,7 @@ class __$$TeamImplCopyWithImpl<$Res>
     extends _$TeamCopyWithImpl<$Res, _$TeamImpl>
     implements _$$TeamImplCopyWith<$Res> {
   __$$TeamImplCopyWithImpl(_$TeamImpl _value, $Res Function(_$TeamImpl) _then)
-      : super(_value, _then);
+    : super(_value, _then);
 
   /// Create a copy of Team
   /// with the given fields replaced by the non-null parameter values.
@@ -103,36 +112,42 @@ class __$$TeamImplCopyWithImpl<$Res>
     Object? attackScore = null,
     Object? agents = null,
   }) {
-    return _then(_$TeamImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      score: null == score
-          ? _value.score
-          : score // ignore: cast_nullable_to_non_nullable
-              as int,
-      attackScore: null == attackScore
-          ? _value.attackScore
-          : attackScore // ignore: cast_nullable_to_non_nullable
-              as int,
-      agents: null == agents
-          ? _value.agents
-          : agents // ignore: cast_nullable_to_non_nullable
-              as AgentComp,
-    ));
+    return _then(
+      _$TeamImpl(
+        name:
+            null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String,
+        score:
+            null == score
+                ? _value.score
+                : score // ignore: cast_nullable_to_non_nullable
+                    as int,
+        attackScore:
+            null == attackScore
+                ? _value.attackScore
+                : attackScore // ignore: cast_nullable_to_non_nullable
+                    as int,
+        agents:
+            null == agents
+                ? _value.agents
+                : agents // ignore: cast_nullable_to_non_nullable
+                    as AgentComp,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$TeamImpl extends _Team {
-  const _$TeamImpl(
-      {required this.name,
-      required this.score,
-      required this.attackScore,
-      required this.agents})
-      : super._();
+  const _$TeamImpl({
+    required this.name,
+    required this.score,
+    required this.attackScore,
+    required this.agents,
+  }) : super._();
 
   @override
   final String name;
@@ -174,11 +189,12 @@ class _$TeamImpl extends _Team {
 }
 
 abstract class _Team extends Team {
-  const factory _Team(
-      {required final String name,
-      required final int score,
-      required final int attackScore,
-      required final AgentComp agents}) = _$TeamImpl;
+  const factory _Team({
+    required final String name,
+    required final int score,
+    required final int attackScore,
+    required final AgentComp agents,
+  }) = _$TeamImpl;
   const _Team._() : super._();
 
   @override

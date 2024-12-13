@@ -13,9 +13,10 @@ String _$collectionNameHash() => r'7baa29a8ce282c7b8761f1c627a09de30386a508';
 final collectionNameProvider = AutoDisposeProvider<String>.internal(
   collectionName,
   name: r'collectionNameProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$collectionNameHash,
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$collectionNameHash,
   dependencies: const <ProviderOrFamily>[],
   allTransitiveDependencies: const <ProviderOrFamily>{},
 );
@@ -87,20 +88,14 @@ class StyledMatchesFamily extends Family<StyledMatchesState> {
     required String collectionId,
     required ({double aggro, double control, double midrange}) acm,
   }) {
-    return StyledMatchesProvider(
-      collectionId: collectionId,
-      acm: acm,
-    );
+    return StyledMatchesProvider(collectionId: collectionId, acm: acm);
   }
 
   @override
   StyledMatchesProvider getProviderOverride(
     covariant StyledMatchesProvider provider,
   ) {
-    return call(
-      collectionId: provider.collectionId,
-      acm: provider.acm,
-    );
+    return call(collectionId: provider.collectionId, acm: provider.acm);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -126,21 +121,22 @@ class StyledMatchesProvider
     required String collectionId,
     required ({double aggro, double control, double midrange}) acm,
   }) : this._internal(
-          () => StyledMatches()
-            ..collectionId = collectionId
-            ..acm = acm,
-          from: styledMatchesProvider,
-          name: r'styledMatchesProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$styledMatchesHash,
-          dependencies: StyledMatchesFamily._dependencies,
-          allTransitiveDependencies:
-              StyledMatchesFamily._allTransitiveDependencies,
-          collectionId: collectionId,
-          acm: acm,
-        );
+         () =>
+             StyledMatches()
+               ..collectionId = collectionId
+               ..acm = acm,
+         from: styledMatchesProvider,
+         name: r'styledMatchesProvider',
+         debugGetCreateSourceHash:
+             const bool.fromEnvironment('dart.vm.product')
+                 ? null
+                 : _$styledMatchesHash,
+         dependencies: StyledMatchesFamily._dependencies,
+         allTransitiveDependencies:
+             StyledMatchesFamily._allTransitiveDependencies,
+         collectionId: collectionId,
+         acm: acm,
+       );
 
   StyledMatchesProvider._internal(
     super._createNotifier, {
@@ -157,13 +153,8 @@ class StyledMatchesProvider
   final ({double aggro, double control, double midrange}) acm;
 
   @override
-  StyledMatchesState runNotifierBuild(
-    covariant StyledMatches notifier,
-  ) {
-    return notifier.build(
-      collectionId: collectionId,
-      acm: acm,
-    );
+  StyledMatchesState runNotifierBuild(covariant StyledMatches notifier) {
+    return notifier.build(collectionId: collectionId, acm: acm);
   }
 
   @override
@@ -171,9 +162,10 @@ class StyledMatchesProvider
     return ProviderOverride(
       origin: this,
       override: StyledMatchesProvider._internal(
-        () => create()
-          ..collectionId = collectionId
-          ..acm = acm,
+        () =>
+            create()
+              ..collectionId = collectionId
+              ..acm = acm,
         from: from,
         name: null,
         dependencies: null,
@@ -187,7 +179,7 @@ class StyledMatchesProvider
 
   @override
   AutoDisposeNotifierProviderElement<StyledMatches, StyledMatchesState>
-      createElement() {
+  createElement() {
     return _StyledMatchesProviderElement(this);
   }
 
@@ -210,7 +202,8 @@ class StyledMatchesProvider
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin StyledMatchesRef on AutoDisposeNotifierProviderRef<StyledMatchesState> {
+mixin StyledMatchesRef
+    on AutoDisposeNotifierProviderRef<StyledMatchesState> {
   /// The parameter `collectionId` of this provider.
   String get collectionId;
 
@@ -218,8 +211,10 @@ mixin StyledMatchesRef on AutoDisposeNotifierProviderRef<StyledMatchesState> {
   ({double aggro, double control, double midrange}) get acm;
 }
 
-class _StyledMatchesProviderElement extends AutoDisposeNotifierProviderElement<
-    StyledMatches, StyledMatchesState> with StyledMatchesRef {
+class _StyledMatchesProviderElement
+    extends
+        AutoDisposeNotifierProviderElement<StyledMatches, StyledMatchesState>
+    with StyledMatchesRef {
   _StyledMatchesProviderElement(super.provider);
 
   @override
@@ -228,5 +223,6 @@ class _StyledMatchesProviderElement extends AutoDisposeNotifierProviderElement<
   ({double aggro, double control, double midrange}) get acm =>
       (origin as StyledMatchesProvider).acm;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -15,18 +15,16 @@ part 'matches_provider.g.dart';
 @riverpod
 Set<String> availableMaps(Ref ref, {required String collectionName}) {
   return ref.watch(
-    matchesProvider(collectionId: collectionName).select(
-      (state) => state.allMaps,
-    ),
+    matchesProvider(
+      collectionId: collectionName,
+    ).select((state) => state.allMaps),
   );
 }
 
 @riverpod
 Set<String> selectedMaps(Ref ref, {required String collectionName}) {
   return ref.watch(
-    matchesProvider(collectionId: collectionName).select(
-      (state) => state.maps,
-    ),
+    matchesProvider(collectionId: collectionName).select((state) => state.maps),
   );
 }
 
@@ -96,41 +94,39 @@ class MatchesState with _$MatchesState {
   bool get isEmpty => this == MatchesState.empty();
 
   ValorantMatches get filteredMatches {
-    final matchList = [...matches.filterMaps(maps)]..removeWhere(
-        (match) {
-          switch (filter) {
-            case MatchUpFilter.styles:
-              return match.isMirrorStyle;
-            case MatchUpFilter.composition:
-              return match.isMirrorComp;
-            case MatchUpFilter.none:
-              return false;
-          }
-        },
-      );
+    final matchList = [...matches.filterMaps(maps)]..removeWhere((match) {
+      switch (filter) {
+        case MatchUpFilter.styles:
+          return match.isMirrorStyle;
+        case MatchUpFilter.composition:
+          return match.isMirrorComp;
+        case MatchUpFilter.none:
+          return false;
+      }
+    });
     return ValorantMatches(matchList);
   }
 
   Map<StylePoints, ValorantMatches> get matchesByStyle {
-    return filteredMatches.fold(
-      <StylePoints, ValorantMatches>{},
-      (matchesGroup, match) {
-        final stylePoints1 = match.stylePoints1;
-        final stylePoints2 = match.stylePoints2;
-        matchesGroup
-          ..update(
-            stylePoints1,
-            (value) => ValorantMatches([...value, match]),
-            ifAbsent: () => ValorantMatches([match]),
-          )
-          ..update(
-            stylePoints2,
-            (value) => ValorantMatches([...value, match.switchTeams()]),
-            ifAbsent: () => ValorantMatches([match.switchTeams()]),
-          );
-        return matchesGroup;
-      },
-    );
+    return filteredMatches.fold(<StylePoints, ValorantMatches>{}, (
+      matchesGroup,
+      match,
+    ) {
+      final stylePoints1 = match.stylePoints1;
+      final stylePoints2 = match.stylePoints2;
+      matchesGroup
+        ..update(
+          stylePoints1,
+          (value) => ValorantMatches([...value, match]),
+          ifAbsent: () => ValorantMatches([match]),
+        )
+        ..update(
+          stylePoints2,
+          (value) => ValorantMatches([...value, match.switchTeams()]),
+          ifAbsent: () => ValorantMatches([match.switchTeams()]),
+        );
+      return matchesGroup;
+    });
   }
 
   Map<ValorantMatches, TernaryPoint> get plotData {

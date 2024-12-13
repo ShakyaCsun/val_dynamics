@@ -144,8 +144,14 @@ class $AssetsAgentsAstraGen {
       const AssetGenImage('assets/agents/astra/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsBreachGen {
@@ -176,8 +182,14 @@ class $AssetsAgentsBreachGen {
       const AssetGenImage('assets/agents/breach/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsBrimstoneGen {
@@ -208,8 +220,14 @@ class $AssetsAgentsBrimstoneGen {
       const AssetGenImage('assets/agents/brimstone/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsChamberGen {
@@ -240,8 +258,14 @@ class $AssetsAgentsChamberGen {
       const AssetGenImage('assets/agents/chamber/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsCloveGen {
@@ -271,8 +295,14 @@ class $AssetsAgentsCloveGen {
       const AssetGenImage('assets/agents/clove/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsCypherGen {
@@ -303,8 +333,14 @@ class $AssetsAgentsCypherGen {
       const AssetGenImage('assets/agents/cypher/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsDeadlockGen {
@@ -335,8 +371,14 @@ class $AssetsAgentsDeadlockGen {
       const AssetGenImage('assets/agents/deadlock/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsFadeGen {
@@ -366,8 +408,14 @@ class $AssetsAgentsFadeGen {
       const AssetGenImage('assets/agents/fade/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsGekkoGen {
@@ -397,8 +445,14 @@ class $AssetsAgentsGekkoGen {
       const AssetGenImage('assets/agents/gekko/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsHarborGen {
@@ -429,8 +483,14 @@ class $AssetsAgentsHarborGen {
       const AssetGenImage('assets/agents/harbor/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsIsoGen {
@@ -460,8 +520,14 @@ class $AssetsAgentsIsoGen {
       const AssetGenImage('assets/agents/iso/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsJettGen {
@@ -491,8 +557,14 @@ class $AssetsAgentsJettGen {
       const AssetGenImage('assets/agents/jett/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsKayoGen {
@@ -522,8 +594,14 @@ class $AssetsAgentsKayoGen {
       const AssetGenImage('assets/agents/kayo/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsKilljoyGen {
@@ -554,8 +632,14 @@ class $AssetsAgentsKilljoyGen {
       const AssetGenImage('assets/agents/killjoy/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsNeonGen {
@@ -585,8 +669,14 @@ class $AssetsAgentsNeonGen {
       const AssetGenImage('assets/agents/neon/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsOmenGen {
@@ -616,8 +706,14 @@ class $AssetsAgentsOmenGen {
       const AssetGenImage('assets/agents/omen/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsPhoenixGen {
@@ -648,8 +744,14 @@ class $AssetsAgentsPhoenixGen {
       const AssetGenImage('assets/agents/phoenix/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsRazeGen {
@@ -679,8 +781,14 @@ class $AssetsAgentsRazeGen {
       const AssetGenImage('assets/agents/raze/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsReynaGen {
@@ -710,8 +818,14 @@ class $AssetsAgentsReynaGen {
       const AssetGenImage('assets/agents/reyna/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsSageGen {
@@ -741,8 +855,14 @@ class $AssetsAgentsSageGen {
       const AssetGenImage('assets/agents/sage/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsSkyeGen {
@@ -772,8 +892,14 @@ class $AssetsAgentsSkyeGen {
       const AssetGenImage('assets/agents/skye/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsSovaGen {
@@ -803,8 +929,14 @@ class $AssetsAgentsSovaGen {
       const AssetGenImage('assets/agents/sova/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsViperGen {
@@ -834,8 +966,14 @@ class $AssetsAgentsViperGen {
       const AssetGenImage('assets/agents/viper/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsVyseGen {
@@ -865,8 +1003,14 @@ class $AssetsAgentsVyseGen {
       const AssetGenImage('assets/agents/vyse/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class $AssetsAgentsYoruGen {
@@ -896,8 +1040,14 @@ class $AssetsAgentsYoruGen {
       const AssetGenImage('assets/agents/yoru/ultimate.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ability1, ability2, ability3, icon, portrait, ultimate];
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
 }
 
 class ValAssets {
@@ -910,11 +1060,7 @@ class ValAssets {
 }
 
 class AssetGenImage {
-  const AssetGenImage(
-    this._assetName, {
-    this.size,
-    this.flavors = const {},
-  });
+  const AssetGenImage(this._assetName, {this.size, this.flavors = const {}});
 
   final String _assetName;
 
@@ -982,11 +1128,7 @@ class AssetGenImage {
     @Deprecated('Do not specify package for a generated library asset')
     String? package = package,
   }) {
-    return AssetImage(
-      _assetName,
-      bundle: bundle,
-      package: package,
-    );
+    return AssetImage(_assetName, bundle: bundle, package: package);
   }
 
   String get path => _assetName;

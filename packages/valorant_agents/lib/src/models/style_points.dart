@@ -70,17 +70,17 @@ extension StylePointsExtension on StylePoints {
   ({
     (double, Style) primary,
     (double, Style) secondary,
-    (double, Style) tertiary
-  }) get _orderedPairs {
-    final styles = [
-      (aggro, Style.aggro),
-      (control, Style.control),
-      (midrange, Style.midrange),
-    ].sorted(
-      (a, b) {
-        return b.$1.compareTo(a.$1);
-      },
-    ).toList();
+    (double, Style) tertiary,
+  })
+  get _orderedPairs {
+    final styles =
+        [
+          (aggro, Style.aggro),
+          (control, Style.control),
+          (midrange, Style.midrange),
+        ].sorted((a, b) {
+          return b.$1.compareTo(a.$1);
+        }).toList();
     return (primary: styles[0], secondary: styles[1], tertiary: styles[2]);
   }
 

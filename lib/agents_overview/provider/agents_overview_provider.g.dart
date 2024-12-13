@@ -13,9 +13,10 @@ String _$agentsRepositoryHash() => r'f8fa8073049773b81537988ad031fc2ea9573f49';
 final agentsRepositoryProvider = Provider<AgentsRepository>.internal(
   agentsRepository,
   name: r'agentsRepositoryProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$agentsRepositoryHash,
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$agentsRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
@@ -30,9 +31,10 @@ String _$defaultRosterNameHash() => r'1ea4d5b221a1a83c0619a8a0e9620545d8aed593';
 final defaultRosterNameProvider = AutoDisposeProvider<String>.internal(
   defaultRosterName,
   name: r'defaultRosterNameProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$defaultRosterNameHash,
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$defaultRosterNameHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
@@ -47,9 +49,10 @@ String _$availableRostersHash() => r'b1485f6ff44f090b67d1dd19ac95917ce181e9bf';
 final availableRostersProvider = AutoDisposeProvider<List<String>>.internal(
   availableRosters,
   name: r'availableRostersProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$availableRostersHash,
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$availableRostersHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
@@ -63,12 +66,15 @@ String _$agentsOverviewNotifierHash() =>
 /// See also [AgentsOverviewNotifier].
 @ProviderFor(AgentsOverviewNotifier)
 final agentsOverviewNotifierProvider = AutoDisposeNotifierProvider<
-    AgentsOverviewNotifier, AgentsOverviewState>.internal(
+  AgentsOverviewNotifier,
+  AgentsOverviewState
+>.internal(
   AgentsOverviewNotifier.new,
   name: r'agentsOverviewNotifierProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$agentsOverviewNotifierHash,
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$agentsOverviewNotifierHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

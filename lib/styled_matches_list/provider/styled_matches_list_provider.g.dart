@@ -43,20 +43,14 @@ class StyledMatchesListFamily extends Family<ValorantMatches> {
     required String collectionId,
     required ({double aggro, double control, double midrange}) acm,
   }) {
-    return StyledMatchesListProvider(
-      collectionId: collectionId,
-      acm: acm,
-    );
+    return StyledMatchesListProvider(collectionId: collectionId, acm: acm);
   }
 
   @override
   StyledMatchesListProvider getProviderOverride(
     covariant StyledMatchesListProvider provider,
   ) {
-    return call(
-      collectionId: provider.collectionId,
-      acm: provider.acm,
-    );
+    return call(collectionId: provider.collectionId, acm: provider.acm);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -81,23 +75,23 @@ class StyledMatchesListProvider extends AutoDisposeProvider<ValorantMatches> {
     required String collectionId,
     required ({double aggro, double control, double midrange}) acm,
   }) : this._internal(
-          (ref) => styledMatchesList(
-            ref as StyledMatchesListRef,
-            collectionId: collectionId,
-            acm: acm,
-          ),
-          from: styledMatchesListProvider,
-          name: r'styledMatchesListProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$styledMatchesListHash,
-          dependencies: StyledMatchesListFamily._dependencies,
-          allTransitiveDependencies:
-              StyledMatchesListFamily._allTransitiveDependencies,
-          collectionId: collectionId,
-          acm: acm,
-        );
+         (ref) => styledMatchesList(
+           ref as StyledMatchesListRef,
+           collectionId: collectionId,
+           acm: acm,
+         ),
+         from: styledMatchesListProvider,
+         name: r'styledMatchesListProvider',
+         debugGetCreateSourceHash:
+             const bool.fromEnvironment('dart.vm.product')
+                 ? null
+                 : _$styledMatchesListHash,
+         dependencies: StyledMatchesListFamily._dependencies,
+         allTransitiveDependencies:
+             StyledMatchesListFamily._allTransitiveDependencies,
+         collectionId: collectionId,
+         acm: acm,
+       );
 
   StyledMatchesListProvider._internal(
     super._createNotifier, {
@@ -156,7 +150,8 @@ class StyledMatchesListProvider extends AutoDisposeProvider<ValorantMatches> {
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin StyledMatchesListRef on AutoDisposeProviderRef<ValorantMatches> {
+mixin StyledMatchesListRef
+    on AutoDisposeProviderRef<ValorantMatches> {
   /// The parameter `collectionId` of this provider.
   String get collectionId;
 
@@ -194,20 +189,14 @@ class StyledMatchesDataListFamily
     required String collectionId,
     required ({double aggro, double control, double midrange}) acm,
   }) {
-    return StyledMatchesDataListProvider(
-      collectionId: collectionId,
-      acm: acm,
-    );
+    return StyledMatchesDataListProvider(collectionId: collectionId, acm: acm);
   }
 
   @override
   StyledMatchesDataListProvider getProviderOverride(
     covariant StyledMatchesDataListProvider provider,
   ) {
-    return call(
-      collectionId: provider.collectionId,
-      acm: provider.acm,
-    );
+    return call(collectionId: provider.collectionId, acm: provider.acm);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -226,30 +215,31 @@ class StyledMatchesDataListFamily
 }
 
 /// See also [styledMatchesDataList].
-class StyledMatchesDataListProvider extends AutoDisposeProvider<
-    List<(StyledMatchesSummaryData, ValorantMatches)>> {
+class StyledMatchesDataListProvider
+    extends
+        AutoDisposeProvider<List<(StyledMatchesSummaryData, ValorantMatches)>> {
   /// See also [styledMatchesDataList].
   StyledMatchesDataListProvider({
     required String collectionId,
     required ({double aggro, double control, double midrange}) acm,
   }) : this._internal(
-          (ref) => styledMatchesDataList(
-            ref as StyledMatchesDataListRef,
-            collectionId: collectionId,
-            acm: acm,
-          ),
-          from: styledMatchesDataListProvider,
-          name: r'styledMatchesDataListProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$styledMatchesDataListHash,
-          dependencies: StyledMatchesDataListFamily._dependencies,
-          allTransitiveDependencies:
-              StyledMatchesDataListFamily._allTransitiveDependencies,
-          collectionId: collectionId,
-          acm: acm,
-        );
+         (ref) => styledMatchesDataList(
+           ref as StyledMatchesDataListRef,
+           collectionId: collectionId,
+           acm: acm,
+         ),
+         from: styledMatchesDataListProvider,
+         name: r'styledMatchesDataListProvider',
+         debugGetCreateSourceHash:
+             const bool.fromEnvironment('dart.vm.product')
+                 ? null
+                 : _$styledMatchesDataListHash,
+         dependencies: StyledMatchesDataListFamily._dependencies,
+         allTransitiveDependencies:
+             StyledMatchesDataListFamily._allTransitiveDependencies,
+         collectionId: collectionId,
+         acm: acm,
+       );
 
   StyledMatchesDataListProvider._internal(
     super._createNotifier, {
@@ -268,8 +258,9 @@ class StyledMatchesDataListProvider extends AutoDisposeProvider<
   @override
   Override overrideWith(
     List<(StyledMatchesSummaryData, ValorantMatches)> Function(
-            StyledMatchesDataListRef provider)
-        create,
+      StyledMatchesDataListRef provider,
+    )
+    create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -288,7 +279,7 @@ class StyledMatchesDataListProvider extends AutoDisposeProvider<
 
   @override
   AutoDisposeProviderElement<List<(StyledMatchesSummaryData, ValorantMatches)>>
-      createElement() {
+  createElement() {
     return _StyledMatchesDataListProviderElement(this);
   }
 
@@ -311,8 +302,11 @@ class StyledMatchesDataListProvider extends AutoDisposeProvider<
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin StyledMatchesDataListRef on AutoDisposeProviderRef<
-    List<(StyledMatchesSummaryData, ValorantMatches)>> {
+mixin StyledMatchesDataListRef
+    on
+        AutoDisposeProviderRef<
+          List<(StyledMatchesSummaryData, ValorantMatches)>
+        > {
   /// The parameter `collectionId` of this provider.
   String get collectionId;
 
@@ -320,8 +314,11 @@ mixin StyledMatchesDataListRef on AutoDisposeProviderRef<
   ({double aggro, double control, double midrange}) get acm;
 }
 
-class _StyledMatchesDataListProviderElement extends AutoDisposeProviderElement<
-        List<(StyledMatchesSummaryData, ValorantMatches)>>
+class _StyledMatchesDataListProviderElement
+    extends
+        AutoDisposeProviderElement<
+          List<(StyledMatchesSummaryData, ValorantMatches)>
+        >
     with StyledMatchesDataListRef {
   _StyledMatchesDataListProviderElement(super.provider);
 
@@ -332,5 +329,6 @@ class _StyledMatchesDataListProviderElement extends AutoDisposeProviderElement<
   ({double aggro, double control, double midrange}) get acm =>
       (origin as StyledMatchesDataListProvider).acm;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

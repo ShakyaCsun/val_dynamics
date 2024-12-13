@@ -10,9 +10,7 @@ class AgentsOverviewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(context.l10n.agents),
-      ),
+      appBar: AppBar(title: Text(context.l10n.agents)),
       body: const AgentsOverviewView(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -30,9 +28,7 @@ class AgentsOverviewView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final agentRosters = ref.watch(
-      agentsOverviewNotifierProvider.select(
-        (value) => value.agentDetails,
-      ),
+      agentsOverviewNotifierProvider.select((value) => value.agentDetails),
     );
     final defaultRosterName = ref.watch(defaultRosterNameProvider);
     return AgentsListView(

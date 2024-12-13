@@ -7,15 +7,14 @@ part of 'agent_ability.dart';
 // **************************************************************************
 
 AbilityOne _$AbilityOneFromJson(Map<String, dynamic> json) => AbilityOne(
-      name: json['name'] as String? ?? 'Ability 1',
-      aggro: (json['aggro'] as num?)?.toDouble() ?? 0,
-      control: (json['control'] as num?)?.toDouble() ?? 0,
-      midrange: (json['midrange'] as num?)?.toDouble() ?? 0,
-      reasons: (json['reasons'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const [],
-    );
+  name: json['name'] as String? ?? 'Ability 1',
+  aggro: (json['aggro'] as num?)?.toDouble() ?? 0,
+  control: (json['control'] as num?)?.toDouble() ?? 0,
+  midrange: (json['midrange'] as num?)?.toDouble() ?? 0,
+  reasons:
+      (json['reasons'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const [],
+);
 
 Map<String, dynamic> _$AbilityOneToJson(AbilityOne instance) =>
     <String, dynamic>{
@@ -27,15 +26,14 @@ Map<String, dynamic> _$AbilityOneToJson(AbilityOne instance) =>
     };
 
 AbilityTwo _$AbilityTwoFromJson(Map<String, dynamic> json) => AbilityTwo(
-      name: json['name'] as String? ?? 'Ability 2',
-      aggro: (json['aggro'] as num?)?.toDouble() ?? 0,
-      control: (json['control'] as num?)?.toDouble() ?? 0,
-      midrange: (json['midrange'] as num?)?.toDouble() ?? 0,
-      reasons: (json['reasons'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const [],
-    );
+  name: json['name'] as String? ?? 'Ability 2',
+  aggro: (json['aggro'] as num?)?.toDouble() ?? 0,
+  control: (json['control'] as num?)?.toDouble() ?? 0,
+  midrange: (json['midrange'] as num?)?.toDouble() ?? 0,
+  reasons:
+      (json['reasons'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const [],
+);
 
 Map<String, dynamic> _$AbilityTwoToJson(AbilityTwo instance) =>
     <String, dynamic>{
@@ -47,15 +45,14 @@ Map<String, dynamic> _$AbilityTwoToJson(AbilityTwo instance) =>
     };
 
 AbilityThree _$AbilityThreeFromJson(Map<String, dynamic> json) => AbilityThree(
-      name: json['name'] as String? ?? 'Ability 3',
-      aggro: (json['aggro'] as num?)?.toDouble() ?? 0,
-      control: (json['control'] as num?)?.toDouble() ?? 0,
-      midrange: (json['midrange'] as num?)?.toDouble() ?? 0,
-      reasons: (json['reasons'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const [],
-    );
+  name: json['name'] as String? ?? 'Ability 3',
+  aggro: (json['aggro'] as num?)?.toDouble() ?? 0,
+  control: (json['control'] as num?)?.toDouble() ?? 0,
+  midrange: (json['midrange'] as num?)?.toDouble() ?? 0,
+  reasons:
+      (json['reasons'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const [],
+);
 
 Map<String, dynamic> _$AbilityThreeToJson(AbilityThree instance) =>
     <String, dynamic>{
@@ -72,7 +69,8 @@ UltimateAbility _$UltimateAbilityFromJson(Map<String, dynamic> json) =>
       aggro: (json['aggro'] as num?)?.toDouble() ?? 0,
       control: (json['control'] as num?)?.toDouble() ?? 0,
       midrange: (json['midrange'] as num?)?.toDouble() ?? 0,
-      reasons: (json['reasons'] as List<dynamic>?)
+      reasons:
+          (json['reasons'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const [],

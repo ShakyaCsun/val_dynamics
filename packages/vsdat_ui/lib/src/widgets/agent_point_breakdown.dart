@@ -3,10 +3,7 @@ import 'package:valorant_agents/valorant_agents.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';
 
 class AgentPointBreakdown extends StatelessWidget {
-  const AgentPointBreakdown({
-    required this.agent,
-    super.key,
-  });
+  const AgentPointBreakdown({required this.agent, super.key});
 
   final Agent agent;
 
@@ -24,14 +21,13 @@ class AgentPointBreakdown extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     if (agent.validAbilityPoints)
-                      const Icon(
-                        Icons.check,
-                        color: Colors.green,
-                      ),
+                      const Icon(Icons.check, color: Colors.green),
                     Text(
                       agent.name.toUpperCase(),
-                      style: textTheme.displayMedium
-                          ?.responsive(context, scale: 2),
+                      style: textTheme.displayMedium?.responsive(
+                        context,
+                        scale: 2,
+                      ),
                     ),
                   ],
                 ),
@@ -43,19 +39,14 @@ class AgentPointBreakdown extends StatelessWidget {
             ),
           ],
         ),
-        Expanded(
-          child: AgentBreakdownBottom(agent: agent),
-        ),
+        Expanded(child: AgentBreakdownBottom(agent: agent)),
       ],
     );
   }
 }
 
 class AgentBreakdownBottom extends StatefulWidget {
-  const AgentBreakdownBottom({
-    required this.agent,
-    super.key,
-  });
+  const AgentBreakdownBottom({required this.agent, super.key});
 
   final Agent agent;
 
@@ -93,8 +84,10 @@ class _AgentBreakdownBottomState extends State<AgentBreakdownBottom> {
             flex: 4,
             child: Padding(
               padding: const EdgeInsets.only(bottom: 16),
-              child: defaultAgentPortrait(widget.agent.name)
-                      ?.image(fit: BoxFit.fitHeight) ??
+              child:
+                  defaultAgentPortrait(
+                    widget.agent.name,
+                  )?.image(fit: BoxFit.fitHeight) ??
                   const _FallbackAgentPortrait(),
             ),
           ),
@@ -124,8 +117,10 @@ class _AgentBreakdownBottomState extends State<AgentBreakdownBottom> {
                       Center(
                         child: Text(
                           selectedAbility.name,
-                          style: textTheme.displaySmall
-                              ?.responsive(context, scale: 2),
+                          style: textTheme.displaySmall?.responsive(
+                            context,
+                            scale: 2,
+                          ),
                           textAlign: TextAlign.center,
                           maxLines: 2,
                           overflow: TextOverflow.fade,
@@ -168,7 +163,7 @@ class AbilitiesIconColumn extends StatelessWidget {
       :abilityOne,
       :abilityTwo,
       :abilityThree,
-      :ultimateAbility
+      :ultimateAbility,
     ) = agent;
     final abilities = [abilityOne, abilityTwo, abilityThree, ultimateAbility];
     final colorScheme = Theme.of(context).colorScheme;
@@ -218,11 +213,7 @@ class PointExplanations extends StatelessWidget {
     final textStyle = Theme.of(context).textTheme.headlineSmall;
     final reasons = ability.reasons.map((e) => '- $e').toList();
     var children = <Widget>[
-      for (final reason in reasons)
-        Text(
-          reason,
-          style: textStyle,
-        ),
+      for (final reason in reasons) Text(reason, style: textStyle),
     ];
     if (hasCorrectNumberOfReasons) {
       final styleColors = <Color>[
@@ -234,10 +225,7 @@ class PointExplanations extends StatelessWidget {
       ];
       children = [
         for (final (i, reason) in reasons.indexed)
-          Text(
-            reason,
-            style: textStyle?.copyWith(color: styleColors[i]),
-          ),
+          Text(reason, style: textStyle?.copyWith(color: styleColors[i])),
       ];
     }
     return Column(
@@ -269,34 +257,27 @@ class AbilityIcon extends StatelessWidget {
       AssetGenImage? icon, {
       required String fallbackName,
     }) {
-      return icon?.image(
-            height: size,
-            width: size,
-            color: foregroundColor,
-          ) ??
-          CircleAvatar(
-            radius: size / 2,
-            child: Text(fallbackName),
-          );
+      return icon?.image(height: size, width: size, color: foregroundColor) ??
+          CircleAvatar(radius: size / 2, child: Text(fallbackName));
     }
 
     return switch (ability.type) {
       AbilityType.one => buildAbilityIcon(
-          defaultAbility1Icon(agentName),
-          fallbackName: 'A1',
-        ),
+        defaultAbility1Icon(agentName),
+        fallbackName: 'A1',
+      ),
       AbilityType.two => buildAbilityIcon(
-          defaultAbility2Icon(agentName),
-          fallbackName: 'A2',
-        ),
+        defaultAbility2Icon(agentName),
+        fallbackName: 'A2',
+      ),
       AbilityType.three => buildAbilityIcon(
-          defaultAbility3Icon(agentName),
-          fallbackName: 'A3',
-        ),
+        defaultAbility3Icon(agentName),
+        fallbackName: 'A3',
+      ),
       AbilityType.ultimate => buildAbilityIcon(
-          defaultUltimateIcon(agentName),
-          fallbackName: 'U',
-        ),
+        defaultUltimateIcon(agentName),
+        fallbackName: 'U',
+      ),
     };
   }
 }

@@ -46,11 +46,10 @@ class MatchesView extends ConsumerWidget {
         leading: const BackButton(),
       ),
       body: const MatchesBody(),
-      drawer: context.showStandardDrawer
-          ? null
-          : MatchesFilterDrawer(
-              collectionName: collectionName,
-            ),
+      drawer:
+          context.showStandardDrawer
+              ? null
+              : MatchesFilterDrawer(collectionName: collectionName),
       drawerEnableOpenDragGesture: false,
     );
   }
@@ -64,9 +63,9 @@ class MatchesBody extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final collectionName = ref.watch(collectionNameProvider);
     final isEmptyMatches = ref.watch(
-      matchesProvider(collectionId: collectionName).select(
-        (state) => state.isEmpty,
-      ),
+      matchesProvider(
+        collectionId: collectionName,
+      ).select((state) => state.isEmpty),
     );
 
     if (isEmptyMatches) {
@@ -80,9 +79,7 @@ class MatchesBody extends ConsumerWidget {
             color: Theme.of(context).colorScheme.surfaceContainerLow,
             child: MatchesFilterDrawer(collectionName: collectionName),
           ),
-        const Expanded(
-          child: MatchesTriangleView(),
-        ),
+        const Expanded(child: MatchesTriangleView()),
       ],
     );
   }
@@ -104,9 +101,9 @@ class MatchesTriangleView extends StatelessWidget {
             final collectionName = ref.watch(collectionNameProvider);
             return MatchesTriangle(
               matches: ref.watch(
-                matchesProvider(collectionId: collectionName).select(
-                  (value) => value.plotData,
-                ),
+                matchesProvider(
+                  collectionId: collectionName,
+                ).select((value) => value.plotData),
               ),
               onTap: (tappedMatches) {
                 final matches = tappedMatches.first;
@@ -118,11 +115,7 @@ class MatchesTriangleView extends StatelessWidget {
             );
           },
         ),
-        const Positioned(
-          top: 16,
-          left: 16,
-          child: AutoFilterButton(),
-        ),
+        const Positioned(top: 16, left: 16, child: AutoFilterButton()),
       ],
     );
   }
@@ -139,10 +132,7 @@ class MatchesNotFoundView extends StatelessWidget {
     return Column(
       children: [
         Text('$collectionName Matches not found'),
-        TextButton(
-          onPressed: () {},
-          child: const Text('Go back'),
-        ),
+        TextButton(onPressed: () {}, child: const Text('Go back')),
       ],
     );
   }

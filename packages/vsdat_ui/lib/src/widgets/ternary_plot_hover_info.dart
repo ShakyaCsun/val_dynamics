@@ -31,7 +31,8 @@ class TernaryPlotHoverInfo<T> extends StatefulWidget {
   final Widget Function(
     BuildContext context,
     void Function(List<T> hoveredItems) hoveredItemsChanged,
-  ) builder;
+  )
+  builder;
 
   final HoverAnchor anchor;
 
@@ -52,13 +53,13 @@ class _TernaryPlotHoverInfoState<T> extends State<TernaryPlotHoverInfo<T>> {
     return PortalTarget(
       anchor: switch (widget.anchor) {
         HoverAnchor.left => const Aligned(
-            follower: Alignment.topLeft,
-            target: Alignment.topLeft,
-          ),
+          follower: Alignment.topLeft,
+          target: Alignment.topLeft,
+        ),
         HoverAnchor.right => const Aligned(
-            follower: Alignment.topRight,
-            target: Alignment.topRight,
-          )
+          follower: Alignment.topRight,
+          target: Alignment.topRight,
+        ),
       },
       // visible: itemsNotifier.value.isNotEmpty,
       portalFollower: ValueListenableBuilder(
@@ -71,19 +72,17 @@ class _TernaryPlotHoverInfoState<T> extends State<TernaryPlotHoverInfo<T>> {
                 HoverAnchor.left => CrossAxisAlignment.start,
                 HoverAnchor.right => CrossAxisAlignment.end,
               },
-              children: items.take(widget.maxItems).map((item) {
-                return widget.itemBuilder(item);
-              }).toList(),
+              children:
+                  items.take(widget.maxItems).map((item) {
+                    return widget.itemBuilder(item);
+                  }).toList(),
             ),
           );
         },
       ),
-      child: widget.builder(
-        context,
-        (hoveredItems) {
-          itemsNotifier.value = hoveredItems;
-        },
-      ),
+      child: widget.builder(context, (hoveredItems) {
+        itemsNotifier.value = hoveredItems;
+      }),
     );
   }
 }

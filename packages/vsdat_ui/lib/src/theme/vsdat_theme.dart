@@ -5,11 +5,9 @@ import 'package:flutter/material.dart';
 /// {@endtemplate}
 class VsdatTheme {
   /// {@macro vsdat_theme}
-  const VsdatTheme({
-    Color? lightSeed,
-    Color? darkSeed,
-  })  : lightSeed = lightSeed ?? const Color(0xFF8A5BD6),
-        darkSeed = darkSeed ?? const Color(0xFFCBA6F7);
+  const VsdatTheme({Color? lightSeed, Color? darkSeed})
+    : lightSeed = lightSeed ?? const Color(0xFF8A5BD6),
+      darkSeed = darkSeed ?? const Color(0xFFCBA6F7);
 
   /// Seed [Color] for light theme
   final Color lightSeed;
@@ -35,15 +33,10 @@ class VsdatTheme {
       seedColor: seed,
       brightness: brightness,
     );
-    final theme = ThemeData.from(
-      colorScheme: colorScheme,
-      useMaterial3: true,
-    );
+    final theme = ThemeData.from(colorScheme: colorScheme, useMaterial3: true);
     return theme.copyWith(
       appBarTheme: const AppBarTheme(centerTitle: true),
-      drawerTheme: const DrawerThemeData(
-        width: 360,
-      ),
+      drawerTheme: const DrawerThemeData(width: 360),
       navigationRailTheme: NavigationRailThemeData(
         backgroundColor: colorScheme.surfaceContainer,
         labelType: NavigationRailLabelType.all,

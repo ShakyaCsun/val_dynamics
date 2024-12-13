@@ -18,9 +18,7 @@ class TeamCompsDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(context.l10n.styledComps(stylePoints.acm)),
-      ),
+      appBar: AppBar(title: Text(context.l10n.styledComps(stylePoints.acm))),
       body: Consumer(
         builder: (context, ref, child) {
           final comps = ref.watch(
@@ -29,9 +27,7 @@ class TeamCompsDetailPage extends StatelessWidget {
               stylePoints: stylePoints,
             ),
           );
-          return TeamCompsDetailView(
-            teamComps: comps,
-          );
+          return TeamCompsDetailView(teamComps: comps);
         },
       ),
     );
@@ -39,10 +35,7 @@ class TeamCompsDetailPage extends StatelessWidget {
 }
 
 class TeamCompsDetailView extends StatelessWidget {
-  const TeamCompsDetailView({
-    required this.teamComps,
-    super.key,
-  });
+  const TeamCompsDetailView({required this.teamComps, super.key});
 
   final List<AgentComp> teamComps;
 
@@ -51,9 +44,7 @@ class TeamCompsDetailView extends StatelessWidget {
     return ResponsiveListView(
       items: teamComps,
       itemBuilder: (context, comp) {
-        return ListTile(
-          title: Text(comp.agentNames),
-        );
+        return ListTile(title: Text(comp.agentNames));
       },
     );
   }

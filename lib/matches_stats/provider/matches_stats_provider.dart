@@ -12,49 +12,44 @@ class MatchesStats extends _$MatchesStats {
   @override
   List<StyledMatchesStat> build({required String collectionId}) {
     final groupedMatches = ref.watch(
-      matchesProvider(collectionId: collectionId).select(
-        (state) => state.filteredMatches.groupMatchesByStylisticClash(),
-      ),
+      matchesProvider(
+        collectionId: collectionId,
+      ).select((state) => state.filteredMatches.groupMatchesByStylisticClash()),
     );
-    return groupedMatches.entries.map<StyledMatchesStat>(
-      (entry) {
-        final MapEntry(key: (styleOne, styleTwo), value: matches) = entry;
-        final summary = MatchesSummary.fromMatches(matches);
-        if (summary.scoreOne.won < summary.scoreOne.lost) {
-          return (
-            styleOne: styleTwo,
-            styleTwo: styleOne,
-            summary: summary.swap()
-          );
-        }
-        return (styleOne: styleOne, styleTwo: styleTwo, summary: summary);
-      },
-    ).sorted(
-      (a, b) {
-        final (
-          styleOne: _,
-          styleTwo: _,
-          summary: MatchesSummary(scoreOne: scoreA, matchesCount: aMatches)
-        ) = a;
-        final (
-          styleOne: _,
-          styleTwo: _,
-          summary: MatchesSummary(scoreOne: scoreB, matchesCount: bMatches)
-        ) = b;
-        if (aMatches == bMatches) {
-          return scoreB.compareTo(scoreA);
-        }
-        return bMatches.compareTo(aMatches);
-      },
-    );
+    return groupedMatches.entries
+        .map<StyledMatchesStat>((entry) {
+          final MapEntry(key: (styleOne, styleTwo), value: matches) = entry;
+          final summary = MatchesSummary.fromMatches(matches);
+          if (summary.scoreOne.won < summary.scoreOne.lost) {
+            return (
+              styleOne: styleTwo,
+              styleTwo: styleOne,
+              summary: summary.swap(),
+            );
+          }
+          return (styleOne: styleOne, styleTwo: styleTwo, summary: summary);
+        })
+        .sorted((a, b) {
+          final (
+            styleOne: _,
+            styleTwo: _,
+            summary: MatchesSummary(scoreOne: scoreA, matchesCount: aMatches),
+          ) = a;
+          final (
+            styleOne: _,
+            styleTwo: _,
+            summary: MatchesSummary(scoreOne: scoreB, matchesCount: bMatches),
+          ) = b;
+          if (aMatches == bMatches) {
+            return scoreB.compareTo(scoreA);
+          }
+          return bMatches.compareTo(aMatches);
+        });
   }
 }
 
-typedef StyledMatchesStat = ({
-  StylePoints styleOne,
-  StylePoints styleTwo,
-  MatchesSummary summary,
-});
+typedef StyledMatchesStat =
+    ({StylePoints styleOne, StylePoints styleTwo, MatchesSummary summary});
 
 @freezed
 class MatchesSummary with _$MatchesSummary {

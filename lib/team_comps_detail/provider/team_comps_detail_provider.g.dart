@@ -82,23 +82,23 @@ class SelectedAgentCompsProvider extends AutoDisposeProvider<List<AgentComp>> {
     required String rosterName,
     required ({double aggro, double control, double midrange}) stylePoints,
   }) : this._internal(
-          (ref) => selectedAgentComps(
-            ref as SelectedAgentCompsRef,
-            rosterName: rosterName,
-            stylePoints: stylePoints,
-          ),
-          from: selectedAgentCompsProvider,
-          name: r'selectedAgentCompsProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$selectedAgentCompsHash,
-          dependencies: SelectedAgentCompsFamily._dependencies,
-          allTransitiveDependencies:
-              SelectedAgentCompsFamily._allTransitiveDependencies,
-          rosterName: rosterName,
-          stylePoints: stylePoints,
-        );
+         (ref) => selectedAgentComps(
+           ref as SelectedAgentCompsRef,
+           rosterName: rosterName,
+           stylePoints: stylePoints,
+         ),
+         from: selectedAgentCompsProvider,
+         name: r'selectedAgentCompsProvider',
+         debugGetCreateSourceHash:
+             const bool.fromEnvironment('dart.vm.product')
+                 ? null
+                 : _$selectedAgentCompsHash,
+         dependencies: SelectedAgentCompsFamily._dependencies,
+         allTransitiveDependencies:
+             SelectedAgentCompsFamily._allTransitiveDependencies,
+         rosterName: rosterName,
+         stylePoints: stylePoints,
+       );
 
   SelectedAgentCompsProvider._internal(
     super._createNotifier, {
@@ -157,7 +157,8 @@ class SelectedAgentCompsProvider extends AutoDisposeProvider<List<AgentComp>> {
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin SelectedAgentCompsRef on AutoDisposeProviderRef<List<AgentComp>> {
+mixin SelectedAgentCompsRef
+    on AutoDisposeProviderRef<List<AgentComp>> {
   /// The parameter `rosterName` of this provider.
   String get rosterName;
 
@@ -176,5 +177,6 @@ class _SelectedAgentCompsProviderElement
   ({double aggro, double control, double midrange}) get stylePoints =>
       (origin as SelectedAgentCompsProvider).stylePoints;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

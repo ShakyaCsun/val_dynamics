@@ -12,7 +12,8 @@ part of 'styled_matches_list_provider.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$StyledMatchesSummaryData {
@@ -31,21 +32,25 @@ mixin _$StyledMatchesSummaryData {
 
 /// @nodoc
 abstract class $StyledMatchesSummaryDataCopyWith<$Res> {
-  factory $StyledMatchesSummaryDataCopyWith(StyledMatchesSummaryData value,
-          $Res Function(StyledMatchesSummaryData) then) =
-      _$StyledMatchesSummaryDataCopyWithImpl<$Res, StyledMatchesSummaryData>;
+  factory $StyledMatchesSummaryDataCopyWith(
+    StyledMatchesSummaryData value,
+    $Res Function(StyledMatchesSummaryData) then,
+  ) = _$StyledMatchesSummaryDataCopyWithImpl<$Res, StyledMatchesSummaryData>;
   @useResult
-  $Res call(
-      {({double aggro, double control, double midrange}) acm,
-      ({double aggro, double control, double midrange}) opponentAcm,
-      MatchesSummary summary});
+  $Res call({
+    ({double aggro, double control, double midrange}) acm,
+    ({double aggro, double control, double midrange}) opponentAcm,
+    MatchesSummary summary,
+  });
 
   $MatchesSummaryCopyWith<$Res> get summary;
 }
 
 /// @nodoc
-class _$StyledMatchesSummaryDataCopyWithImpl<$Res,
-        $Val extends StyledMatchesSummaryData>
+class _$StyledMatchesSummaryDataCopyWithImpl<
+  $Res,
+  $Val extends StyledMatchesSummaryData
+>
     implements $StyledMatchesSummaryDataCopyWith<$Res> {
   _$StyledMatchesSummaryDataCopyWithImpl(this._value, this._then);
 
@@ -63,20 +68,26 @@ class _$StyledMatchesSummaryDataCopyWithImpl<$Res,
     Object? opponentAcm = null,
     Object? summary = null,
   }) {
-    return _then(_value.copyWith(
-      acm: null == acm
-          ? _value.acm
-          : acm // ignore: cast_nullable_to_non_nullable
-              as ({double aggro, double control, double midrange}),
-      opponentAcm: null == opponentAcm
-          ? _value.opponentAcm
-          : opponentAcm // ignore: cast_nullable_to_non_nullable
-              as ({double aggro, double control, double midrange}),
-      summary: null == summary
-          ? _value.summary
-          : summary // ignore: cast_nullable_to_non_nullable
-              as MatchesSummary,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            acm:
+                null == acm
+                    ? _value.acm
+                    : acm // ignore: cast_nullable_to_non_nullable
+                        as ({double aggro, double control, double midrange}),
+            opponentAcm:
+                null == opponentAcm
+                    ? _value.opponentAcm
+                    : opponentAcm // ignore: cast_nullable_to_non_nullable
+                        as ({double aggro, double control, double midrange}),
+            summary:
+                null == summary
+                    ? _value.summary
+                    : summary // ignore: cast_nullable_to_non_nullable
+                        as MatchesSummary,
+          )
+          as $Val,
+    );
   }
 
   /// Create a copy of StyledMatchesSummaryData
@@ -94,15 +105,16 @@ class _$StyledMatchesSummaryDataCopyWithImpl<$Res,
 abstract class _$$StyledMatchesSummaryDataImplCopyWith<$Res>
     implements $StyledMatchesSummaryDataCopyWith<$Res> {
   factory _$$StyledMatchesSummaryDataImplCopyWith(
-          _$StyledMatchesSummaryDataImpl value,
-          $Res Function(_$StyledMatchesSummaryDataImpl) then) =
-      __$$StyledMatchesSummaryDataImplCopyWithImpl<$Res>;
+    _$StyledMatchesSummaryDataImpl value,
+    $Res Function(_$StyledMatchesSummaryDataImpl) then,
+  ) = __$$StyledMatchesSummaryDataImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {({double aggro, double control, double midrange}) acm,
-      ({double aggro, double control, double midrange}) opponentAcm,
-      MatchesSummary summary});
+  $Res call({
+    ({double aggro, double control, double midrange}) acm,
+    ({double aggro, double control, double midrange}) opponentAcm,
+    MatchesSummary summary,
+  });
 
   @override
   $MatchesSummaryCopyWith<$Res> get summary;
@@ -110,13 +122,16 @@ abstract class _$$StyledMatchesSummaryDataImplCopyWith<$Res>
 
 /// @nodoc
 class __$$StyledMatchesSummaryDataImplCopyWithImpl<$Res>
-    extends _$StyledMatchesSummaryDataCopyWithImpl<$Res,
-        _$StyledMatchesSummaryDataImpl>
+    extends
+        _$StyledMatchesSummaryDataCopyWithImpl<
+          $Res,
+          _$StyledMatchesSummaryDataImpl
+        >
     implements _$$StyledMatchesSummaryDataImplCopyWith<$Res> {
   __$$StyledMatchesSummaryDataImplCopyWithImpl(
-      _$StyledMatchesSummaryDataImpl _value,
-      $Res Function(_$StyledMatchesSummaryDataImpl) _then)
-      : super(_value, _then);
+    _$StyledMatchesSummaryDataImpl _value,
+    $Res Function(_$StyledMatchesSummaryDataImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of StyledMatchesSummaryData
   /// with the given fields replaced by the non-null parameter values.
@@ -127,28 +142,36 @@ class __$$StyledMatchesSummaryDataImplCopyWithImpl<$Res>
     Object? opponentAcm = null,
     Object? summary = null,
   }) {
-    return _then(_$StyledMatchesSummaryDataImpl(
-      acm: null == acm
-          ? _value.acm
-          : acm // ignore: cast_nullable_to_non_nullable
-              as ({double aggro, double control, double midrange}),
-      opponentAcm: null == opponentAcm
-          ? _value.opponentAcm
-          : opponentAcm // ignore: cast_nullable_to_non_nullable
-              as ({double aggro, double control, double midrange}),
-      summary: null == summary
-          ? _value.summary
-          : summary // ignore: cast_nullable_to_non_nullable
-              as MatchesSummary,
-    ));
+    return _then(
+      _$StyledMatchesSummaryDataImpl(
+        acm:
+            null == acm
+                ? _value.acm
+                : acm // ignore: cast_nullable_to_non_nullable
+                    as ({double aggro, double control, double midrange}),
+        opponentAcm:
+            null == opponentAcm
+                ? _value.opponentAcm
+                : opponentAcm // ignore: cast_nullable_to_non_nullable
+                    as ({double aggro, double control, double midrange}),
+        summary:
+            null == summary
+                ? _value.summary
+                : summary // ignore: cast_nullable_to_non_nullable
+                    as MatchesSummary,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$StyledMatchesSummaryDataImpl implements _StyledMatchesSummaryData {
-  const _$StyledMatchesSummaryDataImpl(
-      {required this.acm, required this.opponentAcm, required this.summary});
+  const _$StyledMatchesSummaryDataImpl({
+    required this.acm,
+    required this.opponentAcm,
+    required this.summary,
+  });
 
   @override
   final ({double aggro, double control, double midrange}) acm;
@@ -182,19 +205,18 @@ class _$StyledMatchesSummaryDataImpl implements _StyledMatchesSummaryData {
   @override
   @pragma('vm:prefer-inline')
   _$$StyledMatchesSummaryDataImplCopyWith<_$StyledMatchesSummaryDataImpl>
-      get copyWith => __$$StyledMatchesSummaryDataImplCopyWithImpl<
-          _$StyledMatchesSummaryDataImpl>(this, _$identity);
+  get copyWith => __$$StyledMatchesSummaryDataImplCopyWithImpl<
+    _$StyledMatchesSummaryDataImpl
+  >(this, _$identity);
 }
 
 abstract class _StyledMatchesSummaryData implements StyledMatchesSummaryData {
-  const factory _StyledMatchesSummaryData(
-      {required final ({double aggro, double control, double midrange}) acm,
-      required final ({
-        double aggro,
-        double control,
-        double midrange
-      }) opponentAcm,
-      required final MatchesSummary summary}) = _$StyledMatchesSummaryDataImpl;
+  const factory _StyledMatchesSummaryData({
+    required final ({double aggro, double control, double midrange}) acm,
+    required final ({double aggro, double control, double midrange})
+    opponentAcm,
+    required final MatchesSummary summary,
+  }) = _$StyledMatchesSummaryDataImpl;
 
   @override
   ({double aggro, double control, double midrange}) get acm;
@@ -208,5 +230,5 @@ abstract class _StyledMatchesSummaryData implements StyledMatchesSummaryData {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StyledMatchesSummaryDataImplCopyWith<_$StyledMatchesSummaryDataImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

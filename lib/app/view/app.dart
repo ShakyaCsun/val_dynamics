@@ -108,15 +108,16 @@ class ValSD2HomeScreen extends ConsumerWidget {
                               labelType: NavigationRailLabelType.all,
                               onDestinationSelected: onDestinationSelected,
                               selectedIndex: getCurrentIndex(context),
-                              destinations: destinations(context)
-                                  .map(
-                                    (e) => NavigationRailDestination(
-                                      icon: e.icon,
-                                      label: Text(e.label),
-                                      selectedIcon: e.selectedIcon,
-                                    ),
-                                  )
-                                  .toList(),
+                              destinations:
+                                  destinations(context)
+                                      .map(
+                                        (e) => NavigationRailDestination(
+                                          icon: e.icon,
+                                          label: Text(e.label),
+                                          selectedIcon: e.selectedIcon,
+                                        ),
+                                      )
+                                      .toList(),
                               trailing: const Expanded(
                                 child: Align(
                                   alignment: Alignment.bottomCenter,

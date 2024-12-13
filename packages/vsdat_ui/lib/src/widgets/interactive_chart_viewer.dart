@@ -33,16 +33,9 @@ class _InteractiveChartViewerState extends State<InteractiveChartViewer> {
     return LayoutBuilder(
       builder: (context, constraints) {
         final BoxConstraints(:maxHeight, :maxWidth) = constraints;
-        final maxSmallSide = math.min(
-          maxWidth,
-          maxHeight,
-        );
-        final maxScale = maxSmallSide <= 0.0
-            ? 3
-            : math.max(
-                4000 ~/ maxSmallSide,
-                3,
-              );
+        final maxSmallSide = math.min(maxWidth, maxHeight);
+        final maxScale =
+            maxSmallSide <= 0.0 ? 3 : math.max(4000 ~/ maxSmallSide, 3);
         return InteractiveViewer(
           maxScale: maxScale.toDouble(),
           transformationController: controller,
@@ -53,10 +46,7 @@ class _InteractiveChartViewerState extends State<InteractiveChartViewer> {
                 valueListenable: controller,
                 builder: (context, matrix, child) {
                   final rect = Offset.zero & constraints.biggest;
-                  var transformRect = MatrixUtils.transformRect(
-                    matrix,
-                    rect,
-                  );
+                  var transformRect = MatrixUtils.transformRect(matrix, rect);
                   final rightNeedsClamping = transformRect.right < maxWidth;
                   final bottomNeedsClamping = transformRect.bottom < maxHeight;
                   if (rightNeedsClamping) {

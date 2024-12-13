@@ -12,13 +12,15 @@ String _$addMatchesHash() => r'9d678ed5ad17fb2e079e5c3091212a1bfb72cff8';
 @ProviderFor(AddMatches)
 final addMatchesProvider =
     AutoDisposeNotifierProvider<AddMatches, AddMatchesForm>.internal(
-  AddMatches.new,
-  name: r'addMatchesProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$addMatchesHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      AddMatches.new,
+      name: r'addMatchesProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$addMatchesHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$AddMatches = AutoDisposeNotifier<AddMatchesForm>;
 // ignore_for_file: type=lint

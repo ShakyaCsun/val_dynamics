@@ -66,13 +66,13 @@ class $AssetsCsvMatchesGen {
 
   /// List of all assets
   List<String> get values => [
-        aprilToOctober72024,
-        augustNovember24,
-        champions2024,
-        championsAndAscension2024,
-        gameChangers2024,
-        mastersTokyoAndChampions2023
-      ];
+    aprilToOctober72024,
+    augustNovember24,
+    champions2024,
+    championsAndAscension2024,
+    gameChangers2024,
+    mastersTokyoAndChampions2023,
+  ];
 }
 
 class Assets {

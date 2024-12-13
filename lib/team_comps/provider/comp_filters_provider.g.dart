@@ -33,9 +33,7 @@ abstract class _$CompFilters
     extends BuildlessAutoDisposeNotifier<CompFiltersState> {
   late final String rosterName;
 
-  CompFiltersState build({
-    required String rosterName,
-  });
+  CompFiltersState build({required String rosterName});
 }
 
 /// See also [CompFilters].
@@ -48,21 +46,15 @@ class CompFiltersFamily extends Family<CompFiltersState> {
   const CompFiltersFamily();
 
   /// See also [CompFilters].
-  CompFiltersProvider call({
-    required String rosterName,
-  }) {
-    return CompFiltersProvider(
-      rosterName: rosterName,
-    );
+  CompFiltersProvider call({required String rosterName}) {
+    return CompFiltersProvider(rosterName: rosterName);
   }
 
   @override
   CompFiltersProvider getProviderOverride(
     covariant CompFiltersProvider provider,
   ) {
-    return call(
-      rosterName: provider.rosterName,
-    );
+    return call(rosterName: provider.rosterName);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -84,21 +76,19 @@ class CompFiltersFamily extends Family<CompFiltersState> {
 class CompFiltersProvider
     extends AutoDisposeNotifierProviderImpl<CompFilters, CompFiltersState> {
   /// See also [CompFilters].
-  CompFiltersProvider({
-    required String rosterName,
-  }) : this._internal(
-          () => CompFilters()..rosterName = rosterName,
-          from: compFiltersProvider,
-          name: r'compFiltersProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$compFiltersHash,
-          dependencies: CompFiltersFamily._dependencies,
-          allTransitiveDependencies:
-              CompFiltersFamily._allTransitiveDependencies,
-          rosterName: rosterName,
-        );
+  CompFiltersProvider({required String rosterName})
+    : this._internal(
+        () => CompFilters()..rosterName = rosterName,
+        from: compFiltersProvider,
+        name: r'compFiltersProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$compFiltersHash,
+        dependencies: CompFiltersFamily._dependencies,
+        allTransitiveDependencies: CompFiltersFamily._allTransitiveDependencies,
+        rosterName: rosterName,
+      );
 
   CompFiltersProvider._internal(
     super._createNotifier, {
@@ -113,12 +103,8 @@ class CompFiltersProvider
   final String rosterName;
 
   @override
-  CompFiltersState runNotifierBuild(
-    covariant CompFilters notifier,
-  ) {
-    return notifier.build(
-      rosterName: rosterName,
-    );
+  CompFiltersState runNotifierBuild(covariant CompFilters notifier) {
+    return notifier.build(rosterName: rosterName);
   }
 
   @override
@@ -139,7 +125,7 @@ class CompFiltersProvider
 
   @override
   AutoDisposeNotifierProviderElement<CompFilters, CompFiltersState>
-      createElement() {
+  createElement() {
     return _CompFiltersProviderElement(this);
   }
 
@@ -159,7 +145,8 @@ class CompFiltersProvider
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin CompFiltersRef on AutoDisposeNotifierProviderRef<CompFiltersState> {
+mixin CompFiltersRef
+    on AutoDisposeNotifierProviderRef<CompFiltersState> {
   /// The parameter `rosterName` of this provider.
   String get rosterName;
 }
@@ -172,5 +159,6 @@ class _CompFiltersProviderElement
   @override
   String get rosterName => (origin as CompFiltersProvider).rosterName;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

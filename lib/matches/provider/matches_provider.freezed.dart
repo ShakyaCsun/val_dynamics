@@ -12,7 +12,8 @@ part of 'matches_provider.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$MatchesState {
@@ -30,8 +31,9 @@ mixin _$MatchesState {
 /// @nodoc
 abstract class $MatchesStateCopyWith<$Res> {
   factory $MatchesStateCopyWith(
-          MatchesState value, $Res Function(MatchesState) then) =
-      _$MatchesStateCopyWithImpl<$Res, MatchesState>;
+    MatchesState value,
+    $Res Function(MatchesState) then,
+  ) = _$MatchesStateCopyWithImpl<$Res, MatchesState>;
   @useResult
   $Res call({ValorantMatches matches, MatchUpFilter filter, Set<String> maps});
 }
@@ -55,20 +57,26 @@ class _$MatchesStateCopyWithImpl<$Res, $Val extends MatchesState>
     Object? filter = null,
     Object? maps = null,
   }) {
-    return _then(_value.copyWith(
-      matches: null == matches
-          ? _value.matches
-          : matches // ignore: cast_nullable_to_non_nullable
-              as ValorantMatches,
-      filter: null == filter
-          ? _value.filter
-          : filter // ignore: cast_nullable_to_non_nullable
-              as MatchUpFilter,
-      maps: null == maps
-          ? _value.maps
-          : maps // ignore: cast_nullable_to_non_nullable
-              as Set<String>,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            matches:
+                null == matches
+                    ? _value.matches
+                    : matches // ignore: cast_nullable_to_non_nullable
+                        as ValorantMatches,
+            filter:
+                null == filter
+                    ? _value.filter
+                    : filter // ignore: cast_nullable_to_non_nullable
+                        as MatchUpFilter,
+            maps:
+                null == maps
+                    ? _value.maps
+                    : maps // ignore: cast_nullable_to_non_nullable
+                        as Set<String>,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -76,8 +84,9 @@ class _$MatchesStateCopyWithImpl<$Res, $Val extends MatchesState>
 abstract class _$$MatchesStateImplCopyWith<$Res>
     implements $MatchesStateCopyWith<$Res> {
   factory _$$MatchesStateImplCopyWith(
-          _$MatchesStateImpl value, $Res Function(_$MatchesStateImpl) then) =
-      __$$MatchesStateImplCopyWithImpl<$Res>;
+    _$MatchesStateImpl value,
+    $Res Function(_$MatchesStateImpl) then,
+  ) = __$$MatchesStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ValorantMatches matches, MatchUpFilter filter, Set<String> maps});
@@ -88,8 +97,9 @@ class __$$MatchesStateImplCopyWithImpl<$Res>
     extends _$MatchesStateCopyWithImpl<$Res, _$MatchesStateImpl>
     implements _$$MatchesStateImplCopyWith<$Res> {
   __$$MatchesStateImplCopyWithImpl(
-      _$MatchesStateImpl _value, $Res Function(_$MatchesStateImpl) _then)
-      : super(_value, _then);
+    _$MatchesStateImpl _value,
+    $Res Function(_$MatchesStateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of MatchesState
   /// with the given fields replaced by the non-null parameter values.
@@ -100,32 +110,37 @@ class __$$MatchesStateImplCopyWithImpl<$Res>
     Object? filter = null,
     Object? maps = null,
   }) {
-    return _then(_$MatchesStateImpl(
-      matches: null == matches
-          ? _value.matches
-          : matches // ignore: cast_nullable_to_non_nullable
-              as ValorantMatches,
-      filter: null == filter
-          ? _value.filter
-          : filter // ignore: cast_nullable_to_non_nullable
-              as MatchUpFilter,
-      maps: null == maps
-          ? _value._maps
-          : maps // ignore: cast_nullable_to_non_nullable
-              as Set<String>,
-    ));
+    return _then(
+      _$MatchesStateImpl(
+        matches:
+            null == matches
+                ? _value.matches
+                : matches // ignore: cast_nullable_to_non_nullable
+                    as ValorantMatches,
+        filter:
+            null == filter
+                ? _value.filter
+                : filter // ignore: cast_nullable_to_non_nullable
+                    as MatchUpFilter,
+        maps:
+            null == maps
+                ? _value._maps
+                : maps // ignore: cast_nullable_to_non_nullable
+                    as Set<String>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$MatchesStateImpl extends _MatchesState {
-  const _$MatchesStateImpl(
-      {required this.matches,
-      this.filter = MatchUpFilter.styles,
-      final Set<String> maps = const {}})
-      : _maps = maps,
-        super._();
+  const _$MatchesStateImpl({
+    required this.matches,
+    this.filter = MatchUpFilter.styles,
+    final Set<String> maps = const {},
+  }) : _maps = maps,
+       super._();
 
   @override
   final ValorantMatches matches;
@@ -158,10 +173,11 @@ class _$MatchesStateImpl extends _MatchesState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(matches),
-      filter,
-      const DeepCollectionEquality().hash(_maps));
+    runtimeType,
+    const DeepCollectionEquality().hash(matches),
+    filter,
+    const DeepCollectionEquality().hash(_maps),
+  );
 
   /// Create a copy of MatchesState
   /// with the given fields replaced by the non-null parameter values.
@@ -173,10 +189,11 @@ class _$MatchesStateImpl extends _MatchesState {
 }
 
 abstract class _MatchesState extends MatchesState {
-  const factory _MatchesState(
-      {required final ValorantMatches matches,
-      final MatchUpFilter filter,
-      final Set<String> maps}) = _$MatchesStateImpl;
+  const factory _MatchesState({
+    required final ValorantMatches matches,
+    final MatchUpFilter filter,
+    final Set<String> maps,
+  }) = _$MatchesStateImpl;
   const _MatchesState._() : super._();
 
   @override

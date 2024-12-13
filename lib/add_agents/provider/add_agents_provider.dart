@@ -38,19 +38,12 @@ class AddAgents extends _$AddAgents {
         final agentsList = jsonDecode(agentsJson) as List<dynamic>;
         final agents = Agents(
           agentsList
-              .map(
-                (e) => Agent.fromJson(e as Map<String, dynamic>),
-              )
+              .map((e) => Agent.fromJson(e as Map<String, dynamic>))
               .toList(),
         );
         final name = await ref
-            .read(
-              agentsOverviewNotifierProvider.notifier,
-            )
-            .addRoster(
-              agents,
-              state.rosterName.value,
-            );
+            .read(agentsOverviewNotifierProvider.notifier)
+            .addRoster(agents, state.rosterName.value);
 
         state = state.copyWith(
           rosterName: NameInput.dirty(name),

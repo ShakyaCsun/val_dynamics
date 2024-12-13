@@ -33,7 +33,7 @@ class MatchesTernaryData with _$MatchesTernaryData {
       attackScore,
       defenseScore,
       compositions,
-      oppositionCompositions
+      oppositionCompositions,
     ) = matches.fold(
       (Score.zero, Score.zero, Score.zero, <AgentComp>{}, <AgentComp>{}),
       (previousValue, element) {
@@ -42,14 +42,14 @@ class MatchesTernaryData with _$MatchesTernaryData {
           attackScore,
           defenseScore,
           compositions,
-          oppositionCompositions
+          oppositionCompositions,
         ) = previousValue;
         return (
           score + element.scoreOne,
           attackScore + element.attackingScore1,
           defenseScore + element.defendingScore1,
           {...compositions, element.teamOne.agents},
-          {...oppositionCompositions, element.teamTwo.agents}
+          {...oppositionCompositions, element.teamTwo.agents},
         );
       },
     );
@@ -80,14 +80,8 @@ class MatchesTernaryData with _$MatchesTernaryData {
       score: score + match.scoreOne,
       attackScore: attackScore + match.attackingScore1,
       defenseScore: defenseScore + match.defendingScore1,
-      compositions: {
-        ...compositions,
-        match.teamOne.agents,
-      },
-      oppositionCompositions: {
-        ...oppositionCompositions,
-        match.teamTwo.agents,
-      },
+      compositions: {...compositions, match.teamOne.agents},
+      oppositionCompositions: {...oppositionCompositions, match.teamTwo.agents},
     );
   }
 

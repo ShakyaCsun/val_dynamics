@@ -12,7 +12,8 @@ part of 'raw_match.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$RawMatch {
@@ -38,16 +39,17 @@ abstract class $RawMatchCopyWith<$Res> {
   factory $RawMatchCopyWith(RawMatch value, $Res Function(RawMatch) then) =
       _$RawMatchCopyWithImpl<$Res, RawMatch>;
   @useResult
-  $Res call(
-      {String mapName,
-      String teamOneName,
-      String teamTwoName,
-      int teamOneScore,
-      int teamTwoScore,
-      int teamOneAttackScore,
-      int teamTwoAttackScore,
-      String teamOneAgents,
-      String teamTwoAgents});
+  $Res call({
+    String mapName,
+    String teamOneName,
+    String teamTwoName,
+    int teamOneScore,
+    int teamTwoScore,
+    int teamOneAttackScore,
+    int teamTwoAttackScore,
+    String teamOneAgents,
+    String teamTwoAgents,
+  });
 }
 
 /// @nodoc
@@ -75,44 +77,56 @@ class _$RawMatchCopyWithImpl<$Res, $Val extends RawMatch>
     Object? teamOneAgents = null,
     Object? teamTwoAgents = null,
   }) {
-    return _then(_value.copyWith(
-      mapName: null == mapName
-          ? _value.mapName
-          : mapName // ignore: cast_nullable_to_non_nullable
-              as String,
-      teamOneName: null == teamOneName
-          ? _value.teamOneName
-          : teamOneName // ignore: cast_nullable_to_non_nullable
-              as String,
-      teamTwoName: null == teamTwoName
-          ? _value.teamTwoName
-          : teamTwoName // ignore: cast_nullable_to_non_nullable
-              as String,
-      teamOneScore: null == teamOneScore
-          ? _value.teamOneScore
-          : teamOneScore // ignore: cast_nullable_to_non_nullable
-              as int,
-      teamTwoScore: null == teamTwoScore
-          ? _value.teamTwoScore
-          : teamTwoScore // ignore: cast_nullable_to_non_nullable
-              as int,
-      teamOneAttackScore: null == teamOneAttackScore
-          ? _value.teamOneAttackScore
-          : teamOneAttackScore // ignore: cast_nullable_to_non_nullable
-              as int,
-      teamTwoAttackScore: null == teamTwoAttackScore
-          ? _value.teamTwoAttackScore
-          : teamTwoAttackScore // ignore: cast_nullable_to_non_nullable
-              as int,
-      teamOneAgents: null == teamOneAgents
-          ? _value.teamOneAgents
-          : teamOneAgents // ignore: cast_nullable_to_non_nullable
-              as String,
-      teamTwoAgents: null == teamTwoAgents
-          ? _value.teamTwoAgents
-          : teamTwoAgents // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            mapName:
+                null == mapName
+                    ? _value.mapName
+                    : mapName // ignore: cast_nullable_to_non_nullable
+                        as String,
+            teamOneName:
+                null == teamOneName
+                    ? _value.teamOneName
+                    : teamOneName // ignore: cast_nullable_to_non_nullable
+                        as String,
+            teamTwoName:
+                null == teamTwoName
+                    ? _value.teamTwoName
+                    : teamTwoName // ignore: cast_nullable_to_non_nullable
+                        as String,
+            teamOneScore:
+                null == teamOneScore
+                    ? _value.teamOneScore
+                    : teamOneScore // ignore: cast_nullable_to_non_nullable
+                        as int,
+            teamTwoScore:
+                null == teamTwoScore
+                    ? _value.teamTwoScore
+                    : teamTwoScore // ignore: cast_nullable_to_non_nullable
+                        as int,
+            teamOneAttackScore:
+                null == teamOneAttackScore
+                    ? _value.teamOneAttackScore
+                    : teamOneAttackScore // ignore: cast_nullable_to_non_nullable
+                        as int,
+            teamTwoAttackScore:
+                null == teamTwoAttackScore
+                    ? _value.teamTwoAttackScore
+                    : teamTwoAttackScore // ignore: cast_nullable_to_non_nullable
+                        as int,
+            teamOneAgents:
+                null == teamOneAgents
+                    ? _value.teamOneAgents
+                    : teamOneAgents // ignore: cast_nullable_to_non_nullable
+                        as String,
+            teamTwoAgents:
+                null == teamTwoAgents
+                    ? _value.teamTwoAgents
+                    : teamTwoAgents // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -120,20 +134,22 @@ class _$RawMatchCopyWithImpl<$Res, $Val extends RawMatch>
 abstract class _$$RawMatchImplCopyWith<$Res>
     implements $RawMatchCopyWith<$Res> {
   factory _$$RawMatchImplCopyWith(
-          _$RawMatchImpl value, $Res Function(_$RawMatchImpl) then) =
-      __$$RawMatchImplCopyWithImpl<$Res>;
+    _$RawMatchImpl value,
+    $Res Function(_$RawMatchImpl) then,
+  ) = __$$RawMatchImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String mapName,
-      String teamOneName,
-      String teamTwoName,
-      int teamOneScore,
-      int teamTwoScore,
-      int teamOneAttackScore,
-      int teamTwoAttackScore,
-      String teamOneAgents,
-      String teamTwoAgents});
+  $Res call({
+    String mapName,
+    String teamOneName,
+    String teamTwoName,
+    int teamOneScore,
+    int teamTwoScore,
+    int teamOneAttackScore,
+    int teamTwoAttackScore,
+    String teamOneAgents,
+    String teamTwoAgents,
+  });
 }
 
 /// @nodoc
@@ -141,8 +157,9 @@ class __$$RawMatchImplCopyWithImpl<$Res>
     extends _$RawMatchCopyWithImpl<$Res, _$RawMatchImpl>
     implements _$$RawMatchImplCopyWith<$Res> {
   __$$RawMatchImplCopyWithImpl(
-      _$RawMatchImpl _value, $Res Function(_$RawMatchImpl) _then)
-      : super(_value, _then);
+    _$RawMatchImpl _value,
+    $Res Function(_$RawMatchImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of RawMatch
   /// with the given fields replaced by the non-null parameter values.
@@ -159,61 +176,72 @@ class __$$RawMatchImplCopyWithImpl<$Res>
     Object? teamOneAgents = null,
     Object? teamTwoAgents = null,
   }) {
-    return _then(_$RawMatchImpl(
-      mapName: null == mapName
-          ? _value.mapName
-          : mapName // ignore: cast_nullable_to_non_nullable
-              as String,
-      teamOneName: null == teamOneName
-          ? _value.teamOneName
-          : teamOneName // ignore: cast_nullable_to_non_nullable
-              as String,
-      teamTwoName: null == teamTwoName
-          ? _value.teamTwoName
-          : teamTwoName // ignore: cast_nullable_to_non_nullable
-              as String,
-      teamOneScore: null == teamOneScore
-          ? _value.teamOneScore
-          : teamOneScore // ignore: cast_nullable_to_non_nullable
-              as int,
-      teamTwoScore: null == teamTwoScore
-          ? _value.teamTwoScore
-          : teamTwoScore // ignore: cast_nullable_to_non_nullable
-              as int,
-      teamOneAttackScore: null == teamOneAttackScore
-          ? _value.teamOneAttackScore
-          : teamOneAttackScore // ignore: cast_nullable_to_non_nullable
-              as int,
-      teamTwoAttackScore: null == teamTwoAttackScore
-          ? _value.teamTwoAttackScore
-          : teamTwoAttackScore // ignore: cast_nullable_to_non_nullable
-              as int,
-      teamOneAgents: null == teamOneAgents
-          ? _value.teamOneAgents
-          : teamOneAgents // ignore: cast_nullable_to_non_nullable
-              as String,
-      teamTwoAgents: null == teamTwoAgents
-          ? _value.teamTwoAgents
-          : teamTwoAgents // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$RawMatchImpl(
+        mapName:
+            null == mapName
+                ? _value.mapName
+                : mapName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        teamOneName:
+            null == teamOneName
+                ? _value.teamOneName
+                : teamOneName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        teamTwoName:
+            null == teamTwoName
+                ? _value.teamTwoName
+                : teamTwoName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        teamOneScore:
+            null == teamOneScore
+                ? _value.teamOneScore
+                : teamOneScore // ignore: cast_nullable_to_non_nullable
+                    as int,
+        teamTwoScore:
+            null == teamTwoScore
+                ? _value.teamTwoScore
+                : teamTwoScore // ignore: cast_nullable_to_non_nullable
+                    as int,
+        teamOneAttackScore:
+            null == teamOneAttackScore
+                ? _value.teamOneAttackScore
+                : teamOneAttackScore // ignore: cast_nullable_to_non_nullable
+                    as int,
+        teamTwoAttackScore:
+            null == teamTwoAttackScore
+                ? _value.teamTwoAttackScore
+                : teamTwoAttackScore // ignore: cast_nullable_to_non_nullable
+                    as int,
+        teamOneAgents:
+            null == teamOneAgents
+                ? _value.teamOneAgents
+                : teamOneAgents // ignore: cast_nullable_to_non_nullable
+                    as String,
+        teamTwoAgents:
+            null == teamTwoAgents
+                ? _value.teamTwoAgents
+                : teamTwoAgents // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$RawMatchImpl extends _RawMatch {
-  const _$RawMatchImpl(
-      {required this.mapName,
-      required this.teamOneName,
-      required this.teamTwoName,
-      required this.teamOneScore,
-      required this.teamTwoScore,
-      required this.teamOneAttackScore,
-      required this.teamTwoAttackScore,
-      required this.teamOneAgents,
-      required this.teamTwoAgents})
-      : super._();
+  const _$RawMatchImpl({
+    required this.mapName,
+    required this.teamOneName,
+    required this.teamTwoName,
+    required this.teamOneScore,
+    required this.teamTwoScore,
+    required this.teamOneAttackScore,
+    required this.teamTwoAttackScore,
+    required this.teamOneAgents,
+    required this.teamTwoAgents,
+  }) : super._();
 
   @override
   final String mapName;
@@ -265,16 +293,17 @@ class _$RawMatchImpl extends _RawMatch {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      mapName,
-      teamOneName,
-      teamTwoName,
-      teamOneScore,
-      teamTwoScore,
-      teamOneAttackScore,
-      teamTwoAttackScore,
-      teamOneAgents,
-      teamTwoAgents);
+    runtimeType,
+    mapName,
+    teamOneName,
+    teamTwoName,
+    teamOneScore,
+    teamTwoScore,
+    teamOneAttackScore,
+    teamTwoAttackScore,
+    teamOneAgents,
+    teamTwoAgents,
+  );
 
   /// Create a copy of RawMatch
   /// with the given fields replaced by the non-null parameter values.
@@ -286,16 +315,17 @@ class _$RawMatchImpl extends _RawMatch {
 }
 
 abstract class _RawMatch extends RawMatch {
-  const factory _RawMatch(
-      {required final String mapName,
-      required final String teamOneName,
-      required final String teamTwoName,
-      required final int teamOneScore,
-      required final int teamTwoScore,
-      required final int teamOneAttackScore,
-      required final int teamTwoAttackScore,
-      required final String teamOneAgents,
-      required final String teamTwoAgents}) = _$RawMatchImpl;
+  const factory _RawMatch({
+    required final String mapName,
+    required final String teamOneName,
+    required final String teamTwoName,
+    required final int teamOneScore,
+    required final int teamTwoScore,
+    required final int teamOneAttackScore,
+    required final int teamTwoAttackScore,
+    required final String teamOneAgents,
+    required final String teamTwoAgents,
+  }) = _$RawMatchImpl;
   const _RawMatch._() : super._();
 
   @override

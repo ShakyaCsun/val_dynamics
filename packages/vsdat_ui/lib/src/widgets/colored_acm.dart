@@ -28,36 +28,21 @@ class ColoredAcm extends StatelessWidget {
           TextSpan(
             text: acm.A,
             style: effectiveStyle?.copyWith(
-              color: ValColors.aggro.of(
-                context,
-                inverse: true,
-              ),
+              color: ValColors.aggro.of(context, inverse: true),
             ),
           ),
-          TextSpan(
-            text: separator,
-            style: effectiveStyle,
-          ),
+          TextSpan(text: separator, style: effectiveStyle),
           TextSpan(
             text: acm.C,
             style: effectiveStyle?.copyWith(
-              color: ValColors.control.of(
-                context,
-                inverse: true,
-              ),
+              color: ValColors.control.of(context, inverse: true),
             ),
           ),
-          TextSpan(
-            text: separator,
-            style: effectiveStyle,
-          ),
+          TextSpan(text: separator, style: effectiveStyle),
           TextSpan(
             text: acm.M,
             style: effectiveStyle?.copyWith(
-              color: ValColors.midrange.of(
-                context,
-                inverse: true,
-              ),
+              color: ValColors.midrange.of(context, inverse: true),
             ),
           ),
         ],

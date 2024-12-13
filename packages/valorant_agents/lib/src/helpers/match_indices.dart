@@ -74,14 +74,12 @@ class MatchIndices extends Equatable {
       return '';
     }
     final errorHeadings = _indices
-        .mapIndexed<String?>(
-          (index, element) {
-            if (element < 0) {
-              return MatchHeader.all[index];
-            }
-            return null;
-          },
-        )
+        .mapIndexed<String?>((index, element) {
+          if (element < 0) {
+            return MatchHeader.all[index];
+          }
+          return null;
+        })
         .nonNulls
         .join(',');
 
@@ -89,13 +87,10 @@ class MatchIndices extends Equatable {
   }
 
   String minifiedCsv(List<List<String>> csvRows) {
-    final minifiedRows = csvRows.map<List<String>>(
-      (row) {
-        return [
-          for (final index in _indices) row[index],
-        ];
-      },
-    ).toList();
+    final minifiedRows =
+        csvRows.map<List<String>>((row) {
+          return [for (final index in _indices) row[index]];
+        }).toList();
     return writeCsv([MatchHeader.all, ...minifiedRows]);
   }
 
@@ -121,21 +116,21 @@ class MatchIndices extends Equatable {
       name: row[teamOne],
       score: parseInt(row[teamOneScore]),
       attackScore: parseInt(row[teamOneAttackScore]),
-      agents:
-          AgentComp.fromAgentNames(row[teamOneAgents], agentsMap: agentsMap),
+      agents: AgentComp.fromAgentNames(
+        row[teamOneAgents],
+        agentsMap: agentsMap,
+      ),
     );
     final team2 = Team(
       name: row[teamTwo],
       score: parseInt(row[teamTwoScore]),
       attackScore: parseInt(row[teamTwoAttackScore]),
-      agents:
-          AgentComp.fromAgentNames(row[teamTwoAgents], agentsMap: agentsMap),
+      agents: AgentComp.fromAgentNames(
+        row[teamTwoAgents],
+        agentsMap: agentsMap,
+      ),
     );
-    return ValorantMatch(
-      mapName: row[mapName],
-      teamOne: team1,
-      teamTwo: team2,
-    );
+    return ValorantMatch(mapName: row[mapName], teamOne: team1, teamTwo: team2);
   }
 
   MatchIndices copyWith({

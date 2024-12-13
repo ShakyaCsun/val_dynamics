@@ -17,7 +17,7 @@ class RosterNameFormField extends StatelessWidget {
     final l10n = context.l10n;
     final errorText = switch (nameError) {
       null => null,
-      NameInputError.empty => l10n.emptyRosterNameError
+      NameInputError.empty => l10n.emptyRosterNameError,
     };
     return TextFormField(
       onChanged: onChanged,

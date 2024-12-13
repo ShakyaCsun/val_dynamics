@@ -17,9 +17,7 @@ class StyledMatchesListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(context.l10n.styledMatches(stylePoints.acm)),
-      ),
+      appBar: AppBar(title: Text(context.l10n.styledMatches(stylePoints.acm))),
       body: Consumer(
         builder: (context, ref, child) {
           final matchesData = ref.watch(

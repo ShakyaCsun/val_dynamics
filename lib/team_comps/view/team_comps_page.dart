@@ -15,18 +15,21 @@ class TeamCompsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: !context.mediumLargeAndUp
-            ? Builder(
-                builder: (context) {
-                  return IconButton(
-                    onPressed: () {
-                      TeamCompsFilterRoute(rosterName: rosterName).go(context);
-                    },
-                    icon: const Icon(Icons.filter_alt_outlined),
-                  );
-                },
-              )
-            : null,
+        leading:
+            !context.mediumLargeAndUp
+                ? Builder(
+                  builder: (context) {
+                    return IconButton(
+                      onPressed: () {
+                        TeamCompsFilterRoute(
+                          rosterName: rosterName,
+                        ).go(context);
+                      },
+                      icon: const Icon(Icons.filter_alt_outlined),
+                    );
+                  },
+                )
+                : null,
         title: Consumer(
           builder: (context, ref, child) {
             final compsReady = ref.watch(
@@ -34,19 +37,19 @@ class TeamCompsPage extends StatelessWidget {
             );
             final description = switch (compsReady) {
               true => ref.watch(
-                  filteredCompositionsProvider(rosterName: rosterName).select(
-                    (comps) {
-                      final compsCount = comps.length;
-                      if (compsCount == 0) {
-                        return context.l10n.noCompsForFilter;
-                      }
-                      return context.l10n.nCompsOfDifferentStyle(
-                        compsCount,
-                        comps.stylesCount,
-                      );
-                    },
-                  ),
-                ),
+                filteredCompositionsProvider(rosterName: rosterName).select((
+                  comps,
+                ) {
+                  final compsCount = comps.length;
+                  if (compsCount == 0) {
+                    return context.l10n.noCompsForFilter;
+                  }
+                  return context.l10n.nCompsOfDifferentStyle(
+                    compsCount,
+                    comps.stylesCount,
+                  );
+                }),
+              ),
               false => rosterName,
             };
             return Text(description);
@@ -78,34 +81,22 @@ class TeamCompsView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final teamComps = ref.watch(
-      compositionsProvider(
-        rosterName: context.compRosterName!,
-      ),
+      compositionsProvider(rosterName: context.compRosterName!),
     );
     switch (teamComps) {
       case AsyncData():
         final mediumLargeAndUp = context.mediumLargeAndUp;
         return Row(
           children: [
-            const Expanded(
-              flex: 2,
-              child: TeamCompsTriangleView(),
-            ),
-            if (mediumLargeAndUp)
-              const Expanded(
-                child: TeamCompsFilter(),
-              ),
+            const Expanded(flex: 2, child: TeamCompsTriangleView()),
+            if (mediumLargeAndUp) const Expanded(child: TeamCompsFilter()),
           ],
         );
 
       case AsyncError(:final error):
-        return Center(
-          child: Text(error.toString()),
-        );
+        return Center(child: Text(error.toString()));
       default:
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
+        return const Center(child: CircularProgressIndicator());
     }
   }
 }

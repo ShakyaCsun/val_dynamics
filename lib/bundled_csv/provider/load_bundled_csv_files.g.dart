@@ -12,14 +12,15 @@ String _$bundledAgentsCsvsHash() => r'f3f500388642b3306f0d215a44c3965c155d7bbf';
 @ProviderFor(bundledAgentsCsvs)
 final bundledAgentsCsvsProvider =
     AutoDisposeProvider<Map<String, Agents>>.internal(
-  bundledAgentsCsvs,
-  name: r'bundledAgentsCsvsProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$bundledAgentsCsvsHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      bundledAgentsCsvs,
+      name: r'bundledAgentsCsvsProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$bundledAgentsCsvsHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
@@ -31,18 +32,19 @@ String _$bundledMatchesCsvsHash() =>
 @ProviderFor(bundledMatchesCsvs)
 final bundledMatchesCsvsProvider =
     AutoDisposeProvider<Map<String, List<RawMatch>>>.internal(
-  bundledMatchesCsvs,
-  name: r'bundledMatchesCsvsProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$bundledMatchesCsvsHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      bundledMatchesCsvs,
+      name: r'bundledMatchesCsvsProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$bundledMatchesCsvsHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef BundledMatchesCsvsRef
-    = AutoDisposeProviderRef<Map<String, List<RawMatch>>>;
+typedef BundledMatchesCsvsRef =
+    AutoDisposeProviderRef<Map<String, List<RawMatch>>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

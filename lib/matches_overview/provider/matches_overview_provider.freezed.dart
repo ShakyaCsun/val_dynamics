@@ -12,7 +12,8 @@ part of 'matches_overview_provider.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$MatchesCollection {
@@ -30,11 +31,15 @@ mixin _$MatchesCollection {
 /// @nodoc
 abstract class $MatchesCollectionCopyWith<$Res> {
   factory $MatchesCollectionCopyWith(
-          MatchesCollection value, $Res Function(MatchesCollection) then) =
-      _$MatchesCollectionCopyWithImpl<$Res, MatchesCollection>;
+    MatchesCollection value,
+    $Res Function(MatchesCollection) then,
+  ) = _$MatchesCollectionCopyWithImpl<$Res, MatchesCollection>;
   @useResult
-  $Res call(
-      {String collectionName, List<RawMatch> rawMatches, String rosterName});
+  $Res call({
+    String collectionName,
+    List<RawMatch> rawMatches,
+    String rosterName,
+  });
 }
 
 /// @nodoc
@@ -56,42 +61,53 @@ class _$MatchesCollectionCopyWithImpl<$Res, $Val extends MatchesCollection>
     Object? rawMatches = null,
     Object? rosterName = null,
   }) {
-    return _then(_value.copyWith(
-      collectionName: null == collectionName
-          ? _value.collectionName
-          : collectionName // ignore: cast_nullable_to_non_nullable
-              as String,
-      rawMatches: null == rawMatches
-          ? _value.rawMatches
-          : rawMatches // ignore: cast_nullable_to_non_nullable
-              as List<RawMatch>,
-      rosterName: null == rosterName
-          ? _value.rosterName
-          : rosterName // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            collectionName:
+                null == collectionName
+                    ? _value.collectionName
+                    : collectionName // ignore: cast_nullable_to_non_nullable
+                        as String,
+            rawMatches:
+                null == rawMatches
+                    ? _value.rawMatches
+                    : rawMatches // ignore: cast_nullable_to_non_nullable
+                        as List<RawMatch>,
+            rosterName:
+                null == rosterName
+                    ? _value.rosterName
+                    : rosterName // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$MatchesCollectionImplCopyWith<$Res>
     implements $MatchesCollectionCopyWith<$Res> {
-  factory _$$MatchesCollectionImplCopyWith(_$MatchesCollectionImpl value,
-          $Res Function(_$MatchesCollectionImpl) then) =
-      __$$MatchesCollectionImplCopyWithImpl<$Res>;
+  factory _$$MatchesCollectionImplCopyWith(
+    _$MatchesCollectionImpl value,
+    $Res Function(_$MatchesCollectionImpl) then,
+  ) = __$$MatchesCollectionImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String collectionName, List<RawMatch> rawMatches, String rosterName});
+  $Res call({
+    String collectionName,
+    List<RawMatch> rawMatches,
+    String rosterName,
+  });
 }
 
 /// @nodoc
 class __$$MatchesCollectionImplCopyWithImpl<$Res>
     extends _$MatchesCollectionCopyWithImpl<$Res, _$MatchesCollectionImpl>
     implements _$$MatchesCollectionImplCopyWith<$Res> {
-  __$$MatchesCollectionImplCopyWithImpl(_$MatchesCollectionImpl _value,
-      $Res Function(_$MatchesCollectionImpl) _then)
-      : super(_value, _then);
+  __$$MatchesCollectionImplCopyWithImpl(
+    _$MatchesCollectionImpl _value,
+    $Res Function(_$MatchesCollectionImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of MatchesCollection
   /// with the given fields replaced by the non-null parameter values.
@@ -102,32 +118,37 @@ class __$$MatchesCollectionImplCopyWithImpl<$Res>
     Object? rawMatches = null,
     Object? rosterName = null,
   }) {
-    return _then(_$MatchesCollectionImpl(
-      collectionName: null == collectionName
-          ? _value.collectionName
-          : collectionName // ignore: cast_nullable_to_non_nullable
-              as String,
-      rawMatches: null == rawMatches
-          ? _value._rawMatches
-          : rawMatches // ignore: cast_nullable_to_non_nullable
-              as List<RawMatch>,
-      rosterName: null == rosterName
-          ? _value.rosterName
-          : rosterName // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$MatchesCollectionImpl(
+        collectionName:
+            null == collectionName
+                ? _value.collectionName
+                : collectionName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        rawMatches:
+            null == rawMatches
+                ? _value._rawMatches
+                : rawMatches // ignore: cast_nullable_to_non_nullable
+                    as List<RawMatch>,
+        rosterName:
+            null == rosterName
+                ? _value.rosterName
+                : rosterName // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$MatchesCollectionImpl extends _MatchesCollection {
-  const _$MatchesCollectionImpl(
-      {required this.collectionName,
-      required final List<RawMatch> rawMatches,
-      required this.rosterName})
-      : _rawMatches = rawMatches,
-        super._();
+  const _$MatchesCollectionImpl({
+    required this.collectionName,
+    required final List<RawMatch> rawMatches,
+    required this.rosterName,
+  }) : _rawMatches = rawMatches,
+       super._();
 
   @override
   final String collectionName;
@@ -154,15 +175,21 @@ class _$MatchesCollectionImpl extends _MatchesCollection {
             other is _$MatchesCollectionImpl &&
             (identical(other.collectionName, collectionName) ||
                 other.collectionName == collectionName) &&
-            const DeepCollectionEquality()
-                .equals(other._rawMatches, _rawMatches) &&
+            const DeepCollectionEquality().equals(
+              other._rawMatches,
+              _rawMatches,
+            ) &&
             (identical(other.rosterName, rosterName) ||
                 other.rosterName == rosterName));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, collectionName,
-      const DeepCollectionEquality().hash(_rawMatches), rosterName);
+  int get hashCode => Object.hash(
+    runtimeType,
+    collectionName,
+    const DeepCollectionEquality().hash(_rawMatches),
+    rosterName,
+  );
 
   /// Create a copy of MatchesCollection
   /// with the given fields replaced by the non-null parameter values.
@@ -171,14 +198,17 @@ class _$MatchesCollectionImpl extends _MatchesCollection {
   @pragma('vm:prefer-inline')
   _$$MatchesCollectionImplCopyWith<_$MatchesCollectionImpl> get copyWith =>
       __$$MatchesCollectionImplCopyWithImpl<_$MatchesCollectionImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _MatchesCollection extends MatchesCollection {
-  const factory _MatchesCollection(
-      {required final String collectionName,
-      required final List<RawMatch> rawMatches,
-      required final String rosterName}) = _$MatchesCollectionImpl;
+  const factory _MatchesCollection({
+    required final String collectionName,
+    required final List<RawMatch> rawMatches,
+    required final String rosterName,
+  }) = _$MatchesCollectionImpl;
   const _MatchesCollection._() : super._();
 
   @override

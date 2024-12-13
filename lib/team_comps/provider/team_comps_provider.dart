@@ -19,17 +19,13 @@ extension AgentCompStylesExtension on List<AgentComp> {
 }
 
 @riverpod
-List<AgentComp> filteredCompositions(
-  Ref ref, {
-  required String rosterName,
-}) {
+List<AgentComp> filteredCompositions(Ref ref, {required String rosterName}) {
   final filters = ref.watch(compFiltersProvider(rosterName: rosterName));
-  final compositions = ref.watch(
-    compositionsProvider(rosterName: rosterName),
-  );
+  final compositions = ref.watch(compositionsProvider(rosterName: rosterName));
   return switch (compositions) {
-    AsyncData(value: final compsState) =>
-      filters.apply(compsState.allCompositions),
+    AsyncData(value: final compsState) => filters.apply(
+      compsState.allCompositions,
+    ),
     _ => throw StateError('compositionsProvider not ready'),
   };
 }
@@ -42,32 +38,27 @@ Map<AgentCompsTernaryData, TernaryPoint> teamCompsTernaryData(
   final filters = ref.watch(compFiltersProvider(rosterName: rosterName));
   if (filters.hasDefaultFilters) {
     return ref.watch(
-      compositionsProvider(rosterName: rosterName).select(
-        (value) => value.requireValue.ternaryData,
-      ),
+      compositionsProvider(
+        rosterName: rosterName,
+      ).select((value) => value.requireValue.ternaryData),
     );
   }
   return ref.watch(
-    filteredCompositionsProvider(rosterName: rosterName).select(
-      (value) => value.asTernaryData,
-    ),
+    filteredCompositionsProvider(
+      rosterName: rosterName,
+    ).select((value) => value.asTernaryData),
   );
 }
 
 @riverpod
-bool compositionsReady(
-  Ref ref, {
-  required String rosterName,
-}) {
+bool compositionsReady(Ref ref, {required String rosterName}) {
   return ref.watch(
-    compositionsProvider(rosterName: rosterName).select<bool>(
-      (value) {
-        return switch (value) {
-          AsyncData() => true,
-          _ => false,
-        };
-      },
-    ),
+    compositionsProvider(rosterName: rosterName).select<bool>((value) {
+      return switch (value) {
+        AsyncData() => true,
+        _ => false,
+      };
+    }),
   );
 }
 
@@ -75,26 +66,18 @@ bool compositionsReady(
 class Compositions extends _$Compositions {
   @override
   Future<CompositionsState> build({required String rosterName}) async {
-    final agents = ref.watch(
-      agentsProvider(
-        rosterName: rosterName,
-      ),
-    );
-    ref.onDispose(
-      () {
-        _subscription?.cancel();
-      },
-    );
+    final agents = ref.watch(agentsProvider(rosterName: rosterName));
+    ref.onDispose(() {
+      _subscription?.cancel();
+    });
     if (isRunningJs) {
       // If on web, stream the agents loading to try and mitigate UI freeze
-      listenSelf(
-        (previous, next) {
-          switch ((previous, next)) {
-            case (AsyncLoading(), AsyncData()):
-              _animateComps();
-          }
-        },
-      );
+      listenSelf((previous, next) {
+        switch ((previous, next)) {
+          case (AsyncLoading(), AsyncData()):
+            _animateComps();
+        }
+      });
       return CompositionsState.empty(agents: agents);
     }
 
@@ -105,16 +88,14 @@ class Compositions extends _$Compositions {
 
   void _animateComps() {
     final oldState = state.requireValue.copyWith();
-    _subscription = oldState.fillComps().listen(
-      (event) {
-        final compState = state.requireValue;
-        state = AsyncData(
-          compState.copyWith(
-            allCompositions: [...compState.allCompositions, ...event],
-          ),
-        );
-      },
-    );
+    _subscription = oldState.fillComps().listen((event) {
+      final compState = state.requireValue;
+      state = AsyncData(
+        compState.copyWith(
+          allCompositions: [...compState.allCompositions, ...event],
+        ),
+      );
+    });
   }
 }
 
@@ -140,28 +121,15 @@ class CompositionsState with _$CompositionsState {
   CompositionsState._();
 
   factory CompositionsState.empty({required Agents agents}) {
-    return CompositionsState(
-      agents: agents,
-      allCompositions: [],
-    );
+    return CompositionsState(agents: agents, allCompositions: []);
   }
 
-  static Future<CompositionsState> initial({
-    required Agents agents,
-  }) async {
-    final allCompositions = await compute(
-      generateAllComps,
-      agents,
-    );
-    return CompositionsState(
-      agents: agents,
-      allCompositions: allCompositions,
-    );
+  static Future<CompositionsState> initial({required Agents agents}) async {
+    final allCompositions = await compute(generateAllComps, agents);
+    return CompositionsState(agents: agents, allCompositions: allCompositions);
   }
 
-  Stream<List<AgentComp>> fillComps({
-    int atEvery = 200,
-  }) async* {
+  Stream<List<AgentComp>> fillComps({int atEvery = 200}) async* {
     var i = 0;
     final comps = <AgentComp>[];
     for (final (one, agent1) in agents.indexed) {
