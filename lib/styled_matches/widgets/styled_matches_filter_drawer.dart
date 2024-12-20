@@ -30,9 +30,7 @@ class StyledMatchesFilterDrawer extends StatelessWidget {
                 styledMatchesProvider(
                   collectionId: collectionName,
                   acm: highlightStyle,
-                ).select(
-                  (value) => value.comps,
-                ),
+                ).select((value) => value.comps),
               );
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

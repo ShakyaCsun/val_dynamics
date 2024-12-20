@@ -21,9 +21,10 @@ class AppProviderObserver extends ProviderObserver {
     Object? value,
     ProviderContainer container,
   ) {
-    final providerName = provider.from != null
-        ? '${provider.name}(${provider.argument})'
-        : provider.name;
+    final providerName =
+        provider.from != null
+            ? '${provider.name}(${provider.argument})'
+            : provider.name;
     _logger.info('$providerName created');
   }
 
@@ -71,23 +72,22 @@ Future<void> bootstrap(Future<Widget> Function() builder) async {
   };
 
   // Add cross-flavor configuration here.
-  Logger.root.onRecord.listen(
-    (event) {
-      log(
-        event.message,
-        level: event.level.value,
-        error: event.error,
-        stackTrace: event.stackTrace,
-        time: event.time,
-        name: event.loggerName,
-      );
-    },
-  );
+  Logger.root.onRecord.listen((event) {
+    log(
+      event.message,
+      level: event.level.value,
+      error: event.error,
+      stackTrace: event.stackTrace,
+      time: event.time,
+      name: event.loggerName,
+    );
+  });
 
   final agentCsvs = <String, Agents>{
     for (final agentCsv in Assets.csv.agents.values)
-      agentCsv.split('/').last:
-          Agents.fromCsv(await rootBundle.loadString(agentCsv)),
+      agentCsv.split('/').last: Agents.fromCsv(
+        await rootBundle.loadString(agentCsv),
+      ),
   };
   final matchesCsvs = <String, List<RawMatch>>{
     for (final matchesCsv in Assets.csv.matches.values)
@@ -102,9 +102,7 @@ Future<void> bootstrap(Future<Widget> Function() builder) async {
         bundledAgentsCsvsProvider.overrideWithValue(agentCsvs),
         bundledMatchesCsvsProvider.overrideWithValue(matchesCsvs),
       ],
-      child: Portal(
-        child: await builder(),
-      ),
+      child: Portal(child: await builder()),
     ),
   );
 }

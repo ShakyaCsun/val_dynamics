@@ -33,9 +33,7 @@ abstract class _$MatchesStats
     extends BuildlessAutoDisposeNotifier<List<StyledMatchesStat>> {
   late final String collectionId;
 
-  List<StyledMatchesStat> build({
-    required String collectionId,
-  });
+  List<StyledMatchesStat> build({required String collectionId});
 }
 
 /// See also [MatchesStats].
@@ -48,21 +46,15 @@ class MatchesStatsFamily extends Family<List<StyledMatchesStat>> {
   const MatchesStatsFamily();
 
   /// See also [MatchesStats].
-  MatchesStatsProvider call({
-    required String collectionId,
-  }) {
-    return MatchesStatsProvider(
-      collectionId: collectionId,
-    );
+  MatchesStatsProvider call({required String collectionId}) {
+    return MatchesStatsProvider(collectionId: collectionId);
   }
 
   @override
   MatchesStatsProvider getProviderOverride(
     covariant MatchesStatsProvider provider,
   ) {
-    return call(
-      collectionId: provider.collectionId,
-    );
+    return call(collectionId: provider.collectionId);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -81,24 +73,24 @@ class MatchesStatsFamily extends Family<List<StyledMatchesStat>> {
 }
 
 /// See also [MatchesStats].
-class MatchesStatsProvider extends AutoDisposeNotifierProviderImpl<MatchesStats,
-    List<StyledMatchesStat>> {
+class MatchesStatsProvider
+    extends
+        AutoDisposeNotifierProviderImpl<MatchesStats, List<StyledMatchesStat>> {
   /// See also [MatchesStats].
-  MatchesStatsProvider({
-    required String collectionId,
-  }) : this._internal(
-          () => MatchesStats()..collectionId = collectionId,
-          from: matchesStatsProvider,
-          name: r'matchesStatsProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$matchesStatsHash,
-          dependencies: MatchesStatsFamily._dependencies,
-          allTransitiveDependencies:
-              MatchesStatsFamily._allTransitiveDependencies,
-          collectionId: collectionId,
-        );
+  MatchesStatsProvider({required String collectionId})
+    : this._internal(
+        () => MatchesStats()..collectionId = collectionId,
+        from: matchesStatsProvider,
+        name: r'matchesStatsProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$matchesStatsHash,
+        dependencies: MatchesStatsFamily._dependencies,
+        allTransitiveDependencies:
+            MatchesStatsFamily._allTransitiveDependencies,
+        collectionId: collectionId,
+      );
 
   MatchesStatsProvider._internal(
     super._createNotifier, {
@@ -113,12 +105,8 @@ class MatchesStatsProvider extends AutoDisposeNotifierProviderImpl<MatchesStats,
   final String collectionId;
 
   @override
-  List<StyledMatchesStat> runNotifierBuild(
-    covariant MatchesStats notifier,
-  ) {
-    return notifier.build(
-      collectionId: collectionId,
-    );
+  List<StyledMatchesStat> runNotifierBuild(covariant MatchesStats notifier) {
+    return notifier.build(collectionId: collectionId);
   }
 
   @override
@@ -139,7 +127,7 @@ class MatchesStatsProvider extends AutoDisposeNotifierProviderImpl<MatchesStats,
 
   @override
   AutoDisposeNotifierProviderElement<MatchesStats, List<StyledMatchesStat>>
-      createElement() {
+  createElement() {
     return _MatchesStatsProviderElement(this);
   }
 
@@ -165,12 +153,18 @@ mixin MatchesStatsRef
   String get collectionId;
 }
 
-class _MatchesStatsProviderElement extends AutoDisposeNotifierProviderElement<
-    MatchesStats, List<StyledMatchesStat>> with MatchesStatsRef {
+class _MatchesStatsProviderElement
+    extends
+        AutoDisposeNotifierProviderElement<
+          MatchesStats,
+          List<StyledMatchesStat>
+        >
+    with MatchesStatsRef {
   _MatchesStatsProviderElement(super.provider);
 
   @override
   String get collectionId => (origin as MatchesStatsProvider).collectionId;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -16,9 +16,8 @@ ValorantMatches styledMatchupList(
   final matches = ref.watch(
     matchesProvider(collectionId: collectionId).select(
       (value) =>
-          [...(value.matchesByStyle[acm] ?? ValorantMatches([]))]..retainWhere(
-              (element) => element.stylePoints2 == opponentAcm,
-            ),
+          [...(value.matchesByStyle[acm] ?? ValorantMatches([]))]
+            ..retainWhere((element) => element.stylePoints2 == opponentAcm),
     ),
   );
   return ValorantMatches(matches);

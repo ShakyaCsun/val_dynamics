@@ -23,14 +23,10 @@ class ValorantMatch with _$ValorantMatch {
   Score get scoreOne => Score(won: teamOne.score, lost: teamTwo.score);
   Score get scoreTwo => scoreOne.reverse();
 
-  Score get attackingScore1 => Score(
-        won: teamOne.attackScore,
-        lost: teamTwo.defenseScore,
-      );
-  Score get attackingScore2 => Score(
-        won: teamTwo.attackScore,
-        lost: teamOne.defenseScore,
-      );
+  Score get attackingScore1 =>
+      Score(won: teamOne.attackScore, lost: teamTwo.defenseScore);
+  Score get attackingScore2 =>
+      Score(won: teamTwo.attackScore, lost: teamOne.defenseScore);
   Score get defendingScore1 => attackingScore2.reverse();
   Score get defendingScore2 => attackingScore1.reverse();
 
@@ -39,10 +35,6 @@ class ValorantMatch with _$ValorantMatch {
 
   /// Switch Team One and Team Two
   ValorantMatch switchTeams() {
-    return ValorantMatch(
-      mapName: mapName,
-      teamOne: teamTwo,
-      teamTwo: teamOne,
-    );
+    return ValorantMatch(mapName: mapName, teamOne: teamTwo, teamTwo: teamOne);
   }
 }

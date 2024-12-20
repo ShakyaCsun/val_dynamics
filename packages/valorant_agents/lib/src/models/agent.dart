@@ -48,7 +48,8 @@ class Agent with _$Agent {
   }
 
   bool get validAbilityPoints {
-    final abilitiesTotal = abilityOne.stylePoints +
+    final abilitiesTotal =
+        abilityOne.stylePoints +
         abilityTwo.stylePoints +
         abilityThree.stylePoints +
         ultimateAbility.stylePoints;
@@ -104,22 +105,10 @@ class Agent with _$Agent {
     control: 3,
     midrange: 1,
     role: Role.initiator,
-    abilityOne: AbilityOne(
-      name: 'Flashpoint',
-      reasons: ['', '', ''],
-    ),
-    abilityTwo: AbilityTwo(
-      name: 'Fault Line',
-      reasons: ['', '', ''],
-    ),
-    abilityThree: AbilityThree(
-      name: 'Aftershock',
-      reasons: ['', '', ''],
-    ),
-    ultimateAbility: UltimateAbility(
-      name: 'Rolling Thunder',
-      reasons: [''],
-    ),
+    abilityOne: AbilityOne(name: 'Flashpoint', reasons: ['', '', '']),
+    abilityTwo: AbilityTwo(name: 'Fault Line', reasons: ['', '', '']),
+    abilityThree: AbilityThree(name: 'Aftershock', reasons: ['', '', '']),
+    ultimateAbility: UltimateAbility(name: 'Rolling Thunder', reasons: ['']),
   );
   static const brimstone = Agent(
     name: 'Brimstone',
@@ -127,22 +116,10 @@ class Agent with _$Agent {
     control: 2,
     midrange: 2,
     role: Role.controller,
-    abilityOne: AbilityOne(
-      name: 'Incendiary',
-      reasons: ['', '', ''],
-    ),
-    abilityTwo: AbilityTwo(
-      name: 'Sky Smoke',
-      reasons: ['', '', ''],
-    ),
-    abilityThree: AbilityThree(
-      name: 'Stim Beacon',
-      reasons: ['', '', ''],
-    ),
-    ultimateAbility: UltimateAbility(
-      name: 'Orbital Strike',
-      reasons: [''],
-    ),
+    abilityOne: AbilityOne(name: 'Incendiary', reasons: ['', '', '']),
+    abilityTwo: AbilityTwo(name: 'Sky Smoke', reasons: ['', '', '']),
+    abilityThree: AbilityThree(name: 'Stim Beacon', reasons: ['', '', '']),
+    ultimateAbility: UltimateAbility(name: 'Orbital Strike', reasons: ['']),
   );
   static const chamber = Agent(
     name: 'Chamber',
@@ -150,22 +127,10 @@ class Agent with _$Agent {
     control: 5,
     midrange: 0,
     role: Role.sentinel,
-    abilityOne: AbilityOne(
-      name: 'Headhunter',
-      reasons: ['', '', ''],
-    ),
-    abilityTwo: AbilityTwo(
-      name: 'Rendezvous',
-      reasons: ['', '', ''],
-    ),
-    abilityThree: AbilityThree(
-      name: 'Trademark',
-      reasons: ['', '', ''],
-    ),
-    ultimateAbility: UltimateAbility(
-      name: 'Tour De Force',
-      reasons: [''],
-    ),
+    abilityOne: AbilityOne(name: 'Headhunter', reasons: ['', '', '']),
+    abilityTwo: AbilityTwo(name: 'Rendezvous', reasons: ['', '', '']),
+    abilityThree: AbilityThree(name: 'Trademark', reasons: ['', '', '']),
+    ultimateAbility: UltimateAbility(name: 'Tour De Force', reasons: ['']),
   );
   static const clove = Agent(
     name: 'Clove',
@@ -199,22 +164,10 @@ class Agent with _$Agent {
     control: 7,
     midrange: 2,
     role: Role.sentinel,
-    abilityOne: AbilityOne(
-      name: 'Cyber Cage',
-      reasons: ['', '', ''],
-    ),
-    abilityTwo: AbilityTwo(
-      name: 'Spycam',
-      reasons: ['', '', ''],
-    ),
-    abilityThree: AbilityThree(
-      name: 'Trapwire',
-      reasons: ['', '', ''],
-    ),
-    ultimateAbility: UltimateAbility(
-      name: 'Neural Theft',
-      reasons: [''],
-    ),
+    abilityOne: AbilityOne(name: 'Cyber Cage', reasons: ['', '', '']),
+    abilityTwo: AbilityTwo(name: 'Spycam', reasons: ['', '', '']),
+    abilityThree: AbilityThree(name: 'Trapwire', reasons: ['', '', '']),
+    ultimateAbility: UltimateAbility(name: 'Neural Theft', reasons: ['']),
   );
   static const deadlock = Agent(
     name: 'Deadlock',
@@ -260,22 +213,10 @@ class Agent with _$Agent {
     control: 3,
     midrange: 4,
     role: Role.initiator,
-    abilityOne: AbilityOne(
-      name: 'Seize',
-      reasons: ['', '', ''],
-    ),
-    abilityTwo: AbilityTwo(
-      name: 'Haunt',
-      reasons: ['', '', ''],
-    ),
-    abilityThree: AbilityThree(
-      name: 'Prowler',
-      reasons: ['', '', ''],
-    ),
-    ultimateAbility: UltimateAbility(
-      name: 'Nightfall',
-      reasons: [''],
-    ),
+    abilityOne: AbilityOne(name: 'Seize', reasons: ['', '', '']),
+    abilityTwo: AbilityTwo(name: 'Haunt', reasons: ['', '', '']),
+    abilityThree: AbilityThree(name: 'Prowler', reasons: ['', '', '']),
+    ultimateAbility: UltimateAbility(name: 'Nightfall', reasons: ['']),
   );
   static const gekko = Agent(
     name: 'Gekko',
@@ -283,22 +224,10 @@ class Agent with _$Agent {
     control: 1,
     midrange: 7,
     role: Role.initiator,
-    abilityOne: AbilityOne(
-      name: 'Wingman',
-      reasons: ['', '', ''],
-    ),
-    abilityTwo: AbilityTwo(
-      name: 'Dizzy',
-      reasons: ['', '', ''],
-    ),
-    abilityThree: AbilityThree(
-      name: 'Mosh Pit',
-      reasons: ['', '', ''],
-    ),
-    ultimateAbility: UltimateAbility(
-      name: 'Thrash',
-      reasons: [''],
-    ),
+    abilityOne: AbilityOne(name: 'Wingman', reasons: ['', '', '']),
+    abilityTwo: AbilityTwo(name: 'Dizzy', reasons: ['', '', '']),
+    abilityThree: AbilityThree(name: 'Mosh Pit', reasons: ['', '', '']),
+    ultimateAbility: UltimateAbility(name: 'Thrash', reasons: ['']),
   );
   static const harbor = Agent(
     name: 'Harbor',
@@ -377,22 +306,10 @@ class Agent with _$Agent {
     control: 2,
     midrange: 0,
     role: Role.duelist,
-    abilityOne: AbilityOne(
-      name: 'Updraft',
-      reasons: ['', '', ''],
-    ),
-    abilityTwo: AbilityTwo(
-      name: 'Tailwind',
-      reasons: ['', '', ''],
-    ),
-    abilityThree: AbilityThree(
-      name: 'Cloudburst',
-      reasons: ['', '', ''],
-    ),
-    ultimateAbility: UltimateAbility(
-      name: 'Blade Storm',
-      reasons: [''],
-    ),
+    abilityOne: AbilityOne(name: 'Updraft', reasons: ['', '', '']),
+    abilityTwo: AbilityTwo(name: 'Tailwind', reasons: ['', '', '']),
+    abilityThree: AbilityThree(name: 'Cloudburst', reasons: ['', '', '']),
+    ultimateAbility: UltimateAbility(name: 'Blade Storm', reasons: ['']),
   );
   static const kayo = Agent(
     name: 'KAY/O',
@@ -400,22 +317,10 @@ class Agent with _$Agent {
     control: 3,
     midrange: 1,
     role: Role.initiator,
-    abilityOne: AbilityOne(
-      name: 'FLASH/drive',
-      reasons: ['', '', ''],
-    ),
-    abilityTwo: AbilityTwo(
-      name: 'ZERO/point',
-      reasons: ['', '', ''],
-    ),
-    abilityThree: AbilityThree(
-      name: 'FRAG/ment',
-      reasons: ['', '', ''],
-    ),
-    ultimateAbility: UltimateAbility(
-      name: 'NULL/cmd',
-      reasons: [''],
-    ),
+    abilityOne: AbilityOne(name: 'FLASH/drive', reasons: ['', '', '']),
+    abilityTwo: AbilityTwo(name: 'ZERO/point', reasons: ['', '', '']),
+    abilityThree: AbilityThree(name: 'FRAG/ment', reasons: ['', '', '']),
+    ultimateAbility: UltimateAbility(name: 'NULL/cmd', reasons: ['']),
   );
   static const killjoy = Agent(
     name: 'Killjoy',
@@ -423,22 +328,10 @@ class Agent with _$Agent {
     control: 7,
     midrange: 0,
     role: Role.sentinel,
-    abilityOne: AbilityOne(
-      name: 'ALARMBOT',
-      reasons: ['', '', ''],
-    ),
-    abilityTwo: AbilityTwo(
-      name: 'TURRET',
-      reasons: ['', '', ''],
-    ),
-    abilityThree: AbilityThree(
-      name: 'Nanoswarm',
-      reasons: ['', '', ''],
-    ),
-    ultimateAbility: UltimateAbility(
-      name: 'Lockdown',
-      reasons: [''],
-    ),
+    abilityOne: AbilityOne(name: 'ALARMBOT', reasons: ['', '', '']),
+    abilityTwo: AbilityTwo(name: 'TURRET', reasons: ['', '', '']),
+    abilityThree: AbilityThree(name: 'Nanoswarm', reasons: ['', '', '']),
+    ultimateAbility: UltimateAbility(name: 'Lockdown', reasons: ['']),
   );
   static const neon = Agent(
     name: 'Neon',
@@ -476,22 +369,10 @@ class Agent with _$Agent {
     control: 6,
     midrange: 1,
     role: Role.controller,
-    abilityOne: AbilityOne(
-      name: 'Paranoia',
-      reasons: ['', '', ''],
-    ),
-    abilityTwo: AbilityTwo(
-      name: 'Dark Cover',
-      reasons: ['', '', ''],
-    ),
-    abilityThree: AbilityThree(
-      name: 'Shrouded Step',
-      reasons: ['', '', ''],
-    ),
-    ultimateAbility: UltimateAbility(
-      name: 'From the Shadows',
-      reasons: [''],
-    ),
+    abilityOne: AbilityOne(name: 'Paranoia', reasons: ['', '', '']),
+    abilityTwo: AbilityTwo(name: 'Dark Cover', reasons: ['', '', '']),
+    abilityThree: AbilityThree(name: 'Shrouded Step', reasons: ['', '', '']),
+    ultimateAbility: UltimateAbility(name: 'From the Shadows', reasons: ['']),
   );
   static const phoenix = Agent(
     name: 'Phoenix',
@@ -560,22 +441,10 @@ class Agent with _$Agent {
     control: 0,
     midrange: 2,
     role: Role.duelist,
-    abilityOne: AbilityOne(
-      name: 'Devour',
-      reasons: ['', '', ''],
-    ),
-    abilityTwo: AbilityTwo(
-      name: 'Dismiss',
-      reasons: ['', '', ''],
-    ),
-    abilityThree: AbilityThree(
-      name: 'Leer',
-      reasons: ['', '', ''],
-    ),
-    ultimateAbility: UltimateAbility(
-      name: 'Empress',
-      reasons: [''],
-    ),
+    abilityOne: AbilityOne(name: 'Devour', reasons: ['', '', '']),
+    abilityTwo: AbilityTwo(name: 'Dismiss', reasons: ['', '', '']),
+    abilityThree: AbilityThree(name: 'Leer', reasons: ['', '', '']),
+    ultimateAbility: UltimateAbility(name: 'Empress', reasons: ['']),
   );
   static const sage = Agent(
     name: 'Sage',
@@ -613,22 +482,10 @@ class Agent with _$Agent {
     control: 2,
     midrange: 6,
     role: Role.initiator,
-    abilityOne: AbilityOne(
-      name: 'Trailblazer',
-      reasons: ['', '', ''],
-    ),
-    abilityTwo: AbilityTwo(
-      name: 'Guiding Light',
-      reasons: ['', '', ''],
-    ),
-    abilityThree: AbilityThree(
-      name: 'Regrowth',
-      reasons: ['', '', ''],
-    ),
-    ultimateAbility: UltimateAbility(
-      name: 'Seekers',
-      reasons: [''],
-    ),
+    abilityOne: AbilityOne(name: 'Trailblazer', reasons: ['', '', '']),
+    abilityTwo: AbilityTwo(name: 'Guiding Light', reasons: ['', '', '']),
+    abilityThree: AbilityThree(name: 'Regrowth', reasons: ['', '', '']),
+    ultimateAbility: UltimateAbility(name: 'Seekers', reasons: ['']),
   );
   static const sova = Agent(
     name: 'Sova',
@@ -636,22 +493,10 @@ class Agent with _$Agent {
     control: 6,
     midrange: 3,
     role: Role.initiator,
-    abilityOne: AbilityOne(
-      name: 'Shock Bolt',
-      reasons: ['', '', ''],
-    ),
-    abilityTwo: AbilityTwo(
-      name: 'Recon Bolt',
-      reasons: ['', '', ''],
-    ),
-    abilityThree: AbilityThree(
-      name: 'Owl Drone',
-      reasons: ['', '', ''],
-    ),
-    ultimateAbility: UltimateAbility(
-      name: "Hunter's Fury",
-      reasons: [''],
-    ),
+    abilityOne: AbilityOne(name: 'Shock Bolt', reasons: ['', '', '']),
+    abilityTwo: AbilityTwo(name: 'Recon Bolt', reasons: ['', '', '']),
+    abilityThree: AbilityThree(name: 'Owl Drone', reasons: ['', '', '']),
+    ultimateAbility: UltimateAbility(name: "Hunter's Fury", reasons: ['']),
   );
   static const viper = Agent(
     name: 'Viper',

@@ -11,27 +11,18 @@ part 'comp_filters_provider.g.dart';
 class CompFilters extends _$CompFilters {
   @override
   CompFiltersState build({required String rosterName}) {
-    final agents = ref.watch(
-      agentsProvider(
-        rosterName: rosterName,
-      ),
-    );
+    final agents = ref.watch(agentsProvider(rosterName: rosterName));
     return CompFiltersState.fromAgents(agents);
   }
 
   void toggleAgent(Agent agent) {
-    final agentFilters = {...state.agentFilters}..update(
-        agent,
-        (currentStatus) => currentStatus.next,
-      );
+    final agentFilters = {...state.agentFilters}
+      ..update(agent, (currentStatus) => currentStatus.next);
     state = state.copyWith(agentFilters: agentFilters);
   }
 
   void changeRoleRange(Role role, RoleRange range) {
-    final roleFilters = {...state.roleFilters}..update(
-        role,
-        (_) => range,
-      );
+    final roleFilters = {...state.roleFilters}..update(role, (_) => range);
     state = state.copyWith(roleFilters: roleFilters);
   }
 
@@ -70,9 +61,7 @@ class CompFiltersState with _$CompFiltersState {
     return agentFilters.values.every(
           (element) => element == AgentStatus.normal,
         ) &&
-        roleFilters.values.every(
-          (element) => element == RoleRange.all,
-        );
+        roleFilters.values.every((element) => element == RoleRange.all);
   }
 
   /// Returns new list of compositions after applying current filter.
@@ -80,59 +69,50 @@ class CompFiltersState with _$CompFiltersState {
     if (hasDefaultFilters) {
       return compositions;
     }
-    final coreAgents = agentFilters.entries
-        .where((element) => element.value == AgentStatus.core)
-        .map((e) => e.key)
-        .toList();
-    final excludeAgents = agentFilters.entries
-        .where((element) => element.value == AgentStatus.exclude)
-        .map((e) => e.key)
-        .toList();
-    final changedRoleFilters = {...roleFilters}..removeWhere(
-        (_, range) => range == RoleRange.all,
+    final coreAgents =
+        agentFilters.entries
+            .where((element) => element.value == AgentStatus.core)
+            .map((e) => e.key)
+            .toList();
+    final excludeAgents =
+        agentFilters.entries
+            .where((element) => element.value == AgentStatus.exclude)
+            .map((e) => e.key)
+            .toList();
+    final changedRoleFilters = {...roleFilters}
+      ..removeWhere((_, range) => range == RoleRange.all);
+    return compositions.where((composition) {
+      final coreAgentSatisfied = coreAgents.every(
+        (agent) => composition.hasAgent(agent),
       );
-    return compositions.where(
-      (composition) {
-        final coreAgentSatisfied = coreAgents.every(
-          (agent) => composition.hasAgent(agent),
+      if (coreAgentSatisfied) {
+        final excludeAgentSatisfied = excludeAgents.every(
+          (agent) => !composition.hasAgent(agent),
         );
-        if (coreAgentSatisfied) {
-          final excludeAgentSatisfied =
-              excludeAgents.every((agent) => !composition.hasAgent(agent));
-          if (excludeAgentSatisfied) {
-            return changedRoleFilters.entries.every(
-              (entry) {
-                final MapEntry(key: role, value: range) = entry;
-                final roleAgentCount = composition.agents
-                    .where(
-                      (element) => element.role == role,
-                    )
+        if (excludeAgentSatisfied) {
+          return changedRoleFilters.entries.every((entry) {
+            final MapEntry(key: role, value: range) = entry;
+            final roleAgentCount =
+                composition.agents
+                    .where((element) => element.role == role)
                     .length;
-                return range.isInRange(roleAgentCount);
-              },
-            );
-          }
+            return range.isInRange(roleAgentCount);
+          });
         }
-        return false;
-      },
-    ).toList();
+      }
+      return false;
+    }).toList();
   }
 
   CompFiltersState reset() {
     return CompFiltersState(
-      agentFilters: {...agentFilters}..updateAll(
-          (_, __) => AgentStatus.normal,
-        ),
-      roleFilters: {...roleFilters}..updateAll(
-          (_, __) => RoleRange.all,
-        ),
+      agentFilters: {...agentFilters}..updateAll((_, __) => AgentStatus.normal),
+      roleFilters: {...roleFilters}..updateAll((_, __) => RoleRange.all),
     );
   }
 
   static Map<Agent, AgentStatus> _agentFilters(Agents agents) {
-    return {
-      for (final agent in agents) agent: AgentStatus.normal,
-    };
+    return {for (final agent in agents) agent: AgentStatus.normal};
   }
 
   static Map<Role, RoleRange> _roleFilters(Agents agents) {

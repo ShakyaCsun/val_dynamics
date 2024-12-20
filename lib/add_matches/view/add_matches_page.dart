@@ -12,9 +12,7 @@ class AddMatchesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(context.l10n.addMatches),
-      ),
+      appBar: AppBar(title: Text(context.l10n.addMatches)),
       body: const AddMatchesView(),
     );
   }
@@ -38,9 +36,7 @@ class AddMatchesView extends StatelessWidget {
                       onChanged: (value) {
                         ref
                             .read(addMatchesProvider.notifier)
-                            .updateCollectionName(
-                              value,
-                            );
+                            .updateCollectionName(value);
                       },
                       nameError: ref.watch(
                         addMatchesProvider.select(
@@ -59,9 +55,7 @@ class AddMatchesView extends StatelessWidget {
                             .updateCsvFile(file);
                       },
                       inputFile: ref.watch(
-                        addMatchesProvider.select(
-                          (value) => value.csvFile,
-                        ),
+                        addMatchesProvider.select((value) => value.csvFile),
                       ),
                     );
                   },
@@ -82,66 +76,56 @@ class AddMatchesButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
-    ref.listen(
-      addMatchesProvider,
-      (previous, next) {
-        if (next.status.isSuccess) {
-          context
-            ..showSnackbar(
-              SnackBar(
-                content: Text(
-                  l10n.matchesAdded(
-                    next.csvFile.value?.name ?? '',
-                    next.collectionName.value,
-                  ),
+    ref.listen(addMatchesProvider, (previous, next) {
+      if (next.status.isSuccess) {
+        context
+          ..showSnackbar(
+            SnackBar(
+              content: Text(
+                l10n.matchesAdded(
+                  next.csvFile.value?.name ?? '',
+                  next.collectionName.value,
                 ),
               ),
-            )
-            ..pop();
+            ),
+          )
+          ..pop();
+      }
+      if (next.status.isFailure) {
+        switch (next.error) {
+          case NoAddMatchesError():
+            return;
+          case InvalidAddMatchesFormError():
+            context.showSnackbar(const SnackBar(content: Text('Invalid Form')));
+          case InvalidMatchesCsvError(:final message):
+            context.showSnackbar(
+              SnackBar(
+                content: Text('${l10n.invalidMatchesCsvError}\n$message'),
+              ),
+            );
+          case UnknownMatchesError():
+            context.showSnackbar(
+              const SnackBar(content: Text('Unknown Error')),
+            );
         }
-        if (next.status.isFailure) {
-          switch (next.error) {
-            case NoAddMatchesError():
-              return;
-            case InvalidAddMatchesFormError():
-              context.showSnackbar(
-                const SnackBar(content: Text('Invalid Form')),
-              );
-            case InvalidMatchesCsvError(:final message):
-              context.showSnackbar(
-                SnackBar(
-                  content: Text(
-                    '${l10n.invalidMatchesCsvError}\n$message',
-                  ),
-                ),
-              );
-            case UnknownMatchesError():
-              context.showSnackbar(
-                const SnackBar(content: Text('Unknown Error')),
-              );
-          }
-        }
-      },
-    );
+      }
+    });
     final isValid = ref.watch(
-      addMatchesProvider.select(
-        (value) => value.isValid,
-      ),
+      addMatchesProvider.select((value) => value.isValid),
     );
     final isInProgress = ref.watch(
-      addMatchesProvider.select(
-        (value) => value.status.isInProgress,
-      ),
+      addMatchesProvider.select((value) => value.status.isInProgress),
     );
     return isInProgress
         ? const CircularProgressIndicator()
         : ElevatedButton(
-            onPressed: isValid
-                ? () {
+          onPressed:
+              isValid
+                  ? () {
                     ref.read(addMatchesProvider.notifier).submit();
                   }
-                : null,
-            child: Text(l10n.addMatches),
-          );
+                  : null,
+          child: Text(l10n.addMatches),
+        );
   }
 }

@@ -11,9 +11,7 @@ class AgentsStatsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(rosterName),
-      ),
+      appBar: AppBar(title: Text(rosterName)),
       body: Consumer(
         builder: (context, ref, child) {
           final agents = ref.watch(agentsProvider(rosterName: rosterName));

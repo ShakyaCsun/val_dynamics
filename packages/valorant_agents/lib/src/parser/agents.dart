@@ -31,17 +31,15 @@ extension type const Agents._(List<Agent> agents) implements List<Agent> {
       throw InvalidCsvHeadersException(indices.errorMessage);
     }
     return Agents(
-      rows.map<Agent>(
-        (row) {
-          try {
-            return indices.parseAgent(row);
-          } on InvalidFormatException catch (e) {
-            throw InvalidFormatException(
-              '${e.message}\nError Line: ${row.join(',')}',
-            );
-          }
-        },
-      ).toList(),
+      rows.map<Agent>((row) {
+        try {
+          return indices.parseAgent(row);
+        } on InvalidFormatException catch (e) {
+          throw InvalidFormatException(
+            '${e.message}\nError Line: ${row.join(',')}',
+          );
+        }
+      }).toList(),
     );
   }
 
@@ -141,8 +139,8 @@ extension type const Agents._(List<Agent> agents) implements List<Agent> {
   }
 
   Map<String, Agent> get nameMap => <String, Agent>{
-        for (final agent in this) agent.name: agent,
-      };
+    for (final agent in this) agent.name: agent,
+  };
 }
 
 final class _AgentCsvIndices {
@@ -191,19 +189,19 @@ final class _AgentCsvIndices {
     return buffer.toString().replaceFirst(RegExp(r'.$'), '');
   }
 
-  bool get isValid => [name, aggro, control, midrange].every(
-        (element) => element >= 0,
-      );
+  bool get isValid =>
+      [name, aggro, control, midrange].every((element) => element >= 0);
   bool get hasImage => image >= 0;
   bool get hasRole => role >= 0;
 
   Agent parseAgent(List<String> csvRow) {
-    final imageUrl = hasImage
-        ? switch (csvRow[image].trim()) {
-            '' => null,
-            _ => csvRow[image],
-          }
-        : null;
+    final imageUrl =
+        hasImage
+            ? switch (csvRow[image].trim()) {
+              '' => null,
+              _ => csvRow[image],
+            }
+            : null;
     final agentRole = hasRole ? Role.fromJson(csvRow[role]) : Role.unknown;
     return Agent(
       name: csvRow[name],

@@ -26,7 +26,8 @@ class MatchesHoverInfoCard extends StatelessWidget {
     final infoText =
         '${l10n.nMatches(matchesCount)} ($score) ${score.winRatePercent}';
     final compText = l10n.nDifferentComps(compsCount);
-    final wrStat = '${l10n.attack}: $attackScore '
+    final wrStat =
+        '${l10n.attack}: $attackScore '
         '${l10n.defense}: $defenseScore';
     return Card.outlined(
       child: ResponsivePadding(

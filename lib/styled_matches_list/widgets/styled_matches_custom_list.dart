@@ -60,7 +60,7 @@ class StylesMatchesSummaryCard extends StatelessWidget {
         :compsOne,
         :compsTwo,
         :defenseScoreOne,
-      )
+      ),
     ) = summaryData;
     return Card.filled(
       child: ResponsivePadding(
@@ -92,13 +92,8 @@ class StylesMatchesSummaryCard extends StatelessWidget {
                 ),
               ],
             ),
-            Text(
-              scoreOne.winRatePercent,
-              style: textTheme.titleLarge,
-            ),
-            Text(
-              '${l10n.overallScore}: ${scoreOne.winRateFraction}',
-            ),
+            Text(scoreOne.winRatePercent, style: textTheme.titleLarge),
+            Text('${l10n.overallScore}: ${scoreOne.winRateFraction}'),
             Text(
               '${l10n.attack}: ${attackScoreOne.winRateFraction} '
               '${l10n.defense}: ${defenseScoreOne.winRateFraction}',

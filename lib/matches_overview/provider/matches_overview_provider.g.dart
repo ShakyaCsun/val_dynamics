@@ -13,14 +13,15 @@ String _$matchesCollectionListHash() =>
 @ProviderFor(MatchesCollectionList)
 final matchesCollectionListProvider =
     NotifierProvider<MatchesCollectionList, List<MatchesCollection>>.internal(
-  MatchesCollectionList.new,
-  name: r'matchesCollectionListProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$matchesCollectionListHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      MatchesCollectionList.new,
+      name: r'matchesCollectionListProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$matchesCollectionListHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$MatchesCollectionList = Notifier<List<MatchesCollection>>;
 // ignore_for_file: type=lint

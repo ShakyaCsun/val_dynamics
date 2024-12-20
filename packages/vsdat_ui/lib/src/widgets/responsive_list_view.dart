@@ -18,9 +18,7 @@ class ResponsiveListView<T> extends StatelessWidget {
     return ListView.builder(
       itemCount: items.length,
       itemBuilder: (context, index) {
-        return WidthConstrainedBox(
-          child: itemBuilder(context, items[index]),
-        );
+        return WidthConstrainedBox(child: itemBuilder(context, items[index]));
       },
       padding: padding,
     );

@@ -2,13 +2,24 @@ import 'dart:io';
 
 Future<void> main() async {
   final outputFile = File('./lib/gen/agents_map.dart');
-  final buffer = StringBuffer(_importHeaders())
-    ..writeln(generate(funcName: 'defaultAgentIcon', property: 'icon'))
-    ..writeln(generate(funcName: 'defaultAgentPortrait', property: 'portrait'))
-    ..writeln(generate(funcName: 'defaultAbility1Icon', property: 'ability1'))
-    ..writeln(generate(funcName: 'defaultAbility2Icon', property: 'ability2'))
-    ..writeln(generate(funcName: 'defaultAbility3Icon', property: 'ability3'))
-    ..writeln(generate(funcName: 'defaultUltimateIcon', property: 'ultimate'));
+  final buffer =
+      StringBuffer(_importHeaders())
+        ..writeln(generate(funcName: 'defaultAgentIcon', property: 'icon'))
+        ..writeln(
+          generate(funcName: 'defaultAgentPortrait', property: 'portrait'),
+        )
+        ..writeln(
+          generate(funcName: 'defaultAbility1Icon', property: 'ability1'),
+        )
+        ..writeln(
+          generate(funcName: 'defaultAbility2Icon', property: 'ability2'),
+        )
+        ..writeln(
+          generate(funcName: 'defaultAbility3Icon', property: 'ability3'),
+        )
+        ..writeln(
+          generate(funcName: 'defaultUltimateIcon', property: 'ultimate'),
+        );
   await outputFile.writeAsString(buffer.toString());
 }
 
@@ -62,9 +73,7 @@ AssetGenImage? $funcName(String agent) {
         "'$agent' || 'kay/o' => ValAssets.agents.$agent.$property,",
       );
     } else {
-      buffer.writeln(
-        "'$agent' => ValAssets.agents.$agent.$property,",
-      );
+      buffer.writeln("'$agent' => ValAssets.agents.$agent.$property,");
     }
   }
   buffer.writeln('''

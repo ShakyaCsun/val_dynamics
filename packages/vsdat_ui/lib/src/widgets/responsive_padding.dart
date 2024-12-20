@@ -13,9 +13,7 @@ class ResponsivePadding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(
-        ResponsivePadding.of(context),
-      ),
+      padding: EdgeInsets.all(ResponsivePadding.of(context)),
       child: child,
     );
   }

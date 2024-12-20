@@ -12,16 +12,14 @@ class AgentsRepository {
   /// Dynamics 2.0 agent scoring as default and a SD2 rated agents of Champions
   /// 2024.
   AgentsRepository.basic({Map<String, Agents>? agentsCsvs})
-      : _builtInRosterNames = [
-          'Default SD2',
-          'Champions 2024 SD2',
-          ...?agentsCsvs?.keys,
-        ] {
+    : _builtInRosterNames = [
+        'Default SD2',
+        'Champions 2024 SD2',
+        ...?agentsCsvs?.keys,
+      ] {
     final rosters = {
       'Default SD2': Agents.defaultRoster,
-      'Champions 2024 SD2': Agents.defaultRoster.removing(
-        agent: Agent.vyse,
-      ),
+      'Champions 2024 SD2': Agents.defaultRoster.removing(agent: Agent.vyse),
       for (final MapEntry(:key, value: agents)
           in (agentsCsvs ?? <String, Agents>{}).entries)
         key: agents,
@@ -42,8 +40,9 @@ class AgentsRepository {
     return _defaultNameStreamController.asBroadcastStream();
   }
 
-  final _rosterStreamController =
-      BehaviorSubject<Map<String, Agents>>.seeded({});
+  final _rosterStreamController = BehaviorSubject<Map<String, Agents>>.seeded(
+    {},
+  );
 
   /// Current [Agents] name map
   Stream<Map<String, Agents>> getRosters() {
@@ -97,10 +96,7 @@ class AgentsRepository {
   /// * [DefaultRosterEditException] if [name] is one of the default names.
   /// * [RosterAlreadyExistsException] if [name] already exists but [override]
   /// is `false`.
-  Future<String> addNewAgentRoster(
-    Agents agents,
-    String name,
-  ) async {
+  Future<String> addNewAgentRoster(Agents agents, String name) async {
     final rosters = {..._rosterStreamController.value};
     String validKey(String name) {
       if (rosters.containsKey(name)) {

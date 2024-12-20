@@ -35,7 +35,7 @@ extension BreakpointAverageExtension on Breakpoint {
       (null, null) => 1,
       (final begin?, null) => begin,
       (null, final end?) => end,
-      (final begin?, final end?) => (begin + end) / 2
+      (final begin?, final end?) => (begin + end) / 2,
     };
   }
 }

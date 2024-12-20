@@ -22,12 +22,7 @@ void main() {
         knownAgentBreakdowns.map((e) {
           return e.validAbilityPoints;
         }).toList(),
-        equals(
-          List<bool>.generate(
-            knownAgentBreakdowns.length,
-            (_) => true,
-          ),
-        ),
+        equals(List<bool>.generate(knownAgentBreakdowns.length, (_) => true)),
       );
     });
   });

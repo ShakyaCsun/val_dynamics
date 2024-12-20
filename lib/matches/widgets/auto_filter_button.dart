@@ -7,9 +7,7 @@ import 'package:vsdat_ui/vsdat_ui.dart';
 /// {@endtemplate}
 class AutoFilterButton extends StatelessWidget {
   /// {@macro auto_filter_button}
-  const AutoFilterButton({
-    super.key,
-  });
+  const AutoFilterButton({super.key});
 
   @override
   Widget build(BuildContext context) {

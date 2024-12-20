@@ -9,19 +9,14 @@ import 'package:vsdat/l10n/l10n.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';
 
 class AgentsPage extends StatelessWidget {
-  const AgentsPage({
-    required this.rosterName,
-    super.key,
-  });
+  const AgentsPage({required this.rosterName, super.key});
 
   final String rosterName;
 
   @override
   Widget build(BuildContext context) {
     return ProviderScope(
-      overrides: [
-        rosterNameProvider.overrideWithValue(rosterName),
-      ],
+      overrides: [rosterNameProvider.overrideWithValue(rosterName)],
       child: const AgentsView(),
     );
   }
@@ -60,55 +55,45 @@ class AgentsBodyView extends ConsumerWidget {
     final hasSpace = context.largeAndUp;
     final rosterName = ref.watch(rosterNameProvider);
     final agentSelected = ref.watch(
-      selectedAgentProvider(rosterName: rosterName).select(
-        (value) => value != null,
-      ),
+      selectedAgentProvider(
+        rosterName: rosterName,
+      ).select((value) => value != null),
     );
-    ref.listen(
-      selectedAgentProvider(rosterName: rosterName),
-      (previous, next) async {
-        if (!hasSpace && next != null) {
-          await showModalBottomSheet<void>(
-            context: context,
-            constraints: const BoxConstraints(maxWidth: 800),
-            showDragHandle: true,
-            scrollControlDisabledMaxHeightRatio: 0.8,
-            builder: (context) {
-              return ConstrainedBox(
-                constraints: BoxConstraints(
-                  maxHeight: MediaQuery.sizeOf(context).height * 0.8,
-                ),
-                child: ProviderScope(
-                  overrides: [
-                    rosterNameProvider.overrideWithValue(rosterName),
-                  ],
-                  child: const SelectedAgentBreakdown(),
-                ),
-              );
-            },
-          );
-          ref
-              .read(
-                selectedAgentProvider(rosterName: rosterName).notifier,
-              )
-              .change(null);
-        }
-      },
-    );
+    ref.listen(selectedAgentProvider(rosterName: rosterName), (
+      previous,
+      next,
+    ) async {
+      if (!hasSpace && next != null) {
+        await showModalBottomSheet<void>(
+          context: context,
+          constraints: const BoxConstraints(maxWidth: 800),
+          showDragHandle: true,
+          scrollControlDisabledMaxHeightRatio: 0.8,
+          builder: (context) {
+            return ConstrainedBox(
+              constraints: BoxConstraints(
+                maxHeight: MediaQuery.sizeOf(context).height * 0.8,
+              ),
+              child: ProviderScope(
+                overrides: [rosterNameProvider.overrideWithValue(rosterName)],
+                child: const SelectedAgentBreakdown(),
+              ),
+            );
+          },
+        );
+        ref
+            .read(selectedAgentProvider(rosterName: rosterName).notifier)
+            .change(null);
+      }
+    });
     final showBreakdown = hasSpace && agentSelected;
     return Stack(
       fit: StackFit.expand,
       children: [
         Row(
           children: [
-            const Expanded(
-              flex: 6,
-              child: AgentsTriangleView(),
-            ),
-            if (showBreakdown)
-              const Spacer(
-                flex: 4,
-              ),
+            const Expanded(flex: 6, child: AgentsTriangleView()),
+            if (showBreakdown) const Spacer(flex: 4),
           ],
         ),
         if (showBreakdown)
@@ -116,9 +101,7 @@ class AgentsBodyView extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Spacer(),
-              Expanded(
-                child: ResponsivePadding(child: AgentBreakdownCard()),
-              ),
+              Expanded(child: ResponsivePadding(child: AgentBreakdownCard())),
             ],
           ),
       ],
@@ -135,10 +118,7 @@ class AgentBreakdownCard extends StatelessWidget {
     return Card.filled(
       child: ConstrainedBox(
         constraints: BoxConstraints(
-          maxHeight: min(
-            620,
-            MediaQuery.sizeOf(context).height * 0.7,
-          ),
+          maxHeight: min(620, MediaQuery.sizeOf(context).height * 0.7),
         ),
         child: const SelectedAgentBreakdown(),
       ),
@@ -159,9 +139,7 @@ class SelectedAgentBreakdown extends ConsumerWidget {
     if (selectedAgent == null) {
       return const SizedBox.shrink();
     }
-    return ResponsivePadding(
-      child: AgentPointBreakdown(agent: selectedAgent),
-    );
+    return ResponsivePadding(child: AgentPointBreakdown(agent: selectedAgent));
   }
 }
 
@@ -190,9 +168,9 @@ class AgentsTriangleView extends StatelessWidget {
                 return Consumer(
                   builder: (context, ref, child) {
                     final isSelected = ref.watch(
-                      selectedAgentProvider(rosterName: rosterName).select(
-                        (value) => value == agent,
-                      ),
+                      selectedAgentProvider(
+                        rosterName: rosterName,
+                      ).select((value) => value == agent),
                     );
                     return AgentIndicator(
                       agent: agent,
@@ -209,9 +187,7 @@ class AgentsTriangleView extends StatelessWidget {
                     .read(
                       selectedAgentProvider(rosterName: rosterName).notifier,
                     )
-                    .change(
-                      agent,
-                    );
+                    .change(agent);
               },
               minRadius: 20,
             );

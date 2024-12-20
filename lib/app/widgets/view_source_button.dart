@@ -10,30 +10,29 @@ class ViewSourceButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Link(
-      uri: Uri.https(
-        'github.com',
-        '/ShakyaCsun/val_dynamics',
-      ),
+      uri: Uri.https('github.com', '/ShakyaCsun/val_dynamics'),
       target: LinkTarget.blank,
-      builder: (context, followLink) => IconButton(
-        onPressed: followLink,
-        tooltip: context.l10n.viewSource,
-        iconSize: 36,
-        icon: Builder(
-          builder: (context) {
-            final iconSize = IconTheme.of(context).size;
-            final isLightTheme =
-                Theme.of(context).colorScheme.brightness == Brightness.light;
-            return SvgPicture.asset(
-              isLightTheme
-                  ? Assets.icons.githubMark
-                  : Assets.icons.githubMarkWhite,
-              width: iconSize,
-              height: iconSize,
-            );
-          },
-        ),
-      ),
+      builder:
+          (context, followLink) => IconButton(
+            onPressed: followLink,
+            tooltip: context.l10n.viewSource,
+            iconSize: 36,
+            icon: Builder(
+              builder: (context) {
+                final iconSize = IconTheme.of(context).size;
+                final isLightTheme =
+                    Theme.of(context).colorScheme.brightness ==
+                    Brightness.light;
+                return SvgPicture.asset(
+                  isLightTheme
+                      ? Assets.icons.githubMark
+                      : Assets.icons.githubMarkWhite,
+                  width: iconSize,
+                  height: iconSize,
+                );
+              },
+            ),
+          ),
     );
   }
 }

@@ -39,21 +39,13 @@ class AppRouterFamily extends Family<GoRouter> {
   const AppRouterFamily();
 
   /// See also [appRouter].
-  AppRouterProvider call({
-    bool debugLogDiagnostics = false,
-  }) {
-    return AppRouterProvider(
-      debugLogDiagnostics: debugLogDiagnostics,
-    );
+  AppRouterProvider call({bool debugLogDiagnostics = false}) {
+    return AppRouterProvider(debugLogDiagnostics: debugLogDiagnostics);
   }
 
   @override
-  AppRouterProvider getProviderOverride(
-    covariant AppRouterProvider provider,
-  ) {
-    return call(
-      debugLogDiagnostics: provider.debugLogDiagnostics,
-    );
+  AppRouterProvider getProviderOverride(covariant AppRouterProvider provider) {
+    return call(debugLogDiagnostics: provider.debugLogDiagnostics);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -74,23 +66,22 @@ class AppRouterFamily extends Family<GoRouter> {
 /// See also [appRouter].
 class AppRouterProvider extends AutoDisposeProvider<GoRouter> {
   /// See also [appRouter].
-  AppRouterProvider({
-    bool debugLogDiagnostics = false,
-  }) : this._internal(
-          (ref) => appRouter(
-            ref as AppRouterRef,
-            debugLogDiagnostics: debugLogDiagnostics,
-          ),
-          from: appRouterProvider,
-          name: r'appRouterProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$appRouterHash,
-          dependencies: AppRouterFamily._dependencies,
-          allTransitiveDependencies: AppRouterFamily._allTransitiveDependencies,
+  AppRouterProvider({bool debugLogDiagnostics = false})
+    : this._internal(
+        (ref) => appRouter(
+          ref as AppRouterRef,
           debugLogDiagnostics: debugLogDiagnostics,
-        );
+        ),
+        from: appRouterProvider,
+        name: r'appRouterProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$appRouterHash,
+        dependencies: AppRouterFamily._dependencies,
+        allTransitiveDependencies: AppRouterFamily._allTransitiveDependencies,
+        debugLogDiagnostics: debugLogDiagnostics,
+      );
 
   AppRouterProvider._internal(
     super._createNotifier, {
@@ -105,9 +96,7 @@ class AppRouterProvider extends AutoDisposeProvider<GoRouter> {
   final bool debugLogDiagnostics;
 
   @override
-  Override overrideWith(
-    GoRouter Function(AppRouterRef provider) create,
-  ) {
+  Override overrideWith(GoRouter Function(AppRouterRef provider) create) {
     return ProviderOverride(
       origin: this,
       override: AppRouterProvider._internal(
@@ -144,7 +133,8 @@ class AppRouterProvider extends AutoDisposeProvider<GoRouter> {
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin AppRouterRef on AutoDisposeProviderRef<GoRouter> {
+mixin AppRouterRef
+    on AutoDisposeProviderRef<GoRouter> {
   /// The parameter `debugLogDiagnostics` of this provider.
   bool get debugLogDiagnostics;
 }
@@ -157,5 +147,6 @@ class _AppRouterProviderElement extends AutoDisposeProviderElement<GoRouter>
   bool get debugLogDiagnostics =>
       (origin as AppRouterProvider).debugLogDiagnostics;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

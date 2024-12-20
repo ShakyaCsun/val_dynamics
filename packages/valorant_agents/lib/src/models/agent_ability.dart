@@ -4,12 +4,7 @@ import 'package:valorant_agents/valorant_agents.dart';
 
 part 'agent_ability.g.dart';
 
-enum AbilityType {
-  one,
-  two,
-  three,
-  ultimate,
-}
+enum AbilityType { one, two, three, ultimate }
 
 /// {@template agent_ability}
 /// Agent Ability with Style Dynamics score

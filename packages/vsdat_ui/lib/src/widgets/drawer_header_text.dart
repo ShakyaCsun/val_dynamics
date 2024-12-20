@@ -9,10 +9,7 @@ class DrawerHeaderText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(28, 16, 16, 10),
-      child: Text(
-        label,
-        style: Theme.of(context).textTheme.titleSmall,
-      ),
+      child: Text(label, style: Theme.of(context).textTheme.titleSmall),
     );
   }
 }

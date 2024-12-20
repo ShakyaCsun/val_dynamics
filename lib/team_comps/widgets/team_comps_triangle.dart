@@ -12,15 +12,15 @@ class TeamCompsTriangle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final maxComps = teamCompsData.keys.map((e) => e.count).fold(
-      0,
-      (previousValue, element) {
-        if (element > previousValue) {
-          return element;
-        }
-        return previousValue;
-      },
-    );
+    final maxComps = teamCompsData.keys.map((e) => e.count).fold(0, (
+      previousValue,
+      element,
+    ) {
+      if (element > previousValue) {
+        return element;
+      }
+      return previousValue;
+    });
     final colorScheme = Theme.of(context).colorScheme;
     return TernaryPlotHoverInfo<AgentCompsTernaryData>(
       builder: (context, hoveredItemsChanged) {
@@ -75,12 +75,13 @@ class TeamCompsTriangle extends StatelessWidget {
           },
         );
       },
-      itemBuilder: (compsData) => Text(
-        context.l10n.nCompsOfStyle(
-          compsData.count,
-          compsData.stylePoints.acm,
-        ),
-      ),
+      itemBuilder:
+          (compsData) => Text(
+            context.l10n.nCompsOfStyle(
+              compsData.count,
+              compsData.stylePoints.acm,
+            ),
+          ),
     );
   }
 }

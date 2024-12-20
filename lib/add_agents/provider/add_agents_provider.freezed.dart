@@ -12,7 +12,8 @@ part of 'add_agents_provider.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$AddAgentsError {
@@ -22,16 +23,14 @@ mixin _$AddAgentsError {
     required TResult Function() invalidForm,
     required TResult Function() invalidJson,
     required TResult Function(Object error) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? none,
     TResult? Function()? invalidForm,
     TResult? Function()? invalidJson,
     TResult? Function(Object error)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? none,
@@ -39,24 +38,21 @@ mixin _$AddAgentsError {
     TResult Function()? invalidJson,
     TResult Function(Object error)? unknown,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(NoAddAgentsError value) none,
     required TResult Function(InvalidAddAgentsFormError value) invalidForm,
     required TResult Function(InvalidAgentsJsonError value) invalidJson,
     required TResult Function(UnknownAgentsError value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(NoAddAgentsError value)? none,
     TResult? Function(InvalidAddAgentsFormError value)? invalidForm,
     TResult? Function(InvalidAgentsJsonError value)? invalidJson,
     TResult? Function(UnknownAgentsError value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NoAddAgentsError value)? none,
@@ -64,15 +60,15 @@ mixin _$AddAgentsError {
     TResult Function(InvalidAgentsJsonError value)? invalidJson,
     TResult Function(UnknownAgentsError value)? unknown,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AddAgentsErrorCopyWith<$Res> {
   factory $AddAgentsErrorCopyWith(
-          AddAgentsError value, $Res Function(AddAgentsError) then) =
-      _$AddAgentsErrorCopyWithImpl<$Res, AddAgentsError>;
+    AddAgentsError value,
+    $Res Function(AddAgentsError) then,
+  ) = _$AddAgentsErrorCopyWithImpl<$Res, AddAgentsError>;
 }
 
 /// @nodoc
@@ -91,18 +87,20 @@ class _$AddAgentsErrorCopyWithImpl<$Res, $Val extends AddAgentsError>
 
 /// @nodoc
 abstract class _$$NoAddAgentsErrorImplCopyWith<$Res> {
-  factory _$$NoAddAgentsErrorImplCopyWith(_$NoAddAgentsErrorImpl value,
-          $Res Function(_$NoAddAgentsErrorImpl) then) =
-      __$$NoAddAgentsErrorImplCopyWithImpl<$Res>;
+  factory _$$NoAddAgentsErrorImplCopyWith(
+    _$NoAddAgentsErrorImpl value,
+    $Res Function(_$NoAddAgentsErrorImpl) then,
+  ) = __$$NoAddAgentsErrorImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$NoAddAgentsErrorImplCopyWithImpl<$Res>
     extends _$AddAgentsErrorCopyWithImpl<$Res, _$NoAddAgentsErrorImpl>
     implements _$$NoAddAgentsErrorImplCopyWith<$Res> {
-  __$$NoAddAgentsErrorImplCopyWithImpl(_$NoAddAgentsErrorImpl _value,
-      $Res Function(_$NoAddAgentsErrorImpl) _then)
-      : super(_value, _then);
+  __$$NoAddAgentsErrorImplCopyWithImpl(
+    _$NoAddAgentsErrorImpl _value,
+    $Res Function(_$NoAddAgentsErrorImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AddAgentsError
   /// with the given fields replaced by the non-null parameter values.
@@ -209,9 +207,9 @@ abstract class NoAddAgentsError implements AddAgentsError {
 /// @nodoc
 abstract class _$$InvalidAddAgentsFormErrorImplCopyWith<$Res> {
   factory _$$InvalidAddAgentsFormErrorImplCopyWith(
-          _$InvalidAddAgentsFormErrorImpl value,
-          $Res Function(_$InvalidAddAgentsFormErrorImpl) then) =
-      __$$InvalidAddAgentsFormErrorImplCopyWithImpl<$Res>;
+    _$InvalidAddAgentsFormErrorImpl value,
+    $Res Function(_$InvalidAddAgentsFormErrorImpl) then,
+  ) = __$$InvalidAddAgentsFormErrorImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -219,9 +217,9 @@ class __$$InvalidAddAgentsFormErrorImplCopyWithImpl<$Res>
     extends _$AddAgentsErrorCopyWithImpl<$Res, _$InvalidAddAgentsFormErrorImpl>
     implements _$$InvalidAddAgentsFormErrorImplCopyWith<$Res> {
   __$$InvalidAddAgentsFormErrorImplCopyWithImpl(
-      _$InvalidAddAgentsFormErrorImpl _value,
-      $Res Function(_$InvalidAddAgentsFormErrorImpl) _then)
-      : super(_value, _then);
+    _$InvalidAddAgentsFormErrorImpl _value,
+    $Res Function(_$InvalidAddAgentsFormErrorImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AddAgentsError
   /// with the given fields replaced by the non-null parameter values.
@@ -329,9 +327,9 @@ abstract class InvalidAddAgentsFormError implements AddAgentsError {
 /// @nodoc
 abstract class _$$InvalidAgentsJsonErrorImplCopyWith<$Res> {
   factory _$$InvalidAgentsJsonErrorImplCopyWith(
-          _$InvalidAgentsJsonErrorImpl value,
-          $Res Function(_$InvalidAgentsJsonErrorImpl) then) =
-      __$$InvalidAgentsJsonErrorImplCopyWithImpl<$Res>;
+    _$InvalidAgentsJsonErrorImpl value,
+    $Res Function(_$InvalidAgentsJsonErrorImpl) then,
+  ) = __$$InvalidAgentsJsonErrorImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -339,9 +337,9 @@ class __$$InvalidAgentsJsonErrorImplCopyWithImpl<$Res>
     extends _$AddAgentsErrorCopyWithImpl<$Res, _$InvalidAgentsJsonErrorImpl>
     implements _$$InvalidAgentsJsonErrorImplCopyWith<$Res> {
   __$$InvalidAgentsJsonErrorImplCopyWithImpl(
-      _$InvalidAgentsJsonErrorImpl _value,
-      $Res Function(_$InvalidAgentsJsonErrorImpl) _then)
-      : super(_value, _then);
+    _$InvalidAgentsJsonErrorImpl _value,
+    $Res Function(_$InvalidAgentsJsonErrorImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AddAgentsError
   /// with the given fields replaced by the non-null parameter values.
@@ -448,9 +446,10 @@ abstract class InvalidAgentsJsonError implements AddAgentsError {
 
 /// @nodoc
 abstract class _$$UnknownAgentsErrorImplCopyWith<$Res> {
-  factory _$$UnknownAgentsErrorImplCopyWith(_$UnknownAgentsErrorImpl value,
-          $Res Function(_$UnknownAgentsErrorImpl) then) =
-      __$$UnknownAgentsErrorImplCopyWithImpl<$Res>;
+  factory _$$UnknownAgentsErrorImplCopyWith(
+    _$UnknownAgentsErrorImpl value,
+    $Res Function(_$UnknownAgentsErrorImpl) then,
+  ) = __$$UnknownAgentsErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Object error});
 }
@@ -459,20 +458,19 @@ abstract class _$$UnknownAgentsErrorImplCopyWith<$Res> {
 class __$$UnknownAgentsErrorImplCopyWithImpl<$Res>
     extends _$AddAgentsErrorCopyWithImpl<$Res, _$UnknownAgentsErrorImpl>
     implements _$$UnknownAgentsErrorImplCopyWith<$Res> {
-  __$$UnknownAgentsErrorImplCopyWithImpl(_$UnknownAgentsErrorImpl _value,
-      $Res Function(_$UnknownAgentsErrorImpl) _then)
-      : super(_value, _then);
+  __$$UnknownAgentsErrorImplCopyWithImpl(
+    _$UnknownAgentsErrorImpl _value,
+    $Res Function(_$UnknownAgentsErrorImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AddAgentsError
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$UnknownAgentsErrorImpl(
-      error: null == error ? _value.error : error,
-    ));
+  $Res call({Object? error = null}) {
+    return _then(
+      _$UnknownAgentsErrorImpl(error: null == error ? _value.error : error),
+    );
   }
 }
 
@@ -508,7 +506,9 @@ class _$UnknownAgentsErrorImpl implements UnknownAgentsError {
   @pragma('vm:prefer-inline')
   _$$UnknownAgentsErrorImplCopyWith<_$UnknownAgentsErrorImpl> get copyWith =>
       __$$UnknownAgentsErrorImplCopyWithImpl<_$UnknownAgentsErrorImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs

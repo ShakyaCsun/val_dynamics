@@ -13,36 +13,28 @@ class AgentsOverviewNotifier extends _$AgentsOverviewNotifier {
   @override
   AgentsOverviewState build() {
     final agentsRepository = ref.watch(agentsRepositoryProvider);
-    final rosterSubscription = agentsRepository.getRosters().listen(
-      (rosters) {
-        final agentDetails = rosters.entries.map((entry) {
-          final MapEntry(key: name, value: agents) = entry;
-          return AgentsOverview(
-            rosterName: name,
-            agentCount: agents.length,
-            range: PointsRange.from(agents: agents),
-            isBuiltIn: agentsRepository.builtInRosterNames.contains(name),
-          );
-        }).toList();
-        state = state.copyWith(agentDetails: agentDetails);
-      },
-    );
-    final defaultNameSubscription = agentsRepository.defaultName.listen(
-      (name) {
-        state = state.copyWith(defaultRosterName: name);
-      },
-    );
-    ref.onDispose(
-      () {
-        rosterSubscription.cancel();
-        defaultNameSubscription.cancel();
-      },
-    );
+    final rosterSubscription = agentsRepository.getRosters().listen((rosters) {
+      final agentDetails =
+          rosters.entries.map((entry) {
+            final MapEntry(key: name, value: agents) = entry;
+            return AgentsOverview(
+              rosterName: name,
+              agentCount: agents.length,
+              range: PointsRange.from(agents: agents),
+              isBuiltIn: agentsRepository.builtInRosterNames.contains(name),
+            );
+          }).toList();
+      state = state.copyWith(agentDetails: agentDetails);
+    });
+    final defaultNameSubscription = agentsRepository.defaultName.listen((name) {
+      state = state.copyWith(defaultRosterName: name);
+    });
+    ref.onDispose(() {
+      rosterSubscription.cancel();
+      defaultNameSubscription.cancel();
+    });
 
-    return const AgentsOverviewState(
-      agentDetails: [],
-      defaultRosterName: '',
-    );
+    return const AgentsOverviewState(agentDetails: [], defaultRosterName: '');
   }
 
   void changeDefaultRoster(String name) {
@@ -68,11 +60,9 @@ class AgentsOverviewState extends Equatable {
   final String defaultRosterName;
 
   List<String> get availableRosters {
-    return agentDetails.map(
-      (e) {
-        return e.rosterName;
-      },
-    ).toList();
+    return agentDetails.map((e) {
+      return e.rosterName;
+    }).toList();
   }
 
   AgentsOverviewState copyWith({
@@ -101,9 +91,7 @@ AgentsRepository agentsRepository(Ref ref) {
 @riverpod
 String defaultRosterName(Ref ref) {
   return ref.watch(
-    agentsOverviewNotifierProvider.select(
-      (value) => value.defaultRosterName,
-    ),
+    agentsOverviewNotifierProvider.select((value) => value.defaultRosterName),
   );
 }
 

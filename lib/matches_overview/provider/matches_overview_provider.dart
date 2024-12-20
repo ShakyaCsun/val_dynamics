@@ -105,11 +105,8 @@ class MatchesCollectionList extends _$MatchesCollectionList {
     );
   }
 
-  List<String> get _collectionNames => state
-      .map(
-        (e) => e.collectionName,
-      )
-      .toList();
+  List<String> get _collectionNames =>
+      state.map((e) => e.collectionName).toList();
 }
 
 @freezed

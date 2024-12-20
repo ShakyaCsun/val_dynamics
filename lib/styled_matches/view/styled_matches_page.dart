@@ -79,11 +79,7 @@ class StyledMatchesBody extends ConsumerWidget {
           child: Stack(
             children: [
               StyledMatchesTriangleView(),
-              Positioned(
-                top: 16,
-                left: 16,
-                child: AutoFilterButton(),
-              ),
+              Positioned(top: 16, left: 16, child: AutoFilterButton()),
             ],
           ),
         ),
@@ -105,9 +101,7 @@ class StyledMatchesTriangleView extends ConsumerWidget {
         styledMatchesProvider(
           collectionId: collectionName,
           acm: stylePoints,
-        ).select(
-          (value) => value.plotData,
-        ),
+        ).select((value) => value.plotData),
       ),
       highlightStyle: stylePoints,
     );

@@ -27,9 +27,9 @@ class StyledMatches extends _$StyledMatches {
     required StylePoints acm,
   }) {
     final styledMatches = ref.watch(
-      matchesProvider(collectionId: collectionId).select(
-        (value) => value.matchesByStyle[acm],
-      ),
+      matchesProvider(
+        collectionId: collectionId,
+      ).select((value) => value.matchesByStyle[acm]),
     );
     if (styledMatches == null) {
       return StyledMatchesState.empty(acm: acm);
@@ -48,18 +48,11 @@ class StyledMatchesState with _$StyledMatchesState {
   const StyledMatchesState._();
 
   factory StyledMatchesState.empty({required StylePoints acm}) {
-    return StyledMatchesState(
-      matches: ValorantMatches([]),
-      acm: acm,
-    );
+    return StyledMatchesState(matches: ValorantMatches([]), acm: acm);
   }
 
   Set<AgentComp> get comps {
-    return matches
-        .map(
-          (e) => e.teamOne.agents,
-        )
-        .toSet();
+    return matches.map((e) => e.teamOne.agents).toSet();
   }
 
   Map<ValorantMatches, TernaryPoint> get plotData {

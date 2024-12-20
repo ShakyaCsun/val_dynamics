@@ -2,7 +2,8 @@ import 'package:valorant_agents/valorant_agents.dart';
 
 extension type AcmString._(String value) implements String {
   factory AcmString(String value) {
-    final errorMessage = '$value is not a valid AcmString. '
+    final errorMessage =
+        '$value is not a valid AcmString. '
         'The valid format for AcmString is A-C-M '
         'where A, C, and M are positive doubles';
     switch (value.split('-')) {
@@ -15,16 +16,12 @@ extension type AcmString._(String value) implements String {
           throw InvalidFormatException(errorMessage);
         }
       default:
-        throw InvalidFormatException(
-          errorMessage,
-        );
+        throw InvalidFormatException(errorMessage);
     }
     return AcmString._(value);
   }
 
-  factory AcmString.fromStyles(
-    StylePoints points,
-  ) {
+  factory AcmString.fromStyles(StylePoints points) {
     return AcmString('${points.A}-${points.C}-${points.M}');
   }
 

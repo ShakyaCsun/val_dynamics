@@ -12,7 +12,8 @@ part of 'add_matches_provider.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$AddMatchesError {
@@ -22,16 +23,14 @@ mixin _$AddMatchesError {
     required TResult Function() invalidForm,
     required TResult Function(String message) invalidCsv,
     required TResult Function(Object error) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? none,
     TResult? Function()? invalidForm,
     TResult? Function(String message)? invalidCsv,
     TResult? Function(Object error)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? none,
@@ -39,24 +38,21 @@ mixin _$AddMatchesError {
     TResult Function(String message)? invalidCsv,
     TResult Function(Object error)? unknown,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(NoAddMatchesError value) none,
     required TResult Function(InvalidAddMatchesFormError value) invalidForm,
     required TResult Function(InvalidMatchesCsvError value) invalidCsv,
     required TResult Function(UnknownMatchesError value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(NoAddMatchesError value)? none,
     TResult? Function(InvalidAddMatchesFormError value)? invalidForm,
     TResult? Function(InvalidMatchesCsvError value)? invalidCsv,
     TResult? Function(UnknownMatchesError value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NoAddMatchesError value)? none,
@@ -64,15 +60,15 @@ mixin _$AddMatchesError {
     TResult Function(InvalidMatchesCsvError value)? invalidCsv,
     TResult Function(UnknownMatchesError value)? unknown,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AddMatchesErrorCopyWith<$Res> {
   factory $AddMatchesErrorCopyWith(
-          AddMatchesError value, $Res Function(AddMatchesError) then) =
-      _$AddMatchesErrorCopyWithImpl<$Res, AddMatchesError>;
+    AddMatchesError value,
+    $Res Function(AddMatchesError) then,
+  ) = _$AddMatchesErrorCopyWithImpl<$Res, AddMatchesError>;
 }
 
 /// @nodoc
@@ -91,18 +87,20 @@ class _$AddMatchesErrorCopyWithImpl<$Res, $Val extends AddMatchesError>
 
 /// @nodoc
 abstract class _$$NoAddMatchesErrorImplCopyWith<$Res> {
-  factory _$$NoAddMatchesErrorImplCopyWith(_$NoAddMatchesErrorImpl value,
-          $Res Function(_$NoAddMatchesErrorImpl) then) =
-      __$$NoAddMatchesErrorImplCopyWithImpl<$Res>;
+  factory _$$NoAddMatchesErrorImplCopyWith(
+    _$NoAddMatchesErrorImpl value,
+    $Res Function(_$NoAddMatchesErrorImpl) then,
+  ) = __$$NoAddMatchesErrorImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$NoAddMatchesErrorImplCopyWithImpl<$Res>
     extends _$AddMatchesErrorCopyWithImpl<$Res, _$NoAddMatchesErrorImpl>
     implements _$$NoAddMatchesErrorImplCopyWith<$Res> {
-  __$$NoAddMatchesErrorImplCopyWithImpl(_$NoAddMatchesErrorImpl _value,
-      $Res Function(_$NoAddMatchesErrorImpl) _then)
-      : super(_value, _then);
+  __$$NoAddMatchesErrorImplCopyWithImpl(
+    _$NoAddMatchesErrorImpl _value,
+    $Res Function(_$NoAddMatchesErrorImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AddMatchesError
   /// with the given fields replaced by the non-null parameter values.
@@ -209,20 +207,20 @@ abstract class NoAddMatchesError implements AddMatchesError {
 /// @nodoc
 abstract class _$$InvalidAddMatchesFormErrorImplCopyWith<$Res> {
   factory _$$InvalidAddMatchesFormErrorImplCopyWith(
-          _$InvalidAddMatchesFormErrorImpl value,
-          $Res Function(_$InvalidAddMatchesFormErrorImpl) then) =
-      __$$InvalidAddMatchesFormErrorImplCopyWithImpl<$Res>;
+    _$InvalidAddMatchesFormErrorImpl value,
+    $Res Function(_$InvalidAddMatchesFormErrorImpl) then,
+  ) = __$$InvalidAddMatchesFormErrorImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$InvalidAddMatchesFormErrorImplCopyWithImpl<$Res>
-    extends _$AddMatchesErrorCopyWithImpl<$Res,
-        _$InvalidAddMatchesFormErrorImpl>
+    extends
+        _$AddMatchesErrorCopyWithImpl<$Res, _$InvalidAddMatchesFormErrorImpl>
     implements _$$InvalidAddMatchesFormErrorImplCopyWith<$Res> {
   __$$InvalidAddMatchesFormErrorImplCopyWithImpl(
-      _$InvalidAddMatchesFormErrorImpl _value,
-      $Res Function(_$InvalidAddMatchesFormErrorImpl) _then)
-      : super(_value, _then);
+    _$InvalidAddMatchesFormErrorImpl _value,
+    $Res Function(_$InvalidAddMatchesFormErrorImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AddMatchesError
   /// with the given fields replaced by the non-null parameter values.
@@ -330,9 +328,9 @@ abstract class InvalidAddMatchesFormError implements AddMatchesError {
 /// @nodoc
 abstract class _$$InvalidMatchesCsvErrorImplCopyWith<$Res> {
   factory _$$InvalidMatchesCsvErrorImplCopyWith(
-          _$InvalidMatchesCsvErrorImpl value,
-          $Res Function(_$InvalidMatchesCsvErrorImpl) then) =
-      __$$InvalidMatchesCsvErrorImplCopyWithImpl<$Res>;
+    _$InvalidMatchesCsvErrorImpl value,
+    $Res Function(_$InvalidMatchesCsvErrorImpl) then,
+  ) = __$$InvalidMatchesCsvErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
@@ -342,23 +340,24 @@ class __$$InvalidMatchesCsvErrorImplCopyWithImpl<$Res>
     extends _$AddMatchesErrorCopyWithImpl<$Res, _$InvalidMatchesCsvErrorImpl>
     implements _$$InvalidMatchesCsvErrorImplCopyWith<$Res> {
   __$$InvalidMatchesCsvErrorImplCopyWithImpl(
-      _$InvalidMatchesCsvErrorImpl _value,
-      $Res Function(_$InvalidMatchesCsvErrorImpl) _then)
-      : super(_value, _then);
+    _$InvalidMatchesCsvErrorImpl _value,
+    $Res Function(_$InvalidMatchesCsvErrorImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AddMatchesError
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$InvalidMatchesCsvErrorImpl(
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? message = null}) {
+    return _then(
+      _$InvalidMatchesCsvErrorImpl(
+        message:
+            null == message
+                ? _value.message
+                : message // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
@@ -392,8 +391,11 @@ class _$InvalidMatchesCsvErrorImpl implements InvalidMatchesCsvError {
   @override
   @pragma('vm:prefer-inline')
   _$$InvalidMatchesCsvErrorImplCopyWith<_$InvalidMatchesCsvErrorImpl>
-      get copyWith => __$$InvalidMatchesCsvErrorImplCopyWithImpl<
-          _$InvalidMatchesCsvErrorImpl>(this, _$identity);
+  get copyWith =>
+      __$$InvalidMatchesCsvErrorImplCopyWithImpl<_$InvalidMatchesCsvErrorImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -480,14 +482,15 @@ abstract class InvalidMatchesCsvError implements AddMatchesError {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$InvalidMatchesCsvErrorImplCopyWith<_$InvalidMatchesCsvErrorImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$UnknownMatchesErrorImplCopyWith<$Res> {
-  factory _$$UnknownMatchesErrorImplCopyWith(_$UnknownMatchesErrorImpl value,
-          $Res Function(_$UnknownMatchesErrorImpl) then) =
-      __$$UnknownMatchesErrorImplCopyWithImpl<$Res>;
+  factory _$$UnknownMatchesErrorImplCopyWith(
+    _$UnknownMatchesErrorImpl value,
+    $Res Function(_$UnknownMatchesErrorImpl) then,
+  ) = __$$UnknownMatchesErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Object error});
 }
@@ -496,20 +499,19 @@ abstract class _$$UnknownMatchesErrorImplCopyWith<$Res> {
 class __$$UnknownMatchesErrorImplCopyWithImpl<$Res>
     extends _$AddMatchesErrorCopyWithImpl<$Res, _$UnknownMatchesErrorImpl>
     implements _$$UnknownMatchesErrorImplCopyWith<$Res> {
-  __$$UnknownMatchesErrorImplCopyWithImpl(_$UnknownMatchesErrorImpl _value,
-      $Res Function(_$UnknownMatchesErrorImpl) _then)
-      : super(_value, _then);
+  __$$UnknownMatchesErrorImplCopyWithImpl(
+    _$UnknownMatchesErrorImpl _value,
+    $Res Function(_$UnknownMatchesErrorImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AddMatchesError
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$UnknownMatchesErrorImpl(
-      error: null == error ? _value.error : error,
-    ));
+  $Res call({Object? error = null}) {
+    return _then(
+      _$UnknownMatchesErrorImpl(error: null == error ? _value.error : error),
+    );
   }
 }
 
@@ -545,7 +547,9 @@ class _$UnknownMatchesErrorImpl implements UnknownMatchesError {
   @pragma('vm:prefer-inline')
   _$$UnknownMatchesErrorImplCopyWith<_$UnknownMatchesErrorImpl> get copyWith =>
       __$$UnknownMatchesErrorImplCopyWithImpl<_$UnknownMatchesErrorImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs

@@ -19,18 +19,19 @@ class AgentIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final iconUrl = agent.iconUrl;
-    final icon = iconUrl == null
-        ? defaultAgentIcon(agent.name)?.image() ??
-            fallback ??
-            Center(
-              child: FittedBox(
-                child: Text(
-                  agent.name,
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
-              ),
-            )
-        : Image.network(iconUrl);
+    final icon =
+        iconUrl == null
+            ? defaultAgentIcon(agent.name)?.image() ??
+                fallback ??
+                Center(
+                  child: FittedBox(
+                    child: Text(
+                      agent.name,
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                  ),
+                )
+            : Image.network(iconUrl);
     return SizedBox.square(
       dimension: size,
       child: ColoredBox(

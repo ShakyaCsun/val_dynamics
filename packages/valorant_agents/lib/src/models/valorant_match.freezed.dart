@@ -12,7 +12,8 @@ part of 'valorant_match.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$ValorantMatch {
@@ -30,8 +31,9 @@ mixin _$ValorantMatch {
 /// @nodoc
 abstract class $ValorantMatchCopyWith<$Res> {
   factory $ValorantMatchCopyWith(
-          ValorantMatch value, $Res Function(ValorantMatch) then) =
-      _$ValorantMatchCopyWithImpl<$Res, ValorantMatch>;
+    ValorantMatch value,
+    $Res Function(ValorantMatch) then,
+  ) = _$ValorantMatchCopyWithImpl<$Res, ValorantMatch>;
   @useResult
   $Res call({String mapName, Team teamOne, Team teamTwo});
 
@@ -58,20 +60,26 @@ class _$ValorantMatchCopyWithImpl<$Res, $Val extends ValorantMatch>
     Object? teamOne = null,
     Object? teamTwo = null,
   }) {
-    return _then(_value.copyWith(
-      mapName: null == mapName
-          ? _value.mapName
-          : mapName // ignore: cast_nullable_to_non_nullable
-              as String,
-      teamOne: null == teamOne
-          ? _value.teamOne
-          : teamOne // ignore: cast_nullable_to_non_nullable
-              as Team,
-      teamTwo: null == teamTwo
-          ? _value.teamTwo
-          : teamTwo // ignore: cast_nullable_to_non_nullable
-              as Team,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            mapName:
+                null == mapName
+                    ? _value.mapName
+                    : mapName // ignore: cast_nullable_to_non_nullable
+                        as String,
+            teamOne:
+                null == teamOne
+                    ? _value.teamOne
+                    : teamOne // ignore: cast_nullable_to_non_nullable
+                        as Team,
+            teamTwo:
+                null == teamTwo
+                    ? _value.teamTwo
+                    : teamTwo // ignore: cast_nullable_to_non_nullable
+                        as Team,
+          )
+          as $Val,
+    );
   }
 
   /// Create a copy of ValorantMatch
@@ -99,8 +107,9 @@ class _$ValorantMatchCopyWithImpl<$Res, $Val extends ValorantMatch>
 abstract class _$$ValorantMatchImplCopyWith<$Res>
     implements $ValorantMatchCopyWith<$Res> {
   factory _$$ValorantMatchImplCopyWith(
-          _$ValorantMatchImpl value, $Res Function(_$ValorantMatchImpl) then) =
-      __$$ValorantMatchImplCopyWithImpl<$Res>;
+    _$ValorantMatchImpl value,
+    $Res Function(_$ValorantMatchImpl) then,
+  ) = __$$ValorantMatchImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String mapName, Team teamOne, Team teamTwo});
@@ -116,8 +125,9 @@ class __$$ValorantMatchImplCopyWithImpl<$Res>
     extends _$ValorantMatchCopyWithImpl<$Res, _$ValorantMatchImpl>
     implements _$$ValorantMatchImplCopyWith<$Res> {
   __$$ValorantMatchImplCopyWithImpl(
-      _$ValorantMatchImpl _value, $Res Function(_$ValorantMatchImpl) _then)
-      : super(_value, _then);
+    _$ValorantMatchImpl _value,
+    $Res Function(_$ValorantMatchImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ValorantMatch
   /// with the given fields replaced by the non-null parameter values.
@@ -128,29 +138,36 @@ class __$$ValorantMatchImplCopyWithImpl<$Res>
     Object? teamOne = null,
     Object? teamTwo = null,
   }) {
-    return _then(_$ValorantMatchImpl(
-      mapName: null == mapName
-          ? _value.mapName
-          : mapName // ignore: cast_nullable_to_non_nullable
-              as String,
-      teamOne: null == teamOne
-          ? _value.teamOne
-          : teamOne // ignore: cast_nullable_to_non_nullable
-              as Team,
-      teamTwo: null == teamTwo
-          ? _value.teamTwo
-          : teamTwo // ignore: cast_nullable_to_non_nullable
-              as Team,
-    ));
+    return _then(
+      _$ValorantMatchImpl(
+        mapName:
+            null == mapName
+                ? _value.mapName
+                : mapName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        teamOne:
+            null == teamOne
+                ? _value.teamOne
+                : teamOne // ignore: cast_nullable_to_non_nullable
+                    as Team,
+        teamTwo:
+            null == teamTwo
+                ? _value.teamTwo
+                : teamTwo // ignore: cast_nullable_to_non_nullable
+                    as Team,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$ValorantMatchImpl extends _ValorantMatch {
-  const _$ValorantMatchImpl(
-      {required this.mapName, required this.teamOne, required this.teamTwo})
-      : super._();
+  const _$ValorantMatchImpl({
+    required this.mapName,
+    required this.teamOne,
+    required this.teamTwo,
+  }) : super._();
 
   @override
   final String mapName;
@@ -187,10 +204,11 @@ class _$ValorantMatchImpl extends _ValorantMatch {
 }
 
 abstract class _ValorantMatch extends ValorantMatch {
-  const factory _ValorantMatch(
-      {required final String mapName,
-      required final Team teamOne,
-      required final Team teamTwo}) = _$ValorantMatchImpl;
+  const factory _ValorantMatch({
+    required final String mapName,
+    required final Team teamOne,
+    required final Team teamTwo,
+  }) = _$ValorantMatchImpl;
   const _ValorantMatch._() : super._();
 
   @override

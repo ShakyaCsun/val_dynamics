@@ -13,7 +13,7 @@ enum Role {
       'initiator' => Role.initiator,
       'sentinel' => Role.sentinel,
       'controller' => Role.controller,
-      _ => Role.unknown
+      _ => Role.unknown,
     };
   }
 

@@ -51,22 +51,20 @@ class MatchesFilterDrawer extends StatelessWidget {
           child: Consumer(
             builder: (context, ref, child) {
               final selectedFilter = ref.watch(
-                matchesProvider(collectionId: collectionName).select(
-                  (state) => state.filter,
-                ),
+                matchesProvider(
+                  collectionId: collectionName,
+                ).select((state) => state.filter),
               );
               return SegmentedButton<MatchUpFilter>(
                 segments: [
                   for (final filter in MatchUpFilter.values)
                     ButtonSegment(
                       value: filter,
-                      label: Text(
-                        switch (filter) {
-                          MatchUpFilter.styles => l10n.sameStyles,
-                          MatchUpFilter.composition => l10n.sameComps,
-                          MatchUpFilter.none => l10n.excludeNone,
-                        },
-                      ),
+                      label: Text(switch (filter) {
+                        MatchUpFilter.styles => l10n.sameStyles,
+                        MatchUpFilter.composition => l10n.sameComps,
+                        MatchUpFilter.none => l10n.excludeNone,
+                      }),
                     ),
                 ],
                 selected: {selectedFilter},
@@ -74,8 +72,9 @@ class MatchesFilterDrawer extends StatelessWidget {
                   if (filterSet.isNotEmpty) {
                     ref
                         .read(
-                          matchesProvider(collectionId: collectionName)
-                              .notifier,
+                          matchesProvider(
+                            collectionId: collectionName,
+                          ).notifier,
                         )
                         .changeMatchUpFilter(filterSet.first);
                   }

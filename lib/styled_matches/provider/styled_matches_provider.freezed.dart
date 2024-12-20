@@ -12,7 +12,8 @@ part of 'styled_matches_provider.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$StyledMatchesState {
@@ -30,12 +31,14 @@ mixin _$StyledMatchesState {
 /// @nodoc
 abstract class $StyledMatchesStateCopyWith<$Res> {
   factory $StyledMatchesStateCopyWith(
-          StyledMatchesState value, $Res Function(StyledMatchesState) then) =
-      _$StyledMatchesStateCopyWithImpl<$Res, StyledMatchesState>;
+    StyledMatchesState value,
+    $Res Function(StyledMatchesState) then,
+  ) = _$StyledMatchesStateCopyWithImpl<$Res, StyledMatchesState>;
   @useResult
-  $Res call(
-      {ValorantMatches matches,
-      ({double aggro, double control, double midrange}) acm});
+  $Res call({
+    ValorantMatches matches,
+    ({double aggro, double control, double midrange}) acm,
+  });
 }
 
 /// @nodoc
@@ -52,62 +55,68 @@ class _$StyledMatchesStateCopyWithImpl<$Res, $Val extends StyledMatchesState>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? matches = null,
-    Object? acm = null,
-  }) {
-    return _then(_value.copyWith(
-      matches: null == matches
-          ? _value.matches
-          : matches // ignore: cast_nullable_to_non_nullable
-              as ValorantMatches,
-      acm: null == acm
-          ? _value.acm
-          : acm // ignore: cast_nullable_to_non_nullable
-              as ({double aggro, double control, double midrange}),
-    ) as $Val);
+  $Res call({Object? matches = null, Object? acm = null}) {
+    return _then(
+      _value.copyWith(
+            matches:
+                null == matches
+                    ? _value.matches
+                    : matches // ignore: cast_nullable_to_non_nullable
+                        as ValorantMatches,
+            acm:
+                null == acm
+                    ? _value.acm
+                    : acm // ignore: cast_nullable_to_non_nullable
+                        as ({double aggro, double control, double midrange}),
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$StyledMatchesStateImplCopyWith<$Res>
     implements $StyledMatchesStateCopyWith<$Res> {
-  factory _$$StyledMatchesStateImplCopyWith(_$StyledMatchesStateImpl value,
-          $Res Function(_$StyledMatchesStateImpl) then) =
-      __$$StyledMatchesStateImplCopyWithImpl<$Res>;
+  factory _$$StyledMatchesStateImplCopyWith(
+    _$StyledMatchesStateImpl value,
+    $Res Function(_$StyledMatchesStateImpl) then,
+  ) = __$$StyledMatchesStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {ValorantMatches matches,
-      ({double aggro, double control, double midrange}) acm});
+  $Res call({
+    ValorantMatches matches,
+    ({double aggro, double control, double midrange}) acm,
+  });
 }
 
 /// @nodoc
 class __$$StyledMatchesStateImplCopyWithImpl<$Res>
     extends _$StyledMatchesStateCopyWithImpl<$Res, _$StyledMatchesStateImpl>
     implements _$$StyledMatchesStateImplCopyWith<$Res> {
-  __$$StyledMatchesStateImplCopyWithImpl(_$StyledMatchesStateImpl _value,
-      $Res Function(_$StyledMatchesStateImpl) _then)
-      : super(_value, _then);
+  __$$StyledMatchesStateImplCopyWithImpl(
+    _$StyledMatchesStateImpl _value,
+    $Res Function(_$StyledMatchesStateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of StyledMatchesState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? matches = null,
-    Object? acm = null,
-  }) {
-    return _then(_$StyledMatchesStateImpl(
-      matches: null == matches
-          ? _value.matches
-          : matches // ignore: cast_nullable_to_non_nullable
-              as ValorantMatches,
-      acm: null == acm
-          ? _value.acm
-          : acm // ignore: cast_nullable_to_non_nullable
-              as ({double aggro, double control, double midrange}),
-    ));
+  $Res call({Object? matches = null, Object? acm = null}) {
+    return _then(
+      _$StyledMatchesStateImpl(
+        matches:
+            null == matches
+                ? _value.matches
+                : matches // ignore: cast_nullable_to_non_nullable
+                    as ValorantMatches,
+        acm:
+            null == acm
+                ? _value.acm
+                : acm // ignore: cast_nullable_to_non_nullable
+                    as ({double aggro, double control, double midrange}),
+      ),
+    );
   }
 }
 
@@ -115,7 +124,7 @@ class __$$StyledMatchesStateImplCopyWithImpl<$Res>
 
 class _$StyledMatchesStateImpl extends _StyledMatchesState {
   const _$StyledMatchesStateImpl({required this.matches, required this.acm})
-      : super._();
+    : super._();
 
   @override
   final ValorantMatches matches;
@@ -138,7 +147,10 @@ class _$StyledMatchesStateImpl extends _StyledMatchesState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(matches), acm);
+    runtimeType,
+    const DeepCollectionEquality().hash(matches),
+    acm,
+  );
 
   /// Create a copy of StyledMatchesState
   /// with the given fields replaced by the non-null parameter values.
@@ -147,17 +159,16 @@ class _$StyledMatchesStateImpl extends _StyledMatchesState {
   @pragma('vm:prefer-inline')
   _$$StyledMatchesStateImplCopyWith<_$StyledMatchesStateImpl> get copyWith =>
       __$$StyledMatchesStateImplCopyWithImpl<_$StyledMatchesStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _StyledMatchesState extends StyledMatchesState {
-  const factory _StyledMatchesState(
-      {required final ValorantMatches matches,
-      required final ({
-        double aggro,
-        double control,
-        double midrange
-      }) acm}) = _$StyledMatchesStateImpl;
+  const factory _StyledMatchesState({
+    required final ValorantMatches matches,
+    required final ({double aggro, double control, double midrange}) acm,
+  }) = _$StyledMatchesStateImpl;
   const _StyledMatchesState._() : super._();
 
   @override

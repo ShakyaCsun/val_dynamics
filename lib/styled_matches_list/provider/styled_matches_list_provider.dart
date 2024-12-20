@@ -16,9 +16,9 @@ ValorantMatches styledMatchesList(
   required StylePoints acm,
 }) {
   return ref.watch(
-    matchesProvider(collectionId: collectionId).select(
-      (value) => value.matchesByStyle[acm] ?? ValorantMatches([]),
-    ),
+    matchesProvider(
+      collectionId: collectionId,
+    ).select((value) => value.matchesByStyle[acm] ?? ValorantMatches([])),
   );
 }
 
@@ -31,62 +31,59 @@ List<(StyledMatchesSummaryData, ValorantMatches)> styledMatchesDataList(
   final matches = ref.watch(
     styledMatchesListProvider(acm: acm, collectionId: collectionId),
   );
-  final groupedMatches = matches.fold(
-    <StylePoints, List<ValorantMatch>>{},
-    (resultMap, match) {
-      resultMap.update(
-        match.stylePoints2,
-        (value) => [...value, match],
-        ifAbsent: () => [match],
-      );
-      return resultMap;
-    },
-  );
+  final groupedMatches = matches.fold(<StylePoints, List<ValorantMatch>>{}, (
+    resultMap,
+    match,
+  ) {
+    resultMap.update(
+      match.stylePoints2,
+      (value) => [...value, match],
+      ifAbsent: () => [match],
+    );
+    return resultMap;
+  });
   return groupedMatches.entries
-      .map<(StyledMatchesSummaryData, ValorantMatches)>(
-    (entry) {
-      final MapEntry(key: opponentAcm, value: matchList) = entry;
-      final valMatches = ValorantMatches(matchList);
-      final summary = MatchesSummary.fromMatches(valMatches);
-      return (
-        StyledMatchesSummaryData(
-          acm: acm,
-          opponentAcm: opponentAcm,
-          summary: summary,
-        ),
-        valMatches,
-      );
-    },
-  ).sorted(
-    (a, b) {
-      final (
-        StyledMatchesSummaryData(
-          acm: _,
-          opponentAcm: _,
-          summary: MatchesSummary(
-            matchesCount: matchesCount,
-            scoreOne: score,
-          )
-        ),
-        _
-      ) = a;
-      final (
-        StyledMatchesSummaryData(
-          acm: _,
-          opponentAcm: _,
-          summary: MatchesSummary(
-            matchesCount: otherMatchesCount,
-            scoreOne: otherScore,
-          )
-        ),
-        _
-      ) = b;
-      if (matchesCount == otherMatchesCount) {
-        return otherScore.compareTo(score);
-      }
-      return otherMatchesCount.compareTo(matchesCount);
-    },
-  );
+      .map<(StyledMatchesSummaryData, ValorantMatches)>((entry) {
+        final MapEntry(key: opponentAcm, value: matchList) = entry;
+        final valMatches = ValorantMatches(matchList);
+        final summary = MatchesSummary.fromMatches(valMatches);
+        return (
+          StyledMatchesSummaryData(
+            acm: acm,
+            opponentAcm: opponentAcm,
+            summary: summary,
+          ),
+          valMatches,
+        );
+      })
+      .sorted((a, b) {
+        final (
+          StyledMatchesSummaryData(
+            acm: _,
+            opponentAcm: _,
+            summary: MatchesSummary(
+              matchesCount: matchesCount,
+              scoreOne: score,
+            ),
+          ),
+          _,
+        ) = a;
+        final (
+          StyledMatchesSummaryData(
+            acm: _,
+            opponentAcm: _,
+            summary: MatchesSummary(
+              matchesCount: otherMatchesCount,
+              scoreOne: otherScore,
+            ),
+          ),
+          _,
+        ) = b;
+        if (matchesCount == otherMatchesCount) {
+          return otherScore.compareTo(score);
+        }
+        return otherMatchesCount.compareTo(matchesCount);
+      });
 }
 
 @freezed

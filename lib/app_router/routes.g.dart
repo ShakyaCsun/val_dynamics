@@ -6,23 +6,18 @@ part of 'routes.dart';
 // GoRouterGenerator
 // **************************************************************************
 
-List<RouteBase> get $appRoutes => [
-      $teamCompsRedirectRoute,
-      $homeScreenRoute,
-    ];
+List<RouteBase> get $appRoutes => [$teamCompsRedirectRoute, $homeScreenRoute];
 
 RouteBase get $teamCompsRedirectRoute => GoRouteData.$route(
-      path: '/comps',
-      factory: $TeamCompsRedirectRouteExtension._fromState,
-    );
+  path: '/comps',
+  factory: $TeamCompsRedirectRouteExtension._fromState,
+);
 
 extension $TeamCompsRedirectRouteExtension on TeamCompsRedirectRoute {
   static TeamCompsRedirectRoute _fromState(GoRouterState state) =>
       const TeamCompsRedirectRoute();
 
-  String get location => GoRouteData.$location(
-        '/comps',
-      );
+  String get location => GoRouteData.$location('/comps');
 
   void go(BuildContext context) => context.go(location);
 
@@ -35,78 +30,78 @@ extension $TeamCompsRedirectRouteExtension on TeamCompsRedirectRoute {
 }
 
 RouteBase get $homeScreenRoute => ShellRouteData.$route(
-      factory: $HomeScreenRouteExtension._fromState,
+  factory: $HomeScreenRouteExtension._fromState,
+  routes: [
+    GoRouteData.$route(
+      path: '/',
+      factory: $AgentsOverviewRouteExtension._fromState,
       routes: [
         GoRouteData.$route(
-          path: '/',
-          factory: $AgentsOverviewRouteExtension._fromState,
+          path: 'agents/add',
+          factory: $AddAgentsRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'agents/:rosterName',
+          factory: $AgentsRouteExtension._fromState,
           routes: [
             GoRouteData.$route(
-              path: 'agents/add',
-              factory: $AddAgentsRouteExtension._fromState,
-            ),
-            GoRouteData.$route(
-              path: 'agents/:rosterName',
-              factory: $AgentsRouteExtension._fromState,
-              routes: [
-                GoRouteData.$route(
-                  path: 'stats',
-                  factory: $AgentsStatRouteExtension._fromState,
-                ),
-              ],
+              path: 'stats',
+              factory: $AgentsStatRouteExtension._fromState,
             ),
           ],
         ),
+      ],
+    ),
+    GoRouteData.$route(
+      path: '/comps/:rosterName',
+      factory: $TeamCompsRouteExtension._fromState,
+      routes: [
         GoRouteData.$route(
-          path: '/comps/:rosterName',
-          factory: $TeamCompsRouteExtension._fromState,
-          routes: [
-            GoRouteData.$route(
-              path: 'filter',
-              factory: $TeamCompsFilterRouteExtension._fromState,
-            ),
-            GoRouteData.$route(
-              path: 'details/:acm',
-              factory: $TeamCompsDetailRouteExtension._fromState,
-            ),
-          ],
+          path: 'filter',
+          factory: $TeamCompsFilterRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: '/matches',
-          factory: $MatchesOverviewRouteExtension._fromState,
+          path: 'details/:acm',
+          factory: $TeamCompsDetailRouteExtension._fromState,
+        ),
+      ],
+    ),
+    GoRouteData.$route(
+      path: '/matches',
+      factory: $MatchesOverviewRouteExtension._fromState,
+      routes: [
+        GoRouteData.$route(
+          path: 'add',
+          factory: $AddMatchesRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: ':collectionName',
+          factory: $MatchesRouteExtension._fromState,
           routes: [
             GoRouteData.$route(
-              path: 'add',
-              factory: $AddMatchesRouteExtension._fromState,
+              path: 'stats',
+              factory: $MatchesStatsRouteExtension._fromState,
             ),
             GoRouteData.$route(
-              path: ':collectionName',
-              factory: $MatchesRouteExtension._fromState,
+              path: 'acm/:acm',
+              factory: $StyledMatchesRouteExtension._fromState,
               routes: [
                 GoRouteData.$route(
-                  path: 'stats',
-                  factory: $MatchesStatsRouteExtension._fromState,
+                  path: 'matches',
+                  factory: $StyledMatchesListRouteExtension._fromState,
                 ),
                 GoRouteData.$route(
-                  path: 'acm/:acm',
-                  factory: $StyledMatchesRouteExtension._fromState,
-                  routes: [
-                    GoRouteData.$route(
-                      path: 'matches',
-                      factory: $StyledMatchesListRouteExtension._fromState,
-                    ),
-                    GoRouteData.$route(
-                      path: 'vs/:opponentAcm',
-                      factory: $StyledMatchupListRouteExtension._fromState,
-                    ),
-                  ],
+                  path: 'vs/:opponentAcm',
+                  factory: $StyledMatchupListRouteExtension._fromState,
                 ),
               ],
             ),
           ],
         ),
       ],
-    );
+    ),
+  ],
+);
 
 extension $HomeScreenRouteExtension on HomeScreenRoute {
   static HomeScreenRoute _fromState(GoRouterState state) =>
@@ -117,9 +112,7 @@ extension $AgentsOverviewRouteExtension on AgentsOverviewRoute {
   static AgentsOverviewRoute _fromState(GoRouterState state) =>
       const AgentsOverviewRoute();
 
-  String get location => GoRouteData.$location(
-        '/',
-      );
+  String get location => GoRouteData.$location('/');
 
   void go(BuildContext context) => context.go(location);
 
@@ -135,9 +128,7 @@ extension $AddAgentsRouteExtension on AddAgentsRoute {
   static AddAgentsRoute _fromState(GoRouterState state) =>
       const AddAgentsRoute();
 
-  String get location => GoRouteData.$location(
-        '/agents/add',
-      );
+  String get location => GoRouteData.$location('/agents/add');
 
   void go(BuildContext context) => context.go(location);
 
@@ -150,13 +141,11 @@ extension $AddAgentsRouteExtension on AddAgentsRoute {
 }
 
 extension $AgentsRouteExtension on AgentsRoute {
-  static AgentsRoute _fromState(GoRouterState state) => AgentsRoute(
-        rosterName: state.pathParameters['rosterName']!,
-      );
+  static AgentsRoute _fromState(GoRouterState state) =>
+      AgentsRoute(rosterName: state.pathParameters['rosterName']!);
 
-  String get location => GoRouteData.$location(
-        '/agents/${Uri.encodeComponent(rosterName)}',
-      );
+  String get location =>
+      GoRouteData.$location('/agents/${Uri.encodeComponent(rosterName)}');
 
   void go(BuildContext context) => context.go(location);
 
@@ -169,13 +158,11 @@ extension $AgentsRouteExtension on AgentsRoute {
 }
 
 extension $AgentsStatRouteExtension on AgentsStatRoute {
-  static AgentsStatRoute _fromState(GoRouterState state) => AgentsStatRoute(
-        rosterName: state.pathParameters['rosterName']!,
-      );
+  static AgentsStatRoute _fromState(GoRouterState state) =>
+      AgentsStatRoute(rosterName: state.pathParameters['rosterName']!);
 
-  String get location => GoRouteData.$location(
-        '/agents/${Uri.encodeComponent(rosterName)}/stats',
-      );
+  String get location =>
+      GoRouteData.$location('/agents/${Uri.encodeComponent(rosterName)}/stats');
 
   void go(BuildContext context) => context.go(location);
 
@@ -188,13 +175,11 @@ extension $AgentsStatRouteExtension on AgentsStatRoute {
 }
 
 extension $TeamCompsRouteExtension on TeamCompsRoute {
-  static TeamCompsRoute _fromState(GoRouterState state) => TeamCompsRoute(
-        rosterName: state.pathParameters['rosterName']!,
-      );
+  static TeamCompsRoute _fromState(GoRouterState state) =>
+      TeamCompsRoute(rosterName: state.pathParameters['rosterName']!);
 
-  String get location => GoRouteData.$location(
-        '/comps/${Uri.encodeComponent(rosterName)}',
-      );
+  String get location =>
+      GoRouteData.$location('/comps/${Uri.encodeComponent(rosterName)}');
 
   void go(BuildContext context) => context.go(location);
 
@@ -208,13 +193,10 @@ extension $TeamCompsRouteExtension on TeamCompsRoute {
 
 extension $TeamCompsFilterRouteExtension on TeamCompsFilterRoute {
   static TeamCompsFilterRoute _fromState(GoRouterState state) =>
-      TeamCompsFilterRoute(
-        rosterName: state.pathParameters['rosterName']!,
-      );
+      TeamCompsFilterRoute(rosterName: state.pathParameters['rosterName']!);
 
-  String get location => GoRouteData.$location(
-        '/comps/${Uri.encodeComponent(rosterName)}/filter',
-      );
+  String get location =>
+      GoRouteData.$location('/comps/${Uri.encodeComponent(rosterName)}/filter');
 
   void go(BuildContext context) => context.go(location);
 
@@ -234,8 +216,8 @@ extension $TeamCompsDetailRouteExtension on TeamCompsDetailRoute {
       );
 
   String get location => GoRouteData.$location(
-        '/comps/${Uri.encodeComponent(rosterName)}/details/${Uri.encodeComponent(acm)}',
-      );
+    '/comps/${Uri.encodeComponent(rosterName)}/details/${Uri.encodeComponent(acm)}',
+  );
 
   void go(BuildContext context) => context.go(location);
 
@@ -251,9 +233,7 @@ extension $MatchesOverviewRouteExtension on MatchesOverviewRoute {
   static MatchesOverviewRoute _fromState(GoRouterState state) =>
       const MatchesOverviewRoute();
 
-  String get location => GoRouteData.$location(
-        '/matches',
-      );
+  String get location => GoRouteData.$location('/matches');
 
   void go(BuildContext context) => context.go(location);
 
@@ -269,9 +249,7 @@ extension $AddMatchesRouteExtension on AddMatchesRoute {
   static AddMatchesRoute _fromState(GoRouterState state) =>
       const AddMatchesRoute();
 
-  String get location => GoRouteData.$location(
-        '/matches/add',
-      );
+  String get location => GoRouteData.$location('/matches/add');
 
   void go(BuildContext context) => context.go(location);
 
@@ -284,13 +262,11 @@ extension $AddMatchesRouteExtension on AddMatchesRoute {
 }
 
 extension $MatchesRouteExtension on MatchesRoute {
-  static MatchesRoute _fromState(GoRouterState state) => MatchesRoute(
-        collectionName: state.pathParameters['collectionName']!,
-      );
+  static MatchesRoute _fromState(GoRouterState state) =>
+      MatchesRoute(collectionName: state.pathParameters['collectionName']!);
 
-  String get location => GoRouteData.$location(
-        '/matches/${Uri.encodeComponent(collectionName)}',
-      );
+  String get location =>
+      GoRouteData.$location('/matches/${Uri.encodeComponent(collectionName)}');
 
   void go(BuildContext context) => context.go(location);
 
@@ -304,12 +280,12 @@ extension $MatchesRouteExtension on MatchesRoute {
 
 extension $MatchesStatsRouteExtension on MatchesStatsRoute {
   static MatchesStatsRoute _fromState(GoRouterState state) => MatchesStatsRoute(
-        collectionName: state.pathParameters['collectionName']!,
-      );
+    collectionName: state.pathParameters['collectionName']!,
+  );
 
   String get location => GoRouteData.$location(
-        '/matches/${Uri.encodeComponent(collectionName)}/stats',
-      );
+    '/matches/${Uri.encodeComponent(collectionName)}/stats',
+  );
 
   void go(BuildContext context) => context.go(location);
 
@@ -329,8 +305,8 @@ extension $StyledMatchesRouteExtension on StyledMatchesRoute {
       );
 
   String get location => GoRouteData.$location(
-        '/matches/${Uri.encodeComponent(collectionName)}/acm/${Uri.encodeComponent(acm)}',
-      );
+    '/matches/${Uri.encodeComponent(collectionName)}/acm/${Uri.encodeComponent(acm)}',
+  );
 
   void go(BuildContext context) => context.go(location);
 
@@ -350,8 +326,8 @@ extension $StyledMatchesListRouteExtension on StyledMatchesListRoute {
       );
 
   String get location => GoRouteData.$location(
-        '/matches/${Uri.encodeComponent(collectionName)}/acm/${Uri.encodeComponent(acm)}/matches',
-      );
+    '/matches/${Uri.encodeComponent(collectionName)}/acm/${Uri.encodeComponent(acm)}/matches',
+  );
 
   void go(BuildContext context) => context.go(location);
 
@@ -372,8 +348,8 @@ extension $StyledMatchupListRouteExtension on StyledMatchupListRoute {
       );
 
   String get location => GoRouteData.$location(
-        '/matches/${Uri.encodeComponent(collectionName)}/acm/${Uri.encodeComponent(acm)}/vs/${Uri.encodeComponent(opponentAcm)}',
-      );
+    '/matches/${Uri.encodeComponent(collectionName)}/acm/${Uri.encodeComponent(acm)}/vs/${Uri.encodeComponent(opponentAcm)}',
+  );
 
   void go(BuildContext context) => context.go(location);
 

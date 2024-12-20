@@ -85,25 +85,25 @@ class StyledMatchupListProvider extends AutoDisposeProvider<ValorantMatches> {
     required ({double aggro, double control, double midrange}) acm,
     required ({double aggro, double control, double midrange}) opponentAcm,
   }) : this._internal(
-          (ref) => styledMatchupList(
-            ref as StyledMatchupListRef,
-            collectionId: collectionId,
-            acm: acm,
-            opponentAcm: opponentAcm,
-          ),
-          from: styledMatchupListProvider,
-          name: r'styledMatchupListProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$styledMatchupListHash,
-          dependencies: StyledMatchupListFamily._dependencies,
-          allTransitiveDependencies:
-              StyledMatchupListFamily._allTransitiveDependencies,
-          collectionId: collectionId,
-          acm: acm,
-          opponentAcm: opponentAcm,
-        );
+         (ref) => styledMatchupList(
+           ref as StyledMatchupListRef,
+           collectionId: collectionId,
+           acm: acm,
+           opponentAcm: opponentAcm,
+         ),
+         from: styledMatchupListProvider,
+         name: r'styledMatchupListProvider',
+         debugGetCreateSourceHash:
+             const bool.fromEnvironment('dart.vm.product')
+                 ? null
+                 : _$styledMatchupListHash,
+         dependencies: StyledMatchupListFamily._dependencies,
+         allTransitiveDependencies:
+             StyledMatchupListFamily._allTransitiveDependencies,
+         collectionId: collectionId,
+         acm: acm,
+         opponentAcm: opponentAcm,
+       );
 
   StyledMatchupListProvider._internal(
     super._createNotifier, {
@@ -167,7 +167,8 @@ class StyledMatchupListProvider extends AutoDisposeProvider<ValorantMatches> {
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin StyledMatchupListRef on AutoDisposeProviderRef<ValorantMatches> {
+mixin StyledMatchupListRef
+    on AutoDisposeProviderRef<ValorantMatches> {
   /// The parameter `collectionId` of this provider.
   String get collectionId;
 
@@ -192,5 +193,6 @@ class _StyledMatchupListProviderElement
   ({double aggro, double control, double midrange}) get opponentAcm =>
       (origin as StyledMatchupListProvider).opponentAcm;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

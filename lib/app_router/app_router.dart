@@ -8,10 +8,7 @@ import 'package:vsdat/app_router/routes.dart';
 part 'app_router.g.dart';
 
 @riverpod
-GoRouter appRouter(
-  Ref ref, {
-  bool debugLogDiagnostics = false,
-}) {
+GoRouter appRouter(Ref ref, {bool debugLogDiagnostics = false}) {
   final navigatorKey = GlobalKey<NavigatorState>(debugLabel: 'GoRouterKey');
   final router = GoRouter(
     navigatorKey: navigatorKey,

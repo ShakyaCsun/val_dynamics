@@ -60,23 +60,20 @@ class AgentsListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AgentsOverview(
-      :rosterName,
-      :agentCount,
-      :isBuiltIn,
-      :range,
-    ) = agentsDetail;
+    final AgentsOverview(:rosterName, :agentCount, :isBuiltIn, :range) =
+        agentsDetail;
     final l10n = context.l10n;
     final rangeDetail = switch (range) {
       SinglePoint(:final total) => l10n.equalPoints(total),
       NearlyEqualPoints(:final total) => l10n.nearlyEqualPoints(total),
-      VariedPointsRange(:final low, :final high, :final count) =>
-        l10n.differentPointsRange(count, low, high),
+      VariedPointsRange(:final low, :final high, :final count) => l10n
+          .differentPointsRange(count, low, high),
     };
     final subtitle = '${l10n.nAgents(agentCount)}, $rangeDetail';
-    final chipLabel = isSelected
-        ? l10n.defaultLabel
-        : isBuiltIn
+    final chipLabel =
+        isSelected
+            ? l10n.defaultLabel
+            : isBuiltIn
             ? l10n.builtIn
             : null;
 
@@ -88,9 +85,7 @@ class AgentsListTile extends StatelessWidget {
             Text(agentsDetail.rosterName),
             if (chipLabel != null) ...[
               const SizedBox(width: 8),
-              Chip(
-                label: Text(chipLabel),
-              ),
+              Chip(label: Text(chipLabel)),
             ],
           ],
         ),
@@ -109,9 +104,9 @@ class AgentsListTile extends StatelessWidget {
       builder: (context, ref, child) {
         final deleteButton = IconButton(
           onPressed: () {
-            ref.read(agentsOverviewNotifierProvider.notifier).removeRoster(
-                  agentsDetail.rosterName,
-                );
+            ref
+                .read(agentsOverviewNotifierProvider.notifier)
+                .removeRoster(agentsDetail.rosterName);
           },
           icon: const Icon(Icons.delete_outline),
         );
@@ -119,9 +114,7 @@ class AgentsListTile extends StatelessWidget {
           onPressed: () {
             ref
                 .read(agentsOverviewNotifierProvider.notifier)
-                .changeDefaultRoster(
-                  agentsDetail.rosterName,
-                );
+                .changeDefaultRoster(agentsDetail.rosterName);
           },
           icon: const Icon(Icons.check_box_outlined),
         );
@@ -130,9 +123,9 @@ class AgentsListTile extends StatelessWidget {
           (true, false) => deleteButton,
           (false, true) => setDefaultButton,
           (false, false) => Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [setDefaultButton, deleteButton],
-            )
+            mainAxisSize: MainAxisSize.min,
+            children: [setDefaultButton, deleteButton],
+          ),
         };
       },
     );

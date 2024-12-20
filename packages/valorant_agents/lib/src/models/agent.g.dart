@@ -7,28 +7,32 @@ part of 'agent.dart';
 // **************************************************************************
 
 _$AgentImpl _$$AgentImplFromJson(Map<String, dynamic> json) => _$AgentImpl(
-      name: json['name'] as String,
-      aggro: (json['aggro'] as num).toDouble(),
-      control: (json['control'] as num).toDouble(),
-      midrange: (json['midrange'] as num).toDouble(),
-      role: Role.fromJson(json['role'] as String),
-      iconUrl: json['iconUrl'] as String?,
-      portraitUrl: json['portraitUrl'] as String?,
-      abilityOne: json['abilityOne'] == null
+  name: json['name'] as String,
+  aggro: (json['aggro'] as num).toDouble(),
+  control: (json['control'] as num).toDouble(),
+  midrange: (json['midrange'] as num).toDouble(),
+  role: Role.fromJson(json['role'] as String),
+  iconUrl: json['iconUrl'] as String?,
+  portraitUrl: json['portraitUrl'] as String?,
+  abilityOne:
+      json['abilityOne'] == null
           ? const AbilityOne()
           : AbilityOne.fromJson(json['abilityOne'] as Map<String, dynamic>),
-      abilityTwo: json['abilityTwo'] == null
+  abilityTwo:
+      json['abilityTwo'] == null
           ? const AbilityTwo()
           : AbilityTwo.fromJson(json['abilityTwo'] as Map<String, dynamic>),
-      abilityThree: json['abilityThree'] == null
+  abilityThree:
+      json['abilityThree'] == null
           ? const AbilityThree()
           : AbilityThree.fromJson(json['abilityThree'] as Map<String, dynamic>),
-      ultimateAbility: json['ultimateAbility'] == null
+  ultimateAbility:
+      json['ultimateAbility'] == null
           ? const UltimateAbility()
           : UltimateAbility.fromJson(
-              json['ultimateAbility'] as Map<String, dynamic>,
-            ),
-    );
+            json['ultimateAbility'] as Map<String, dynamic>,
+          ),
+);
 
 Map<String, dynamic> _$$AgentImplToJson(_$AgentImpl instance) =>
     <String, dynamic>{
