@@ -9,7 +9,7 @@ Future<String> readFile(String path) async {
   late final String csv;
   try {
     csv = await File(path).readAsString();
-  } catch (e) {
+  } on Exception {
     throw IncorrectFilePathException(path);
   }
   return csv;

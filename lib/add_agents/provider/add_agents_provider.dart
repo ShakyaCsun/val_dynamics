@@ -49,7 +49,7 @@ class AddAgents extends _$AddAgents {
           rosterName: NameInput.dirty(name),
           status: FormzSubmissionStatus.success,
         );
-      } catch (e) {
+      } on Exception catch (e) {
         _log.severe('Unknown Error', e);
         state = state.copyWith(
           status: FormzSubmissionStatus.failure,

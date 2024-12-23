@@ -1,4 +1,5 @@
-// ignore_for_file: avoid_print, curly_braces_in_flow_control_structures
+// Example is only meant to be run in console environment
+// ignore_for_file: avoid_print
 
 import 'package:valorant_agents/valorant_agents.dart';
 
