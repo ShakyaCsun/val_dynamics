@@ -56,7 +56,7 @@ class AddMatches extends _$AddMatches {
           status: FormzSubmissionStatus.failure,
           error: AddMatchesError.invalidCsv(message: e.message),
         );
-      } catch (e) {
+      } on Exception catch (e) {
         _log.severe('Unknown Error', e);
         state = state.copyWith(
           status: FormzSubmissionStatus.failure,

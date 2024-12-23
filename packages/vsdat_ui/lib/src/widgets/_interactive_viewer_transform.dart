@@ -4,7 +4,8 @@
 // Copied from https://github.com/flutter/flutter/pull/156163 for transformChild
 // Can be removed when the PR is merged and available in Flutter stable
 
-// ignore_for_file: prefer_asserts_with_message, lines_longer_than_80_chars, cascade_invocations
+// Flutter repo doesn't enable these rules
+// ignore_for_file: prefer_asserts_with_message, lines_longer_than_80_chars
 // cSpell: disable
 
 import 'dart:math' as math;
@@ -762,14 +763,16 @@ class _InteractiveViewerState extends State<InteractiveViewer>
     widget.onInteractionStart?.call(details);
 
     if (_controller.isAnimating) {
-      _controller.stop();
-      _controller.reset();
+      _controller
+        ..stop()
+        ..reset();
       _animation?.removeListener(_handleInertiaAnimation);
       _animation = null;
     }
     if (_scaleController.isAnimating) {
-      _scaleController.stop();
-      _scaleController.reset();
+      _scaleController
+        ..stop()
+        ..reset();
       _scaleAnimation?.removeListener(_handleScaleAnimation);
       _scaleAnimation = null;
     }
