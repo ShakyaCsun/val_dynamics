@@ -2,12 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logging/logging.dart';
-import 'package:valorant_agents/valorant_agents.dart';
-import 'package:vsdat/bundled_csv/bundled_csv.dart';
-import 'package:vsdat/gen/gen.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';
 
 final _logger = Logger('val_sd_analyzer');
@@ -83,25 +79,9 @@ Future<void> bootstrap(Future<Widget> Function() builder) async {
     );
   });
 
-  final agentCsvs = <String, Agents>{
-    for (final agentCsv in Assets.csv.agents.values)
-      agentCsv.split('/').last: Agents.fromCsv(
-        await rootBundle.loadString(agentCsv),
-      ),
-  };
-  final matchesCsvs = <String, List<RawMatch>>{
-    for (final matchesCsv in Assets.csv.matches.values)
-      matchesCsv.split('/').last: ValorantMatches.rawMatchesFrom(
-        csv: await rootBundle.loadString(matchesCsv),
-      ),
-  };
   runApp(
     ProviderScope(
       observers: [AppProviderObserver()],
-      overrides: [
-        bundledAgentsCsvsProvider.overrideWithValue(agentCsvs),
-        bundledMatchesCsvsProvider.overrideWithValue(matchesCsvs),
-      ],
       child: Portal(child: await builder()),
     ),
   );

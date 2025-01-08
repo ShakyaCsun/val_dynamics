@@ -3,7 +3,7 @@ import 'package:collection/collection.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:valorant_agents/valorant_agents.dart';
-import 'package:vsdat/bundled_csv/bundled_csv.dart';
+import 'package:vsdat/app/app.dart';
 
 part 'matches_overview_provider.freezed.dart';
 part 'matches_overview_provider.g.dart';
@@ -12,7 +12,7 @@ part 'matches_overview_provider.g.dart';
 class MatchesCollectionList extends _$MatchesCollectionList {
   @override
   List<MatchesCollection> build() {
-    final matches = ref.watch(bundledMatchesCsvsProvider);
+    final matches = ref.watch(bundledMatchesProvider);
     final matchesList = <MatchesCollection>[];
     for (final MapEntry(key: name, value: rawMatches) in matches.entries) {
       switch (name) {

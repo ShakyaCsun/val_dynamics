@@ -6,7 +6,7 @@ part of 'add_agents_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$addAgentsHash() => r'69574507000be0671c990bce206422f478e4ea5e';
+String _$addAgentsHash() => r'bc38f74514a04c8a5f9228473ceaf349b3580c36';
 
 /// See also [AddAgents].
 @ProviderFor(AddAgents)

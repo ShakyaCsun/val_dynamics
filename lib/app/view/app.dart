@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vsdat/agents_overview/agents_overview.dart';
+import 'package:vsdat/app/app.dart';
 import 'package:vsdat/app/widgets/widgets.dart';
 import 'package:vsdat/app_router/app_router.dart';
 import 'package:vsdat/app_router/routes.dart';
@@ -14,13 +15,44 @@ class App extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final router = ref.watch(appRouterProvider());
     return MaterialApp.router(
       title: 'Valorant Style Dynamics',
       theme: const VsdatTheme().lightTheme,
       darkTheme: const VsdatTheme().darkTheme,
-      routerConfig: ref.watch(appRouterProvider()),
+      routerConfig: router,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
+      builder: (context, child) {
+        return AppDataLoader(child: child!);
+      },
+    );
+  }
+}
+
+class AppDataLoader extends ConsumerWidget {
+  @visibleForTesting
+  const AppDataLoader({required this.child, super.key});
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final (message, isInitialized) = ref.watch(
+      appDataInitializationStatusProvider,
+    );
+    if (isInitialized) {
+      return child;
+    }
+
+    return Scaffold(
+      body: Center(
+        child: Column(
+          spacing: 16,
+          mainAxisSize: MainAxisSize.min,
+          children: [const CircularProgressIndicator.adaptive(), Text(message)],
+        ),
+      ),
     );
   }
 }
