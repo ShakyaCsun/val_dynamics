@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 import 'package:vsdat/agents_overview/agents_overview.dart';
-import 'package:vsdat/bundled_csv/provider/load_bundled_csv_files.dart';
+import 'package:vsdat/app/app.dart';
 
 part 'agents_overview_provider.g.dart';
 
@@ -82,7 +82,7 @@ class AgentsOverviewState extends Equatable {
 @Riverpod(keepAlive: true)
 AgentsRepository agentsRepository(Ref ref) {
   final repository = AgentsRepository.basic(
-    agentsCsvs: ref.watch(bundledAgentsCsvsProvider),
+    agentsCsvs: ref.watch(bundledAgentsProvider),
   );
   ref.onDispose(repository.dispose);
   return repository;
