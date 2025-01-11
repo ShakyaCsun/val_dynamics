@@ -26,7 +26,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_riverpod: ^2.6.1
-  flutter_svg: ^2.0.16
+  flutter_svg: ^2.0.17
   formz: ^0.8.0
   formz_inputs:
     path: ./packages/formz_inputs
@@ -50,7 +50,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^2.5.7
-  go_router_builder: ^2.7.2
+  go_router_builder: ^2.7.3
+  melos: ^7.0.0-dev.3
   riverpod_generator: ^2.6.3
   riverpod_lint: ^2.6.3
   very_good_analysis: ^7.0.0
@@ -62,3 +63,15 @@ flutter:
     - assets/csv/agents/
     - assets/csv/matches/
     - assets/icons/
+
+melos:
+  scripts:
+    gen:format:
+      steps:
+        - generate
+        - format
+      description: Run build_runner and format the output.
+    format:
+      run: dart format .
+    generate:
+      run: melos exec -c 1 --depends-on build_runner -- dart run build_runner build -d

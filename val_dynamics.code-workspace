@@ -1,0 +1,60 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "packages/agents_repository"
+		},
+		{
+			"path": "packages/formz_inputs"
+		},
+		{
+			"path": "packages/valorant_agents"
+		},
+		{
+			"path": "packages/vsdat_ui"
+		}
+	],
+	"settings": {
+		"cSpell.words": [
+			"ALARMBOT",
+			"Astra",
+			"Capitalizable",
+			"Cooldown",
+			"Curveball",
+			"Cypher",
+			"esports",
+			"FAKEOUT",
+			"Gekko",
+			"GravNet",
+			"Jett",
+			"Lockdown",
+			"ment",
+			"Nanoswarm",
+			"Razorvine",
+			"Refreshable",
+			"Sova",
+			"Spycam",
+			"Stim",
+			"Trapwire",
+			"Valorant",
+			"vsdat",
+			"Vyse",
+			"writeln",
+			"Yoru"
+		],
+		"cSpell.ignorePaths": [
+			"package-lock.json",
+			"node_modules",
+			"vscode-extension",
+			".git/objects",
+			".vscode",
+			".vscode-insiders",
+			"**/*.freezed.dart",
+			"**/*.g.dart",
+			"assets/csv/matches/**",
+			"pubspec.lock"
+		]
+	}
+}
