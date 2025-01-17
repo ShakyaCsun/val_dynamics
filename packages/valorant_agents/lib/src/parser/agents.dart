@@ -129,6 +129,7 @@ extension type const Agents._(List<Agent> agents) implements List<Agent> {
     Agent.sage,
     Agent.skye,
     Agent.sova,
+    Agent.tejo,
     Agent.viper,
     Agent.vyse,
     Agent.yoru,

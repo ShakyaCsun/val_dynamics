@@ -82,6 +82,9 @@ class $AssetsAgentsGen {
   /// Directory path: assets/agents/sova
   $AssetsAgentsSovaGen get sova => const $AssetsAgentsSovaGen();
 
+  /// Directory path: assets/agents/tejo
+  $AssetsAgentsTejoGen get tejo => const $AssetsAgentsTejoGen();
+
   /// Directory path: assets/agents/viper
   $AssetsAgentsViperGen get viper => const $AssetsAgentsViperGen();
 
@@ -927,6 +930,43 @@ class $AssetsAgentsSovaGen {
   /// File path: assets/agents/sova/ultimate.png
   AssetGenImage get ultimate =>
       const AssetGenImage('assets/agents/sova/ultimate.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
+}
+
+class $AssetsAgentsTejoGen {
+  const $AssetsAgentsTejoGen();
+
+  /// File path: assets/agents/tejo/ability1.png
+  AssetGenImage get ability1 =>
+      const AssetGenImage('assets/agents/tejo/ability1.png');
+
+  /// File path: assets/agents/tejo/ability2.png
+  AssetGenImage get ability2 =>
+      const AssetGenImage('assets/agents/tejo/ability2.png');
+
+  /// File path: assets/agents/tejo/ability3.png
+  AssetGenImage get ability3 =>
+      const AssetGenImage('assets/agents/tejo/ability3.png');
+
+  /// File path: assets/agents/tejo/icon.png
+  AssetGenImage get icon => const AssetGenImage('assets/agents/tejo/icon.png');
+
+  /// File path: assets/agents/tejo/portrait.png
+  AssetGenImage get portrait =>
+      const AssetGenImage('assets/agents/tejo/portrait.png');
+
+  /// File path: assets/agents/tejo/ultimate.png
+  AssetGenImage get ultimate =>
+      const AssetGenImage('assets/agents/tejo/ultimate.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [
