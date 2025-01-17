@@ -79,8 +79,8 @@ Ability2: Dark Cover
 Ability3: Shrouded Step
 Ultimate: From the Shadows
 Phoenix
-Ability1: Curveball
-Ability2: Hot Hands
+Ability1: Hot Hands
+Ability2: Curveball
 Ability3: Blaze
 Ultimate: Run it Back
 Raze
@@ -108,6 +108,11 @@ Ability1: Shock Bolt
 Ability2: Recon Bolt
 Ability3: Owl Drone
 Ultimate: Hunter's Fury
+Tejo
+Ability1: Special Delivery
+Ability2: Guided Salvo
+Ability3: Stealth Drone
+Ultimate: Armageddon
 Viper
 Ability1: Poison Cloud
 Ability2: Toxic Screen

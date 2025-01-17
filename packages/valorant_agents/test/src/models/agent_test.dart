@@ -10,6 +10,7 @@ final knownAgentBreakdowns = <Agent>{
   Agent.phoenix,
   Agent.raze,
   Agent.sage,
+  Agent.tejo,
   Agent.viper,
   Agent.vyse,
   Agent.yoru,

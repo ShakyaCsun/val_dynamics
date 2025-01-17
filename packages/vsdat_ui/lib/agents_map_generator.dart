@@ -58,6 +58,7 @@ String generate({required String funcName, required String property}) {
     'sage',
     'skye',
     'sova',
+    'tejo',
     'viper',
     'vyse',
     'yoru',

@@ -382,16 +382,16 @@ class Agent with _$Agent {
     midrange: 2,
     role: Role.duelist,
     abilityOne: AbilityOne(
-      name: 'Curveball',
-      aggro: 3,
-      reasons: ['Self Capitalizable', 'Short Range', 'High Potency'],
-    ),
-    abilityTwo: AbilityTwo(
       name: 'Hot Hands',
       aggro: 1,
       control: 1,
       midrange: 1,
       reasons: ['Reach', 'Stall', 'Heal/Multi-modal'],
+    ),
+    abilityTwo: AbilityTwo(
+      name: 'Curveball',
+      aggro: 3,
+      reasons: ['Self Capitalizable', 'Short Range', 'High Potency'],
     ),
     abilityThree: AbilityThree(
       name: 'Blaze',
@@ -483,7 +483,13 @@ class Agent with _$Agent {
     control: 2,
     midrange: 6,
     role: Role.initiator,
-    abilityOne: AbilityOne(name: 'Trailblazer', reasons: ['', '', '']),
+    abilityOne: AbilityOne(
+      name: 'Trailblazer',
+      aggro: 1,
+      control: 1,
+      midrange: 1,
+      reasons: ['Explosivity', 'Hard Info', 'Intermediate Range'],
+    ),
     abilityTwo: AbilityTwo(name: 'Guiding Light', reasons: ['', '', '']),
     abilityThree: AbilityThree(name: 'Regrowth', reasons: ['', '', '']),
     ultimateAbility: UltimateAbility(name: 'Seekers', reasons: ['']),
@@ -498,6 +504,49 @@ class Agent with _$Agent {
     abilityTwo: AbilityTwo(name: 'Recon Bolt', reasons: ['', '', '']),
     abilityThree: AbilityThree(name: 'Owl Drone', reasons: ['', '', '']),
     ultimateAbility: UltimateAbility(name: "Hunter's Fury", reasons: ['']),
+  );
+  static const tejo = Agent(
+    name: 'Tejo',
+    aggro: 5,
+    control: 1,
+    midrange: 4,
+    role: Role.initiator,
+    abilityOne: AbilityOne(
+      name: 'Special Delivery',
+      aggro: 2,
+      midrange: 1,
+      reasons: [
+        'High Potency Catalytic Utility',
+        'Explosivity (Fast Pop mode)',
+        'Intermediate Range',
+      ],
+    ),
+    abilityTwo: AbilityTwo(
+      name: 'Guided Salvo',
+      aggro: 1,
+      midrange: 2,
+      reasons: [
+        'High Potency Damage',
+        'Internal Cooldown',
+        'Large AOE/Multi Zonal/Intermediate Range',
+      ],
+    ),
+    abilityThree: AbilityThree(
+      name: 'Stealth Drone',
+      aggro: 1,
+      control: 1,
+      midrange: 1,
+      reasons: [
+        'Anti-Utility/Suppress',
+        'Hard Info',
+        'Intermediate Range(Nearsighted Range)',
+      ],
+    ),
+    ultimateAbility: UltimateAbility(
+      name: 'Armageddon',
+      aggro: 1,
+      reasons: ['Giga Aggro Move or Die Missiles'],
+    ),
   );
   static const viper = Agent(
     name: 'Viper',
