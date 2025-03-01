@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -11,96 +12,56 @@ part of 'team.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
 /// @nodoc
 mixin _$Team {
-  String get name => throw _privateConstructorUsedError;
-  int get score => throw _privateConstructorUsedError;
-  int get attackScore => throw _privateConstructorUsedError;
-  AgentComp get agents => throw _privateConstructorUsedError;
+  String get name;
+  int get score;
+  int get attackScore;
+  AgentComp get agents;
 
   /// Create a copy of Team
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $TeamCopyWith<Team> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $TeamCopyWith<$Res> {
-  factory $TeamCopyWith(Team value, $Res Function(Team) then) =
-      _$TeamCopyWithImpl<$Res, Team>;
-  @useResult
-  $Res call({String name, int score, int attackScore, AgentComp agents});
-}
-
-/// @nodoc
-class _$TeamCopyWithImpl<$Res, $Val extends Team>
-    implements $TeamCopyWith<$Res> {
-  _$TeamCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Team
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $TeamCopyWith<Team> get copyWith =>
+      _$TeamCopyWithImpl<Team>(this as Team, _$identity);
+
   @override
-  $Res call({
-    Object? name = null,
-    Object? score = null,
-    Object? attackScore = null,
-    Object? agents = null,
-  }) {
-    return _then(
-      _value.copyWith(
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            score:
-                null == score
-                    ? _value.score
-                    : score // ignore: cast_nullable_to_non_nullable
-                        as int,
-            attackScore:
-                null == attackScore
-                    ? _value.attackScore
-                    : attackScore // ignore: cast_nullable_to_non_nullable
-                        as int,
-            agents:
-                null == agents
-                    ? _value.agents
-                    : agents // ignore: cast_nullable_to_non_nullable
-                        as AgentComp,
-          )
-          as $Val,
-    );
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Team &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.score, score) || other.score == score) &&
+            (identical(other.attackScore, attackScore) ||
+                other.attackScore == attackScore) &&
+            (identical(other.agents, agents) || other.agents == agents));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, name, score, attackScore, agents);
+
+  @override
+  String toString() {
+    return 'Team(name: $name, score: $score, attackScore: $attackScore, agents: $agents)';
   }
 }
 
 /// @nodoc
-abstract class _$$TeamImplCopyWith<$Res> implements $TeamCopyWith<$Res> {
-  factory _$$TeamImplCopyWith(
-    _$TeamImpl value,
-    $Res Function(_$TeamImpl) then,
-  ) = __$$TeamImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $TeamCopyWith<$Res> {
+  factory $TeamCopyWith(Team value, $Res Function(Team) _then) =
+      _$TeamCopyWithImpl;
   @useResult
   $Res call({String name, int score, int attackScore, AgentComp agents});
 }
 
 /// @nodoc
-class __$$TeamImplCopyWithImpl<$Res>
-    extends _$TeamCopyWithImpl<$Res, _$TeamImpl>
-    implements _$$TeamImplCopyWith<$Res> {
-  __$$TeamImplCopyWithImpl(_$TeamImpl _value, $Res Function(_$TeamImpl) _then)
-    : super(_value, _then);
+class _$TeamCopyWithImpl<$Res> implements $TeamCopyWith<$Res> {
+  _$TeamCopyWithImpl(this._self, this._then);
+
+  final Team _self;
+  final $Res Function(Team) _then;
 
   /// Create a copy of Team
   /// with the given fields replaced by the non-null parameter values.
@@ -113,25 +74,25 @@ class __$$TeamImplCopyWithImpl<$Res>
     Object? agents = null,
   }) {
     return _then(
-      _$TeamImpl(
+      _self.copyWith(
         name:
             null == name
-                ? _value.name
+                ? _self.name
                 : name // ignore: cast_nullable_to_non_nullable
                     as String,
         score:
             null == score
-                ? _value.score
+                ? _self.score
                 : score // ignore: cast_nullable_to_non_nullable
                     as int,
         attackScore:
             null == attackScore
-                ? _value.attackScore
+                ? _self.attackScore
                 : attackScore // ignore: cast_nullable_to_non_nullable
                     as int,
         agents:
             null == agents
-                ? _value.agents
+                ? _self.agents
                 : agents // ignore: cast_nullable_to_non_nullable
                     as AgentComp,
       ),
@@ -141,8 +102,8 @@ class __$$TeamImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TeamImpl extends _Team {
-  const _$TeamImpl({
+class _Team extends Team {
+  const _Team({
     required this.name,
     required this.score,
     required this.attackScore,
@@ -158,16 +119,19 @@ class _$TeamImpl extends _Team {
   @override
   final AgentComp agents;
 
+  /// Create a copy of Team
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Team(name: $name, score: $score, attackScore: $attackScore, agents: $agents)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$TeamCopyWith<_Team> get copyWith =>
+      __$TeamCopyWithImpl<_Team>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TeamImpl &&
+            other is _Team &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.score, score) || other.score == score) &&
             (identical(other.attackScore, attackScore) ||
@@ -179,37 +143,61 @@ class _$TeamImpl extends _Team {
   int get hashCode =>
       Object.hash(runtimeType, name, score, attackScore, agents);
 
-  /// Create a copy of Team
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$TeamImplCopyWith<_$TeamImpl> get copyWith =>
-      __$$TeamImplCopyWithImpl<_$TeamImpl>(this, _$identity);
+  String toString() {
+    return 'Team(name: $name, score: $score, attackScore: $attackScore, agents: $agents)';
+  }
 }
 
-abstract class _Team extends Team {
-  const factory _Team({
-    required final String name,
-    required final int score,
-    required final int attackScore,
-    required final AgentComp agents,
-  }) = _$TeamImpl;
-  const _Team._() : super._();
+/// @nodoc
+abstract mixin class _$TeamCopyWith<$Res> implements $TeamCopyWith<$Res> {
+  factory _$TeamCopyWith(_Team value, $Res Function(_Team) _then) =
+      __$TeamCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String name, int score, int attackScore, AgentComp agents});
+}
 
-  @override
-  String get name;
-  @override
-  int get score;
-  @override
-  int get attackScore;
-  @override
-  AgentComp get agents;
+/// @nodoc
+class __$TeamCopyWithImpl<$Res> implements _$TeamCopyWith<$Res> {
+  __$TeamCopyWithImpl(this._self, this._then);
+
+  final _Team _self;
+  final $Res Function(_Team) _then;
 
   /// Create a copy of Team
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TeamImplCopyWith<_$TeamImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? name = null,
+    Object? score = null,
+    Object? attackScore = null,
+    Object? agents = null,
+  }) {
+    return _then(
+      _Team(
+        name:
+            null == name
+                ? _self.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String,
+        score:
+            null == score
+                ? _self.score
+                : score // ignore: cast_nullable_to_non_nullable
+                    as int,
+        attackScore:
+            null == attackScore
+                ? _self.attackScore
+                : attackScore // ignore: cast_nullable_to_non_nullable
+                    as int,
+        agents:
+            null == agents
+                ? _self.agents
+                : agents // ignore: cast_nullable_to_non_nullable
+                    as AgentComp,
+      ),
+    );
+  }
 }

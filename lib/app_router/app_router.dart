@@ -12,7 +12,6 @@ GoRouter appRouter(Ref ref, {bool debugLogDiagnostics = false}) {
   final navigatorKey = GlobalKey<NavigatorState>(debugLabel: 'GoRouterKey');
   final router = GoRouter(
     navigatorKey: navigatorKey,
-    initialLocation: const AgentsOverviewRoute().location,
     debugLogDiagnostics: debugLogDiagnostics,
     routes: $appRoutes,
     redirect: (context, state) {

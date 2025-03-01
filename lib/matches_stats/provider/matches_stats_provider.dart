@@ -52,7 +52,7 @@ typedef StyledMatchesStat =
     ({StylePoints styleOne, StylePoints styleTwo, MatchesSummary summary});
 
 @freezed
-class MatchesSummary with _$MatchesSummary {
+abstract class MatchesSummary with _$MatchesSummary {
   const factory MatchesSummary({
     required int matchesCount,
     required Score scoreOne,

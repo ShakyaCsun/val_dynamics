@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -11,267 +12,30 @@ part of 'raw_match.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
 /// @nodoc
 mixin _$RawMatch {
-  String get mapName => throw _privateConstructorUsedError;
-  String get teamOneName => throw _privateConstructorUsedError;
-  String get teamTwoName => throw _privateConstructorUsedError;
-  int get teamOneScore => throw _privateConstructorUsedError;
-  int get teamTwoScore => throw _privateConstructorUsedError;
-  int get teamOneAttackScore => throw _privateConstructorUsedError;
-  int get teamTwoAttackScore => throw _privateConstructorUsedError;
-  String get teamOneAgents => throw _privateConstructorUsedError;
-  String get teamTwoAgents => throw _privateConstructorUsedError;
+  String get mapName;
+  String get teamOneName;
+  String get teamTwoName;
+  int get teamOneScore;
+  int get teamTwoScore;
+  int get teamOneAttackScore;
+  int get teamTwoAttackScore;
+  String get teamOneAgents;
+  String get teamTwoAgents;
 
   /// Create a copy of RawMatch
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $RawMatchCopyWith<RawMatch> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $RawMatchCopyWith<$Res> {
-  factory $RawMatchCopyWith(RawMatch value, $Res Function(RawMatch) then) =
-      _$RawMatchCopyWithImpl<$Res, RawMatch>;
-  @useResult
-  $Res call({
-    String mapName,
-    String teamOneName,
-    String teamTwoName,
-    int teamOneScore,
-    int teamTwoScore,
-    int teamOneAttackScore,
-    int teamTwoAttackScore,
-    String teamOneAgents,
-    String teamTwoAgents,
-  });
-}
-
-/// @nodoc
-class _$RawMatchCopyWithImpl<$Res, $Val extends RawMatch>
-    implements $RawMatchCopyWith<$Res> {
-  _$RawMatchCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of RawMatch
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? mapName = null,
-    Object? teamOneName = null,
-    Object? teamTwoName = null,
-    Object? teamOneScore = null,
-    Object? teamTwoScore = null,
-    Object? teamOneAttackScore = null,
-    Object? teamTwoAttackScore = null,
-    Object? teamOneAgents = null,
-    Object? teamTwoAgents = null,
-  }) {
-    return _then(
-      _value.copyWith(
-            mapName:
-                null == mapName
-                    ? _value.mapName
-                    : mapName // ignore: cast_nullable_to_non_nullable
-                        as String,
-            teamOneName:
-                null == teamOneName
-                    ? _value.teamOneName
-                    : teamOneName // ignore: cast_nullable_to_non_nullable
-                        as String,
-            teamTwoName:
-                null == teamTwoName
-                    ? _value.teamTwoName
-                    : teamTwoName // ignore: cast_nullable_to_non_nullable
-                        as String,
-            teamOneScore:
-                null == teamOneScore
-                    ? _value.teamOneScore
-                    : teamOneScore // ignore: cast_nullable_to_non_nullable
-                        as int,
-            teamTwoScore:
-                null == teamTwoScore
-                    ? _value.teamTwoScore
-                    : teamTwoScore // ignore: cast_nullable_to_non_nullable
-                        as int,
-            teamOneAttackScore:
-                null == teamOneAttackScore
-                    ? _value.teamOneAttackScore
-                    : teamOneAttackScore // ignore: cast_nullable_to_non_nullable
-                        as int,
-            teamTwoAttackScore:
-                null == teamTwoAttackScore
-                    ? _value.teamTwoAttackScore
-                    : teamTwoAttackScore // ignore: cast_nullable_to_non_nullable
-                        as int,
-            teamOneAgents:
-                null == teamOneAgents
-                    ? _value.teamOneAgents
-                    : teamOneAgents // ignore: cast_nullable_to_non_nullable
-                        as String,
-            teamTwoAgents:
-                null == teamTwoAgents
-                    ? _value.teamTwoAgents
-                    : teamTwoAgents // ignore: cast_nullable_to_non_nullable
-                        as String,
-          )
-          as $Val,
-    );
-  }
-}
-
-/// @nodoc
-abstract class _$$RawMatchImplCopyWith<$Res>
-    implements $RawMatchCopyWith<$Res> {
-  factory _$$RawMatchImplCopyWith(
-    _$RawMatchImpl value,
-    $Res Function(_$RawMatchImpl) then,
-  ) = __$$RawMatchImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({
-    String mapName,
-    String teamOneName,
-    String teamTwoName,
-    int teamOneScore,
-    int teamTwoScore,
-    int teamOneAttackScore,
-    int teamTwoAttackScore,
-    String teamOneAgents,
-    String teamTwoAgents,
-  });
-}
-
-/// @nodoc
-class __$$RawMatchImplCopyWithImpl<$Res>
-    extends _$RawMatchCopyWithImpl<$Res, _$RawMatchImpl>
-    implements _$$RawMatchImplCopyWith<$Res> {
-  __$$RawMatchImplCopyWithImpl(
-    _$RawMatchImpl _value,
-    $Res Function(_$RawMatchImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of RawMatch
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? mapName = null,
-    Object? teamOneName = null,
-    Object? teamTwoName = null,
-    Object? teamOneScore = null,
-    Object? teamTwoScore = null,
-    Object? teamOneAttackScore = null,
-    Object? teamTwoAttackScore = null,
-    Object? teamOneAgents = null,
-    Object? teamTwoAgents = null,
-  }) {
-    return _then(
-      _$RawMatchImpl(
-        mapName:
-            null == mapName
-                ? _value.mapName
-                : mapName // ignore: cast_nullable_to_non_nullable
-                    as String,
-        teamOneName:
-            null == teamOneName
-                ? _value.teamOneName
-                : teamOneName // ignore: cast_nullable_to_non_nullable
-                    as String,
-        teamTwoName:
-            null == teamTwoName
-                ? _value.teamTwoName
-                : teamTwoName // ignore: cast_nullable_to_non_nullable
-                    as String,
-        teamOneScore:
-            null == teamOneScore
-                ? _value.teamOneScore
-                : teamOneScore // ignore: cast_nullable_to_non_nullable
-                    as int,
-        teamTwoScore:
-            null == teamTwoScore
-                ? _value.teamTwoScore
-                : teamTwoScore // ignore: cast_nullable_to_non_nullable
-                    as int,
-        teamOneAttackScore:
-            null == teamOneAttackScore
-                ? _value.teamOneAttackScore
-                : teamOneAttackScore // ignore: cast_nullable_to_non_nullable
-                    as int,
-        teamTwoAttackScore:
-            null == teamTwoAttackScore
-                ? _value.teamTwoAttackScore
-                : teamTwoAttackScore // ignore: cast_nullable_to_non_nullable
-                    as int,
-        teamOneAgents:
-            null == teamOneAgents
-                ? _value.teamOneAgents
-                : teamOneAgents // ignore: cast_nullable_to_non_nullable
-                    as String,
-        teamTwoAgents:
-            null == teamTwoAgents
-                ? _value.teamTwoAgents
-                : teamTwoAgents // ignore: cast_nullable_to_non_nullable
-                    as String,
-      ),
-    );
-  }
-}
-
-/// @nodoc
-
-class _$RawMatchImpl extends _RawMatch {
-  const _$RawMatchImpl({
-    required this.mapName,
-    required this.teamOneName,
-    required this.teamTwoName,
-    required this.teamOneScore,
-    required this.teamTwoScore,
-    required this.teamOneAttackScore,
-    required this.teamTwoAttackScore,
-    required this.teamOneAgents,
-    required this.teamTwoAgents,
-  }) : super._();
-
-  @override
-  final String mapName;
-  @override
-  final String teamOneName;
-  @override
-  final String teamTwoName;
-  @override
-  final int teamOneScore;
-  @override
-  final int teamTwoScore;
-  @override
-  final int teamOneAttackScore;
-  @override
-  final int teamTwoAttackScore;
-  @override
-  final String teamOneAgents;
-  @override
-  final String teamTwoAgents;
-
-  @override
-  String toString() {
-    return 'RawMatch(mapName: $mapName, teamOneName: $teamOneName, teamTwoName: $teamTwoName, teamOneScore: $teamOneScore, teamTwoScore: $teamTwoScore, teamOneAttackScore: $teamOneAttackScore, teamTwoAttackScore: $teamTwoAttackScore, teamOneAgents: $teamOneAgents, teamTwoAgents: $teamTwoAgents)';
-  }
+      _$RawMatchCopyWithImpl<RawMatch>(this as RawMatch, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RawMatchImpl &&
+            other is RawMatch &&
             (identical(other.mapName, mapName) || other.mapName == mapName) &&
             (identical(other.teamOneName, teamOneName) ||
                 other.teamOneName == teamOneName) &&
@@ -305,52 +69,280 @@ class _$RawMatchImpl extends _RawMatch {
     teamTwoAgents,
   );
 
-  /// Create a copy of RawMatch
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$RawMatchImplCopyWith<_$RawMatchImpl> get copyWith =>
-      __$$RawMatchImplCopyWithImpl<_$RawMatchImpl>(this, _$identity);
+  String toString() {
+    return 'RawMatch(mapName: $mapName, teamOneName: $teamOneName, teamTwoName: $teamTwoName, teamOneScore: $teamOneScore, teamTwoScore: $teamTwoScore, teamOneAttackScore: $teamOneAttackScore, teamTwoAttackScore: $teamTwoAttackScore, teamOneAgents: $teamOneAgents, teamTwoAgents: $teamTwoAgents)';
+  }
 }
 
-abstract class _RawMatch extends RawMatch {
-  const factory _RawMatch({
-    required final String mapName,
-    required final String teamOneName,
-    required final String teamTwoName,
-    required final int teamOneScore,
-    required final int teamTwoScore,
-    required final int teamOneAttackScore,
-    required final int teamTwoAttackScore,
-    required final String teamOneAgents,
-    required final String teamTwoAgents,
-  }) = _$RawMatchImpl;
-  const _RawMatch._() : super._();
+/// @nodoc
+abstract mixin class $RawMatchCopyWith<$Res> {
+  factory $RawMatchCopyWith(RawMatch value, $Res Function(RawMatch) _then) =
+      _$RawMatchCopyWithImpl;
+  @useResult
+  $Res call({
+    String mapName,
+    String teamOneName,
+    String teamTwoName,
+    int teamOneScore,
+    int teamTwoScore,
+    int teamOneAttackScore,
+    int teamTwoAttackScore,
+    String teamOneAgents,
+    String teamTwoAgents,
+  });
+}
+
+/// @nodoc
+class _$RawMatchCopyWithImpl<$Res> implements $RawMatchCopyWith<$Res> {
+  _$RawMatchCopyWithImpl(this._self, this._then);
+
+  final RawMatch _self;
+  final $Res Function(RawMatch) _then;
+
+  /// Create a copy of RawMatch
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? mapName = null,
+    Object? teamOneName = null,
+    Object? teamTwoName = null,
+    Object? teamOneScore = null,
+    Object? teamTwoScore = null,
+    Object? teamOneAttackScore = null,
+    Object? teamTwoAttackScore = null,
+    Object? teamOneAgents = null,
+    Object? teamTwoAgents = null,
+  }) {
+    return _then(
+      _self.copyWith(
+        mapName:
+            null == mapName
+                ? _self.mapName
+                : mapName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        teamOneName:
+            null == teamOneName
+                ? _self.teamOneName
+                : teamOneName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        teamTwoName:
+            null == teamTwoName
+                ? _self.teamTwoName
+                : teamTwoName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        teamOneScore:
+            null == teamOneScore
+                ? _self.teamOneScore
+                : teamOneScore // ignore: cast_nullable_to_non_nullable
+                    as int,
+        teamTwoScore:
+            null == teamTwoScore
+                ? _self.teamTwoScore
+                : teamTwoScore // ignore: cast_nullable_to_non_nullable
+                    as int,
+        teamOneAttackScore:
+            null == teamOneAttackScore
+                ? _self.teamOneAttackScore
+                : teamOneAttackScore // ignore: cast_nullable_to_non_nullable
+                    as int,
+        teamTwoAttackScore:
+            null == teamTwoAttackScore
+                ? _self.teamTwoAttackScore
+                : teamTwoAttackScore // ignore: cast_nullable_to_non_nullable
+                    as int,
+        teamOneAgents:
+            null == teamOneAgents
+                ? _self.teamOneAgents
+                : teamOneAgents // ignore: cast_nullable_to_non_nullable
+                    as String,
+        teamTwoAgents:
+            null == teamTwoAgents
+                ? _self.teamTwoAgents
+                : teamTwoAgents // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _RawMatch extends RawMatch {
+  const _RawMatch({
+    required this.mapName,
+    required this.teamOneName,
+    required this.teamTwoName,
+    required this.teamOneScore,
+    required this.teamTwoScore,
+    required this.teamOneAttackScore,
+    required this.teamTwoAttackScore,
+    required this.teamOneAgents,
+    required this.teamTwoAgents,
+  }) : super._();
 
   @override
-  String get mapName;
+  final String mapName;
   @override
-  String get teamOneName;
+  final String teamOneName;
   @override
-  String get teamTwoName;
+  final String teamTwoName;
   @override
-  int get teamOneScore;
+  final int teamOneScore;
   @override
-  int get teamTwoScore;
+  final int teamTwoScore;
   @override
-  int get teamOneAttackScore;
+  final int teamOneAttackScore;
   @override
-  int get teamTwoAttackScore;
+  final int teamTwoAttackScore;
   @override
-  String get teamOneAgents;
+  final String teamOneAgents;
   @override
-  String get teamTwoAgents;
+  final String teamTwoAgents;
 
   /// Create a copy of RawMatch
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RawMatchImplCopyWith<_$RawMatchImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$RawMatchCopyWith<_RawMatch> get copyWith =>
+      __$RawMatchCopyWithImpl<_RawMatch>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _RawMatch &&
+            (identical(other.mapName, mapName) || other.mapName == mapName) &&
+            (identical(other.teamOneName, teamOneName) ||
+                other.teamOneName == teamOneName) &&
+            (identical(other.teamTwoName, teamTwoName) ||
+                other.teamTwoName == teamTwoName) &&
+            (identical(other.teamOneScore, teamOneScore) ||
+                other.teamOneScore == teamOneScore) &&
+            (identical(other.teamTwoScore, teamTwoScore) ||
+                other.teamTwoScore == teamTwoScore) &&
+            (identical(other.teamOneAttackScore, teamOneAttackScore) ||
+                other.teamOneAttackScore == teamOneAttackScore) &&
+            (identical(other.teamTwoAttackScore, teamTwoAttackScore) ||
+                other.teamTwoAttackScore == teamTwoAttackScore) &&
+            (identical(other.teamOneAgents, teamOneAgents) ||
+                other.teamOneAgents == teamOneAgents) &&
+            (identical(other.teamTwoAgents, teamTwoAgents) ||
+                other.teamTwoAgents == teamTwoAgents));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    runtimeType,
+    mapName,
+    teamOneName,
+    teamTwoName,
+    teamOneScore,
+    teamTwoScore,
+    teamOneAttackScore,
+    teamTwoAttackScore,
+    teamOneAgents,
+    teamTwoAgents,
+  );
+
+  @override
+  String toString() {
+    return 'RawMatch(mapName: $mapName, teamOneName: $teamOneName, teamTwoName: $teamTwoName, teamOneScore: $teamOneScore, teamTwoScore: $teamTwoScore, teamOneAttackScore: $teamOneAttackScore, teamTwoAttackScore: $teamTwoAttackScore, teamOneAgents: $teamOneAgents, teamTwoAgents: $teamTwoAgents)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$RawMatchCopyWith<$Res>
+    implements $RawMatchCopyWith<$Res> {
+  factory _$RawMatchCopyWith(_RawMatch value, $Res Function(_RawMatch) _then) =
+      __$RawMatchCopyWithImpl;
+  @override
+  @useResult
+  $Res call({
+    String mapName,
+    String teamOneName,
+    String teamTwoName,
+    int teamOneScore,
+    int teamTwoScore,
+    int teamOneAttackScore,
+    int teamTwoAttackScore,
+    String teamOneAgents,
+    String teamTwoAgents,
+  });
+}
+
+/// @nodoc
+class __$RawMatchCopyWithImpl<$Res> implements _$RawMatchCopyWith<$Res> {
+  __$RawMatchCopyWithImpl(this._self, this._then);
+
+  final _RawMatch _self;
+  final $Res Function(_RawMatch) _then;
+
+  /// Create a copy of RawMatch
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? mapName = null,
+    Object? teamOneName = null,
+    Object? teamTwoName = null,
+    Object? teamOneScore = null,
+    Object? teamTwoScore = null,
+    Object? teamOneAttackScore = null,
+    Object? teamTwoAttackScore = null,
+    Object? teamOneAgents = null,
+    Object? teamTwoAgents = null,
+  }) {
+    return _then(
+      _RawMatch(
+        mapName:
+            null == mapName
+                ? _self.mapName
+                : mapName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        teamOneName:
+            null == teamOneName
+                ? _self.teamOneName
+                : teamOneName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        teamTwoName:
+            null == teamTwoName
+                ? _self.teamTwoName
+                : teamTwoName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        teamOneScore:
+            null == teamOneScore
+                ? _self.teamOneScore
+                : teamOneScore // ignore: cast_nullable_to_non_nullable
+                    as int,
+        teamTwoScore:
+            null == teamTwoScore
+                ? _self.teamTwoScore
+                : teamTwoScore // ignore: cast_nullable_to_non_nullable
+                    as int,
+        teamOneAttackScore:
+            null == teamOneAttackScore
+                ? _self.teamOneAttackScore
+                : teamOneAttackScore // ignore: cast_nullable_to_non_nullable
+                    as int,
+        teamTwoAttackScore:
+            null == teamTwoAttackScore
+                ? _self.teamTwoAttackScore
+                : teamTwoAttackScore // ignore: cast_nullable_to_non_nullable
+                    as int,
+        teamOneAgents:
+            null == teamOneAgents
+                ? _self.teamOneAgents
+                : teamOneAgents // ignore: cast_nullable_to_non_nullable
+                    as String,
+        teamTwoAgents:
+            null == teamTwoAgents
+                ? _self.teamTwoAgents
+                : teamTwoAgents // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
+  }
 }

@@ -140,8 +140,7 @@ class FilteredCompositionsProvider
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin FilteredCompositionsRef
-    on AutoDisposeProviderRef<List<AgentComp>> {
+mixin FilteredCompositionsRef on AutoDisposeProviderRef<List<AgentComp>> {
   /// The parameter `rosterName` of this provider.
   String get rosterName;
 }
@@ -396,8 +395,7 @@ class CompositionsReadyProvider extends AutoDisposeProvider<bool> {
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin CompositionsReadyRef
-    on AutoDisposeProviderRef<bool> {
+mixin CompositionsReadyRef on AutoDisposeProviderRef<bool> {
   /// The parameter `rosterName` of this provider.
   String get rosterName;
 }

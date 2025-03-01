@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -11,95 +12,62 @@ part of 'matches_provider.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
 /// @nodoc
 mixin _$MatchesState {
-  ValorantMatches get matches => throw _privateConstructorUsedError;
-  MatchUpFilter get filter => throw _privateConstructorUsedError;
-  Set<String> get maps => throw _privateConstructorUsedError;
+  ValorantMatches get matches;
+  MatchUpFilter get filter;
+  Set<String> get maps;
 
   /// Create a copy of MatchesState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $MatchesStateCopyWith<MatchesState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $MatchesStateCopyWith<$Res> {
-  factory $MatchesStateCopyWith(
-    MatchesState value,
-    $Res Function(MatchesState) then,
-  ) = _$MatchesStateCopyWithImpl<$Res, MatchesState>;
-  @useResult
-  $Res call({ValorantMatches matches, MatchUpFilter filter, Set<String> maps});
-}
-
-/// @nodoc
-class _$MatchesStateCopyWithImpl<$Res, $Val extends MatchesState>
-    implements $MatchesStateCopyWith<$Res> {
-  _$MatchesStateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of MatchesState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $MatchesStateCopyWith<MatchesState> get copyWith =>
+      _$MatchesStateCopyWithImpl<MatchesState>(
+        this as MatchesState,
+        _$identity,
+      );
+
   @override
-  $Res call({
-    Object? matches = null,
-    Object? filter = null,
-    Object? maps = null,
-  }) {
-    return _then(
-      _value.copyWith(
-            matches:
-                null == matches
-                    ? _value.matches
-                    : matches // ignore: cast_nullable_to_non_nullable
-                        as ValorantMatches,
-            filter:
-                null == filter
-                    ? _value.filter
-                    : filter // ignore: cast_nullable_to_non_nullable
-                        as MatchUpFilter,
-            maps:
-                null == maps
-                    ? _value.maps
-                    : maps // ignore: cast_nullable_to_non_nullable
-                        as Set<String>,
-          )
-          as $Val,
-    );
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is MatchesState &&
+            const DeepCollectionEquality().equals(other.matches, matches) &&
+            (identical(other.filter, filter) || other.filter == filter) &&
+            const DeepCollectionEquality().equals(other.maps, maps));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    runtimeType,
+    const DeepCollectionEquality().hash(matches),
+    filter,
+    const DeepCollectionEquality().hash(maps),
+  );
+
+  @override
+  String toString() {
+    return 'MatchesState(matches: $matches, filter: $filter, maps: $maps)';
   }
 }
 
 /// @nodoc
-abstract class _$$MatchesStateImplCopyWith<$Res>
-    implements $MatchesStateCopyWith<$Res> {
-  factory _$$MatchesStateImplCopyWith(
-    _$MatchesStateImpl value,
-    $Res Function(_$MatchesStateImpl) then,
-  ) = __$$MatchesStateImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $MatchesStateCopyWith<$Res> {
+  factory $MatchesStateCopyWith(
+    MatchesState value,
+    $Res Function(MatchesState) _then,
+  ) = _$MatchesStateCopyWithImpl;
   @useResult
   $Res call({ValorantMatches matches, MatchUpFilter filter, Set<String> maps});
 }
 
 /// @nodoc
-class __$$MatchesStateImplCopyWithImpl<$Res>
-    extends _$MatchesStateCopyWithImpl<$Res, _$MatchesStateImpl>
-    implements _$$MatchesStateImplCopyWith<$Res> {
-  __$$MatchesStateImplCopyWithImpl(
-    _$MatchesStateImpl _value,
-    $Res Function(_$MatchesStateImpl) _then,
-  ) : super(_value, _then);
+class _$MatchesStateCopyWithImpl<$Res> implements $MatchesStateCopyWith<$Res> {
+  _$MatchesStateCopyWithImpl(this._self, this._then);
+
+  final MatchesState _self;
+  final $Res Function(MatchesState) _then;
 
   /// Create a copy of MatchesState
   /// with the given fields replaced by the non-null parameter values.
@@ -111,20 +79,20 @@ class __$$MatchesStateImplCopyWithImpl<$Res>
     Object? maps = null,
   }) {
     return _then(
-      _$MatchesStateImpl(
+      _self.copyWith(
         matches:
             null == matches
-                ? _value.matches
+                ? _self.matches
                 : matches // ignore: cast_nullable_to_non_nullable
                     as ValorantMatches,
         filter:
             null == filter
-                ? _value.filter
+                ? _self.filter
                 : filter // ignore: cast_nullable_to_non_nullable
                     as MatchUpFilter,
         maps:
             null == maps
-                ? _value._maps
+                ? _self.maps
                 : maps // ignore: cast_nullable_to_non_nullable
                     as Set<String>,
       ),
@@ -134,8 +102,8 @@ class __$$MatchesStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MatchesStateImpl extends _MatchesState {
-  const _$MatchesStateImpl({
+class _MatchesState extends MatchesState {
+  const _MatchesState({
     required this.matches,
     this.filter = MatchUpFilter.styles,
     final Set<String> maps = const {},
@@ -156,16 +124,19 @@ class _$MatchesStateImpl extends _MatchesState {
     return EqualUnmodifiableSetView(_maps);
   }
 
+  /// Create a copy of MatchesState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'MatchesState(matches: $matches, filter: $filter, maps: $maps)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MatchesStateCopyWith<_MatchesState> get copyWith =>
+      __$MatchesStateCopyWithImpl<_MatchesState>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MatchesStateImpl &&
+            other is _MatchesState &&
             const DeepCollectionEquality().equals(other.matches, matches) &&
             (identical(other.filter, filter) || other.filter == filter) &&
             const DeepCollectionEquality().equals(other._maps, _maps));
@@ -179,34 +150,59 @@ class _$MatchesStateImpl extends _MatchesState {
     const DeepCollectionEquality().hash(_maps),
   );
 
-  /// Create a copy of MatchesState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$MatchesStateImplCopyWith<_$MatchesStateImpl> get copyWith =>
-      __$$MatchesStateImplCopyWithImpl<_$MatchesStateImpl>(this, _$identity);
+  String toString() {
+    return 'MatchesState(matches: $matches, filter: $filter, maps: $maps)';
+  }
 }
 
-abstract class _MatchesState extends MatchesState {
-  const factory _MatchesState({
-    required final ValorantMatches matches,
-    final MatchUpFilter filter,
-    final Set<String> maps,
-  }) = _$MatchesStateImpl;
-  const _MatchesState._() : super._();
+/// @nodoc
+abstract mixin class _$MatchesStateCopyWith<$Res>
+    implements $MatchesStateCopyWith<$Res> {
+  factory _$MatchesStateCopyWith(
+    _MatchesState value,
+    $Res Function(_MatchesState) _then,
+  ) = __$MatchesStateCopyWithImpl;
+  @override
+  @useResult
+  $Res call({ValorantMatches matches, MatchUpFilter filter, Set<String> maps});
+}
 
-  @override
-  ValorantMatches get matches;
-  @override
-  MatchUpFilter get filter;
-  @override
-  Set<String> get maps;
+/// @nodoc
+class __$MatchesStateCopyWithImpl<$Res>
+    implements _$MatchesStateCopyWith<$Res> {
+  __$MatchesStateCopyWithImpl(this._self, this._then);
+
+  final _MatchesState _self;
+  final $Res Function(_MatchesState) _then;
 
   /// Create a copy of MatchesState
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MatchesStateImplCopyWith<_$MatchesStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? matches = null,
+    Object? filter = null,
+    Object? maps = null,
+  }) {
+    return _then(
+      _MatchesState(
+        matches:
+            null == matches
+                ? _self.matches
+                : matches // ignore: cast_nullable_to_non_nullable
+                    as ValorantMatches,
+        filter:
+            null == filter
+                ? _self.filter
+                : filter // ignore: cast_nullable_to_non_nullable
+                    as MatchUpFilter,
+        maps:
+            null == maps
+                ? _self._maps
+                : maps // ignore: cast_nullable_to_non_nullable
+                    as Set<String>,
+      ),
+    );
+  }
 }

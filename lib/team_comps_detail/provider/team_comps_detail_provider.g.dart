@@ -157,8 +157,7 @@ class SelectedAgentCompsProvider extends AutoDisposeProvider<List<AgentComp>> {
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin SelectedAgentCompsRef
-    on AutoDisposeProviderRef<List<AgentComp>> {
+mixin SelectedAgentCompsRef on AutoDisposeProviderRef<List<AgentComp>> {
   /// The parameter `rosterName` of this provider.
   String get rosterName;
 

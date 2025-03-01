@@ -112,7 +112,7 @@ List<AgentComp> generateAllComps(Agents agents) {
 }
 
 @freezed
-class CompositionsState with _$CompositionsState {
+abstract class CompositionsState with _$CompositionsState {
   factory CompositionsState({
     required Agents agents,
     required List<AgentComp> allCompositions,
@@ -153,7 +153,9 @@ class CompositionsState with _$CompositionsState {
     yield comps;
   }
 
-  late final ternaryData = allCompositions.asTernaryData;
+  @override
+  late final Map<AgentCompsTernaryData, TernaryPoint> ternaryData =
+      allCompositions.asTernaryData;
 }
 
 enum AgentStatus {
@@ -174,7 +176,7 @@ enum AgentStatus {
 }
 
 @freezed
-class RoleRange with _$RoleRange {
+abstract class RoleRange with _$RoleRange {
   @Assert('min >= 0 && min <= 5', 'min value must be between 0 to 5.')
   @Assert('max >= 0 && max <= 5', 'max value must be between 0 to 5.')
   @Assert('min <= max', 'min value cannot be more than max.')

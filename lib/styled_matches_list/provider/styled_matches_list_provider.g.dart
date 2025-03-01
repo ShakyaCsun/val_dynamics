@@ -150,8 +150,7 @@ class StyledMatchesListProvider extends AutoDisposeProvider<ValorantMatches> {
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin StyledMatchesListRef
-    on AutoDisposeProviderRef<ValorantMatches> {
+mixin StyledMatchesListRef on AutoDisposeProviderRef<ValorantMatches> {
   /// The parameter `collectionId` of this provider.
   String get collectionId;
 

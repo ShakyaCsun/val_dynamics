@@ -76,7 +76,7 @@ class $AssetsCsvMatchesGen {
 }
 
 class Assets {
-  Assets._();
+  const Assets._();
 
   static const $AssetsCsvGen csv = $AssetsCsvGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();

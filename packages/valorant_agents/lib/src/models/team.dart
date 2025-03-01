@@ -7,7 +7,7 @@ part 'team.freezed.dart';
 /// Details of a team participating in a [ValorantMatch]
 /// {@endtemplate}
 @freezed
-class Team with _$Team {
+abstract class Team with _$Team {
   /// {@macro team}
   const factory Team({
     required String name,

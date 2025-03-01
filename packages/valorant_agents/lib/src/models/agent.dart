@@ -11,7 +11,7 @@ part 'agent.g.dart';
 /// Agent
 /// {@endtemplate}
 @freezed
-class Agent with _$Agent {
+abstract class Agent with _$Agent {
   /// {@macro agent}
   @JsonSerializable(includeIfNull: false)
   const factory Agent({

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -11,103 +12,61 @@ part of 'matches_stats_provider.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
 /// @nodoc
 mixin _$MatchesSummary {
-  int get matchesCount => throw _privateConstructorUsedError;
-  Score get scoreOne => throw _privateConstructorUsedError;
-  Score get attackScoreOne => throw _privateConstructorUsedError;
-  Set<AgentComp> get compsOne => throw _privateConstructorUsedError;
-  Set<AgentComp> get compsTwo => throw _privateConstructorUsedError;
+  int get matchesCount;
+  Score get scoreOne;
+  Score get attackScoreOne;
+  Set<AgentComp> get compsOne;
+  Set<AgentComp> get compsTwo;
 
   /// Create a copy of MatchesSummary
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $MatchesSummaryCopyWith<MatchesSummary> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $MatchesSummaryCopyWith<$Res> {
-  factory $MatchesSummaryCopyWith(
-    MatchesSummary value,
-    $Res Function(MatchesSummary) then,
-  ) = _$MatchesSummaryCopyWithImpl<$Res, MatchesSummary>;
-  @useResult
-  $Res call({
-    int matchesCount,
-    Score scoreOne,
-    Score attackScoreOne,
-    Set<AgentComp> compsOne,
-    Set<AgentComp> compsTwo,
-  });
-}
-
-/// @nodoc
-class _$MatchesSummaryCopyWithImpl<$Res, $Val extends MatchesSummary>
-    implements $MatchesSummaryCopyWith<$Res> {
-  _$MatchesSummaryCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of MatchesSummary
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $MatchesSummaryCopyWith<MatchesSummary> get copyWith =>
+      _$MatchesSummaryCopyWithImpl<MatchesSummary>(
+        this as MatchesSummary,
+        _$identity,
+      );
+
   @override
-  $Res call({
-    Object? matchesCount = null,
-    Object? scoreOne = null,
-    Object? attackScoreOne = null,
-    Object? compsOne = null,
-    Object? compsTwo = null,
-  }) {
-    return _then(
-      _value.copyWith(
-            matchesCount:
-                null == matchesCount
-                    ? _value.matchesCount
-                    : matchesCount // ignore: cast_nullable_to_non_nullable
-                        as int,
-            scoreOne:
-                null == scoreOne
-                    ? _value.scoreOne
-                    : scoreOne // ignore: cast_nullable_to_non_nullable
-                        as Score,
-            attackScoreOne:
-                null == attackScoreOne
-                    ? _value.attackScoreOne
-                    : attackScoreOne // ignore: cast_nullable_to_non_nullable
-                        as Score,
-            compsOne:
-                null == compsOne
-                    ? _value.compsOne
-                    : compsOne // ignore: cast_nullable_to_non_nullable
-                        as Set<AgentComp>,
-            compsTwo:
-                null == compsTwo
-                    ? _value.compsTwo
-                    : compsTwo // ignore: cast_nullable_to_non_nullable
-                        as Set<AgentComp>,
-          )
-          as $Val,
-    );
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is MatchesSummary &&
+            (identical(other.matchesCount, matchesCount) ||
+                other.matchesCount == matchesCount) &&
+            (identical(other.scoreOne, scoreOne) ||
+                other.scoreOne == scoreOne) &&
+            (identical(other.attackScoreOne, attackScoreOne) ||
+                other.attackScoreOne == attackScoreOne) &&
+            const DeepCollectionEquality().equals(other.compsOne, compsOne) &&
+            const DeepCollectionEquality().equals(other.compsTwo, compsTwo));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    runtimeType,
+    matchesCount,
+    scoreOne,
+    attackScoreOne,
+    const DeepCollectionEquality().hash(compsOne),
+    const DeepCollectionEquality().hash(compsTwo),
+  );
+
+  @override
+  String toString() {
+    return 'MatchesSummary(matchesCount: $matchesCount, scoreOne: $scoreOne, attackScoreOne: $attackScoreOne, compsOne: $compsOne, compsTwo: $compsTwo)';
   }
 }
 
 /// @nodoc
-abstract class _$$MatchesSummaryImplCopyWith<$Res>
-    implements $MatchesSummaryCopyWith<$Res> {
-  factory _$$MatchesSummaryImplCopyWith(
-    _$MatchesSummaryImpl value,
-    $Res Function(_$MatchesSummaryImpl) then,
-  ) = __$$MatchesSummaryImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $MatchesSummaryCopyWith<$Res> {
+  factory $MatchesSummaryCopyWith(
+    MatchesSummary value,
+    $Res Function(MatchesSummary) _then,
+  ) = _$MatchesSummaryCopyWithImpl;
   @useResult
   $Res call({
     int matchesCount,
@@ -119,13 +78,12 @@ abstract class _$$MatchesSummaryImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$MatchesSummaryImplCopyWithImpl<$Res>
-    extends _$MatchesSummaryCopyWithImpl<$Res, _$MatchesSummaryImpl>
-    implements _$$MatchesSummaryImplCopyWith<$Res> {
-  __$$MatchesSummaryImplCopyWithImpl(
-    _$MatchesSummaryImpl _value,
-    $Res Function(_$MatchesSummaryImpl) _then,
-  ) : super(_value, _then);
+class _$MatchesSummaryCopyWithImpl<$Res>
+    implements $MatchesSummaryCopyWith<$Res> {
+  _$MatchesSummaryCopyWithImpl(this._self, this._then);
+
+  final MatchesSummary _self;
+  final $Res Function(MatchesSummary) _then;
 
   /// Create a copy of MatchesSummary
   /// with the given fields replaced by the non-null parameter values.
@@ -139,30 +97,30 @@ class __$$MatchesSummaryImplCopyWithImpl<$Res>
     Object? compsTwo = null,
   }) {
     return _then(
-      _$MatchesSummaryImpl(
+      _self.copyWith(
         matchesCount:
             null == matchesCount
-                ? _value.matchesCount
+                ? _self.matchesCount
                 : matchesCount // ignore: cast_nullable_to_non_nullable
                     as int,
         scoreOne:
             null == scoreOne
-                ? _value.scoreOne
+                ? _self.scoreOne
                 : scoreOne // ignore: cast_nullable_to_non_nullable
                     as Score,
         attackScoreOne:
             null == attackScoreOne
-                ? _value.attackScoreOne
+                ? _self.attackScoreOne
                 : attackScoreOne // ignore: cast_nullable_to_non_nullable
                     as Score,
         compsOne:
             null == compsOne
-                ? _value._compsOne
+                ? _self.compsOne
                 : compsOne // ignore: cast_nullable_to_non_nullable
                     as Set<AgentComp>,
         compsTwo:
             null == compsTwo
-                ? _value._compsTwo
+                ? _self.compsTwo
                 : compsTwo // ignore: cast_nullable_to_non_nullable
                     as Set<AgentComp>,
       ),
@@ -172,8 +130,8 @@ class __$$MatchesSummaryImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MatchesSummaryImpl extends _MatchesSummary {
-  const _$MatchesSummaryImpl({
+class _MatchesSummary extends MatchesSummary {
+  const _MatchesSummary({
     required this.matchesCount,
     required this.scoreOne,
     required this.attackScoreOne,
@@ -205,16 +163,19 @@ class _$MatchesSummaryImpl extends _MatchesSummary {
     return EqualUnmodifiableSetView(_compsTwo);
   }
 
+  /// Create a copy of MatchesSummary
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'MatchesSummary(matchesCount: $matchesCount, scoreOne: $scoreOne, attackScoreOne: $attackScoreOne, compsOne: $compsOne, compsTwo: $compsTwo)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MatchesSummaryCopyWith<_MatchesSummary> get copyWith =>
+      __$MatchesSummaryCopyWithImpl<_MatchesSummary>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MatchesSummaryImpl &&
+            other is _MatchesSummary &&
             (identical(other.matchesCount, matchesCount) ||
                 other.matchesCount == matchesCount) &&
             (identical(other.scoreOne, scoreOne) ||
@@ -235,43 +196,77 @@ class _$MatchesSummaryImpl extends _MatchesSummary {
     const DeepCollectionEquality().hash(_compsTwo),
   );
 
-  /// Create a copy of MatchesSummary
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$MatchesSummaryImplCopyWith<_$MatchesSummaryImpl> get copyWith =>
-      __$$MatchesSummaryImplCopyWithImpl<_$MatchesSummaryImpl>(
-        this,
-        _$identity,
-      );
+  String toString() {
+    return 'MatchesSummary(matchesCount: $matchesCount, scoreOne: $scoreOne, attackScoreOne: $attackScoreOne, compsOne: $compsOne, compsTwo: $compsTwo)';
+  }
 }
 
-abstract class _MatchesSummary extends MatchesSummary {
-  const factory _MatchesSummary({
-    required final int matchesCount,
-    required final Score scoreOne,
-    required final Score attackScoreOne,
-    required final Set<AgentComp> compsOne,
-    required final Set<AgentComp> compsTwo,
-  }) = _$MatchesSummaryImpl;
-  const _MatchesSummary._() : super._();
+/// @nodoc
+abstract mixin class _$MatchesSummaryCopyWith<$Res>
+    implements $MatchesSummaryCopyWith<$Res> {
+  factory _$MatchesSummaryCopyWith(
+    _MatchesSummary value,
+    $Res Function(_MatchesSummary) _then,
+  ) = __$MatchesSummaryCopyWithImpl;
+  @override
+  @useResult
+  $Res call({
+    int matchesCount,
+    Score scoreOne,
+    Score attackScoreOne,
+    Set<AgentComp> compsOne,
+    Set<AgentComp> compsTwo,
+  });
+}
 
-  @override
-  int get matchesCount;
-  @override
-  Score get scoreOne;
-  @override
-  Score get attackScoreOne;
-  @override
-  Set<AgentComp> get compsOne;
-  @override
-  Set<AgentComp> get compsTwo;
+/// @nodoc
+class __$MatchesSummaryCopyWithImpl<$Res>
+    implements _$MatchesSummaryCopyWith<$Res> {
+  __$MatchesSummaryCopyWithImpl(this._self, this._then);
+
+  final _MatchesSummary _self;
+  final $Res Function(_MatchesSummary) _then;
 
   /// Create a copy of MatchesSummary
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MatchesSummaryImplCopyWith<_$MatchesSummaryImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? matchesCount = null,
+    Object? scoreOne = null,
+    Object? attackScoreOne = null,
+    Object? compsOne = null,
+    Object? compsTwo = null,
+  }) {
+    return _then(
+      _MatchesSummary(
+        matchesCount:
+            null == matchesCount
+                ? _self.matchesCount
+                : matchesCount // ignore: cast_nullable_to_non_nullable
+                    as int,
+        scoreOne:
+            null == scoreOne
+                ? _self.scoreOne
+                : scoreOne // ignore: cast_nullable_to_non_nullable
+                    as Score,
+        attackScoreOne:
+            null == attackScoreOne
+                ? _self.attackScoreOne
+                : attackScoreOne // ignore: cast_nullable_to_non_nullable
+                    as Score,
+        compsOne:
+            null == compsOne
+                ? _self._compsOne
+                : compsOne // ignore: cast_nullable_to_non_nullable
+                    as Set<AgentComp>,
+        compsTwo:
+            null == compsTwo
+                ? _self._compsTwo
+                : compsTwo // ignore: cast_nullable_to_non_nullable
+                    as Set<AgentComp>,
+      ),
+    );
+  }
 }

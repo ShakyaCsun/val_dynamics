@@ -35,7 +35,7 @@ class CompFilters extends _$CompFilters {
 }
 
 @freezed
-class CompFiltersState with _$CompFiltersState {
+abstract class CompFiltersState with _$CompFiltersState {
   const factory CompFiltersState({
     required Map<Agent, AgentStatus> agentFilters,
     required Map<Role, RoleRange> roleFilters,

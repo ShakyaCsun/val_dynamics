@@ -10,7 +10,7 @@ part 'raw_match.freezed.dart';
 /// [ValorantMatches] without requiring a agents string to [Agent] mapper.
 /// {@endtemplate}
 @freezed
-class RawMatch with _$RawMatch {
+abstract class RawMatch with _$RawMatch {
   /// {@macro raw_match}
   const factory RawMatch({
     required String mapName,

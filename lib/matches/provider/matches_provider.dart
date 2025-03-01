@@ -78,7 +78,7 @@ enum MatchUpFilter {
 }
 
 @freezed
-class MatchesState with _$MatchesState {
+abstract class MatchesState with _$MatchesState {
   const factory MatchesState({
     required ValorantMatches matches,
     @Default(MatchUpFilter.styles) MatchUpFilter filter,

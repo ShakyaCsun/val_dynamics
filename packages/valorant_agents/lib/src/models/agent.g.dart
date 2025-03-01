@@ -6,7 +6,7 @@ part of 'agent.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AgentImpl _$$AgentImplFromJson(Map<String, dynamic> json) => _$AgentImpl(
+_Agent _$AgentFromJson(Map<String, dynamic> json) => _Agent(
   name: json['name'] as String,
   aggro: (json['aggro'] as num).toDouble(),
   control: (json['control'] as num).toDouble(),
@@ -34,17 +34,16 @@ _$AgentImpl _$$AgentImplFromJson(Map<String, dynamic> json) => _$AgentImpl(
           ),
 );
 
-Map<String, dynamic> _$$AgentImplToJson(_$AgentImpl instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'aggro': instance.aggro,
-      'control': instance.control,
-      'midrange': instance.midrange,
-      'role': instance.role,
-      if (instance.iconUrl case final value?) 'iconUrl': value,
-      if (instance.portraitUrl case final value?) 'portraitUrl': value,
-      'abilityOne': instance.abilityOne,
-      'abilityTwo': instance.abilityTwo,
-      'abilityThree': instance.abilityThree,
-      'ultimateAbility': instance.ultimateAbility,
-    };
+Map<String, dynamic> _$AgentToJson(_Agent instance) => <String, dynamic>{
+  'name': instance.name,
+  'aggro': instance.aggro,
+  'control': instance.control,
+  'midrange': instance.midrange,
+  'role': instance.role,
+  if (instance.iconUrl case final value?) 'iconUrl': value,
+  if (instance.portraitUrl case final value?) 'portraitUrl': value,
+  'abilityOne': instance.abilityOne,
+  'abilityTwo': instance.abilityTwo,
+  'abilityThree': instance.abilityThree,
+  'ultimateAbility': instance.ultimateAbility,
+};
