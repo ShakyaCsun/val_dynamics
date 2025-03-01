@@ -4,7 +4,7 @@ import 'package:valorant_agents/valorant_agents.dart';
 part 'matches_ternary_data.freezed.dart';
 
 @freezed
-class MatchesTernaryData with _$MatchesTernaryData {
+abstract class MatchesTernaryData with _$MatchesTernaryData {
   const factory MatchesTernaryData({
     required StylePoints stylePoints,
     required int matchesCount,

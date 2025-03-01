@@ -39,7 +39,7 @@ class StyledMatches extends _$StyledMatches {
 }
 
 @freezed
-class StyledMatchesState with _$StyledMatchesState {
+abstract class StyledMatchesState with _$StyledMatchesState {
   const factory StyledMatchesState({
     required ValorantMatches matches,
     required StylePoints acm,

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -11,31 +12,48 @@ part of 'styled_matches_list_provider.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
 /// @nodoc
 mixin _$StyledMatchesSummaryData {
-  ({double aggro, double control, double midrange}) get acm =>
-      throw _privateConstructorUsedError;
-  ({double aggro, double control, double midrange}) get opponentAcm =>
-      throw _privateConstructorUsedError;
-  MatchesSummary get summary => throw _privateConstructorUsedError;
+  StylePoints get acm;
+  StylePoints get opponentAcm;
+  MatchesSummary get summary;
 
   /// Create a copy of StyledMatchesSummaryData
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $StyledMatchesSummaryDataCopyWith<StyledMatchesSummaryData> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$StyledMatchesSummaryDataCopyWithImpl<StyledMatchesSummaryData>(
+        this as StyledMatchesSummaryData,
+        _$identity,
+      );
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StyledMatchesSummaryData &&
+            (identical(other.acm, acm) || other.acm == acm) &&
+            (identical(other.opponentAcm, opponentAcm) ||
+                other.opponentAcm == opponentAcm) &&
+            (identical(other.summary, summary) || other.summary == summary));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, acm, opponentAcm, summary);
+
+  @override
+  String toString() {
+    return 'StyledMatchesSummaryData(acm: $acm, opponentAcm: $opponentAcm, summary: $summary)';
+  }
 }
 
 /// @nodoc
-abstract class $StyledMatchesSummaryDataCopyWith<$Res> {
+abstract mixin class $StyledMatchesSummaryDataCopyWith<$Res> {
   factory $StyledMatchesSummaryDataCopyWith(
     StyledMatchesSummaryData value,
-    $Res Function(StyledMatchesSummaryData) then,
-  ) = _$StyledMatchesSummaryDataCopyWithImpl<$Res, StyledMatchesSummaryData>;
+    $Res Function(StyledMatchesSummaryData) _then,
+  ) = _$StyledMatchesSummaryDataCopyWithImpl;
   @useResult
   $Res call({
     ({double aggro, double control, double midrange}) acm,
@@ -47,17 +65,12 @@ abstract class $StyledMatchesSummaryDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StyledMatchesSummaryDataCopyWithImpl<
-  $Res,
-  $Val extends StyledMatchesSummaryData
->
+class _$StyledMatchesSummaryDataCopyWithImpl<$Res>
     implements $StyledMatchesSummaryDataCopyWith<$Res> {
-  _$StyledMatchesSummaryDataCopyWithImpl(this._value, this._then);
+  _$StyledMatchesSummaryDataCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final StyledMatchesSummaryData _self;
+  final $Res Function(StyledMatchesSummaryData) _then;
 
   /// Create a copy of StyledMatchesSummaryData
   /// with the given fields replaced by the non-null parameter values.
@@ -69,24 +82,23 @@ class _$StyledMatchesSummaryDataCopyWithImpl<
     Object? summary = null,
   }) {
     return _then(
-      _value.copyWith(
-            acm:
-                null == acm
-                    ? _value.acm
-                    : acm // ignore: cast_nullable_to_non_nullable
-                        as ({double aggro, double control, double midrange}),
-            opponentAcm:
-                null == opponentAcm
-                    ? _value.opponentAcm
-                    : opponentAcm // ignore: cast_nullable_to_non_nullable
-                        as ({double aggro, double control, double midrange}),
-            summary:
-                null == summary
-                    ? _value.summary
-                    : summary // ignore: cast_nullable_to_non_nullable
-                        as MatchesSummary,
-          )
-          as $Val,
+      _self.copyWith(
+        acm:
+            null == acm
+                ? _self.acm
+                : acm // ignore: cast_nullable_to_non_nullable
+                    as ({double aggro, double control, double midrange}),
+        opponentAcm:
+            null == opponentAcm
+                ? _self.opponentAcm
+                : opponentAcm // ignore: cast_nullable_to_non_nullable
+                    as ({double aggro, double control, double midrange}),
+        summary:
+            null == summary
+                ? _self.summary
+                : summary // ignore: cast_nullable_to_non_nullable
+                    as MatchesSummary,
+      ),
     );
   }
 
@@ -95,79 +107,16 @@ class _$StyledMatchesSummaryDataCopyWithImpl<
   @override
   @pragma('vm:prefer-inline')
   $MatchesSummaryCopyWith<$Res> get summary {
-    return $MatchesSummaryCopyWith<$Res>(_value.summary, (value) {
-      return _then(_value.copyWith(summary: value) as $Val);
+    return $MatchesSummaryCopyWith<$Res>(_self.summary, (value) {
+      return _then(_self.copyWith(summary: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$StyledMatchesSummaryDataImplCopyWith<$Res>
-    implements $StyledMatchesSummaryDataCopyWith<$Res> {
-  factory _$$StyledMatchesSummaryDataImplCopyWith(
-    _$StyledMatchesSummaryDataImpl value,
-    $Res Function(_$StyledMatchesSummaryDataImpl) then,
-  ) = __$$StyledMatchesSummaryDataImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({
-    ({double aggro, double control, double midrange}) acm,
-    ({double aggro, double control, double midrange}) opponentAcm,
-    MatchesSummary summary,
-  });
 
-  @override
-  $MatchesSummaryCopyWith<$Res> get summary;
-}
-
-/// @nodoc
-class __$$StyledMatchesSummaryDataImplCopyWithImpl<$Res>
-    extends
-        _$StyledMatchesSummaryDataCopyWithImpl<
-          $Res,
-          _$StyledMatchesSummaryDataImpl
-        >
-    implements _$$StyledMatchesSummaryDataImplCopyWith<$Res> {
-  __$$StyledMatchesSummaryDataImplCopyWithImpl(
-    _$StyledMatchesSummaryDataImpl _value,
-    $Res Function(_$StyledMatchesSummaryDataImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of StyledMatchesSummaryData
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? acm = null,
-    Object? opponentAcm = null,
-    Object? summary = null,
-  }) {
-    return _then(
-      _$StyledMatchesSummaryDataImpl(
-        acm:
-            null == acm
-                ? _value.acm
-                : acm // ignore: cast_nullable_to_non_nullable
-                    as ({double aggro, double control, double midrange}),
-        opponentAcm:
-            null == opponentAcm
-                ? _value.opponentAcm
-                : opponentAcm // ignore: cast_nullable_to_non_nullable
-                    as ({double aggro, double control, double midrange}),
-        summary:
-            null == summary
-                ? _value.summary
-                : summary // ignore: cast_nullable_to_non_nullable
-                    as MatchesSummary,
-      ),
-    );
-  }
-}
-
-/// @nodoc
-
-class _$StyledMatchesSummaryDataImpl implements _StyledMatchesSummaryData {
-  const _$StyledMatchesSummaryDataImpl({
+class _StyledMatchesSummaryData implements StyledMatchesSummaryData {
+  const _StyledMatchesSummaryData({
     required this.acm,
     required this.opponentAcm,
     required this.summary,
@@ -180,16 +129,22 @@ class _$StyledMatchesSummaryDataImpl implements _StyledMatchesSummaryData {
   @override
   final MatchesSummary summary;
 
+  /// Create a copy of StyledMatchesSummaryData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StyledMatchesSummaryData(acm: $acm, opponentAcm: $opponentAcm, summary: $summary)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StyledMatchesSummaryDataCopyWith<_StyledMatchesSummaryData> get copyWith =>
+      __$StyledMatchesSummaryDataCopyWithImpl<_StyledMatchesSummaryData>(
+        this,
+        _$identity,
+      );
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StyledMatchesSummaryDataImpl &&
+            other is _StyledMatchesSummaryData &&
             (identical(other.acm, acm) || other.acm == acm) &&
             (identical(other.opponentAcm, opponentAcm) ||
                 other.opponentAcm == opponentAcm) &&
@@ -199,36 +154,76 @@ class _$StyledMatchesSummaryDataImpl implements _StyledMatchesSummaryData {
   @override
   int get hashCode => Object.hash(runtimeType, acm, opponentAcm, summary);
 
-  /// Create a copy of StyledMatchesSummaryData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StyledMatchesSummaryDataImplCopyWith<_$StyledMatchesSummaryDataImpl>
-  get copyWith => __$$StyledMatchesSummaryDataImplCopyWithImpl<
-    _$StyledMatchesSummaryDataImpl
-  >(this, _$identity);
+  String toString() {
+    return 'StyledMatchesSummaryData(acm: $acm, opponentAcm: $opponentAcm, summary: $summary)';
+  }
 }
 
-abstract class _StyledMatchesSummaryData implements StyledMatchesSummaryData {
-  const factory _StyledMatchesSummaryData({
-    required final ({double aggro, double control, double midrange}) acm,
-    required final ({double aggro, double control, double midrange})
-    opponentAcm,
-    required final MatchesSummary summary,
-  }) = _$StyledMatchesSummaryDataImpl;
+/// @nodoc
+abstract mixin class _$StyledMatchesSummaryDataCopyWith<$Res>
+    implements $StyledMatchesSummaryDataCopyWith<$Res> {
+  factory _$StyledMatchesSummaryDataCopyWith(
+    _StyledMatchesSummaryData value,
+    $Res Function(_StyledMatchesSummaryData) _then,
+  ) = __$StyledMatchesSummaryDataCopyWithImpl;
+  @override
+  @useResult
+  $Res call({
+    ({double aggro, double control, double midrange}) acm,
+    ({double aggro, double control, double midrange}) opponentAcm,
+    MatchesSummary summary,
+  });
 
   @override
-  ({double aggro, double control, double midrange}) get acm;
-  @override
-  ({double aggro, double control, double midrange}) get opponentAcm;
-  @override
-  MatchesSummary get summary;
+  $MatchesSummaryCopyWith<$Res> get summary;
+}
+
+/// @nodoc
+class __$StyledMatchesSummaryDataCopyWithImpl<$Res>
+    implements _$StyledMatchesSummaryDataCopyWith<$Res> {
+  __$StyledMatchesSummaryDataCopyWithImpl(this._self, this._then);
+
+  final _StyledMatchesSummaryData _self;
+  final $Res Function(_StyledMatchesSummaryData) _then;
 
   /// Create a copy of StyledMatchesSummaryData
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StyledMatchesSummaryDataImplCopyWith<_$StyledMatchesSummaryDataImpl>
-  get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? acm = null,
+    Object? opponentAcm = null,
+    Object? summary = null,
+  }) {
+    return _then(
+      _StyledMatchesSummaryData(
+        acm:
+            null == acm
+                ? _self.acm
+                : acm // ignore: cast_nullable_to_non_nullable
+                    as ({double aggro, double control, double midrange}),
+        opponentAcm:
+            null == opponentAcm
+                ? _self.opponentAcm
+                : opponentAcm // ignore: cast_nullable_to_non_nullable
+                    as ({double aggro, double control, double midrange}),
+        summary:
+            null == summary
+                ? _self.summary
+                : summary // ignore: cast_nullable_to_non_nullable
+                    as MatchesSummary,
+      ),
+    );
+  }
+
+  /// Create a copy of StyledMatchesSummaryData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MatchesSummaryCopyWith<$Res> get summary {
+    return $MatchesSummaryCopyWith<$Res>(_self.summary, (value) {
+      return _then(_self.copyWith(summary: value));
+    });
+  }
 }

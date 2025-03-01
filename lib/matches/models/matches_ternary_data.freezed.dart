@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -11,121 +12,74 @@ part of 'matches_ternary_data.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
 /// @nodoc
 mixin _$MatchesTernaryData {
-  ({double aggro, double control, double midrange}) get stylePoints =>
-      throw _privateConstructorUsedError;
-  int get matchesCount => throw _privateConstructorUsedError;
-  Score get score => throw _privateConstructorUsedError;
-  Score get attackScore => throw _privateConstructorUsedError;
-  Score get defenseScore => throw _privateConstructorUsedError;
-  Set<AgentComp> get compositions => throw _privateConstructorUsedError;
-  Set<AgentComp> get oppositionCompositions =>
-      throw _privateConstructorUsedError;
+  StylePoints get stylePoints;
+  int get matchesCount;
+  Score get score;
+  Score get attackScore;
+  Score get defenseScore;
+  Set<AgentComp> get compositions;
+  Set<AgentComp> get oppositionCompositions;
 
   /// Create a copy of MatchesTernaryData
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $MatchesTernaryDataCopyWith<MatchesTernaryData> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $MatchesTernaryDataCopyWith<$Res> {
-  factory $MatchesTernaryDataCopyWith(
-    MatchesTernaryData value,
-    $Res Function(MatchesTernaryData) then,
-  ) = _$MatchesTernaryDataCopyWithImpl<$Res, MatchesTernaryData>;
-  @useResult
-  $Res call({
-    ({double aggro, double control, double midrange}) stylePoints,
-    int matchesCount,
-    Score score,
-    Score attackScore,
-    Score defenseScore,
-    Set<AgentComp> compositions,
-    Set<AgentComp> oppositionCompositions,
-  });
-}
-
-/// @nodoc
-class _$MatchesTernaryDataCopyWithImpl<$Res, $Val extends MatchesTernaryData>
-    implements $MatchesTernaryDataCopyWith<$Res> {
-  _$MatchesTernaryDataCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of MatchesTernaryData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $MatchesTernaryDataCopyWith<MatchesTernaryData> get copyWith =>
+      _$MatchesTernaryDataCopyWithImpl<MatchesTernaryData>(
+        this as MatchesTernaryData,
+        _$identity,
+      );
+
   @override
-  $Res call({
-    Object? stylePoints = null,
-    Object? matchesCount = null,
-    Object? score = null,
-    Object? attackScore = null,
-    Object? defenseScore = null,
-    Object? compositions = null,
-    Object? oppositionCompositions = null,
-  }) {
-    return _then(
-      _value.copyWith(
-            stylePoints:
-                null == stylePoints
-                    ? _value.stylePoints
-                    : stylePoints // ignore: cast_nullable_to_non_nullable
-                        as ({double aggro, double control, double midrange}),
-            matchesCount:
-                null == matchesCount
-                    ? _value.matchesCount
-                    : matchesCount // ignore: cast_nullable_to_non_nullable
-                        as int,
-            score:
-                null == score
-                    ? _value.score
-                    : score // ignore: cast_nullable_to_non_nullable
-                        as Score,
-            attackScore:
-                null == attackScore
-                    ? _value.attackScore
-                    : attackScore // ignore: cast_nullable_to_non_nullable
-                        as Score,
-            defenseScore:
-                null == defenseScore
-                    ? _value.defenseScore
-                    : defenseScore // ignore: cast_nullable_to_non_nullable
-                        as Score,
-            compositions:
-                null == compositions
-                    ? _value.compositions
-                    : compositions // ignore: cast_nullable_to_non_nullable
-                        as Set<AgentComp>,
-            oppositionCompositions:
-                null == oppositionCompositions
-                    ? _value.oppositionCompositions
-                    : oppositionCompositions // ignore: cast_nullable_to_non_nullable
-                        as Set<AgentComp>,
-          )
-          as $Val,
-    );
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is MatchesTernaryData &&
+            (identical(other.stylePoints, stylePoints) ||
+                other.stylePoints == stylePoints) &&
+            (identical(other.matchesCount, matchesCount) ||
+                other.matchesCount == matchesCount) &&
+            (identical(other.score, score) || other.score == score) &&
+            (identical(other.attackScore, attackScore) ||
+                other.attackScore == attackScore) &&
+            (identical(other.defenseScore, defenseScore) ||
+                other.defenseScore == defenseScore) &&
+            const DeepCollectionEquality().equals(
+              other.compositions,
+              compositions,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other.oppositionCompositions,
+              oppositionCompositions,
+            ));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    runtimeType,
+    stylePoints,
+    matchesCount,
+    score,
+    attackScore,
+    defenseScore,
+    const DeepCollectionEquality().hash(compositions),
+    const DeepCollectionEquality().hash(oppositionCompositions),
+  );
+
+  @override
+  String toString() {
+    return 'MatchesTernaryData(stylePoints: $stylePoints, matchesCount: $matchesCount, score: $score, attackScore: $attackScore, defenseScore: $defenseScore, compositions: $compositions, oppositionCompositions: $oppositionCompositions)';
   }
 }
 
 /// @nodoc
-abstract class _$$MatchesTernaryDataImplCopyWith<$Res>
-    implements $MatchesTernaryDataCopyWith<$Res> {
-  factory _$$MatchesTernaryDataImplCopyWith(
-    _$MatchesTernaryDataImpl value,
-    $Res Function(_$MatchesTernaryDataImpl) then,
-  ) = __$$MatchesTernaryDataImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $MatchesTernaryDataCopyWith<$Res> {
+  factory $MatchesTernaryDataCopyWith(
+    MatchesTernaryData value,
+    $Res Function(MatchesTernaryData) _then,
+  ) = _$MatchesTernaryDataCopyWithImpl;
   @useResult
   $Res call({
     ({double aggro, double control, double midrange}) stylePoints,
@@ -139,13 +93,12 @@ abstract class _$$MatchesTernaryDataImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$MatchesTernaryDataImplCopyWithImpl<$Res>
-    extends _$MatchesTernaryDataCopyWithImpl<$Res, _$MatchesTernaryDataImpl>
-    implements _$$MatchesTernaryDataImplCopyWith<$Res> {
-  __$$MatchesTernaryDataImplCopyWithImpl(
-    _$MatchesTernaryDataImpl _value,
-    $Res Function(_$MatchesTernaryDataImpl) _then,
-  ) : super(_value, _then);
+class _$MatchesTernaryDataCopyWithImpl<$Res>
+    implements $MatchesTernaryDataCopyWith<$Res> {
+  _$MatchesTernaryDataCopyWithImpl(this._self, this._then);
+
+  final MatchesTernaryData _self;
+  final $Res Function(MatchesTernaryData) _then;
 
   /// Create a copy of MatchesTernaryData
   /// with the given fields replaced by the non-null parameter values.
@@ -161,40 +114,40 @@ class __$$MatchesTernaryDataImplCopyWithImpl<$Res>
     Object? oppositionCompositions = null,
   }) {
     return _then(
-      _$MatchesTernaryDataImpl(
+      _self.copyWith(
         stylePoints:
             null == stylePoints
-                ? _value.stylePoints
+                ? _self.stylePoints
                 : stylePoints // ignore: cast_nullable_to_non_nullable
                     as ({double aggro, double control, double midrange}),
         matchesCount:
             null == matchesCount
-                ? _value.matchesCount
+                ? _self.matchesCount
                 : matchesCount // ignore: cast_nullable_to_non_nullable
                     as int,
         score:
             null == score
-                ? _value.score
+                ? _self.score
                 : score // ignore: cast_nullable_to_non_nullable
                     as Score,
         attackScore:
             null == attackScore
-                ? _value.attackScore
+                ? _self.attackScore
                 : attackScore // ignore: cast_nullable_to_non_nullable
                     as Score,
         defenseScore:
             null == defenseScore
-                ? _value.defenseScore
+                ? _self.defenseScore
                 : defenseScore // ignore: cast_nullable_to_non_nullable
                     as Score,
         compositions:
             null == compositions
-                ? _value._compositions
+                ? _self.compositions
                 : compositions // ignore: cast_nullable_to_non_nullable
                     as Set<AgentComp>,
         oppositionCompositions:
             null == oppositionCompositions
-                ? _value._oppositionCompositions
+                ? _self.oppositionCompositions
                 : oppositionCompositions // ignore: cast_nullable_to_non_nullable
                     as Set<AgentComp>,
       ),
@@ -204,8 +157,8 @@ class __$$MatchesTernaryDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MatchesTernaryDataImpl extends _MatchesTernaryData {
-  const _$MatchesTernaryDataImpl({
+class _MatchesTernaryData extends MatchesTernaryData {
+  const _MatchesTernaryData({
     required this.stylePoints,
     required this.matchesCount,
     required this.score,
@@ -244,16 +197,19 @@ class _$MatchesTernaryDataImpl extends _MatchesTernaryData {
     return EqualUnmodifiableSetView(_oppositionCompositions);
   }
 
+  /// Create a copy of MatchesTernaryData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'MatchesTernaryData(stylePoints: $stylePoints, matchesCount: $matchesCount, score: $score, attackScore: $attackScore, defenseScore: $defenseScore, compositions: $compositions, oppositionCompositions: $oppositionCompositions)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MatchesTernaryDataCopyWith<_MatchesTernaryData> get copyWith =>
+      __$MatchesTernaryDataCopyWithImpl<_MatchesTernaryData>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MatchesTernaryDataImpl &&
+            other is _MatchesTernaryData &&
             (identical(other.stylePoints, stylePoints) ||
                 other.stylePoints == stylePoints) &&
             (identical(other.matchesCount, matchesCount) ||
@@ -285,50 +241,91 @@ class _$MatchesTernaryDataImpl extends _MatchesTernaryData {
     const DeepCollectionEquality().hash(_oppositionCompositions),
   );
 
-  /// Create a copy of MatchesTernaryData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$MatchesTernaryDataImplCopyWith<_$MatchesTernaryDataImpl> get copyWith =>
-      __$$MatchesTernaryDataImplCopyWithImpl<_$MatchesTernaryDataImpl>(
-        this,
-        _$identity,
-      );
+  String toString() {
+    return 'MatchesTernaryData(stylePoints: $stylePoints, matchesCount: $matchesCount, score: $score, attackScore: $attackScore, defenseScore: $defenseScore, compositions: $compositions, oppositionCompositions: $oppositionCompositions)';
+  }
 }
 
-abstract class _MatchesTernaryData extends MatchesTernaryData {
-  const factory _MatchesTernaryData({
-    required final ({double aggro, double control, double midrange})
-    stylePoints,
-    required final int matchesCount,
-    required final Score score,
-    required final Score attackScore,
-    required final Score defenseScore,
-    required final Set<AgentComp> compositions,
-    required final Set<AgentComp> oppositionCompositions,
-  }) = _$MatchesTernaryDataImpl;
-  const _MatchesTernaryData._() : super._();
+/// @nodoc
+abstract mixin class _$MatchesTernaryDataCopyWith<$Res>
+    implements $MatchesTernaryDataCopyWith<$Res> {
+  factory _$MatchesTernaryDataCopyWith(
+    _MatchesTernaryData value,
+    $Res Function(_MatchesTernaryData) _then,
+  ) = __$MatchesTernaryDataCopyWithImpl;
+  @override
+  @useResult
+  $Res call({
+    ({double aggro, double control, double midrange}) stylePoints,
+    int matchesCount,
+    Score score,
+    Score attackScore,
+    Score defenseScore,
+    Set<AgentComp> compositions,
+    Set<AgentComp> oppositionCompositions,
+  });
+}
 
-  @override
-  ({double aggro, double control, double midrange}) get stylePoints;
-  @override
-  int get matchesCount;
-  @override
-  Score get score;
-  @override
-  Score get attackScore;
-  @override
-  Score get defenseScore;
-  @override
-  Set<AgentComp> get compositions;
-  @override
-  Set<AgentComp> get oppositionCompositions;
+/// @nodoc
+class __$MatchesTernaryDataCopyWithImpl<$Res>
+    implements _$MatchesTernaryDataCopyWith<$Res> {
+  __$MatchesTernaryDataCopyWithImpl(this._self, this._then);
+
+  final _MatchesTernaryData _self;
+  final $Res Function(_MatchesTernaryData) _then;
 
   /// Create a copy of MatchesTernaryData
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MatchesTernaryDataImplCopyWith<_$MatchesTernaryDataImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? stylePoints = null,
+    Object? matchesCount = null,
+    Object? score = null,
+    Object? attackScore = null,
+    Object? defenseScore = null,
+    Object? compositions = null,
+    Object? oppositionCompositions = null,
+  }) {
+    return _then(
+      _MatchesTernaryData(
+        stylePoints:
+            null == stylePoints
+                ? _self.stylePoints
+                : stylePoints // ignore: cast_nullable_to_non_nullable
+                    as ({double aggro, double control, double midrange}),
+        matchesCount:
+            null == matchesCount
+                ? _self.matchesCount
+                : matchesCount // ignore: cast_nullable_to_non_nullable
+                    as int,
+        score:
+            null == score
+                ? _self.score
+                : score // ignore: cast_nullable_to_non_nullable
+                    as Score,
+        attackScore:
+            null == attackScore
+                ? _self.attackScore
+                : attackScore // ignore: cast_nullable_to_non_nullable
+                    as Score,
+        defenseScore:
+            null == defenseScore
+                ? _self.defenseScore
+                : defenseScore // ignore: cast_nullable_to_non_nullable
+                    as Score,
+        compositions:
+            null == compositions
+                ? _self._compositions
+                : compositions // ignore: cast_nullable_to_non_nullable
+                    as Set<AgentComp>,
+        oppositionCompositions:
+            null == oppositionCompositions
+                ? _self._oppositionCompositions
+                : oppositionCompositions // ignore: cast_nullable_to_non_nullable
+                    as Set<AgentComp>,
+      ),
+    );
+  }
 }

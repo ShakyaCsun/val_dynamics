@@ -6,7 +6,7 @@ part of 'app_router.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$appRouterHash() => r'8ba16e33d7c535b7e5a831153755d210a1f57e39';
+String _$appRouterHash() => r'7d501198dc0a512b1a9389af4f6018d555e6c2ba';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -133,8 +133,7 @@ class AppRouterProvider extends AutoDisposeProvider<GoRouter> {
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin AppRouterRef
-    on AutoDisposeProviderRef<GoRouter> {
+mixin AppRouterRef on AutoDisposeProviderRef<GoRouter> {
   /// The parameter `debugLogDiagnostics` of this provider.
   bool get debugLogDiagnostics;
 }

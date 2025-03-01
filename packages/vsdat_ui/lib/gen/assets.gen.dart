@@ -1091,7 +1091,7 @@ class $AssetsAgentsYoruGen {
 }
 
 class ValAssets {
-  ValAssets._();
+  const ValAssets._();
 
   static const String package = 'vsdat_ui';
 
@@ -1131,7 +1131,7 @@ class AssetGenImage {
     bool isAntiAlias = false,
     @Deprecated('Do not specify package for a generated library asset')
     String? package = package,
-    FilterQuality filterQuality = FilterQuality.low,
+    FilterQuality filterQuality = FilterQuality.medium,
     int? cacheWidth,
     int? cacheHeight,
   }) {

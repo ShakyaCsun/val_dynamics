@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -11,311 +12,35 @@ part of 'agent.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
-Agent _$AgentFromJson(Map<String, dynamic> json) {
-  return _Agent.fromJson(json);
-}
-
 /// @nodoc
 mixin _$Agent {
-  String get name => throw _privateConstructorUsedError;
-  double get aggro => throw _privateConstructorUsedError;
-  double get control => throw _privateConstructorUsedError;
-  double get midrange => throw _privateConstructorUsedError;
-  Role get role => throw _privateConstructorUsedError;
-  String? get iconUrl => throw _privateConstructorUsedError;
-  String? get portraitUrl => throw _privateConstructorUsedError;
-  AbilityOne get abilityOne => throw _privateConstructorUsedError;
-  AbilityTwo get abilityTwo => throw _privateConstructorUsedError;
-  AbilityThree get abilityThree => throw _privateConstructorUsedError;
-  UltimateAbility get ultimateAbility => throw _privateConstructorUsedError;
-
-  /// Serializes this Agent to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get name;
+  double get aggro;
+  double get control;
+  double get midrange;
+  Role get role;
+  String? get iconUrl;
+  String? get portraitUrl;
+  AbilityOne get abilityOne;
+  AbilityTwo get abilityTwo;
+  AbilityThree get abilityThree;
+  UltimateAbility get ultimateAbility;
 
   /// Create a copy of Agent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $AgentCopyWith<Agent> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $AgentCopyWith<$Res> {
-  factory $AgentCopyWith(Agent value, $Res Function(Agent) then) =
-      _$AgentCopyWithImpl<$Res, Agent>;
-  @useResult
-  $Res call({
-    String name,
-    double aggro,
-    double control,
-    double midrange,
-    Role role,
-    String? iconUrl,
-    String? portraitUrl,
-    AbilityOne abilityOne,
-    AbilityTwo abilityTwo,
-    AbilityThree abilityThree,
-    UltimateAbility ultimateAbility,
-  });
-}
-
-/// @nodoc
-class _$AgentCopyWithImpl<$Res, $Val extends Agent>
-    implements $AgentCopyWith<$Res> {
-  _$AgentCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Agent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? aggro = null,
-    Object? control = null,
-    Object? midrange = null,
-    Object? role = null,
-    Object? iconUrl = freezed,
-    Object? portraitUrl = freezed,
-    Object? abilityOne = null,
-    Object? abilityTwo = null,
-    Object? abilityThree = null,
-    Object? ultimateAbility = null,
-  }) {
-    return _then(
-      _value.copyWith(
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            aggro:
-                null == aggro
-                    ? _value.aggro
-                    : aggro // ignore: cast_nullable_to_non_nullable
-                        as double,
-            control:
-                null == control
-                    ? _value.control
-                    : control // ignore: cast_nullable_to_non_nullable
-                        as double,
-            midrange:
-                null == midrange
-                    ? _value.midrange
-                    : midrange // ignore: cast_nullable_to_non_nullable
-                        as double,
-            role:
-                null == role
-                    ? _value.role
-                    : role // ignore: cast_nullable_to_non_nullable
-                        as Role,
-            iconUrl:
-                freezed == iconUrl
-                    ? _value.iconUrl
-                    : iconUrl // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            portraitUrl:
-                freezed == portraitUrl
-                    ? _value.portraitUrl
-                    : portraitUrl // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            abilityOne:
-                null == abilityOne
-                    ? _value.abilityOne
-                    : abilityOne // ignore: cast_nullable_to_non_nullable
-                        as AbilityOne,
-            abilityTwo:
-                null == abilityTwo
-                    ? _value.abilityTwo
-                    : abilityTwo // ignore: cast_nullable_to_non_nullable
-                        as AbilityTwo,
-            abilityThree:
-                null == abilityThree
-                    ? _value.abilityThree
-                    : abilityThree // ignore: cast_nullable_to_non_nullable
-                        as AbilityThree,
-            ultimateAbility:
-                null == ultimateAbility
-                    ? _value.ultimateAbility
-                    : ultimateAbility // ignore: cast_nullable_to_non_nullable
-                        as UltimateAbility,
-          )
-          as $Val,
-    );
-  }
-}
+  $AgentCopyWith<Agent> get copyWith =>
+      _$AgentCopyWithImpl<Agent>(this as Agent, _$identity);
 
-/// @nodoc
-abstract class _$$AgentImplCopyWith<$Res> implements $AgentCopyWith<$Res> {
-  factory _$$AgentImplCopyWith(
-    _$AgentImpl value,
-    $Res Function(_$AgentImpl) then,
-  ) = __$$AgentImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({
-    String name,
-    double aggro,
-    double control,
-    double midrange,
-    Role role,
-    String? iconUrl,
-    String? portraitUrl,
-    AbilityOne abilityOne,
-    AbilityTwo abilityTwo,
-    AbilityThree abilityThree,
-    UltimateAbility ultimateAbility,
-  });
-}
-
-/// @nodoc
-class __$$AgentImplCopyWithImpl<$Res>
-    extends _$AgentCopyWithImpl<$Res, _$AgentImpl>
-    implements _$$AgentImplCopyWith<$Res> {
-  __$$AgentImplCopyWithImpl(
-    _$AgentImpl _value,
-    $Res Function(_$AgentImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of Agent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? aggro = null,
-    Object? control = null,
-    Object? midrange = null,
-    Object? role = null,
-    Object? iconUrl = freezed,
-    Object? portraitUrl = freezed,
-    Object? abilityOne = null,
-    Object? abilityTwo = null,
-    Object? abilityThree = null,
-    Object? ultimateAbility = null,
-  }) {
-    return _then(
-      _$AgentImpl(
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        aggro:
-            null == aggro
-                ? _value.aggro
-                : aggro // ignore: cast_nullable_to_non_nullable
-                    as double,
-        control:
-            null == control
-                ? _value.control
-                : control // ignore: cast_nullable_to_non_nullable
-                    as double,
-        midrange:
-            null == midrange
-                ? _value.midrange
-                : midrange // ignore: cast_nullable_to_non_nullable
-                    as double,
-        role:
-            null == role
-                ? _value.role
-                : role // ignore: cast_nullable_to_non_nullable
-                    as Role,
-        iconUrl:
-            freezed == iconUrl
-                ? _value.iconUrl
-                : iconUrl // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        portraitUrl:
-            freezed == portraitUrl
-                ? _value.portraitUrl
-                : portraitUrl // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        abilityOne:
-            null == abilityOne
-                ? _value.abilityOne
-                : abilityOne // ignore: cast_nullable_to_non_nullable
-                    as AbilityOne,
-        abilityTwo:
-            null == abilityTwo
-                ? _value.abilityTwo
-                : abilityTwo // ignore: cast_nullable_to_non_nullable
-                    as AbilityTwo,
-        abilityThree:
-            null == abilityThree
-                ? _value.abilityThree
-                : abilityThree // ignore: cast_nullable_to_non_nullable
-                    as AbilityThree,
-        ultimateAbility:
-            null == ultimateAbility
-                ? _value.ultimateAbility
-                : ultimateAbility // ignore: cast_nullable_to_non_nullable
-                    as UltimateAbility,
-      ),
-    );
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(includeIfNull: false)
-class _$AgentImpl extends _Agent {
-  const _$AgentImpl({
-    required this.name,
-    required this.aggro,
-    required this.control,
-    required this.midrange,
-    required this.role,
-    this.iconUrl,
-    this.portraitUrl,
-    this.abilityOne = const AbilityOne(),
-    this.abilityTwo = const AbilityTwo(),
-    this.abilityThree = const AbilityThree(),
-    this.ultimateAbility = const UltimateAbility(),
-  }) : super._();
-
-  factory _$AgentImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AgentImplFromJson(json);
-
-  @override
-  final String name;
-  @override
-  final double aggro;
-  @override
-  final double control;
-  @override
-  final double midrange;
-  @override
-  final Role role;
-  @override
-  final String? iconUrl;
-  @override
-  final String? portraitUrl;
-  @override
-  @JsonKey()
-  final AbilityOne abilityOne;
-  @override
-  @JsonKey()
-  final AbilityTwo abilityTwo;
-  @override
-  @JsonKey()
-  final AbilityThree abilityThree;
-  @override
-  @JsonKey()
-  final UltimateAbility ultimateAbility;
+  /// Serializes this Agent to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AgentImpl &&
+            other is Agent &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.aggro, aggro) || other.aggro == aggro) &&
             (identical(other.control, control) || other.control == control) &&
@@ -351,66 +76,318 @@ class _$AgentImpl extends _Agent {
     abilityThree,
     ultimateAbility,
   );
+}
+
+/// @nodoc
+abstract mixin class $AgentCopyWith<$Res> {
+  factory $AgentCopyWith(Agent value, $Res Function(Agent) _then) =
+      _$AgentCopyWithImpl;
+  @useResult
+  $Res call({
+    String name,
+    double aggro,
+    double control,
+    double midrange,
+    Role role,
+    String? iconUrl,
+    String? portraitUrl,
+    AbilityOne abilityOne,
+    AbilityTwo abilityTwo,
+    AbilityThree abilityThree,
+    UltimateAbility ultimateAbility,
+  });
+}
+
+/// @nodoc
+class _$AgentCopyWithImpl<$Res> implements $AgentCopyWith<$Res> {
+  _$AgentCopyWithImpl(this._self, this._then);
+
+  final Agent _self;
+  final $Res Function(Agent) _then;
 
   /// Create a copy of Agent
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
   @pragma('vm:prefer-inline')
-  _$$AgentImplCopyWith<_$AgentImpl> get copyWith =>
-      __$$AgentImplCopyWithImpl<_$AgentImpl>(this, _$identity);
-
   @override
-  Map<String, dynamic> toJson() {
-    return _$$AgentImplToJson(this);
+  $Res call({
+    Object? name = null,
+    Object? aggro = null,
+    Object? control = null,
+    Object? midrange = null,
+    Object? role = null,
+    Object? iconUrl = freezed,
+    Object? portraitUrl = freezed,
+    Object? abilityOne = null,
+    Object? abilityTwo = null,
+    Object? abilityThree = null,
+    Object? ultimateAbility = null,
+  }) {
+    return _then(
+      _self.copyWith(
+        name:
+            null == name
+                ? _self.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String,
+        aggro:
+            null == aggro
+                ? _self.aggro
+                : aggro // ignore: cast_nullable_to_non_nullable
+                    as double,
+        control:
+            null == control
+                ? _self.control
+                : control // ignore: cast_nullable_to_non_nullable
+                    as double,
+        midrange:
+            null == midrange
+                ? _self.midrange
+                : midrange // ignore: cast_nullable_to_non_nullable
+                    as double,
+        role:
+            null == role
+                ? _self.role
+                : role // ignore: cast_nullable_to_non_nullable
+                    as Role,
+        iconUrl:
+            freezed == iconUrl
+                ? _self.iconUrl
+                : iconUrl // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        portraitUrl:
+            freezed == portraitUrl
+                ? _self.portraitUrl
+                : portraitUrl // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        abilityOne:
+            null == abilityOne
+                ? _self.abilityOne
+                : abilityOne // ignore: cast_nullable_to_non_nullable
+                    as AbilityOne,
+        abilityTwo:
+            null == abilityTwo
+                ? _self.abilityTwo
+                : abilityTwo // ignore: cast_nullable_to_non_nullable
+                    as AbilityTwo,
+        abilityThree:
+            null == abilityThree
+                ? _self.abilityThree
+                : abilityThree // ignore: cast_nullable_to_non_nullable
+                    as AbilityThree,
+        ultimateAbility:
+            null == ultimateAbility
+                ? _self.ultimateAbility
+                : ultimateAbility // ignore: cast_nullable_to_non_nullable
+                    as UltimateAbility,
+      ),
+    );
   }
 }
 
-abstract class _Agent extends Agent {
-  const factory _Agent({
-    required final String name,
-    required final double aggro,
-    required final double control,
-    required final double midrange,
-    required final Role role,
-    final String? iconUrl,
-    final String? portraitUrl,
-    final AbilityOne abilityOne,
-    final AbilityTwo abilityTwo,
-    final AbilityThree abilityThree,
-    final UltimateAbility ultimateAbility,
-  }) = _$AgentImpl;
-  const _Agent._() : super._();
+/// @nodoc
 
-  factory _Agent.fromJson(Map<String, dynamic> json) = _$AgentImpl.fromJson;
+@JsonSerializable(includeIfNull: false)
+class _Agent extends Agent {
+  const _Agent({
+    required this.name,
+    required this.aggro,
+    required this.control,
+    required this.midrange,
+    required this.role,
+    this.iconUrl,
+    this.portraitUrl,
+    this.abilityOne = const AbilityOne(),
+    this.abilityTwo = const AbilityTwo(),
+    this.abilityThree = const AbilityThree(),
+    this.ultimateAbility = const UltimateAbility(),
+  }) : super._();
+  factory _Agent.fromJson(Map<String, dynamic> json) => _$AgentFromJson(json);
 
   @override
-  String get name;
+  final String name;
   @override
-  double get aggro;
+  final double aggro;
   @override
-  double get control;
+  final double control;
   @override
-  double get midrange;
+  final double midrange;
   @override
-  Role get role;
+  final Role role;
   @override
-  String? get iconUrl;
+  final String? iconUrl;
   @override
-  String? get portraitUrl;
+  final String? portraitUrl;
   @override
-  AbilityOne get abilityOne;
+  @JsonKey()
+  final AbilityOne abilityOne;
   @override
-  AbilityTwo get abilityTwo;
+  @JsonKey()
+  final AbilityTwo abilityTwo;
   @override
-  AbilityThree get abilityThree;
+  @JsonKey()
+  final AbilityThree abilityThree;
   @override
-  UltimateAbility get ultimateAbility;
+  @JsonKey()
+  final UltimateAbility ultimateAbility;
 
   /// Create a copy of Agent
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AgentImplCopyWith<_$AgentImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$AgentCopyWith<_Agent> get copyWith =>
+      __$AgentCopyWithImpl<_Agent>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$AgentToJson(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Agent &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.aggro, aggro) || other.aggro == aggro) &&
+            (identical(other.control, control) || other.control == control) &&
+            (identical(other.midrange, midrange) ||
+                other.midrange == midrange) &&
+            (identical(other.role, role) || other.role == role) &&
+            (identical(other.iconUrl, iconUrl) || other.iconUrl == iconUrl) &&
+            (identical(other.portraitUrl, portraitUrl) ||
+                other.portraitUrl == portraitUrl) &&
+            (identical(other.abilityOne, abilityOne) ||
+                other.abilityOne == abilityOne) &&
+            (identical(other.abilityTwo, abilityTwo) ||
+                other.abilityTwo == abilityTwo) &&
+            (identical(other.abilityThree, abilityThree) ||
+                other.abilityThree == abilityThree) &&
+            (identical(other.ultimateAbility, ultimateAbility) ||
+                other.ultimateAbility == ultimateAbility));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+    runtimeType,
+    name,
+    aggro,
+    control,
+    midrange,
+    role,
+    iconUrl,
+    portraitUrl,
+    abilityOne,
+    abilityTwo,
+    abilityThree,
+    ultimateAbility,
+  );
+}
+
+/// @nodoc
+abstract mixin class _$AgentCopyWith<$Res> implements $AgentCopyWith<$Res> {
+  factory _$AgentCopyWith(_Agent value, $Res Function(_Agent) _then) =
+      __$AgentCopyWithImpl;
+  @override
+  @useResult
+  $Res call({
+    String name,
+    double aggro,
+    double control,
+    double midrange,
+    Role role,
+    String? iconUrl,
+    String? portraitUrl,
+    AbilityOne abilityOne,
+    AbilityTwo abilityTwo,
+    AbilityThree abilityThree,
+    UltimateAbility ultimateAbility,
+  });
+}
+
+/// @nodoc
+class __$AgentCopyWithImpl<$Res> implements _$AgentCopyWith<$Res> {
+  __$AgentCopyWithImpl(this._self, this._then);
+
+  final _Agent _self;
+  final $Res Function(_Agent) _then;
+
+  /// Create a copy of Agent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? name = null,
+    Object? aggro = null,
+    Object? control = null,
+    Object? midrange = null,
+    Object? role = null,
+    Object? iconUrl = freezed,
+    Object? portraitUrl = freezed,
+    Object? abilityOne = null,
+    Object? abilityTwo = null,
+    Object? abilityThree = null,
+    Object? ultimateAbility = null,
+  }) {
+    return _then(
+      _Agent(
+        name:
+            null == name
+                ? _self.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String,
+        aggro:
+            null == aggro
+                ? _self.aggro
+                : aggro // ignore: cast_nullable_to_non_nullable
+                    as double,
+        control:
+            null == control
+                ? _self.control
+                : control // ignore: cast_nullable_to_non_nullable
+                    as double,
+        midrange:
+            null == midrange
+                ? _self.midrange
+                : midrange // ignore: cast_nullable_to_non_nullable
+                    as double,
+        role:
+            null == role
+                ? _self.role
+                : role // ignore: cast_nullable_to_non_nullable
+                    as Role,
+        iconUrl:
+            freezed == iconUrl
+                ? _self.iconUrl
+                : iconUrl // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        portraitUrl:
+            freezed == portraitUrl
+                ? _self.portraitUrl
+                : portraitUrl // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        abilityOne:
+            null == abilityOne
+                ? _self.abilityOne
+                : abilityOne // ignore: cast_nullable_to_non_nullable
+                    as AbilityOne,
+        abilityTwo:
+            null == abilityTwo
+                ? _self.abilityTwo
+                : abilityTwo // ignore: cast_nullable_to_non_nullable
+                    as AbilityTwo,
+        abilityThree:
+            null == abilityThree
+                ? _self.abilityThree
+                : abilityThree // ignore: cast_nullable_to_non_nullable
+                    as AbilityThree,
+        ultimateAbility:
+            null == ultimateAbility
+                ? _self.ultimateAbility
+                : ultimateAbility // ignore: cast_nullable_to_non_nullable
+                    as UltimateAbility,
+      ),
+    );
+  }
 }

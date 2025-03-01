@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -11,77 +12,55 @@ part of 'comp_filters_provider.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
 /// @nodoc
 mixin _$CompFiltersState {
-  Map<Agent, AgentStatus> get agentFilters =>
-      throw _privateConstructorUsedError;
-  Map<Role, RoleRange> get roleFilters => throw _privateConstructorUsedError;
+  Map<Agent, AgentStatus> get agentFilters;
+  Map<Role, RoleRange> get roleFilters;
 
   /// Create a copy of CompFiltersState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CompFiltersStateCopyWith<CompFiltersState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CompFiltersStateCopyWith<$Res> {
-  factory $CompFiltersStateCopyWith(
-    CompFiltersState value,
-    $Res Function(CompFiltersState) then,
-  ) = _$CompFiltersStateCopyWithImpl<$Res, CompFiltersState>;
-  @useResult
-  $Res call({
-    Map<Agent, AgentStatus> agentFilters,
-    Map<Role, RoleRange> roleFilters,
-  });
-}
-
-/// @nodoc
-class _$CompFiltersStateCopyWithImpl<$Res, $Val extends CompFiltersState>
-    implements $CompFiltersStateCopyWith<$Res> {
-  _$CompFiltersStateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of CompFiltersState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $CompFiltersStateCopyWith<CompFiltersState> get copyWith =>
+      _$CompFiltersStateCopyWithImpl<CompFiltersState>(
+        this as CompFiltersState,
+        _$identity,
+      );
+
   @override
-  $Res call({Object? agentFilters = null, Object? roleFilters = null}) {
-    return _then(
-      _value.copyWith(
-            agentFilters:
-                null == agentFilters
-                    ? _value.agentFilters
-                    : agentFilters // ignore: cast_nullable_to_non_nullable
-                        as Map<Agent, AgentStatus>,
-            roleFilters:
-                null == roleFilters
-                    ? _value.roleFilters
-                    : roleFilters // ignore: cast_nullable_to_non_nullable
-                        as Map<Role, RoleRange>,
-          )
-          as $Val,
-    );
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CompFiltersState &&
+            const DeepCollectionEquality().equals(
+              other.agentFilters,
+              agentFilters,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other.roleFilters,
+              roleFilters,
+            ));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    runtimeType,
+    const DeepCollectionEquality().hash(agentFilters),
+    const DeepCollectionEquality().hash(roleFilters),
+  );
+
+  @override
+  String toString() {
+    return 'CompFiltersState(agentFilters: $agentFilters, roleFilters: $roleFilters)';
   }
 }
 
 /// @nodoc
-abstract class _$$CompFiltersStateImplCopyWith<$Res>
-    implements $CompFiltersStateCopyWith<$Res> {
-  factory _$$CompFiltersStateImplCopyWith(
-    _$CompFiltersStateImpl value,
-    $Res Function(_$CompFiltersStateImpl) then,
-  ) = __$$CompFiltersStateImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $CompFiltersStateCopyWith<$Res> {
+  factory $CompFiltersStateCopyWith(
+    CompFiltersState value,
+    $Res Function(CompFiltersState) _then,
+  ) = _$CompFiltersStateCopyWithImpl;
   @useResult
   $Res call({
     Map<Agent, AgentStatus> agentFilters,
@@ -90,13 +69,12 @@ abstract class _$$CompFiltersStateImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CompFiltersStateImplCopyWithImpl<$Res>
-    extends _$CompFiltersStateCopyWithImpl<$Res, _$CompFiltersStateImpl>
-    implements _$$CompFiltersStateImplCopyWith<$Res> {
-  __$$CompFiltersStateImplCopyWithImpl(
-    _$CompFiltersStateImpl _value,
-    $Res Function(_$CompFiltersStateImpl) _then,
-  ) : super(_value, _then);
+class _$CompFiltersStateCopyWithImpl<$Res>
+    implements $CompFiltersStateCopyWith<$Res> {
+  _$CompFiltersStateCopyWithImpl(this._self, this._then);
+
+  final CompFiltersState _self;
+  final $Res Function(CompFiltersState) _then;
 
   /// Create a copy of CompFiltersState
   /// with the given fields replaced by the non-null parameter values.
@@ -104,15 +82,15 @@ class __$$CompFiltersStateImplCopyWithImpl<$Res>
   @override
   $Res call({Object? agentFilters = null, Object? roleFilters = null}) {
     return _then(
-      _$CompFiltersStateImpl(
+      _self.copyWith(
         agentFilters:
             null == agentFilters
-                ? _value._agentFilters
+                ? _self.agentFilters
                 : agentFilters // ignore: cast_nullable_to_non_nullable
                     as Map<Agent, AgentStatus>,
         roleFilters:
             null == roleFilters
-                ? _value._roleFilters
+                ? _self.roleFilters
                 : roleFilters // ignore: cast_nullable_to_non_nullable
                     as Map<Role, RoleRange>,
       ),
@@ -122,8 +100,8 @@ class __$$CompFiltersStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CompFiltersStateImpl extends _CompFiltersState {
-  const _$CompFiltersStateImpl({
+class _CompFiltersState extends CompFiltersState {
+  const _CompFiltersState({
     required final Map<Agent, AgentStatus> agentFilters,
     required final Map<Role, RoleRange> roleFilters,
   }) : _agentFilters = agentFilters,
@@ -146,16 +124,19 @@ class _$CompFiltersStateImpl extends _CompFiltersState {
     return EqualUnmodifiableMapView(_roleFilters);
   }
 
+  /// Create a copy of CompFiltersState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'CompFiltersState(agentFilters: $agentFilters, roleFilters: $roleFilters)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$CompFiltersStateCopyWith<_CompFiltersState> get copyWith =>
+      __$CompFiltersStateCopyWithImpl<_CompFiltersState>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CompFiltersStateImpl &&
+            other is _CompFiltersState &&
             const DeepCollectionEquality().equals(
               other._agentFilters,
               _agentFilters,
@@ -173,34 +154,53 @@ class _$CompFiltersStateImpl extends _CompFiltersState {
     const DeepCollectionEquality().hash(_roleFilters),
   );
 
-  /// Create a copy of CompFiltersState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$CompFiltersStateImplCopyWith<_$CompFiltersStateImpl> get copyWith =>
-      __$$CompFiltersStateImplCopyWithImpl<_$CompFiltersStateImpl>(
-        this,
-        _$identity,
-      );
+  String toString() {
+    return 'CompFiltersState(agentFilters: $agentFilters, roleFilters: $roleFilters)';
+  }
 }
 
-abstract class _CompFiltersState extends CompFiltersState {
-  const factory _CompFiltersState({
-    required final Map<Agent, AgentStatus> agentFilters,
-    required final Map<Role, RoleRange> roleFilters,
-  }) = _$CompFiltersStateImpl;
-  const _CompFiltersState._() : super._();
+/// @nodoc
+abstract mixin class _$CompFiltersStateCopyWith<$Res>
+    implements $CompFiltersStateCopyWith<$Res> {
+  factory _$CompFiltersStateCopyWith(
+    _CompFiltersState value,
+    $Res Function(_CompFiltersState) _then,
+  ) = __$CompFiltersStateCopyWithImpl;
+  @override
+  @useResult
+  $Res call({
+    Map<Agent, AgentStatus> agentFilters,
+    Map<Role, RoleRange> roleFilters,
+  });
+}
 
-  @override
-  Map<Agent, AgentStatus> get agentFilters;
-  @override
-  Map<Role, RoleRange> get roleFilters;
+/// @nodoc
+class __$CompFiltersStateCopyWithImpl<$Res>
+    implements _$CompFiltersStateCopyWith<$Res> {
+  __$CompFiltersStateCopyWithImpl(this._self, this._then);
+
+  final _CompFiltersState _self;
+  final $Res Function(_CompFiltersState) _then;
 
   /// Create a copy of CompFiltersState
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CompFiltersStateImplCopyWith<_$CompFiltersStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({Object? agentFilters = null, Object? roleFilters = null}) {
+    return _then(
+      _CompFiltersState(
+        agentFilters:
+            null == agentFilters
+                ? _self._agentFilters
+                : agentFilters // ignore: cast_nullable_to_non_nullable
+                    as Map<Agent, AgentStatus>,
+        roleFilters:
+            null == roleFilters
+                ? _self._roleFilters
+                : roleFilters // ignore: cast_nullable_to_non_nullable
+                    as Map<Role, RoleRange>,
+      ),
+    );
+  }
 }

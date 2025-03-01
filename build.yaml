@@ -1,6 +1,9 @@
 targets:
   $default:
     builders:
+      freezed:
+        options:
+          format: true
       go_router_builder:
         enabled: true
         generate_for:

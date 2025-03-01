@@ -122,7 +122,7 @@ class AppDataNotifier extends _$AppDataNotifier {
 }
 
 @freezed
-class AppData with _$AppData {
+abstract class AppData with _$AppData {
   const factory AppData({
     @Default({}) Map<String, Agents> bundledAgents,
     @Default({}) Map<String, List<RawMatch>> bundledMatches,

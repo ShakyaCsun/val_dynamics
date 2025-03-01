@@ -143,8 +143,7 @@ class AgentsProvider extends AutoDisposeProvider<Agents> {
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin AgentsRef
-    on AutoDisposeProviderRef<Agents> {
+mixin AgentsRef on AutoDisposeProviderRef<Agents> {
   /// The parameter `rosterName` of this provider.
   String get rosterName;
 }
@@ -274,8 +273,7 @@ class SelectedAgentProvider
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin SelectedAgentRef
-    on AutoDisposeNotifierProviderRef<Agent?> {
+mixin SelectedAgentRef on AutoDisposeNotifierProviderRef<Agent?> {
   /// The parameter `rosterName` of this provider.
   String get rosterName;
 }

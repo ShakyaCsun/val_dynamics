@@ -110,7 +110,7 @@ class MatchesCollectionList extends _$MatchesCollectionList {
 }
 
 @freezed
-class MatchesCollection with _$MatchesCollection {
+abstract class MatchesCollection with _$MatchesCollection {
   const factory MatchesCollection({
     required String collectionName,
     required List<RawMatch> rawMatches,

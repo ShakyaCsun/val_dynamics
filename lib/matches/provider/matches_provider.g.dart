@@ -138,8 +138,7 @@ class AvailableMapsProvider extends AutoDisposeProvider<Set<String>> {
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin AvailableMapsRef
-    on AutoDisposeProviderRef<Set<String>> {
+mixin AvailableMapsRef on AutoDisposeProviderRef<Set<String>> {
   /// The parameter `collectionName` of this provider.
   String get collectionName;
 }
@@ -262,8 +261,7 @@ class SelectedMapsProvider extends AutoDisposeProvider<Set<String>> {
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin SelectedMapsRef
-    on AutoDisposeProviderRef<Set<String>> {
+mixin SelectedMapsRef on AutoDisposeProviderRef<Set<String>> {
   /// The parameter `collectionName` of this provider.
   String get collectionName;
 }
@@ -391,8 +389,7 @@ class MatchesProvider
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin MatchesRef
-    on AutoDisposeNotifierProviderRef<MatchesState> {
+mixin MatchesRef on AutoDisposeNotifierProviderRef<MatchesState> {
   /// The parameter `collectionId` of this provider.
   String get collectionId;
 }

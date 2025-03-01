@@ -10,6 +10,7 @@ List<RouteBase> get $appRoutes => [$teamCompsRedirectRoute, $homeScreenRoute];
 
 RouteBase get $teamCompsRedirectRoute => GoRouteData.$route(
   path: '/comps',
+
   factory: $TeamCompsRedirectRouteExtension._fromState,
 );
 
@@ -34,18 +35,22 @@ RouteBase get $homeScreenRoute => ShellRouteData.$route(
   routes: [
     GoRouteData.$route(
       path: '/',
+
       factory: $AgentsOverviewRouteExtension._fromState,
       routes: [
         GoRouteData.$route(
           path: 'agents/add',
+
           factory: $AddAgentsRouteExtension._fromState,
         ),
         GoRouteData.$route(
           path: 'agents/:rosterName',
+
           factory: $AgentsRouteExtension._fromState,
           routes: [
             GoRouteData.$route(
               path: 'stats',
+
               factory: $AgentsStatRouteExtension._fromState,
             ),
           ],
@@ -54,44 +59,54 @@ RouteBase get $homeScreenRoute => ShellRouteData.$route(
     ),
     GoRouteData.$route(
       path: '/comps/:rosterName',
+
       factory: $TeamCompsRouteExtension._fromState,
       routes: [
         GoRouteData.$route(
           path: 'filter',
+
           factory: $TeamCompsFilterRouteExtension._fromState,
         ),
         GoRouteData.$route(
           path: 'details/:acm',
+
           factory: $TeamCompsDetailRouteExtension._fromState,
         ),
       ],
     ),
     GoRouteData.$route(
       path: '/matches',
+
       factory: $MatchesOverviewRouteExtension._fromState,
       routes: [
         GoRouteData.$route(
           path: 'add',
+
           factory: $AddMatchesRouteExtension._fromState,
         ),
         GoRouteData.$route(
           path: ':collectionName',
+
           factory: $MatchesRouteExtension._fromState,
           routes: [
             GoRouteData.$route(
               path: 'stats',
+
               factory: $MatchesStatsRouteExtension._fromState,
             ),
             GoRouteData.$route(
               path: 'acm/:acm',
+
               factory: $StyledMatchesRouteExtension._fromState,
               routes: [
                 GoRouteData.$route(
                   path: 'matches',
+
                   factory: $StyledMatchesListRouteExtension._fromState,
                 ),
                 GoRouteData.$route(
                   path: 'vs/:opponentAcm',
+
                   factory: $StyledMatchupListRouteExtension._fromState,
                 ),
               ],

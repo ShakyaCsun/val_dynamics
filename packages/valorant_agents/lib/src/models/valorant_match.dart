@@ -7,7 +7,7 @@ part 'valorant_match.freezed.dart';
 /// Valorant Match
 /// {@endtemplate}
 @freezed
-class ValorantMatch with _$ValorantMatch {
+abstract class ValorantMatch with _$ValorantMatch {
   /// {@macro match}
   const factory ValorantMatch({
     required String mapName,

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -11,87 +12,57 @@ part of 'matches_overview_provider.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
 /// @nodoc
 mixin _$MatchesCollection {
-  String get collectionName => throw _privateConstructorUsedError;
-  List<RawMatch> get rawMatches => throw _privateConstructorUsedError;
-  String get rosterName => throw _privateConstructorUsedError;
+  String get collectionName;
+  List<RawMatch> get rawMatches;
+  String get rosterName;
 
   /// Create a copy of MatchesCollection
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $MatchesCollectionCopyWith<MatchesCollection> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $MatchesCollectionCopyWith<$Res> {
-  factory $MatchesCollectionCopyWith(
-    MatchesCollection value,
-    $Res Function(MatchesCollection) then,
-  ) = _$MatchesCollectionCopyWithImpl<$Res, MatchesCollection>;
-  @useResult
-  $Res call({
-    String collectionName,
-    List<RawMatch> rawMatches,
-    String rosterName,
-  });
-}
-
-/// @nodoc
-class _$MatchesCollectionCopyWithImpl<$Res, $Val extends MatchesCollection>
-    implements $MatchesCollectionCopyWith<$Res> {
-  _$MatchesCollectionCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of MatchesCollection
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $MatchesCollectionCopyWith<MatchesCollection> get copyWith =>
+      _$MatchesCollectionCopyWithImpl<MatchesCollection>(
+        this as MatchesCollection,
+        _$identity,
+      );
+
   @override
-  $Res call({
-    Object? collectionName = null,
-    Object? rawMatches = null,
-    Object? rosterName = null,
-  }) {
-    return _then(
-      _value.copyWith(
-            collectionName:
-                null == collectionName
-                    ? _value.collectionName
-                    : collectionName // ignore: cast_nullable_to_non_nullable
-                        as String,
-            rawMatches:
-                null == rawMatches
-                    ? _value.rawMatches
-                    : rawMatches // ignore: cast_nullable_to_non_nullable
-                        as List<RawMatch>,
-            rosterName:
-                null == rosterName
-                    ? _value.rosterName
-                    : rosterName // ignore: cast_nullable_to_non_nullable
-                        as String,
-          )
-          as $Val,
-    );
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is MatchesCollection &&
+            (identical(other.collectionName, collectionName) ||
+                other.collectionName == collectionName) &&
+            const DeepCollectionEquality().equals(
+              other.rawMatches,
+              rawMatches,
+            ) &&
+            (identical(other.rosterName, rosterName) ||
+                other.rosterName == rosterName));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    runtimeType,
+    collectionName,
+    const DeepCollectionEquality().hash(rawMatches),
+    rosterName,
+  );
+
+  @override
+  String toString() {
+    return 'MatchesCollection(collectionName: $collectionName, rawMatches: $rawMatches, rosterName: $rosterName)';
   }
 }
 
 /// @nodoc
-abstract class _$$MatchesCollectionImplCopyWith<$Res>
-    implements $MatchesCollectionCopyWith<$Res> {
-  factory _$$MatchesCollectionImplCopyWith(
-    _$MatchesCollectionImpl value,
-    $Res Function(_$MatchesCollectionImpl) then,
-  ) = __$$MatchesCollectionImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $MatchesCollectionCopyWith<$Res> {
+  factory $MatchesCollectionCopyWith(
+    MatchesCollection value,
+    $Res Function(MatchesCollection) _then,
+  ) = _$MatchesCollectionCopyWithImpl;
   @useResult
   $Res call({
     String collectionName,
@@ -101,13 +72,12 @@ abstract class _$$MatchesCollectionImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$MatchesCollectionImplCopyWithImpl<$Res>
-    extends _$MatchesCollectionCopyWithImpl<$Res, _$MatchesCollectionImpl>
-    implements _$$MatchesCollectionImplCopyWith<$Res> {
-  __$$MatchesCollectionImplCopyWithImpl(
-    _$MatchesCollectionImpl _value,
-    $Res Function(_$MatchesCollectionImpl) _then,
-  ) : super(_value, _then);
+class _$MatchesCollectionCopyWithImpl<$Res>
+    implements $MatchesCollectionCopyWith<$Res> {
+  _$MatchesCollectionCopyWithImpl(this._self, this._then);
+
+  final MatchesCollection _self;
+  final $Res Function(MatchesCollection) _then;
 
   /// Create a copy of MatchesCollection
   /// with the given fields replaced by the non-null parameter values.
@@ -119,20 +89,20 @@ class __$$MatchesCollectionImplCopyWithImpl<$Res>
     Object? rosterName = null,
   }) {
     return _then(
-      _$MatchesCollectionImpl(
+      _self.copyWith(
         collectionName:
             null == collectionName
-                ? _value.collectionName
+                ? _self.collectionName
                 : collectionName // ignore: cast_nullable_to_non_nullable
                     as String,
         rawMatches:
             null == rawMatches
-                ? _value._rawMatches
+                ? _self.rawMatches
                 : rawMatches // ignore: cast_nullable_to_non_nullable
                     as List<RawMatch>,
         rosterName:
             null == rosterName
-                ? _value.rosterName
+                ? _self.rosterName
                 : rosterName // ignore: cast_nullable_to_non_nullable
                     as String,
       ),
@@ -142,8 +112,8 @@ class __$$MatchesCollectionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MatchesCollectionImpl extends _MatchesCollection {
-  const _$MatchesCollectionImpl({
+class _MatchesCollection extends MatchesCollection {
+  const _MatchesCollection({
     required this.collectionName,
     required final List<RawMatch> rawMatches,
     required this.rosterName,
@@ -163,16 +133,19 @@ class _$MatchesCollectionImpl extends _MatchesCollection {
   @override
   final String rosterName;
 
+  /// Create a copy of MatchesCollection
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'MatchesCollection(collectionName: $collectionName, rawMatches: $rawMatches, rosterName: $rosterName)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MatchesCollectionCopyWith<_MatchesCollection> get copyWith =>
+      __$MatchesCollectionCopyWithImpl<_MatchesCollection>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MatchesCollectionImpl &&
+            other is _MatchesCollection &&
             (identical(other.collectionName, collectionName) ||
                 other.collectionName == collectionName) &&
             const DeepCollectionEquality().equals(
@@ -191,37 +164,63 @@ class _$MatchesCollectionImpl extends _MatchesCollection {
     rosterName,
   );
 
-  /// Create a copy of MatchesCollection
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$MatchesCollectionImplCopyWith<_$MatchesCollectionImpl> get copyWith =>
-      __$$MatchesCollectionImplCopyWithImpl<_$MatchesCollectionImpl>(
-        this,
-        _$identity,
-      );
+  String toString() {
+    return 'MatchesCollection(collectionName: $collectionName, rawMatches: $rawMatches, rosterName: $rosterName)';
+  }
 }
 
-abstract class _MatchesCollection extends MatchesCollection {
-  const factory _MatchesCollection({
-    required final String collectionName,
-    required final List<RawMatch> rawMatches,
-    required final String rosterName,
-  }) = _$MatchesCollectionImpl;
-  const _MatchesCollection._() : super._();
+/// @nodoc
+abstract mixin class _$MatchesCollectionCopyWith<$Res>
+    implements $MatchesCollectionCopyWith<$Res> {
+  factory _$MatchesCollectionCopyWith(
+    _MatchesCollection value,
+    $Res Function(_MatchesCollection) _then,
+  ) = __$MatchesCollectionCopyWithImpl;
+  @override
+  @useResult
+  $Res call({
+    String collectionName,
+    List<RawMatch> rawMatches,
+    String rosterName,
+  });
+}
 
-  @override
-  String get collectionName;
-  @override
-  List<RawMatch> get rawMatches;
-  @override
-  String get rosterName;
+/// @nodoc
+class __$MatchesCollectionCopyWithImpl<$Res>
+    implements _$MatchesCollectionCopyWith<$Res> {
+  __$MatchesCollectionCopyWithImpl(this._self, this._then);
+
+  final _MatchesCollection _self;
+  final $Res Function(_MatchesCollection) _then;
 
   /// Create a copy of MatchesCollection
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MatchesCollectionImplCopyWith<_$MatchesCollectionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? collectionName = null,
+    Object? rawMatches = null,
+    Object? rosterName = null,
+  }) {
+    return _then(
+      _MatchesCollection(
+        collectionName:
+            null == collectionName
+                ? _self.collectionName
+                : collectionName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        rawMatches:
+            null == rawMatches
+                ? _self._rawMatches
+                : rawMatches // ignore: cast_nullable_to_non_nullable
+                    as List<RawMatch>,
+        rosterName:
+            null == rosterName
+                ? _self.rosterName
+                : rosterName // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
+  }
 }

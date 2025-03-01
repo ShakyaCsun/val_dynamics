@@ -64,7 +64,7 @@ final appDataInitializationStatusProvider =
 // ignore: unused_element
 typedef AppDataInitializationStatusRef =
     AutoDisposeProviderRef<(String message, bool isInitialized)>;
-String _$appDataNotifierHash() => r'b9be886166cd3b802944683ec0177b39a48ab085';
+String _$appDataNotifierHash() => r'f15213881f55d2aabf748e14d4b4c38b0e74cd27';
 
 /// See also [AppDataNotifier].
 @ProviderFor(AppDataNotifier)

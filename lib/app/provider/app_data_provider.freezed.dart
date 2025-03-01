@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -11,92 +12,56 @@ part of 'app_data_provider.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
 /// @nodoc
 mixin _$AppData {
-  Map<String, Agents> get bundledAgents => throw _privateConstructorUsedError;
-  Map<String, List<RawMatch>> get bundledMatches =>
-      throw _privateConstructorUsedError;
-  String get message => throw _privateConstructorUsedError;
-  AppDataStatus get status => throw _privateConstructorUsedError;
+  Map<String, Agents> get bundledAgents;
+  Map<String, List<RawMatch>> get bundledMatches;
+  String get message;
+  AppDataStatus get status;
 
   /// Create a copy of AppData
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $AppDataCopyWith<AppData> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $AppDataCopyWith<$Res> {
-  factory $AppDataCopyWith(AppData value, $Res Function(AppData) then) =
-      _$AppDataCopyWithImpl<$Res, AppData>;
-  @useResult
-  $Res call({
-    Map<String, Agents> bundledAgents,
-    Map<String, List<RawMatch>> bundledMatches,
-    String message,
-    AppDataStatus status,
-  });
-}
-
-/// @nodoc
-class _$AppDataCopyWithImpl<$Res, $Val extends AppData>
-    implements $AppDataCopyWith<$Res> {
-  _$AppDataCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of AppData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $AppDataCopyWith<AppData> get copyWith =>
+      _$AppDataCopyWithImpl<AppData>(this as AppData, _$identity);
+
   @override
-  $Res call({
-    Object? bundledAgents = null,
-    Object? bundledMatches = null,
-    Object? message = null,
-    Object? status = null,
-  }) {
-    return _then(
-      _value.copyWith(
-            bundledAgents:
-                null == bundledAgents
-                    ? _value.bundledAgents
-                    : bundledAgents // ignore: cast_nullable_to_non_nullable
-                        as Map<String, Agents>,
-            bundledMatches:
-                null == bundledMatches
-                    ? _value.bundledMatches
-                    : bundledMatches // ignore: cast_nullable_to_non_nullable
-                        as Map<String, List<RawMatch>>,
-            message:
-                null == message
-                    ? _value.message
-                    : message // ignore: cast_nullable_to_non_nullable
-                        as String,
-            status:
-                null == status
-                    ? _value.status
-                    : status // ignore: cast_nullable_to_non_nullable
-                        as AppDataStatus,
-          )
-          as $Val,
-    );
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is AppData &&
+            const DeepCollectionEquality().equals(
+              other.bundledAgents,
+              bundledAgents,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other.bundledMatches,
+              bundledMatches,
+            ) &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.status, status) || other.status == status));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    runtimeType,
+    const DeepCollectionEquality().hash(bundledAgents),
+    const DeepCollectionEquality().hash(bundledMatches),
+    message,
+    status,
+  );
+
+  @override
+  String toString() {
+    return 'AppData(bundledAgents: $bundledAgents, bundledMatches: $bundledMatches, message: $message, status: $status)';
   }
 }
 
 /// @nodoc
-abstract class _$$AppDataImplCopyWith<$Res> implements $AppDataCopyWith<$Res> {
-  factory _$$AppDataImplCopyWith(
-    _$AppDataImpl value,
-    $Res Function(_$AppDataImpl) then,
-  ) = __$$AppDataImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $AppDataCopyWith<$Res> {
+  factory $AppDataCopyWith(AppData value, $Res Function(AppData) _then) =
+      _$AppDataCopyWithImpl;
   @useResult
   $Res call({
     Map<String, Agents> bundledAgents,
@@ -107,13 +72,11 @@ abstract class _$$AppDataImplCopyWith<$Res> implements $AppDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$AppDataImplCopyWithImpl<$Res>
-    extends _$AppDataCopyWithImpl<$Res, _$AppDataImpl>
-    implements _$$AppDataImplCopyWith<$Res> {
-  __$$AppDataImplCopyWithImpl(
-    _$AppDataImpl _value,
-    $Res Function(_$AppDataImpl) _then,
-  ) : super(_value, _then);
+class _$AppDataCopyWithImpl<$Res> implements $AppDataCopyWith<$Res> {
+  _$AppDataCopyWithImpl(this._self, this._then);
+
+  final AppData _self;
+  final $Res Function(AppData) _then;
 
   /// Create a copy of AppData
   /// with the given fields replaced by the non-null parameter values.
@@ -126,25 +89,25 @@ class __$$AppDataImplCopyWithImpl<$Res>
     Object? status = null,
   }) {
     return _then(
-      _$AppDataImpl(
+      _self.copyWith(
         bundledAgents:
             null == bundledAgents
-                ? _value._bundledAgents
+                ? _self.bundledAgents
                 : bundledAgents // ignore: cast_nullable_to_non_nullable
                     as Map<String, Agents>,
         bundledMatches:
             null == bundledMatches
-                ? _value._bundledMatches
+                ? _self.bundledMatches
                 : bundledMatches // ignore: cast_nullable_to_non_nullable
                     as Map<String, List<RawMatch>>,
         message:
             null == message
-                ? _value.message
+                ? _self.message
                 : message // ignore: cast_nullable_to_non_nullable
                     as String,
         status:
             null == status
-                ? _value.status
+                ? _self.status
                 : status // ignore: cast_nullable_to_non_nullable
                     as AppDataStatus,
       ),
@@ -154,8 +117,8 @@ class __$$AppDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AppDataImpl implements _AppData {
-  const _$AppDataImpl({
+class _AppData implements AppData {
+  const _AppData({
     final Map<String, Agents> bundledAgents = const {},
     final Map<String, List<RawMatch>> bundledMatches = const {},
     this.message = 'Initializing',
@@ -188,16 +151,19 @@ class _$AppDataImpl implements _AppData {
   @JsonKey()
   final AppDataStatus status;
 
+  /// Create a copy of AppData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'AppData(bundledAgents: $bundledAgents, bundledMatches: $bundledMatches, message: $message, status: $status)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$AppDataCopyWith<_AppData> get copyWith =>
+      __$AppDataCopyWithImpl<_AppData>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AppDataImpl &&
+            other is _AppData &&
             const DeepCollectionEquality().equals(
               other._bundledAgents,
               _bundledAgents,
@@ -219,36 +185,66 @@ class _$AppDataImpl implements _AppData {
     status,
   );
 
-  /// Create a copy of AppData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$AppDataImplCopyWith<_$AppDataImpl> get copyWith =>
-      __$$AppDataImplCopyWithImpl<_$AppDataImpl>(this, _$identity);
+  String toString() {
+    return 'AppData(bundledAgents: $bundledAgents, bundledMatches: $bundledMatches, message: $message, status: $status)';
+  }
 }
 
-abstract class _AppData implements AppData {
-  const factory _AppData({
-    final Map<String, Agents> bundledAgents,
-    final Map<String, List<RawMatch>> bundledMatches,
-    final String message,
-    final AppDataStatus status,
-  }) = _$AppDataImpl;
+/// @nodoc
+abstract mixin class _$AppDataCopyWith<$Res> implements $AppDataCopyWith<$Res> {
+  factory _$AppDataCopyWith(_AppData value, $Res Function(_AppData) _then) =
+      __$AppDataCopyWithImpl;
+  @override
+  @useResult
+  $Res call({
+    Map<String, Agents> bundledAgents,
+    Map<String, List<RawMatch>> bundledMatches,
+    String message,
+    AppDataStatus status,
+  });
+}
 
-  @override
-  Map<String, Agents> get bundledAgents;
-  @override
-  Map<String, List<RawMatch>> get bundledMatches;
-  @override
-  String get message;
-  @override
-  AppDataStatus get status;
+/// @nodoc
+class __$AppDataCopyWithImpl<$Res> implements _$AppDataCopyWith<$Res> {
+  __$AppDataCopyWithImpl(this._self, this._then);
+
+  final _AppData _self;
+  final $Res Function(_AppData) _then;
 
   /// Create a copy of AppData
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AppDataImplCopyWith<_$AppDataImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? bundledAgents = null,
+    Object? bundledMatches = null,
+    Object? message = null,
+    Object? status = null,
+  }) {
+    return _then(
+      _AppData(
+        bundledAgents:
+            null == bundledAgents
+                ? _self._bundledAgents
+                : bundledAgents // ignore: cast_nullable_to_non_nullable
+                    as Map<String, Agents>,
+        bundledMatches:
+            null == bundledMatches
+                ? _self._bundledMatches
+                : bundledMatches // ignore: cast_nullable_to_non_nullable
+                    as Map<String, List<RawMatch>>,
+        message:
+            null == message
+                ? _self.message
+                : message // ignore: cast_nullable_to_non_nullable
+                    as String,
+        status:
+            null == status
+                ? _self.status
+                : status // ignore: cast_nullable_to_non_nullable
+                    as AppDataStatus,
+      ),
+    );
+  }
 }
