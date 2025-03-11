@@ -17,43 +17,15 @@ class MatchesCollectionList extends _$MatchesCollectionList {
     for (final MapEntry(key: name, value: rawMatches) in matches.entries) {
       switch (name) {
         case 'April to October 7 2024.csv':
-          matchesList.add(
-            MatchesCollection(
-              collectionName: 'April-October 7',
-              rawMatches: rawMatches,
-              rosterName: 'Default SD2',
-            ),
-          );
         case 'August-November-24.csv':
-          matchesList.add(
-            MatchesCollection(
-              collectionName: 'August-November 2024',
-              rawMatches: rawMatches,
-              rosterName: 'Default SD2',
-            ),
-          );
         case 'Champions 2024.csv':
-          matchesList.add(
-            MatchesCollection(
-              collectionName: 'Champions 2024',
-              rawMatches: rawMatches,
-              rosterName: 'Champions 2024 SD2',
-            ),
-          );
         case 'Champions and Ascension 2024.csv':
-          matchesList.add(
-            MatchesCollection(
-              collectionName: 'Champions and Ascension 2024',
-              rawMatches: rawMatches,
-              rosterName: 'Champions 2024 SD2',
-            ),
-          );
         case 'Game Changers 2024.csv':
           matchesList.add(
             MatchesCollection(
-              collectionName: 'Game Changers 2024',
+              collectionName: name.substring(0, name.length - 4),
               rawMatches: rawMatches,
-              rosterName: 'Default SD2',
+              rosterName: 'Champions 2024 SD2',
             ),
           );
         case 'Masters Tokyo and Champions 2023.csv':
@@ -67,7 +39,7 @@ class MatchesCollectionList extends _$MatchesCollectionList {
         case _:
           matchesList.add(
             MatchesCollection(
-              collectionName: name,
+              collectionName: name.substring(0, name.length - 4),
               rawMatches: rawMatches,
               rosterName: 'Default SD2',
             ),
