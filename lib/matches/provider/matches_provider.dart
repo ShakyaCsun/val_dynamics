@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:logging/logging.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:ternary_plot/ternary_plot.dart';
 import 'package:valorant_agents/valorant_agents.dart';
@@ -49,6 +50,23 @@ class Matches extends _$Matches {
         collection.rawMatches,
         agentsMap: agentsMap,
         ignoreTeamParserExceptions: true,
+        ignoredExceptionHandler: (exceptions) {
+          final log = Logger('MatchesIgnoredExceptions');
+          final teamSizeExceptionCount =
+              exceptions.whereType<InvalidTeamSizeException>().length;
+          if (teamSizeExceptionCount > 0) {
+            log.warning(
+              'Matches contain $teamSizeExceptionCount comps '
+              'that do not have 5 agents.',
+            );
+          }
+          for (final exception in exceptions.toSet()) {
+            if (exception case InvalidTeamSizeException()) {
+              continue;
+            }
+            log.warning(exception.message, exception);
+          }
+        },
       ),
     );
   }
