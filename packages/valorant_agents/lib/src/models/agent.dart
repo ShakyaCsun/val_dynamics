@@ -60,10 +60,10 @@ abstract class Agent with _$Agent {
   @override
   String toString() {
     if (iconUrl != null) {
-      return '$name(acm: $aggro-$control-$midrange, '
+      return '$name(acm: ${stylePoints.acm}, '
           'role: ${role.name}, iconUrl: $iconUrl)';
     }
-    return '$name(acm: $aggro-$control-$midrange, role: ${role.name})';
+    return '$name(acm: ${stylePoints.acm}, role: ${role.name})';
   }
 
   static const astra = Agent(

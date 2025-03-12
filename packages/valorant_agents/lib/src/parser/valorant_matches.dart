@@ -278,3 +278,197 @@ class MatchesComparator extends Equatable
   @override
   List<Object?> get props => [count, score];
 }
+
+extension SynergyInMatchesCalculator on ValorantMatches {
+  /// Get the given [Agent]'s Non-Mirror Win Rate using this [ValorantMatches].
+  Score getAgentNmwr(Agent agent) {
+    return fold(Score.zero, (score, valMatch) {
+      final ValorantMatch(
+        :resultOne,
+        teamOne: Team(agents: agentsOne),
+        teamTwo: Team(agents: agentsTwo),
+      ) = valMatch;
+      return switch ((agentsOne.hasAgent(agent), agentsTwo.hasAgent(agent))) {
+        (true, false) => score + resultOne,
+        (false, true) => score + resultOne.reverse(),
+        _ => score,
+      };
+    });
+  }
+
+  /// Get the given [Agent]'s Non-Mirror Round Win Rate using
+  /// this [ValorantMatches].
+  Score getAgentNmrwr(Agent agent) {
+    return fold(Score.zero, (score, valMatch) {
+      final ValorantMatch(
+        :scoreOne,
+        :scoreTwo,
+        teamOne: Team(agents: agentsOne),
+        teamTwo: Team(agents: agentsTwo),
+      ) = valMatch;
+      return switch ((agentsOne.hasAgent(agent), agentsTwo.hasAgent(agent))) {
+        (true, false) => score + scoreOne,
+        (false, true) => score + scoreTwo,
+        _ => score,
+      };
+    });
+  }
+
+  Score getComboNmwr(
+    Agent agentOne,
+    Agent agentTwo, {
+    ComboCriteria criteria = ComboCriteria.composite,
+  }) {
+    return fold(Score.zero, (score, valMatch) {
+      if (valMatch.satisfiesComboNM(agentOne, agentTwo, criteria: criteria)) {
+        return score + valMatch.resultOne;
+      }
+      if (valMatch.switchTeams().satisfiesComboNM(
+        agentOne,
+        agentTwo,
+        criteria: criteria,
+      )) {
+        return score + valMatch.resultOne.reverse();
+      }
+      return score;
+    });
+  }
+
+  Score getComboNmrwr(
+    Agent agentOne,
+    Agent agentTwo, {
+    ComboCriteria criteria = ComboCriteria.composite,
+  }) {
+    return fold(Score.zero, (score, valMatch) {
+      if (valMatch.satisfiesComboNM(agentOne, agentTwo, criteria: criteria)) {
+        return score + valMatch.scoreOne;
+      }
+      if (valMatch.switchTeams().satisfiesComboNM(
+        agentOne,
+        agentTwo,
+        criteria: criteria,
+      )) {
+        return score + valMatch.scoreTwo;
+      }
+      return score;
+    });
+  }
+
+  /// Generates [ComboSynergyStat] for all agent combos of given [agentRoster].
+  ///
+  /// The key [(Agent, Agent)] tuple is normalized/sorted for consistency.
+  /// ```dart
+  /// // Remember to use .normalized when querying the returned Map.
+  /// final synergies = matches.getAllComboSynergies(agentRoster);
+  /// print(synergies[(agent1, agent2).normalized]);
+  /// ```
+  Map<(Agent, Agent), ComboSynergyStat> getAllComboSynergies(
+    Agents agentRoster,
+  ) {
+    final agentWRs = <Agent, Score>{};
+    final comboSynergyStats = <(Agent, Agent), ComboSynergyStat>{};
+    for (final (i, one) in agentRoster.indexed) {
+      for (final two in agentRoster.skip(i + 1)) {
+        final (agentOne, agentTwo) = (one, two).normalized;
+        final oneWR = agentWRs.putIfAbsent(
+          agentOne,
+          () => getAgentNmrwr(agentOne),
+        );
+        final twoWR = agentWRs.putIfAbsent(
+          agentTwo,
+          () => getAgentNmrwr(agentTwo),
+        );
+        final comboWR = getComboNmrwr(agentOne, agentTwo);
+        comboSynergyStats[(agentOne, agentTwo)] = ComboSynergyStat(
+          oneWR: oneWR,
+          twoWR: twoWR,
+          comboWR: comboWR,
+        );
+      }
+    }
+    return Map.unmodifiable(comboSynergyStats);
+  }
+}
+
+class ComboSynergyStat extends Equatable
+    implements Comparable<ComboSynergyStat> {
+  const ComboSynergyStat({
+    required this.oneWR,
+    required this.twoWR,
+    required this.comboWR,
+  });
+
+  final Score oneWR;
+  final Score twoWR;
+  final Score comboWR;
+
+  double get synergyOne => comboWR.winRate - oneWR.winRate;
+  double get synergyTwo => comboWR.winRate - twoWR.winRate;
+
+  @override
+  List<Object> get props => [oneWR, twoWR, comboWR];
+
+  @override
+  int compareTo(ComboSynergyStat other) {
+    return (synergyOne + synergyTwo).compareTo(
+      other.synergyOne + other.synergyTwo,
+    );
+  }
+}
+
+enum ComboCriteria {
+  /// Ignore games where either agent in a combo appears on opposing team.
+  solo,
+
+  /// Only ignores games where both agents of a combo appears on opposing team.
+  composite,
+}
+
+extension ComboAgentExtension on (Agent, Agent) {
+  (Agent, Agent) get normalized {
+    final (agentOne, agentTwo) = this;
+    final (
+      Agent(name: nameOne, role: roleOne),
+      Agent(name: nameTwo, role: roleTwo),
+    ) = this;
+    return switch (roleOne.index.compareTo(roleTwo.index)) {
+      0 => (nameOne.compareTo(nameTwo) < 0) ? this : (agentTwo, agentOne),
+      < 0 => this,
+      > 0 => (agentTwo, agentOne),
+      // https://github.com/dart-lang/language/issues/3083
+      _ => this,
+    };
+  }
+}
+
+extension on ValorantMatch {
+  /// Returns `true` if team one has the combo of agents and team two satisfies
+  /// the criteria for this being a non-mirror combo matchup.
+  bool satisfiesComboNM(
+    Agent agentOne,
+    Agent agentTwo, {
+    required ComboCriteria criteria,
+  }) {
+    final ValorantMatch(
+      teamOne: Team(agents: agentsOne),
+      teamTwo: Team(agents: agentsTwo),
+    ) = this;
+    return switch ((
+      agentsOne.hasAgent(agentOne),
+      agentsOne.hasAgent(agentTwo),
+    )) {
+      (true, true) => switch ((
+        agentsTwo.hasAgent(agentOne),
+        agentsTwo.hasAgent(agentTwo),
+      )) {
+        (true, true) => false,
+        (false, false) => true,
+        _ => switch (criteria) {
+          ComboCriteria.solo => false,
+          ComboCriteria.composite => true,
+        },
+      },
+      _ => false,
+    };
+  }
+}

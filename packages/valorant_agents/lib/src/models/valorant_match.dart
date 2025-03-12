@@ -20,6 +20,15 @@ abstract class ValorantMatch with _$ValorantMatch {
   StylePoints get stylePoints1 => teamOne.stylePoints;
   StylePoints get stylePoints2 => teamTwo.stylePoints;
 
+  /// A simplified match result for [teamOne].
+  ///
+  /// If the match was won by team one, then this will be Score(won: 1, lost: 0)
+  /// else Score(won: 0, lost: 1).
+  Score get resultOne =>
+      scoreOne.won > scoreOne.lost
+          ? const Score(won: 1, lost: 0)
+          : const Score(won: 0, lost: 1);
+
   Score get scoreOne => Score(won: teamOne.score, lost: teamTwo.score);
   Score get scoreTwo => scoreOne.reverse();
 
