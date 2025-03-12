@@ -77,6 +77,12 @@ Future<void> bootstrap(Future<Widget> Function() builder) async {
       time: event.time,
       name: event.loggerName,
     );
+    if (kReleaseMode && kIsWeb) {
+      debugPrint(
+        '${event.level.name}: ${event.time}: '
+        '${event.loggerName}: ${event.message}',
+      );
+    }
   });
 
   runApp(

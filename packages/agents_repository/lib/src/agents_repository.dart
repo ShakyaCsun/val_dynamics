@@ -19,7 +19,7 @@ class AgentsRepository {
       ] {
     final rosters = {
       'Default SD2': Agents.defaultRoster,
-      'Champions 2024 SD2': Agents.defaultRoster.removing(agent: Agent.vyse),
+      'Champions 2024 SD2': Agents.champs24Roster,
       for (final MapEntry(:key, value: agents)
           in (agentsCsvs ?? <String, Agents>{}).entries)
         key: agents,

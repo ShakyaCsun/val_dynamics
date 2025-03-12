@@ -135,9 +135,32 @@ extension type const Agents._(List<Agent> agents) implements List<Agent> {
     Agent.yoru,
   ]);
 
-  Agents removing({required Agent agent}) {
-    return Agents([...this]..remove(agent));
-  }
+  static final champs24Roster = Agents([
+    Agent.astra,
+    Agent.breach,
+    Agent.brimstone,
+    Agent.chamber,
+    Agent.clove,
+    Agent.cypher,
+    Agent.deadlock,
+    Agent.fade,
+    Agent.gekko,
+    Agent.harbor,
+    Agent.iso,
+    Agent.jett,
+    Agent.kayo,
+    Agent.killjoy,
+    Agent.neon,
+    Agent.omen,
+    Agent.phoenix,
+    Agent.raze,
+    Agent.reyna,
+    Agent.sage,
+    Agent.skye,
+    Agent.sova,
+    Agent.viper,
+    Agent.yoru,
+  ]);
 
   Map<String, Agent> get nameMap => <String, Agent>{
     for (final agent in this) agent.name: agent,

@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
-sealed class AgentsParserException implements Exception {
+sealed class AgentsParserException extends Equatable implements Exception {
   const AgentsParserException(this.message);
 
   final String message;
@@ -9,10 +9,16 @@ sealed class AgentsParserException implements Exception {
 
 class InvalidTeamSizeException extends AgentsParserException {
   const InvalidTeamSizeException(super.message);
+
+  @override
+  List<Object> get props => [message];
 }
 
 class AgentNotFoundException extends AgentsParserException {
   const AgentNotFoundException(super.message);
+
+  @override
+  List<Object> get props => [message];
 }
 
 class AgentComp extends Equatable {
