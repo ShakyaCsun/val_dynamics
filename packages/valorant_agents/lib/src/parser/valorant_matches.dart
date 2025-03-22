@@ -256,6 +256,18 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
     });
   }
 
+  ValorantMatches get nonMirroredMatches {
+    return ValorantMatches(
+      [...matches]..removeWhere((match) => match.isMirrorComp),
+    );
+  }
+
+  ValorantMatches get nonMirrorStyledMatches {
+    return ValorantMatches(
+      [...matches]..removeWhere((match) => match.isMirrorStyle),
+    );
+  }
+
   MatchesComparator get compareKey =>
       MatchesComparator(count: length, score: collectTeamOneScore());
 }
@@ -363,8 +375,9 @@ extension SynergyInMatchesCalculator on ValorantMatches {
   /// print(synergies[(agent1, agent2).normalized]);
   /// ```
   Map<(Agent, Agent), ComboSynergyStat> getAllComboSynergies(
-    Agents agentRoster,
-  ) {
+    Agents agentRoster, {
+    ComboCriteria criteria = ComboCriteria.composite,
+  }) {
     final agentWRs = <Agent, Score>{};
     final comboSynergyStats = <(Agent, Agent), ComboSynergyStat>{};
     for (final (i, one) in agentRoster.indexed) {
@@ -378,7 +391,7 @@ extension SynergyInMatchesCalculator on ValorantMatches {
           agentTwo,
           () => getAgentNmrwr(agentTwo),
         );
-        final comboWR = getComboNmrwr(agentOne, agentTwo);
+        final comboWR = getComboNmrwr(agentOne, agentTwo, criteria: criteria);
         comboSynergyStats[(agentOne, agentTwo)] = ComboSynergyStat(
           oneWR: oneWR,
           twoWR: twoWR,
@@ -405,10 +418,14 @@ class ComboSynergyStat extends Equatable
   double get synergyOne => comboWR.winRate - oneWR.winRate;
   double get synergyTwo => comboWR.winRate - twoWR.winRate;
 
+  ComboSynergyStat get reversed =>
+      ComboSynergyStat(oneWR: twoWR, twoWR: oneWR, comboWR: comboWR);
+
   @override
   List<Object> get props => [oneWR, twoWR, comboWR];
 
   @override
+  /// Compare the [ComboSynergyStat]s based on their combined synergy values.
   int compareTo(ComboSynergyStat other) {
     return (synergyOne + synergyTwo).compareTo(
       other.synergyOne + other.synergyTwo,
@@ -439,36 +456,11 @@ extension ComboAgentExtension on (Agent, Agent) {
       _ => this,
     };
   }
-}
 
-extension on ValorantMatch {
-  /// Returns `true` if team one has the combo of agents and team two satisfies
-  /// the criteria for this being a non-mirror combo matchup.
-  bool satisfiesComboNM(
-    Agent agentOne,
-    Agent agentTwo, {
-    required ComboCriteria criteria,
-  }) {
-    final ValorantMatch(
-      teamOne: Team(agents: agentsOne),
-      teamTwo: Team(agents: agentsTwo),
-    ) = this;
-    return switch ((
-      agentsOne.hasAgent(agentOne),
-      agentsOne.hasAgent(agentTwo),
-    )) {
-      (true, true) => switch ((
-        agentsTwo.hasAgent(agentOne),
-        agentsTwo.hasAgent(agentTwo),
-      )) {
-        (true, true) => false,
-        (false, false) => true,
-        _ => switch (criteria) {
-          ComboCriteria.solo => false,
-          ComboCriteria.composite => true,
-        },
-      },
-      _ => false,
-    };
+  /// Agent one's name and agent two's name separated by '-' in their normalized
+  /// form.
+  String get comboName {
+    final (Agent(name: nameOne), Agent(name: nameTwo)) = normalized;
+    return '$nameOne-$nameTwo';
   }
 }

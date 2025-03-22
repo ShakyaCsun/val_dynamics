@@ -275,7 +275,7 @@ class _SelectedMapsProviderElement
   String get collectionName => (origin as SelectedMapsProvider).collectionName;
 }
 
-String _$matchesHash() => r'b68c639c8c032367e6916b91ad8d90e372f60eb0';
+String _$matchesHash() => r'7a3a64113ac0608e1d17c8d253750dde72f96ab6';
 
 abstract class _$Matches extends BuildlessAutoDisposeNotifier<MatchesState> {
   late final String collectionId;

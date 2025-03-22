@@ -90,6 +90,18 @@ RouteBase get $homeScreenRoute => ShellRouteData.$route(
           factory: $MatchesRouteExtension._fromState,
           routes: [
             GoRouteData.$route(
+              path: 'synergies',
+
+              factory: $ComboSynergiesRouteExtension._fromState,
+              routes: [
+                GoRouteData.$route(
+                  path: ':comboName',
+
+                  factory: $AgentComboMatchesRouteExtension._fromState,
+                ),
+              ],
+            ),
+            GoRouteData.$route(
               path: 'stats',
 
               factory: $MatchesStatsRouteExtension._fromState,
@@ -282,6 +294,47 @@ extension $MatchesRouteExtension on MatchesRoute {
 
   String get location =>
       GoRouteData.$location('/matches/${Uri.encodeComponent(collectionName)}');
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $ComboSynergiesRouteExtension on ComboSynergiesRoute {
+  static ComboSynergiesRoute _fromState(GoRouterState state) =>
+      ComboSynergiesRoute(
+        collectionName: state.pathParameters['collectionName']!,
+      );
+
+  String get location => GoRouteData.$location(
+    '/matches/${Uri.encodeComponent(collectionName)}/synergies',
+  );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $AgentComboMatchesRouteExtension on AgentComboMatchesRoute {
+  static AgentComboMatchesRoute _fromState(GoRouterState state) =>
+      AgentComboMatchesRoute(
+        collectionName: state.pathParameters['collectionName']!,
+        comboName: state.pathParameters['comboName']!,
+      );
+
+  String get location => GoRouteData.$location(
+    '/matches/${Uri.encodeComponent(collectionName)}/synergies/${Uri.encodeComponent(comboName)}',
+  );
 
   void go(BuildContext context) => context.go(location);
 

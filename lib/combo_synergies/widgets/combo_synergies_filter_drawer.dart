@@ -1,0 +1,199 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:valorant_agents/valorant_agents.dart';
+import 'package:vsdat/combo_synergies/combo_synergies.dart';
+import 'package:vsdat/l10n/l10n.dart';
+import 'package:vsdat_ui/vsdat_ui.dart';
+
+class ComboSynergiesFilterDrawer extends StatelessWidget {
+  const ComboSynergiesFilterDrawer({required this.collectionName, super.key});
+
+  final String collectionName;
+
+  static const List<(Role, Role)> allRoleCombos = [
+    (Role.unknown, Role.unknown),
+    (Role.duelist, Role.unknown),
+    (Role.initiator, Role.unknown),
+    (Role.sentinel, Role.unknown),
+    (Role.controller, Role.unknown),
+    (Role.duelist, Role.duelist),
+    (Role.duelist, Role.initiator),
+    (Role.duelist, Role.sentinel),
+    (Role.duelist, Role.controller),
+    (Role.initiator, Role.initiator),
+    (Role.initiator, Role.sentinel),
+    (Role.initiator, Role.controller),
+    (Role.sentinel, Role.sentinel),
+    (Role.sentinel, Role.controller),
+    (Role.controller, Role.controller),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = context.l10n;
+    return NavigationDrawer(
+      children: [
+        DrawerHeaderText(l10n.mapSelect),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 28),
+          child: Consumer(
+            builder: (context, ref, child) {
+              final mapNames = ref.watch(
+                availableMapsProvider(collectionId: collectionName),
+              );
+              final selectedMaps = ref.watch(
+                comboSynergiesProvider(
+                  collectionId: collectionName,
+                ).select((state) => state.selectedMaps),
+              );
+              return FilterChipsWrap(
+                options: mapNames.toList(),
+                isSelected: selectedMaps.contains,
+                onSelect: (mapName) {
+                  ref
+                      .read(
+                        comboSynergiesProvider(
+                          collectionId: collectionName,
+                        ).notifier,
+                      )
+                      .changeMaps(mapName);
+                },
+                labelFor: (option) => option,
+              );
+            },
+          ),
+        ),
+        const DrawerHeaderText('Non-Mirror Condition'),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 28),
+          child: Consumer(
+            builder: (context, ref, child) {
+              final selectedFilter = ref.watch(
+                comboSynergiesProvider(
+                  collectionId: collectionName,
+                ).select((state) => state.comboCriteria),
+              );
+              return SegmentedButton<ComboCriteria>(
+                segments: [
+                  for (final filter in ComboCriteria.values)
+                    ButtonSegment(
+                      value: filter,
+                      tooltip: switch (filter) {
+                        ComboCriteria.solo =>
+                          'Removes matches where either agent '
+                              'appears on opposing team',
+                        ComboCriteria.composite =>
+                          'Only removes matches where both '
+                              'agents are on opposing team',
+                      },
+                      label: Text(switch (filter) {
+                        ComboCriteria.solo => 'Solo',
+                        ComboCriteria.composite => 'Composite',
+                      }),
+                    ),
+                ],
+                selected: {selectedFilter},
+                onSelectionChanged: (filterSet) {
+                  if (filterSet.isNotEmpty) {
+                    ref
+                        .read(
+                          comboSynergiesProvider(
+                            collectionId: collectionName,
+                          ).notifier,
+                        )
+                        .changeComboCriteria(filterSet.first);
+                  }
+                },
+              );
+            },
+          ),
+        ),
+        const DrawerHeaderText('Win Rates'),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 28),
+          child: Consumer(
+            builder: (context, ref, child) {
+              final selectedFilter = ref.watch(
+                comboSynergiesProvider(
+                  collectionId: collectionName,
+                ).select((state) => state.winLossFilter),
+              );
+              return SegmentedButton<WinLossFilter>(
+                segments: [
+                  for (final filter in WinLossFilter.values)
+                    ButtonSegment(
+                      value: filter,
+                      tooltip: switch (filter) {
+                        WinLossFilter.winning =>
+                          'Only shows Combos with WR >= 50%',
+                        WinLossFilter.losing =>
+                          'Only shows Combos with WR < 50%',
+                        WinLossFilter.all => 'Shows All Combos with valid WR',
+                      },
+                      label: Text(switch (filter) {
+                        WinLossFilter.winning => 'Winning',
+                        WinLossFilter.losing => 'Losing',
+                        WinLossFilter.all => 'All',
+                      }),
+                    ),
+                ],
+                selected: {selectedFilter},
+                onSelectionChanged: (filterSet) {
+                  if (filterSet.isNotEmpty) {
+                    ref
+                        .read(
+                          comboSynergiesProvider(
+                            collectionId: collectionName,
+                          ).notifier,
+                        )
+                        .changeWinLossFilter(filterSet.first);
+                  }
+                },
+              );
+            },
+          ),
+        ),
+        const DrawerHeaderText('Role-wise Combination'),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 28),
+          child: Consumer(
+            builder: (context, ref, child) {
+              return DropdownButtonFormField<(Role, Role)>(
+                decoration: const InputDecoration(border: OutlineInputBorder()),
+                value: ref.watch(
+                  comboSynergiesProvider(
+                    collectionId: collectionName,
+                  ).select((state) => state.rolesCombo),
+                ),
+                items:
+                    allRoleCombos.map((roleCombo) {
+                      final roleComboText = switch (roleCombo) {
+                        (Role.unknown, Role.unknown) => 'All',
+                        (final role, Role.unknown) => '${role.value}-All',
+                        (final roleA, final roleB) =>
+                          '${roleA.value}-${roleB.value}',
+                      };
+                      return DropdownMenuItem(
+                        value: roleCombo,
+                        child: Text(roleComboText),
+                      );
+                    }).toList(),
+                onChanged: (value) {
+                  if (value != null) {
+                    ref
+                        .read(
+                          comboSynergiesProvider(
+                            collectionId: collectionName,
+                          ).notifier,
+                        )
+                        .changeRoleCombo(value);
+                  }
+                },
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}

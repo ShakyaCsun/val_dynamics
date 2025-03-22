@@ -84,7 +84,7 @@ class _$StyledMatchesStateCopyWithImpl<$Res>
                     as ValorantMatches,
         acm:
             null == acm
-                ? _self.acm
+                ? _self.acm!
                 : acm // ignore: cast_nullable_to_non_nullable
                     as ({double aggro, double control, double midrange}),
       ),

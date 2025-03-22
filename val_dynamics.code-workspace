@@ -10,6 +10,9 @@
 			"path": "packages/formz_inputs"
 		},
 		{
+			"path": "packages/matches_repository"
+		},
+		{
 			"path": "packages/valorant_agents"
 		},
 		{
