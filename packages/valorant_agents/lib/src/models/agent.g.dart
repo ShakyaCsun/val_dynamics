@@ -6,7 +6,7 @@ part of 'agent.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_Agent _$AgentFromJson(Map<String, dynamic> json) => _Agent(
+Agent _$AgentFromJson(Map<String, dynamic> json) => Agent(
   name: json['name'] as String,
   aggro: (json['aggro'] as num).toDouble(),
   control: (json['control'] as num).toDouble(),
@@ -34,7 +34,7 @@ _Agent _$AgentFromJson(Map<String, dynamic> json) => _Agent(
           ),
 );
 
-Map<String, dynamic> _$AgentToJson(_Agent instance) => <String, dynamic>{
+Map<String, dynamic> _$AgentToJson(Agent instance) => <String, dynamic>{
   'name': instance.name,
   'aggro': instance.aggro,
   'control': instance.control,

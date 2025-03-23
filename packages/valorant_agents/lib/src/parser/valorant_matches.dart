@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:equatable/equatable.dart';
 import 'package:valorant_agents/src/helpers/match_indices.dart';
 import 'package:valorant_agents/valorant_agents.dart';
@@ -302,7 +304,7 @@ extension SynergyInMatchesCalculator on ValorantMatches {
       ) = valMatch;
       return switch ((agentsOne.hasAgent(agent), agentsTwo.hasAgent(agent))) {
         (true, false) => score + resultOne,
-        (false, true) => score + resultOne.reverse(),
+        (false, true) => score + resultOne.reversed,
         _ => score,
       };
     });
@@ -340,7 +342,7 @@ extension SynergyInMatchesCalculator on ValorantMatches {
         agentTwo,
         criteria: criteria,
       )) {
-        return score + valMatch.resultOne.reverse();
+        return score + valMatch.resultOne.reversed;
       }
       return score;
     });

@@ -51,9 +51,12 @@ class MatchesRepository {
     if (_cachedMapMatches[cacheKey] case final mapMatches?) {
       return filter.apply(mapMatches);
     }
-    final mapMatches = ValorantMatches(
-      matches.where((match) => maps.contains(match.mapName)).toList(),
-    );
+    final excludeMaps = availableMaps.difference(maps);
+    final filterCondition =
+        maps.length > excludeMaps.length
+            ? (ValorantMatch match) => !excludeMaps.contains(match.mapName)
+            : (ValorantMatch match) => maps.contains(match.mapName);
+    final mapMatches = ValorantMatches(matches.where(filterCondition).toList());
     _cachedMapMatches[cacheKey] = mapMatches;
 
     return filter.apply(mapMatches);

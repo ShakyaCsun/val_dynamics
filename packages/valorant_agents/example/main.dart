@@ -5,7 +5,7 @@ import 'package:collection/collection.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
 void main() async {
-  const team = AgentComp(
+  final team = AgentComp(
     Agent.viper,
     Agent.fade,
     Agent.omen,

@@ -6,7 +6,7 @@ part of 'combo_synergies_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$availableMapsHash() => r'7ad80f8e643500ac0fc327b0af733c3e546fe180';
+String _$comboSynergiesHash() => r'f637ea99a0692dbb2e5444120edb43d168cd0ea2';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,133 +29,12 @@ class _SystemHash {
   }
 }
 
-/// See also [availableMaps].
-@ProviderFor(availableMaps)
-const availableMapsProvider = AvailableMapsFamily();
-
-/// See also [availableMaps].
-class AvailableMapsFamily extends Family<Set<String>> {
-  /// See also [availableMaps].
-  const AvailableMapsFamily();
-
-  /// See also [availableMaps].
-  AvailableMapsProvider call({required String collectionId}) {
-    return AvailableMapsProvider(collectionId: collectionId);
-  }
-
-  @override
-  AvailableMapsProvider getProviderOverride(
-    covariant AvailableMapsProvider provider,
-  ) {
-    return call(collectionId: provider.collectionId);
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'availableMapsProvider';
-}
-
-/// See also [availableMaps].
-class AvailableMapsProvider extends AutoDisposeProvider<Set<String>> {
-  /// See also [availableMaps].
-  AvailableMapsProvider({required String collectionId})
-    : this._internal(
-        (ref) =>
-            availableMaps(ref as AvailableMapsRef, collectionId: collectionId),
-        from: availableMapsProvider,
-        name: r'availableMapsProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product')
-                ? null
-                : _$availableMapsHash,
-        dependencies: AvailableMapsFamily._dependencies,
-        allTransitiveDependencies:
-            AvailableMapsFamily._allTransitiveDependencies,
-        collectionId: collectionId,
-      );
-
-  AvailableMapsProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.collectionId,
-  }) : super.internal();
-
-  final String collectionId;
-
-  @override
-  Override overrideWith(
-    Set<String> Function(AvailableMapsRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: AvailableMapsProvider._internal(
-        (ref) => create(ref as AvailableMapsRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        collectionId: collectionId,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeProviderElement<Set<String>> createElement() {
-    return _AvailableMapsProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is AvailableMapsProvider && other.collectionId == collectionId;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, collectionId.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin AvailableMapsRef on AutoDisposeProviderRef<Set<String>> {
-  /// The parameter `collectionId` of this provider.
-  String get collectionId;
-}
-
-class _AvailableMapsProviderElement
-    extends AutoDisposeProviderElement<Set<String>>
-    with AvailableMapsRef {
-  _AvailableMapsProviderElement(super.provider);
-
-  @override
-  String get collectionId => (origin as AvailableMapsProvider).collectionId;
-}
-
-String _$comboSynergiesHash() => r'e63a83323ec98b537e90873018cca1c7345b844a';
-
 abstract class _$ComboSynergies
-    extends BuildlessAutoDisposeNotifier<SynergiesState> {
+    extends
+        BuildlessAutoDisposeNotifier<Map<(Agent, Agent), ComboSynergyStat>> {
   late final String collectionId;
 
-  SynergiesState build({required String collectionId});
+  Map<(Agent, Agent), ComboSynergyStat> build({required String collectionId});
 }
 
 /// See also [ComboSynergies].
@@ -163,7 +42,8 @@ abstract class _$ComboSynergies
 const comboSynergiesProvider = ComboSynergiesFamily();
 
 /// See also [ComboSynergies].
-class ComboSynergiesFamily extends Family<SynergiesState> {
+class ComboSynergiesFamily
+    extends Family<Map<(Agent, Agent), ComboSynergyStat>> {
   /// See also [ComboSynergies].
   const ComboSynergiesFamily();
 
@@ -196,7 +76,11 @@ class ComboSynergiesFamily extends Family<SynergiesState> {
 
 /// See also [ComboSynergies].
 class ComboSynergiesProvider
-    extends AutoDisposeNotifierProviderImpl<ComboSynergies, SynergiesState> {
+    extends
+        AutoDisposeNotifierProviderImpl<
+          ComboSynergies,
+          Map<(Agent, Agent), ComboSynergyStat>
+        > {
   /// See also [ComboSynergies].
   ComboSynergiesProvider({required String collectionId})
     : this._internal(
@@ -226,7 +110,9 @@ class ComboSynergiesProvider
   final String collectionId;
 
   @override
-  SynergiesState runNotifierBuild(covariant ComboSynergies notifier) {
+  Map<(Agent, Agent), ComboSynergyStat> runNotifierBuild(
+    covariant ComboSynergies notifier,
+  ) {
     return notifier.build(collectionId: collectionId);
   }
 
@@ -247,7 +133,10 @@ class ComboSynergiesProvider
   }
 
   @override
-  AutoDisposeNotifierProviderElement<ComboSynergies, SynergiesState>
+  AutoDisposeNotifierProviderElement<
+    ComboSynergies,
+    Map<(Agent, Agent), ComboSynergyStat>
+  >
   createElement() {
     return _ComboSynergiesProviderElement(this);
   }
@@ -269,18 +158,168 @@ class ComboSynergiesProvider
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin ComboSynergiesRef on AutoDisposeNotifierProviderRef<SynergiesState> {
+mixin ComboSynergiesRef
+    on AutoDisposeNotifierProviderRef<Map<(Agent, Agent), ComboSynergyStat>> {
   /// The parameter `collectionId` of this provider.
   String get collectionId;
 }
 
 class _ComboSynergiesProviderElement
-    extends AutoDisposeNotifierProviderElement<ComboSynergies, SynergiesState>
+    extends
+        AutoDisposeNotifierProviderElement<
+          ComboSynergies,
+          Map<(Agent, Agent), ComboSynergyStat>
+        >
     with ComboSynergiesRef {
   _ComboSynergiesProviderElement(super.provider);
 
   @override
   String get collectionId => (origin as ComboSynergiesProvider).collectionId;
+}
+
+String _$comboSynergyFilterHash() =>
+    r'36d5b50cd24c2349bcf372dad8ad7fa83e206311';
+
+abstract class _$ComboSynergyFilter
+    extends BuildlessAutoDisposeNotifier<SynergiesFilterState> {
+  late final String collectionId;
+
+  SynergiesFilterState build({required String collectionId});
+}
+
+/// See also [ComboSynergyFilter].
+@ProviderFor(ComboSynergyFilter)
+const comboSynergyFilterProvider = ComboSynergyFilterFamily();
+
+/// See also [ComboSynergyFilter].
+class ComboSynergyFilterFamily extends Family<SynergiesFilterState> {
+  /// See also [ComboSynergyFilter].
+  const ComboSynergyFilterFamily();
+
+  /// See also [ComboSynergyFilter].
+  ComboSynergyFilterProvider call({required String collectionId}) {
+    return ComboSynergyFilterProvider(collectionId: collectionId);
+  }
+
+  @override
+  ComboSynergyFilterProvider getProviderOverride(
+    covariant ComboSynergyFilterProvider provider,
+  ) {
+    return call(collectionId: provider.collectionId);
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'comboSynergyFilterProvider';
+}
+
+/// See also [ComboSynergyFilter].
+class ComboSynergyFilterProvider
+    extends
+        AutoDisposeNotifierProviderImpl<
+          ComboSynergyFilter,
+          SynergiesFilterState
+        > {
+  /// See also [ComboSynergyFilter].
+  ComboSynergyFilterProvider({required String collectionId})
+    : this._internal(
+        () => ComboSynergyFilter()..collectionId = collectionId,
+        from: comboSynergyFilterProvider,
+        name: r'comboSynergyFilterProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$comboSynergyFilterHash,
+        dependencies: ComboSynergyFilterFamily._dependencies,
+        allTransitiveDependencies:
+            ComboSynergyFilterFamily._allTransitiveDependencies,
+        collectionId: collectionId,
+      );
+
+  ComboSynergyFilterProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.collectionId,
+  }) : super.internal();
+
+  final String collectionId;
+
+  @override
+  SynergiesFilterState runNotifierBuild(covariant ComboSynergyFilter notifier) {
+    return notifier.build(collectionId: collectionId);
+  }
+
+  @override
+  Override overrideWith(ComboSynergyFilter Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: ComboSynergyFilterProvider._internal(
+        () => create()..collectionId = collectionId,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        collectionId: collectionId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeNotifierProviderElement<ComboSynergyFilter, SynergiesFilterState>
+  createElement() {
+    return _ComboSynergyFilterProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is ComboSynergyFilterProvider &&
+        other.collectionId == collectionId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, collectionId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin ComboSynergyFilterRef
+    on AutoDisposeNotifierProviderRef<SynergiesFilterState> {
+  /// The parameter `collectionId` of this provider.
+  String get collectionId;
+}
+
+class _ComboSynergyFilterProviderElement
+    extends
+        AutoDisposeNotifierProviderElement<
+          ComboSynergyFilter,
+          SynergiesFilterState
+        >
+    with ComboSynergyFilterRef {
+  _ComboSynergyFilterProviderElement(super.provider);
+
+  @override
+  String get collectionId =>
+      (origin as ComboSynergyFilterProvider).collectionId;
 }
 
 // ignore_for_file: type=lint

@@ -13,21 +13,19 @@ part of 'combo_synergies_provider.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-mixin _$SynergiesState {
-  ValorantMatches get matches;
-  Agents get agentRoster;
+mixin _$SynergiesFilterState {
   WinLossFilter get winLossFilter;
   Set<String> get selectedMaps;
   (Role, Role) get rolesCombo;
   ComboCriteria get comboCriteria;
 
-  /// Create a copy of SynergiesState
+  /// Create a copy of SynergiesFilterState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  $SynergiesStateCopyWith<SynergiesState> get copyWith =>
-      _$SynergiesStateCopyWithImpl<SynergiesState>(
-        this as SynergiesState,
+  $SynergiesFilterStateCopyWith<SynergiesFilterState> get copyWith =>
+      _$SynergiesFilterStateCopyWithImpl<SynergiesFilterState>(
+        this as SynergiesFilterState,
         _$identity,
       );
 
@@ -35,12 +33,7 @@ mixin _$SynergiesState {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SynergiesState &&
-            const DeepCollectionEquality().equals(other.matches, matches) &&
-            const DeepCollectionEquality().equals(
-              other.agentRoster,
-              agentRoster,
-            ) &&
+            other is SynergiesFilterState &&
             (identical(other.winLossFilter, winLossFilter) ||
                 other.winLossFilter == winLossFilter) &&
             const DeepCollectionEquality().equals(
@@ -56,8 +49,6 @@ mixin _$SynergiesState {
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    const DeepCollectionEquality().hash(matches),
-    const DeepCollectionEquality().hash(agentRoster),
     winLossFilter,
     const DeepCollectionEquality().hash(selectedMaps),
     rolesCombo,
@@ -66,20 +57,18 @@ mixin _$SynergiesState {
 
   @override
   String toString() {
-    return 'SynergiesState(matches: $matches, agentRoster: $agentRoster, winLossFilter: $winLossFilter, selectedMaps: $selectedMaps, rolesCombo: $rolesCombo, comboCriteria: $comboCriteria)';
+    return 'SynergiesFilterState(winLossFilter: $winLossFilter, selectedMaps: $selectedMaps, rolesCombo: $rolesCombo, comboCriteria: $comboCriteria)';
   }
 }
 
 /// @nodoc
-abstract mixin class $SynergiesStateCopyWith<$Res> {
-  factory $SynergiesStateCopyWith(
-    SynergiesState value,
-    $Res Function(SynergiesState) _then,
-  ) = _$SynergiesStateCopyWithImpl;
+abstract mixin class $SynergiesFilterStateCopyWith<$Res> {
+  factory $SynergiesFilterStateCopyWith(
+    SynergiesFilterState value,
+    $Res Function(SynergiesFilterState) _then,
+  ) = _$SynergiesFilterStateCopyWithImpl;
   @useResult
   $Res call({
-    ValorantMatches matches,
-    Agents agentRoster,
     WinLossFilter winLossFilter,
     Set<String> selectedMaps,
     (Role, Role) rolesCombo,
@@ -88,20 +77,18 @@ abstract mixin class $SynergiesStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SynergiesStateCopyWithImpl<$Res>
-    implements $SynergiesStateCopyWith<$Res> {
-  _$SynergiesStateCopyWithImpl(this._self, this._then);
+class _$SynergiesFilterStateCopyWithImpl<$Res>
+    implements $SynergiesFilterStateCopyWith<$Res> {
+  _$SynergiesFilterStateCopyWithImpl(this._self, this._then);
 
-  final SynergiesState _self;
-  final $Res Function(SynergiesState) _then;
+  final SynergiesFilterState _self;
+  final $Res Function(SynergiesFilterState) _then;
 
-  /// Create a copy of SynergiesState
+  /// Create a copy of SynergiesFilterState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? matches = null,
-    Object? agentRoster = null,
     Object? winLossFilter = null,
     Object? selectedMaps = null,
     Object? rolesCombo = null,
@@ -109,16 +96,6 @@ class _$SynergiesStateCopyWithImpl<$Res>
   }) {
     return _then(
       _self.copyWith(
-        matches:
-            null == matches
-                ? _self.matches
-                : matches // ignore: cast_nullable_to_non_nullable
-                    as ValorantMatches,
-        agentRoster:
-            null == agentRoster
-                ? _self.agentRoster
-                : agentRoster // ignore: cast_nullable_to_non_nullable
-                    as Agents,
         winLossFilter:
             null == winLossFilter
                 ? _self.winLossFilter
@@ -146,10 +123,8 @@ class _$SynergiesStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _SynergiesState extends SynergiesState {
+class _SynergiesState extends SynergiesFilterState {
   const _SynergiesState({
-    required this.matches,
-    required this.agentRoster,
     this.winLossFilter = WinLossFilter.all,
     final Set<String> selectedMaps = const {},
     this.rolesCombo = const (Role.unknown, Role.unknown),
@@ -157,10 +132,6 @@ class _SynergiesState extends SynergiesState {
   }) : _selectedMaps = selectedMaps,
        super._();
 
-  @override
-  final ValorantMatches matches;
-  @override
-  final Agents agentRoster;
   @override
   @JsonKey()
   final WinLossFilter winLossFilter;
@@ -180,7 +151,7 @@ class _SynergiesState extends SynergiesState {
   @JsonKey()
   final ComboCriteria comboCriteria;
 
-  /// Create a copy of SynergiesState
+  /// Create a copy of SynergiesFilterState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -193,11 +164,6 @@ class _SynergiesState extends SynergiesState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SynergiesState &&
-            const DeepCollectionEquality().equals(other.matches, matches) &&
-            const DeepCollectionEquality().equals(
-              other.agentRoster,
-              agentRoster,
-            ) &&
             (identical(other.winLossFilter, winLossFilter) ||
                 other.winLossFilter == winLossFilter) &&
             const DeepCollectionEquality().equals(
@@ -213,8 +179,6 @@ class _SynergiesState extends SynergiesState {
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    const DeepCollectionEquality().hash(matches),
-    const DeepCollectionEquality().hash(agentRoster),
     winLossFilter,
     const DeepCollectionEquality().hash(_selectedMaps),
     rolesCombo,
@@ -223,13 +187,13 @@ class _SynergiesState extends SynergiesState {
 
   @override
   String toString() {
-    return 'SynergiesState(matches: $matches, agentRoster: $agentRoster, winLossFilter: $winLossFilter, selectedMaps: $selectedMaps, rolesCombo: $rolesCombo, comboCriteria: $comboCriteria)';
+    return 'SynergiesFilterState(winLossFilter: $winLossFilter, selectedMaps: $selectedMaps, rolesCombo: $rolesCombo, comboCriteria: $comboCriteria)';
   }
 }
 
 /// @nodoc
 abstract mixin class _$SynergiesStateCopyWith<$Res>
-    implements $SynergiesStateCopyWith<$Res> {
+    implements $SynergiesFilterStateCopyWith<$Res> {
   factory _$SynergiesStateCopyWith(
     _SynergiesState value,
     $Res Function(_SynergiesState) _then,
@@ -237,8 +201,6 @@ abstract mixin class _$SynergiesStateCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    ValorantMatches matches,
-    Agents agentRoster,
     WinLossFilter winLossFilter,
     Set<String> selectedMaps,
     (Role, Role) rolesCombo,
@@ -254,13 +216,11 @@ class __$SynergiesStateCopyWithImpl<$Res>
   final _SynergiesState _self;
   final $Res Function(_SynergiesState) _then;
 
-  /// Create a copy of SynergiesState
+  /// Create a copy of SynergiesFilterState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? matches = null,
-    Object? agentRoster = null,
     Object? winLossFilter = null,
     Object? selectedMaps = null,
     Object? rolesCombo = null,
@@ -268,16 +228,6 @@ class __$SynergiesStateCopyWithImpl<$Res>
   }) {
     return _then(
       _SynergiesState(
-        matches:
-            null == matches
-                ? _self.matches
-                : matches // ignore: cast_nullable_to_non_nullable
-                    as ValorantMatches,
-        agentRoster:
-            null == agentRoster
-                ? _self.agentRoster
-                : agentRoster // ignore: cast_nullable_to_non_nullable
-                    as Agents,
         winLossFilter:
             null == winLossFilter
                 ? _self.winLossFilter
@@ -344,9 +294,6 @@ abstract mixin class $ComboDataCopyWith<$Res> {
       _$ComboDataCopyWithImpl;
   @useResult
   $Res call({Agent agentOne, Agent agentTwo, ComboSynergyStat synergyStat});
-
-  $AgentCopyWith<$Res> get agentOne;
-  $AgentCopyWith<$Res> get agentTwo;
 }
 
 /// @nodoc
@@ -384,26 +331,6 @@ class _$ComboDataCopyWithImpl<$Res> implements $ComboDataCopyWith<$Res> {
                     as ComboSynergyStat,
       ),
     );
-  }
-
-  /// Create a copy of ComboData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AgentCopyWith<$Res> get agentOne {
-    return $AgentCopyWith<$Res>(_self.agentOne, (value) {
-      return _then(_self.copyWith(agentOne: value));
-    });
-  }
-
-  /// Create a copy of ComboData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AgentCopyWith<$Res> get agentTwo {
-    return $AgentCopyWith<$Res>(_self.agentTwo, (value) {
-      return _then(_self.copyWith(agentTwo: value));
-    });
   }
 }
 
@@ -463,11 +390,6 @@ abstract mixin class _$ComboDataCopyWith<$Res>
   @override
   @useResult
   $Res call({Agent agentOne, Agent agentTwo, ComboSynergyStat synergyStat});
-
-  @override
-  $AgentCopyWith<$Res> get agentOne;
-  @override
-  $AgentCopyWith<$Res> get agentTwo;
 }
 
 /// @nodoc
@@ -505,25 +427,5 @@ class __$ComboDataCopyWithImpl<$Res> implements _$ComboDataCopyWith<$Res> {
                     as ComboSynergyStat,
       ),
     );
-  }
-
-  /// Create a copy of ComboData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AgentCopyWith<$Res> get agentOne {
-    return $AgentCopyWith<$Res>(_self.agentOne, (value) {
-      return _then(_self.copyWith(agentOne: value));
-    });
-  }
-
-  /// Create a copy of ComboData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AgentCopyWith<$Res> get agentTwo {
-    return $AgentCopyWith<$Res>(_self.agentTwo, (value) {
-      return _then(_self.copyWith(agentTwo: value));
-    });
   }
 }

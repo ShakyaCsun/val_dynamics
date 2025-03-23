@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:matches_repository/matches_repository.dart';
 import 'package:vsdat/l10n/l10n.dart';
 import 'package:vsdat/matches/matches.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';
@@ -36,9 +37,11 @@ class MatchesFilterDrawer extends StatelessWidget {
                 onSelect: (mapName) {
                   ref
                       .read(
-                        matchesProvider(collectionId: collectionName).notifier,
+                        matchesFilterProvider(
+                          collectionId: collectionName,
+                        ).notifier,
                       )
-                      .changeMaps(mapName);
+                      .toggleMap(mapName);
                 },
                 labelFor: (option) => option,
               );
@@ -51,7 +54,7 @@ class MatchesFilterDrawer extends StatelessWidget {
           child: Consumer(
             builder: (context, ref, child) {
               final selectedFilter = ref.watch(
-                matchesProvider(
+                matchesFilterProvider(
                   collectionId: collectionName,
                 ).select((state) => state.filter),
               );
@@ -72,7 +75,7 @@ class MatchesFilterDrawer extends StatelessWidget {
                   if (filterSet.isNotEmpty) {
                     ref
                         .read(
-                          matchesProvider(
+                          matchesFilterProvider(
                             collectionId: collectionName,
                           ).notifier,
                         )

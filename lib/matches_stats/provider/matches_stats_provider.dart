@@ -14,7 +14,7 @@ class MatchesStats extends _$MatchesStats {
     final groupedMatches = ref.watch(
       matchesProvider(
         collectionId: collectionId,
-      ).select((state) => state.filteredMatches.groupMatchesByStylisticClash()),
+      ).select((state) => state.groupMatchesByStylisticClash()),
     );
     return groupedMatches.entries
         .map<StyledMatchesStat>((entry) {
@@ -87,7 +87,7 @@ abstract class MatchesSummary with _$MatchesSummary {
     return MatchesSummary(
       matchesCount: matchesCount,
       scoreOne: scoreTwo,
-      attackScoreOne: defenseScoreOne.reverse(),
+      attackScoreOne: defenseScoreOne.reversed,
       compsOne: compsTwo,
       compsTwo: compsOne,
     );
@@ -102,5 +102,5 @@ abstract class MatchesSummary with _$MatchesSummary {
   }
 
   Score get defenseScoreOne => scoreOne - attackScoreOne;
-  Score get scoreTwo => scoreOne.reverse();
+  Score get scoreTwo => scoreOne.reversed;
 }

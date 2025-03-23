@@ -2,7 +2,9 @@ import 'package:equatable/equatable.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
 class Score extends Equatable implements Comparable<Score> {
-  const Score({required this.won, required this.lost}) : played = won + lost;
+  const Score({required this.won, required this.lost})
+    : played = won + lost,
+      winRate = won / (won + lost);
 
   static const zero = Score(won: 0, lost: 0);
 
@@ -10,7 +12,7 @@ class Score extends Equatable implements Comparable<Score> {
   final int lost;
   final int played;
 
-  double get winRate => won / played;
+  final double winRate;
 
   String get winRatePercent => winRate.asPercent;
   String get winRateFraction => '$won/$played';
@@ -37,7 +39,7 @@ class Score extends Equatable implements Comparable<Score> {
     return Score(won: won - other.won, lost: lost - other.lost);
   }
 
-  Score reverse() {
+  Score get reversed {
     return Score(won: lost, lost: won);
   }
 

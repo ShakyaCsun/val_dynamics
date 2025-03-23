@@ -261,20 +261,20 @@ class AbilityIcon extends StatelessWidget {
           CircleAvatar(radius: size / 2, child: Text(fallbackName));
     }
 
-    return switch (ability.type) {
-      AbilityType.one => buildAbilityIcon(
+    return switch (ability) {
+      AbilityOne() => buildAbilityIcon(
         defaultAbility1Icon(agentName),
         fallbackName: 'A1',
       ),
-      AbilityType.two => buildAbilityIcon(
+      AbilityTwo() => buildAbilityIcon(
         defaultAbility2Icon(agentName),
         fallbackName: 'A2',
       ),
-      AbilityType.three => buildAbilityIcon(
+      AbilityThree() => buildAbilityIcon(
         defaultAbility3Icon(agentName),
         fallbackName: 'A3',
       ),
-      AbilityType.ultimate => buildAbilityIcon(
+      UltimateAbility() => buildAbilityIcon(
         defaultUltimateIcon(agentName),
         fallbackName: 'U',
       ),

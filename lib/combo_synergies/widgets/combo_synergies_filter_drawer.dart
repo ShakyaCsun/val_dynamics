@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:matches_repository/matches_repository.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 import 'package:vsdat/combo_synergies/combo_synergies.dart';
 import 'package:vsdat/l10n/l10n.dart';
+import 'package:vsdat/matches/provider/matches_provider.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';
 
 class ComboSynergiesFilterDrawer extends StatelessWidget {
@@ -39,10 +41,10 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
           child: Consumer(
             builder: (context, ref, child) {
               final mapNames = ref.watch(
-                availableMapsProvider(collectionId: collectionName),
+                availableMapsProvider(collectionName: collectionName),
               );
               final selectedMaps = ref.watch(
-                comboSynergiesProvider(
+                comboSynergyFilterProvider(
                   collectionId: collectionName,
                 ).select((state) => state.selectedMaps),
               );
@@ -52,11 +54,11 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
                 onSelect: (mapName) {
                   ref
                       .read(
-                        comboSynergiesProvider(
+                        comboSynergyFilterProvider(
                           collectionId: collectionName,
                         ).notifier,
                       )
-                      .changeMaps(mapName);
+                      .toggleMap(mapName);
                 },
                 labelFor: (option) => option,
               );
@@ -69,7 +71,7 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
           child: Consumer(
             builder: (context, ref, child) {
               final selectedFilter = ref.watch(
-                comboSynergiesProvider(
+                comboSynergyFilterProvider(
                   collectionId: collectionName,
                 ).select((state) => state.comboCriteria),
               );
@@ -97,7 +99,7 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
                   if (filterSet.isNotEmpty) {
                     ref
                         .read(
-                          comboSynergiesProvider(
+                          comboSynergyFilterProvider(
                             collectionId: collectionName,
                           ).notifier,
                         )
@@ -114,7 +116,7 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
           child: Consumer(
             builder: (context, ref, child) {
               final selectedFilter = ref.watch(
-                comboSynergiesProvider(
+                comboSynergyFilterProvider(
                   collectionId: collectionName,
                 ).select((state) => state.winLossFilter),
               );
@@ -142,7 +144,7 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
                   if (filterSet.isNotEmpty) {
                     ref
                         .read(
-                          comboSynergiesProvider(
+                          comboSynergyFilterProvider(
                             collectionId: collectionName,
                           ).notifier,
                         )
@@ -161,7 +163,7 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
               return DropdownButtonFormField<(Role, Role)>(
                 decoration: const InputDecoration(border: OutlineInputBorder()),
                 value: ref.watch(
-                  comboSynergiesProvider(
+                  comboSynergyFilterProvider(
                     collectionId: collectionName,
                   ).select((state) => state.rolesCombo),
                 ),
@@ -182,7 +184,7 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
                   if (value != null) {
                     ref
                         .read(
-                          comboSynergiesProvider(
+                          comboSynergyFilterProvider(
                             collectionId: collectionName,
                           ).notifier,
                         )

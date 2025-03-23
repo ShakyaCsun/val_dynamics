@@ -1,42 +1,48 @@
-// Necessary for using json_serializable with freezed
-// ignore_for_file: invalid_annotation_target
-
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
-part 'agent.freezed.dart';
 part 'agent.g.dart';
 
 /// {@template agent}
 /// Agent
 /// {@endtemplate}
-@freezed
-abstract class Agent with _$Agent {
+@JsonSerializable(includeIfNull: false)
+class Agent extends Equatable {
   /// {@macro agent}
-  @JsonSerializable(includeIfNull: false)
-  const factory Agent({
-    required String name,
-    required double aggro,
-    required double control,
-    required double midrange,
-    required Role role,
-    String? iconUrl,
-    String? portraitUrl,
-    @Default(AbilityOne()) AbilityOne abilityOne,
-    @Default(AbilityTwo()) AbilityTwo abilityTwo,
-    @Default(AbilityThree()) AbilityThree abilityThree,
-    @Default(UltimateAbility()) UltimateAbility ultimateAbility,
-  }) = _Agent;
-
-  const Agent._();
+  const Agent({
+    required this.name,
+    required this.aggro,
+    required this.control,
+    required this.midrange,
+    required this.role,
+    this.iconUrl,
+    this.portraitUrl,
+    this.abilityOne = const AbilityOne(),
+    this.abilityTwo = const AbilityTwo(),
+    this.abilityThree = const AbilityThree(),
+    this.ultimateAbility = const UltimateAbility(),
+  }) : stylePoints = (aggro: aggro, control: control, midrange: midrange);
 
   /// Deserializes the given [json] into a [Agent]
   factory Agent.fromJson(Map<String, dynamic> json) => _$AgentFromJson(json);
 
+  Map<String, dynamic> toJson() => _$AgentToJson(this);
+
+  final String name;
+  final double aggro;
+  final double control;
+  final double midrange;
+  final Role role;
+  final String? iconUrl;
+  final String? portraitUrl;
+  final AbilityOne abilityOne;
+  final AbilityTwo abilityTwo;
+  final AbilityThree abilityThree;
+  final UltimateAbility ultimateAbility;
+  final StylePoints stylePoints;
+
   double get totalPoints => aggro + control + midrange;
-  StylePoints get stylePoints {
-    return (aggro: aggro, control: control, midrange: midrange);
-  }
 
   Map<String, dynamic> toMinimalJson() {
     return {
@@ -83,7 +89,7 @@ abstract class Agent with _$Agent {
       ],
     ),
     abilityTwo: AbilityTwo(
-      name: 'Nebula  / Dissipate',
+      name: 'Nebula / Dissipate',
       control: 1,
       midrange: 2,
       reasons: ['Stall', 'Refreshable/Cooldown', 'Multi-modal'],
@@ -646,4 +652,19 @@ abstract class Agent with _$Agent {
       reasons: ['Dive'],
     ),
   );
+
+  @override
+  List<Object?> get props => [
+    name,
+    aggro,
+    control,
+    midrange,
+    role,
+    iconUrl,
+    portraitUrl,
+    abilityOne,
+    abilityTwo,
+    abilityThree,
+    ultimateAbility,
+  ];
 }

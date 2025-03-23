@@ -1,7 +1,4 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:valorant_agents/valorant_agents.dart';
-
-part 'raw_match.freezed.dart';
 
 /// {@template raw_match}
 /// Raw Match data.
@@ -9,22 +6,29 @@ part 'raw_match.freezed.dart';
 /// Intermediate step between converting a rib.gg csv matches output to
 /// [ValorantMatches] without requiring a agents string to [Agent] mapper.
 /// {@endtemplate}
-@freezed
-abstract class RawMatch with _$RawMatch {
+class RawMatch {
   /// {@macro raw_match}
-  const factory RawMatch({
-    required String mapName,
-    required String teamOneName,
-    required String teamTwoName,
-    required int teamOneScore,
-    required int teamTwoScore,
-    required int teamOneAttackScore,
-    required int teamTwoAttackScore,
-    required String teamOneAgents,
-    required String teamTwoAgents,
-  }) = _RawMatch;
+  const RawMatch({
+    required this.mapName,
+    required this.teamOneName,
+    required this.teamTwoName,
+    required this.teamOneScore,
+    required this.teamTwoScore,
+    required this.teamOneAttackScore,
+    required this.teamTwoAttackScore,
+    required this.teamOneAgents,
+    required this.teamTwoAgents,
+  });
 
-  const RawMatch._();
+  final String mapName;
+  final String teamOneName;
+  final String teamTwoName;
+  final int teamOneScore;
+  final int teamTwoScore;
+  final int teamOneAttackScore;
+  final int teamTwoAttackScore;
+  final String teamOneAgents;
+  final String teamTwoAgents;
 
   ValorantMatch toValorantMatch({required Map<String, Agent> agentsMap}) {
     return ValorantMatch(
@@ -42,5 +46,14 @@ abstract class RawMatch with _$RawMatch {
         agents: AgentComp.fromAgentNames(teamTwoAgents, agentsMap: agentsMap),
       ),
     );
+  }
+
+  @override
+  String toString() {
+    return 'RawMatch(mapName: $mapName, teamOneName: $teamOneName, '
+        'teamTwoName: $teamTwoName, teamOneScore: $teamOneScore, '
+        'teamTwoScore: $teamTwoScore, teamOneAttackScore: $teamOneAttackScore, '
+        'teamTwoAttackScore: $teamTwoAttackScore, '
+        'teamOneAgents: $teamOneAgents, teamTwoAgents: $teamTwoAgents)';
   }
 }
