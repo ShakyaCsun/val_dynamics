@@ -200,7 +200,7 @@ class AgentComboMatchesRoute extends GoRouteData {
   AgentComboMatchesRoute.safe({
     required this.collectionName,
     required (Agent, Agent) agentCombo,
-  }) : comboName = agentCombo.comboName;
+  }) : comboName = agentCombo.normalized.comboName;
 
   final String collectionName;
   final String comboName;

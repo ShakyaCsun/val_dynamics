@@ -144,9 +144,9 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
           matchesGroup.update(
             (match.stylePoints1, match.stylePoints2),
             (value) {
-              return ValorantMatches([...value, match, match.switchTeams()]);
+              return ValorantMatches([...value, match, match.reversed]);
             },
-            ifAbsent: () => ValorantMatches([match, match.switchTeams()]),
+            ifAbsent: () => ValorantMatches([match, match.reversed]),
           );
           return matchesGroup;
         }
@@ -161,7 +161,7 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
       if (matchesGroup.containsKey(alternateKey)) {
         matchesGroup.update(
           alternateKey,
-          (value) => ValorantMatches([...value, match.switchTeams()]),
+          (value) => ValorantMatches([...value, match.reversed]),
         );
         return matchesGroup;
       }
@@ -188,7 +188,7 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
       if (matchesGroup.containsKey(alternateKey)) {
         matchesGroup.update(
           alternateKey,
-          (value) => ValorantMatches([...value, match.switchTeams()]),
+          (value) => ValorantMatches([...value, match.reversed]),
         );
         return matchesGroup;
       }
@@ -220,8 +220,8 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
         };
         matchesGroup.update(
           newKey,
-          (value) => ValorantMatches([...value, match.switchTeams()]),
-          ifAbsent: () => ValorantMatches([match.switchTeams()]),
+          (value) => ValorantMatches([...value, match.reversed]),
+          ifAbsent: () => ValorantMatches([match.reversed]),
         );
         return matchesGroup;
       }
@@ -251,8 +251,8 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
         )
         ..update(
           stylePoints2,
-          (value) => ValorantMatches([...value, match.switchTeams()]),
-          ifAbsent: () => ValorantMatches([match.switchTeams()]),
+          (value) => ValorantMatches([...value, match.reversed]),
+          ifAbsent: () => ValorantMatches([match.reversed]),
         );
       return matchesGroup;
     });
@@ -296,13 +296,17 @@ class MatchesComparator extends Equatable
 extension SynergyInMatchesCalculator on ValorantMatches {
   /// Get the given [Agent]'s Non-Mirror Win Rate using this [ValorantMatches].
   Score getAgentNmwr(Agent agent) {
+    final name = agent.name;
     return fold(Score.zero, (score, valMatch) {
       final ValorantMatch(
         :resultOne,
         teamOne: Team(agents: agentsOne),
         teamTwo: Team(agents: agentsTwo),
       ) = valMatch;
-      return switch ((agentsOne.hasAgent(agent), agentsTwo.hasAgent(agent))) {
+      return switch ((
+        agentsOne.hasAgentName(name),
+        agentsTwo.hasAgentName(name),
+      )) {
         (true, false) => score + resultOne,
         (false, true) => score + resultOne.reversed,
         _ => score,
@@ -313,6 +317,7 @@ extension SynergyInMatchesCalculator on ValorantMatches {
   /// Get the given [Agent]'s Non-Mirror Round Win Rate using
   /// this [ValorantMatches].
   Score getAgentNmrwr(Agent agent) {
+    final name = agent.name;
     return fold(Score.zero, (score, valMatch) {
       final ValorantMatch(
         :scoreOne,
@@ -320,7 +325,10 @@ extension SynergyInMatchesCalculator on ValorantMatches {
         teamOne: Team(agents: agentsOne),
         teamTwo: Team(agents: agentsTwo),
       ) = valMatch;
-      return switch ((agentsOne.hasAgent(agent), agentsTwo.hasAgent(agent))) {
+      return switch ((
+        agentsOne.hasAgentName(name),
+        agentsTwo.hasAgentName(name),
+      )) {
         (true, false) => score + scoreOne,
         (false, true) => score + scoreTwo,
         _ => score,
@@ -337,7 +345,7 @@ extension SynergyInMatchesCalculator on ValorantMatches {
       if (valMatch.satisfiesComboNM(agentOne, agentTwo, criteria: criteria)) {
         return score + valMatch.resultOne;
       }
-      if (valMatch.switchTeams().satisfiesComboNM(
+      if (valMatch.reversed.satisfiesComboNM(
         agentOne,
         agentTwo,
         criteria: criteria,
@@ -357,7 +365,7 @@ extension SynergyInMatchesCalculator on ValorantMatches {
       if (valMatch.satisfiesComboNM(agentOne, agentTwo, criteria: criteria)) {
         return score + valMatch.scoreOne;
       }
-      if (valMatch.switchTeams().satisfiesComboNM(
+      if (valMatch.reversed.satisfiesComboNM(
         agentOne,
         agentTwo,
         criteria: criteria,
@@ -462,7 +470,7 @@ extension ComboAgentExtension on (Agent, Agent) {
   /// Agent one's name and agent two's name separated by '-' in their normalized
   /// form.
   String get comboName {
-    final (Agent(name: nameOne), Agent(name: nameTwo)) = normalized;
+    final (Agent(name: nameOne), Agent(name: nameTwo)) = this;
     return '$nameOne-$nameTwo';
   }
 }

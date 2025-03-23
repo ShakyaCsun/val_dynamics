@@ -43,9 +43,11 @@ class ValorantMatch extends Equatable {
   late final bool isMirrorStyle = stylePoints1 == stylePoints2;
 
   /// Switch Team One and Team Two
-  ValorantMatch switchTeams() {
-    return ValorantMatch(mapName: mapName, teamOne: teamTwo, teamTwo: teamOne);
-  }
+  late final ValorantMatch reversed = ValorantMatch(
+    mapName: mapName,
+    teamOne: teamTwo,
+    teamTwo: teamOne,
+  );
 
   /// Returns `true` if team one has the combo of agents and team two satisfies
   /// the criteria for this being a non-mirror combo matchup.
@@ -54,27 +56,22 @@ class ValorantMatch extends Equatable {
     Agent agentTwo, {
     required ComboCriteria criteria,
   }) {
+    final agentCombo = {agentOne.name, agentTwo.name};
     final ValorantMatch(
-      teamOne: Team(agents: agentsOne),
-      teamTwo: Team(agents: agentsTwo),
+      teamOne: Team(agents: AgentComp(agentNames: agentsOne)),
+      teamTwo: Team(agents: AgentComp(agentNames: agentsTwo)),
     ) = this;
-    return switch ((
-      agentsOne.hasAgent(agentOne),
-      agentsOne.hasAgent(agentTwo),
-    )) {
-      (true, true) => switch ((
-        agentsTwo.hasAgent(agentOne),
-        agentsTwo.hasAgent(agentTwo),
-      )) {
-        (true, true) => false,
-        (false, false) => true,
-        _ => switch (criteria) {
+    if (agentsOne.containsAll(agentCombo)) {
+      return switch (agentsTwo.intersection(agentCombo).length) {
+        2 => false,
+        1 => switch (criteria) {
           ComboCriteria.solo => false,
           ComboCriteria.composite => true,
         },
-      },
-      _ => false,
-    };
+        _ => true,
+      };
+    }
+    return false;
   }
 
   @override

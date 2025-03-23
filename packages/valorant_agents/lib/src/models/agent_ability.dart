@@ -15,7 +15,7 @@ sealed class AgentAbility extends Equatable {
     required this.control,
     required this.midrange,
     required this.reasons,
-  });
+  }) : stylePoints = (aggro: aggro, control: control, midrange: midrange);
 
   final String name;
   final double aggro;
@@ -23,9 +23,7 @@ sealed class AgentAbility extends Equatable {
   final double midrange;
   final List<String> reasons;
 
-  StylePoints get stylePoints {
-    return (aggro: aggro, control: control, midrange: midrange);
-  }
+  final StylePoints stylePoints;
 }
 
 @JsonSerializable()
@@ -44,7 +42,7 @@ class AbilityOne extends AgentAbility {
   Map<String, dynamic> toJson() => _$AbilityOneToJson(this);
 
   @override
-  List<Object> get props => [name, aggro, control, midrange, reasons];
+  List<Object> get props => [name, stylePoints, reasons];
 }
 
 @JsonSerializable()
@@ -63,7 +61,7 @@ class AbilityTwo extends AgentAbility {
   Map<String, dynamic> toJson() => _$AbilityTwoToJson(this);
 
   @override
-  List<Object> get props => [name, aggro, control, midrange, reasons];
+  List<Object> get props => [name, stylePoints, reasons];
 }
 
 @JsonSerializable()
@@ -82,7 +80,7 @@ class AbilityThree extends AgentAbility {
   Map<String, dynamic> toJson() => _$AbilityThreeToJson(this);
 
   @override
-  List<Object> get props => [name, aggro, control, midrange, reasons];
+  List<Object> get props => [name, stylePoints, reasons];
 }
 
 @JsonSerializable()
@@ -101,5 +99,5 @@ class UltimateAbility extends AgentAbility {
   Map<String, dynamic> toJson() => _$UltimateAbilityToJson(this);
 
   @override
-  List<Object> get props => [name, aggro, control, midrange, reasons];
+  List<Object> get props => [name, stylePoints, reasons];
 }

@@ -129,7 +129,7 @@ abstract class CompositionsState with _$CompositionsState {
     return CompositionsState(agents: agents, allCompositions: allCompositions);
   }
 
-  Stream<List<AgentComp>> fillComps({int atEvery = 200}) async* {
+  Stream<List<AgentComp>> fillComps({int atEvery = 1000}) async* {
     var i = 0;
     final comps = <AgentComp>[];
     for (final (one, agent1) in agents.indexed) {

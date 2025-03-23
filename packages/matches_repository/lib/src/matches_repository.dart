@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:valorant_agents/valorant_agents.dart';
 
 /// {@template matches_repository}
@@ -71,7 +73,7 @@ class MatchesRepository {
     final (agentOne, agentTwo) = agentCombo;
     return ValorantMatches(
       matches
-          .expand((match) => [match, match.switchTeams()])
+          .expand((match) => [match, match.reversed])
           .where(
             (match) =>
                 match.satisfiesComboNM(agentOne, agentTwo, criteria: criteria),
@@ -115,15 +117,18 @@ class MatchesRepository {
     required ValorantMatches matches,
     ComboCriteria criteria = ComboCriteria.composite,
   }) {
-    final agentWRs = <Agent, Score>{};
-    final comboSynergyStats = <(Agent, Agent), ComboSynergyStat>{};
+    final agentWRs = <String, Score>{};
+    final comboSynergyStats = LinkedHashMap<(Agent, Agent), ComboSynergyStat>(
+      equals: (key1, key2) => key1.comboName == key2.comboName,
+      hashCode: (p0) => p0.comboName.hashCode,
+    );
     for (final (agentOne, agentTwo) in _availableCombos) {
       final oneWR = agentWRs.putIfAbsent(
-        agentOne,
+        agentOne.name,
         () => matches.getAgentNmrwr(agentOne),
       );
       final twoWR = agentWRs.putIfAbsent(
-        agentTwo,
+        agentTwo.name,
         () => matches.getAgentNmrwr(agentTwo),
       );
       final comboWR = matches.getComboNmrwr(

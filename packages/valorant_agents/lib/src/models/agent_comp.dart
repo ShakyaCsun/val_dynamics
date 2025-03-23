@@ -56,9 +56,9 @@ class AgentComp extends Equatable {
     }
     Agent getAgent(String name) {
       switch (agentsMap[name]) {
-        case final Agent agent:
+        case final agent?:
           return agent;
-        case null:
+        default:
           throw AgentNotFoundException('Agent $name not found');
       }
     }
@@ -76,13 +76,13 @@ class AgentComp extends Equatable {
 
   final StylePoints stylePoints;
 
-  late final (Agent, Agent, Agent, Agent, Agent) tuple = (
-    agents[0],
-    agents[1],
-    agents[2],
-    agents[3],
-    agents[4],
+  late final Set<String> agentNames = Set.unmodifiable(
+    agents.map((e) => e.name),
   );
+
+  late final Map<Role, int> roleCounts = Map.unmodifiable({
+    for (final group in agentsGroup) group.first.role: group.length,
+  });
 
   List<List<Agent>> get agentsGroup {
     final group = <List<Agent>>[];
@@ -101,7 +101,9 @@ class AgentComp extends Equatable {
     return group;
   }
 
-  late final String agentNames = agentsGroup
+  /// Agent names of same roles are separated by ',' and agents of
+  /// different roles are then separated by ' - '.
+  late final String groupedAgentNames = agentsGroup
       .map((group) => group.map((agent) => agent.name).join(', '))
       .join(' - ');
 
@@ -109,8 +111,12 @@ class AgentComp extends Equatable {
     return agents.contains(agent);
   }
 
+  bool hasAgentName(String name) {
+    return agentNames.contains(name);
+  }
+
   bool hasRole(Role role) {
-    return agents.map((agent) => agent.role).contains(role);
+    return roleCounts.keys.contains(role);
   }
 
   @override
@@ -119,9 +125,9 @@ class AgentComp extends Equatable {
   }
 
   String prettyPrint({required String name}) {
-    return '$name(agents: $agentNames, acm: ${stylePoints.acm})';
+    return '$name(agents: $groupedAgentNames, acm: ${stylePoints.acm})';
   }
 
   @override
-  List<Object> get props => [tuple];
+  List<Object> get props => [agents];
 }

@@ -656,9 +656,7 @@ class Agent extends Equatable {
   @override
   List<Object?> get props => [
     name,
-    aggro,
-    control,
-    midrange,
+    stylePoints,
     role,
     iconUrl,
     portraitUrl,

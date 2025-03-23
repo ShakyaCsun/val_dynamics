@@ -136,8 +136,8 @@ extension ValorantMatchesExtension on ValorantMatches {
         )
         ..update(
           stylePoints2,
-          (value) => ValorantMatches([...value, match.switchTeams()]),
-          ifAbsent: () => ValorantMatches([match.switchTeams()]),
+          (value) => ValorantMatches([...value, match.reversed]),
+          ifAbsent: () => ValorantMatches([match.reversed]),
         );
       return matchesGroup;
     });
