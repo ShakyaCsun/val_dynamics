@@ -117,7 +117,7 @@ class _$MatchesTernaryDataCopyWithImpl<$Res>
       _self.copyWith(
         stylePoints:
             null == stylePoints
-                ? _self.stylePoints!
+                ? _self.stylePoints
                 : stylePoints // ignore: cast_nullable_to_non_nullable
                     as ({double aggro, double control, double midrange}),
         matchesCount:

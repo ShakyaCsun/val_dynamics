@@ -17,6 +17,7 @@ class Score extends Equatable implements Comparable<Score> {
   String get winRatePercent => winRate.asPercent;
   String get winRateFraction => '$won/$played';
   String get winLoss => '$won-$lost';
+  String get roundPercentStat => '$winRatePercent ($winRateFraction)';
 
   ScoreType get scoreType => ScoreType.fromScore(this);
 

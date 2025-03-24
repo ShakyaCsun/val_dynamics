@@ -1,3 +1,5 @@
+import 'package:equatable/equatable.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:matches_repository/matches_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -10,24 +12,75 @@ part 'combo_synergies_provider.freezed.dart';
 part 'combo_synergies_provider.g.dart';
 
 @riverpod
-class ComboSynergies extends _$ComboSynergies {
+Map<(Agent, Agent), ComboSynergyStat> comboSynergies(
+  Ref ref, {
+  required String collectionId,
+}) {
+  final matchRepository = ref.watch(
+    matchesRepositoryProvider(collectionId: collectionId),
+  );
+  final SynergiesFilterState(
+    :comboCriteria,
+    :rolesCombo,
+    :selectedMaps,
+    :winLossFilter,
+  ) = ref.watch(comboSynergyFilterProvider(collectionId: collectionId));
+  return matchRepository.getAllComboSynergies(
+    criteria: comboCriteria,
+    maps: selectedMaps,
+    rolesCombo: rolesCombo,
+    winLossFilter: winLossFilter,
+  );
+}
+
+class ComboSynergyTableData extends Equatable {
+  const ComboSynergyTableData({required this.combo, required this.stats});
+
+  final (Agent, Agent) combo;
+  final ComboSynergyStat stats;
+
+  String get comboNmrwr => stats.comboWR.winRatePercent;
+  String get comboRounds => stats.comboWR.winRateFraction;
+  String get agent1Nmrwr => stats.oneWR.roundPercentStat;
+  String get agent2Nmrwr => stats.twoWR.roundPercentStat;
+  String get agent1Synergy => stats.synergyOne.asPercent;
+  String get agent2Synergy => stats.synergyTwo.asPercent;
+  String get combinedSynergy => (stats.synergyOne + stats.synergyTwo).asPercent;
+
   @override
-  Map<(Agent, Agent), ComboSynergyStat> build({required String collectionId}) {
-    final matchRepository = ref.watch(
-      matchesRepositoryProvider(collectionId: collectionId),
-    );
-    final SynergiesFilterState(
-      :comboCriteria,
-      :rolesCombo,
-      :selectedMaps,
-      :winLossFilter,
-    ) = ref.watch(comboSynergyFilterProvider(collectionId: collectionId));
-    return matchRepository.getAllComboSynergies(
-      criteria: comboCriteria,
-      maps: selectedMaps,
-      rolesCombo: rolesCombo,
-      winLossFilter: winLossFilter,
-    );
+  List<Object> get props => [combo, stats];
+}
+
+@riverpod
+List<ComboSynergyTableData> sortedComboSynergiesList(
+  Ref ref, {
+  required String collectionId,
+}) {
+  final sort = ref.watch(comboSynergySortProvider);
+  final synergies = ref.watch(
+    comboSynergiesProvider(collectionId: collectionId),
+  );
+  return sort
+      .apply(synergies)
+      .entries
+      .map(
+        (entry) => ComboSynergyTableData(combo: entry.key, stats: entry.value),
+      )
+      .toList();
+}
+
+@Riverpod(keepAlive: true)
+class ComboSynergySort extends _$ComboSynergySort {
+  @override
+  SynergySort build() {
+    return SynergySort.comboWR;
+  }
+
+  void changeSort(SynergySort sort) {
+    if (state == sort) {
+      return;
+    }
+    state = sort;
   }
 }
 

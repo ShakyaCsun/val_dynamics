@@ -85,12 +85,12 @@ class _$StyledMatchesSummaryDataCopyWithImpl<$Res>
       _self.copyWith(
         acm:
             null == acm
-                ? _self.acm!
+                ? _self.acm
                 : acm // ignore: cast_nullable_to_non_nullable
                     as ({double aggro, double control, double midrange}),
         opponentAcm:
             null == opponentAcm
-                ? _self.opponentAcm!
+                ? _self.opponentAcm
                 : opponentAcm // ignore: cast_nullable_to_non_nullable
                     as ({double aggro, double control, double midrange}),
         summary:

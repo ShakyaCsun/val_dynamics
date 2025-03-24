@@ -30,6 +30,12 @@ class MatchesView extends ConsumerWidget {
         actions: [
           TextButton(
             onPressed: () {
+              ComboSynergiesRoute(collectionName: collectionName).go(context);
+            },
+            child: const Text('View Synergies'),
+          ),
+          TextButton(
+            onPressed: () {
               MatchesStatsRoute(collectionName: collectionName).go(context);
             },
             child: Text(context.l10n.viewStats),
