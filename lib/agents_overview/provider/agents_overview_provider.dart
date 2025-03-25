@@ -82,7 +82,10 @@ class AgentsOverviewState extends Equatable {
 @Riverpod(keepAlive: true)
 AgentsRepository agentsRepository(Ref ref) {
   final repository = AgentsRepository.basic(
-    agentsCsvs: ref.watch(bundledAgentsProvider),
+    agentsCsvs: {
+      ...ref.watch(bundledAgentsProvider),
+      'Guessing (+Waylay)': Agents([...Agents.defaultRoster, Agent.waylay]),
+    },
   );
   ref.onDispose(repository.dispose);
   return repository;

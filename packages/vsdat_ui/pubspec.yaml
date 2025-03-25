@@ -56,6 +56,7 @@ flutter:
     - assets/agents/tejo/
     - assets/agents/viper/
     - assets/agents/vyse/
+    - assets/agents/waylay/
     - assets/agents/yoru/
     - assets/roles/
   uses-material-design: true

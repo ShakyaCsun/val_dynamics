@@ -189,16 +189,6 @@ class Agent extends Equatable {
       reasons: ['Pre-placement', 'Audio-based Trigger', 'Soft Info'],
     ),
     abilityTwo: AbilityTwo(
-      name: 'Barrier Mesh',
-      control: 2,
-      midrange: 1,
-      reasons: [
-        'Stall',
-        'Passive Value',
-        'Permeable Zone Denial/Intermediate Range',
-      ],
-    ),
-    abilityThree: AbilityThree(
       name: 'GravNet',
       control: 2,
       midrange: 1,
@@ -206,6 +196,16 @@ class Agent extends Equatable {
         'Stall',
         'Non-catalytic Duel Facilitation',
         'Intermediate Range/Large Zone Denial/Soft Info',
+      ],
+    ),
+    abilityThree: AbilityThree(
+      name: 'Barrier Mesh',
+      control: 2,
+      midrange: 1,
+      reasons: [
+        'Stall',
+        'Passive Value',
+        'Permeable Zone Denial/Intermediate Range',
       ],
     ),
     ultimateAbility: UltimateAbility(
@@ -615,6 +615,18 @@ class Agent extends Equatable {
       control: 1,
       reasons: ["Primary Weapon 'Permission' Denied"],
     ),
+  );
+  static const waylay = Agent(
+    name: 'Waylay',
+    // Man's just guessing
+    aggro: 7,
+    control: 3,
+    midrange: 0,
+    role: Role.duelist,
+    abilityOne: AbilityOne(name: 'Lightspeed', reasons: ['', '', '']),
+    abilityTwo: AbilityTwo(name: 'Refract', reasons: ['', '', '']),
+    abilityThree: AbilityThree(name: 'Saturate', reasons: ['', '', '']),
+    ultimateAbility: UltimateAbility(name: 'Convergent Paths', reasons: ['']),
   );
   static const yoru = Agent(
     name: 'Yoru',
