@@ -133,8 +133,8 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
                         WinLossFilter.all => 'Shows All Combos with valid WR',
                       },
                       label: Text(switch (filter) {
-                        WinLossFilter.winning => 'Winning',
-                        WinLossFilter.losing => 'Losing',
+                        WinLossFilter.winning => '>=50%',
+                        WinLossFilter.losing => '<50%',
                         WinLossFilter.all => 'All',
                       }),
                     ),

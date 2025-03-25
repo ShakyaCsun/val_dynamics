@@ -274,9 +274,9 @@ class _ComboSynergiesTableState extends State<ComboSynergiesTable> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                AgentIndicator(agent: agentOne),
+                                AgentIndicator(agent: agentOne, radius: 24),
                                 const Text(' - '),
-                                AgentIndicator(agent: agentTwo),
+                                AgentIndicator(agent: agentTwo, radius: 24),
                               ],
                             ),
                           ),
