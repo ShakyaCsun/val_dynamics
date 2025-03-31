@@ -49,10 +49,10 @@ class ComboSynergiesBody extends StatelessWidget {
           child: Expanded(
             child: Column(
               children: [
-                TabBar(tabs: [Tab(text: 'Triangle'), Tab(text: 'Table')]),
+                TabBar(tabs: [Tab(text: 'Table'), Tab(text: 'Triangle')]),
                 Expanded(
                   child: TabBarView(
-                    children: [ComboSynergiesTriangle(), ComboSynergiesTable()],
+                    children: [ComboSynergiesTable(), ComboSynergiesTriangle()],
                   ),
                 ),
               ],
@@ -162,7 +162,7 @@ class _ComboSynergiesTableState extends State<ComboSynergiesTable> {
               ),
               pinnedRowCount: 1,
               pinnedColumnCount: 1,
-              columnCount: 8,
+              columnCount: 7,
               rowCount: tableData.length + 1,
               columnBuilder: (index) {
                 final borderColor =
@@ -173,10 +173,7 @@ class _ComboSynergiesTableState extends State<ComboSynergiesTable> {
                       trailing: BorderSide(color: borderColor),
                     ),
                   ),
-                  extent: const MaxSpanExtent(
-                    FixedSpanExtent(200),
-                    FractionalSpanExtent(1 / 9),
-                  ),
+                  extent: const FixedSpanExtent(200),
                 );
               },
               rowBuilder: (index) {
@@ -184,7 +181,7 @@ class _ComboSynergiesTableState extends State<ComboSynergiesTable> {
                   final borderColor =
                       Theme.of(context).colorScheme.outlineVariant;
                   return TableSpan(
-                    foregroundDecoration: TableSpanDecoration(
+                    backgroundDecoration: TableSpanDecoration(
                       border: TableSpanBorder(
                         trailing: BorderSide(width: 2, color: borderColor),
                       ),
@@ -207,36 +204,36 @@ class _ComboSynergiesTableState extends State<ComboSynergiesTable> {
                   final textStyle = Theme.of(context).textTheme.labelLarge;
                   return switch (column) {
                     0 => CenteredTableViewCell(
-                      child: Text('Agent Combo', style: textStyle),
-                    ),
-                    1 => CenteredTableViewCell(
                       child: const SynergySortHeader(
                         label: 'Combo NMRWR',
                         sort: SynergySort.comboWR,
                       ),
                     ),
-                    2 => CenteredTableViewCell(
+                    1 => CenteredTableViewCell(
                       child: const SynergySortHeader(
                         label: 'Rounds Won/Played',
                         sort: SynergySort.rounds,
                       ),
                     ),
-                    3 => CenteredTableViewCell(
-                      child: Text('Agent 1 NMRWR', style: textStyle),
+                    2 => CenteredTableViewCell(
+                      child: const SynergySortHeader(
+                        label: 'Agent 1 NMRWR',
+                        sort: SynergySort.agentWR,
+                      ),
                     ),
-                    4 => CenteredTableViewCell(
+                    3 => CenteredTableViewCell(
                       child: const SynergySortHeader(
                         label: 'Agent 1 Synergy',
                         sort: SynergySort.synergy,
                       ),
                     ),
-                    5 => CenteredTableViewCell(
+                    4 => CenteredTableViewCell(
                       child: Text('Agent 2 NMRWR', style: textStyle),
                     ),
-                    6 => CenteredTableViewCell(
+                    5 => CenteredTableViewCell(
                       child: Text('Agent 2 Synergy', style: textStyle),
                     ),
-                    7 => CenteredTableViewCell(
+                    6 => CenteredTableViewCell(
                       child: const SynergySortHeader(
                         label: 'Combined Synergy',
                         sort: SynergySort.combinedSynergy,
@@ -269,26 +266,42 @@ class _ComboSynergiesTableState extends State<ComboSynergiesTable> {
                             ).location,
                       ),
                       builder:
-                          (context, followLink) => GestureDetector(
+                          (context, followLink) => InkWell(
                             onTap: followLink,
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                AgentIndicator(agent: agentOne, radius: 24),
-                                const Text(' - '),
-                                AgentIndicator(agent: agentTwo, radius: 24),
+                                Expanded(
+                                  flex: 6,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AgentIndicator(
+                                        agent: agentOne,
+                                        radius: 22,
+                                      ),
+                                      const Text(' - '),
+                                      AgentIndicator(
+                                        agent: agentTwo,
+                                        radius: 22,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 5,
+                                  child: Center(child: Text(comboNmrwr)),
+                                ),
                               ],
                             ),
                           ),
                     ),
                   ),
-                  1 => CenteredTableViewCell(child: Text(comboNmrwr)),
-                  2 => CenteredTableViewCell(child: Text(comboRounds)),
-                  3 => CenteredTableViewCell(child: Text(agent1Nmrwr)),
-                  4 => CenteredTableViewCell(child: Text(agent1Synergy)),
-                  5 => CenteredTableViewCell(child: Text(agent2Nmrwr)),
-                  6 => CenteredTableViewCell(child: Text(agent2Synergy)),
-                  7 => CenteredTableViewCell(child: Text(combinedSynergy)),
+                  1 => CenteredTableViewCell(child: Text(comboRounds)),
+                  2 => CenteredTableViewCell(child: Text(agent1Nmrwr)),
+                  3 => CenteredTableViewCell(child: Text(agent1Synergy)),
+                  4 => CenteredTableViewCell(child: Text(agent2Nmrwr)),
+                  5 => CenteredTableViewCell(child: Text(agent2Synergy)),
+                  6 => CenteredTableViewCell(child: Text(combinedSynergy)),
                   _ =>
                     throw StateError('Number of Columns is more than expected'),
                 };
