@@ -6,7 +6,7 @@ part of 'agents_overview_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$agentsRepositoryHash() => r'499e347f42c7a30b920f9ab0ce9c81ca7a818cd7';
+String _$agentsRepositoryHash() => r'3a57d17d0b0bd38a36b5a0f008846e7975949cda';
 
 /// See also [agentsRepository].
 @ProviderFor(agentsRepository)

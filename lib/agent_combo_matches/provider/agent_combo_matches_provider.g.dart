@@ -6,7 +6,7 @@ part of 'agent_combo_matches_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$agentComboMatchesHash() => r'2ce6a56d4ec82e8c00ec372e354e5ab38c8e09d5';
+String _$agentComboMatchesHash() => r'da823bd093ec22465917428c330172a10c7026fd';
 
 /// Copied from Dart SDK
 class _SystemHash {
