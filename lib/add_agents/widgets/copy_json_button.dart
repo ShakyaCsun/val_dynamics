@@ -20,9 +20,7 @@ class CopyJsonButton extends StatelessWidget {
         onPressed: () {
           _copyJson();
           context.showSnackbar(
-            const SnackBar(
-              content: Text('Sample Agents JSON copied to clipboard'),
-            ),
+            SnackBar(content: Text(l10n.agentsCopiedMessage)),
           );
         },
         child: Text(

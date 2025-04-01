@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:valorant_agents/valorant_agents.dart';
-import 'package:vsdat_ui/src/widgets/widgets.dart';
+import 'package:vsdat_ui/vsdat_ui.dart';
 
 class MatchTile extends StatelessWidget {
   const MatchTile({required this.match, super.key});
@@ -39,7 +39,7 @@ class MatchTile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(mapName, style: textTheme.labelLarge),
-                  Text(scoreOne.winLoss, style: textTheme.headlineSmall),
+                  ScoreText(score: scoreOne),
                 ],
               ),
             ),
@@ -87,6 +87,37 @@ class CompositionsRow extends StatelessWidget {
           const Text('-'),
         ];
       })..removeLast(),
+    );
+  }
+}
+
+class ScoreText extends StatelessWidget {
+  const ScoreText({required this.score, super.key});
+
+  final Score score;
+
+  @override
+  Widget build(BuildContext context) {
+    final textStyle = Theme.of(context).textTheme.headlineSmall;
+    final winningTextStyle = textStyle?.copyWith(color: ValColors.winningScore);
+    final wonMatch = score.won > score.lost;
+    final lostMatch = score.lost > score.won;
+
+    return Text.rich(
+      TextSpan(
+        children: [
+          TextSpan(
+            text: '${score.won}',
+            style: wonMatch ? winningTextStyle : null,
+          ),
+          const TextSpan(text: '-'),
+          TextSpan(
+            text: '${score.lost}',
+            style: lostMatch ? winningTextStyle : null,
+          ),
+        ],
+      ),
+      style: textStyle,
     );
   }
 }

@@ -23,6 +23,7 @@ class MatchesView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final collectionName = context.getProperty<String>();
+    final l10n = context.l10n;
 
     return Scaffold(
       appBar: AppBar(
@@ -32,13 +33,13 @@ class MatchesView extends ConsumerWidget {
             onPressed: () {
               ComboSynergiesRoute(collectionName: collectionName).go(context);
             },
-            child: const Text('View Synergies'),
+            child: Text(l10n.synergiesLabel),
           ),
           TextButton(
             onPressed: () {
               MatchesStatsRoute(collectionName: collectionName).go(context);
             },
-            child: Text(context.l10n.viewStats),
+            child: Text(l10n.statsLabel),
           ),
         ],
         leading: const BackButton(),
@@ -127,10 +128,11 @@ class MatchesNotFoundView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Column(
       children: [
-        Text('$collectionName Matches not found'),
-        TextButton(onPressed: () {}, child: const Text('Go back')),
+        Text(l10n.noMatchesForCollection(collectionName)),
+        TextButton(onPressed: () {}, child: Text(l10n.backButtonLabel)),
       ],
     );
   }

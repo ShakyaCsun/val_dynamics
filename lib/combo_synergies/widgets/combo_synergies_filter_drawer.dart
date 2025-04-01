@@ -65,7 +65,7 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
             },
           ),
         ),
-        const DrawerHeaderText('Non-Mirror Condition'),
+        DrawerHeaderText(l10n.comboNonMirrorCriteria),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 28),
           child: Consumer(
@@ -81,12 +81,9 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
                     ButtonSegment(
                       value: filter,
                       tooltip: switch (filter) {
-                        ComboCriteria.solo =>
-                          'Removes matches where either agent '
-                              'appears on opposing team',
+                        ComboCriteria.solo => l10n.soloCriteriaTooltip,
                         ComboCriteria.composite =>
-                          'Only removes matches where both '
-                              'agents are on opposing team',
+                          l10n.compositeCriteriaTooltip,
                       },
                       label: Text(switch (filter) {
                         ComboCriteria.solo => 'Solo',
@@ -110,7 +107,7 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
             },
           ),
         ),
-        const DrawerHeaderText('Win Rates'),
+        DrawerHeaderText(l10n.winRateFilter),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 28),
           child: Consumer(
@@ -126,11 +123,9 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
                     ButtonSegment(
                       value: filter,
                       tooltip: switch (filter) {
-                        WinLossFilter.winning =>
-                          'Only shows Combos with WR >= 50%',
-                        WinLossFilter.losing =>
-                          'Only shows Combos with WR < 50%',
-                        WinLossFilter.all => 'Shows All Combos with valid WR',
+                        WinLossFilter.winning => l10n.winningFilterTooltip,
+                        WinLossFilter.losing => l10n.losingFilterTooltip,
+                        WinLossFilter.all => l10n.allCombosFilterTooltip,
                       },
                       label: Text(switch (filter) {
                         WinLossFilter.winning => '>=50%',
@@ -155,7 +150,7 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
             },
           ),
         ),
-        const DrawerHeaderText('Role-wise Combination'),
+        DrawerHeaderText(l10n.roleComboFilter),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 28),
           child: Consumer(

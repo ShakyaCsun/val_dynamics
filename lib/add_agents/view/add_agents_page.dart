@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:formz/formz.dart';
 import 'package:go_router/go_router.dart';
+import 'package:logging/logging.dart';
 import 'package:vsdat/add_agents/add_agents.dart';
 import 'package:vsdat/l10n/l10n.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';
@@ -80,6 +81,8 @@ class AddAgentsView extends StatelessWidget {
 class _SubmitButton extends ConsumerWidget {
   const _SubmitButton();
 
+  static final _logger = Logger('AgentsSubmission');
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
@@ -93,15 +96,14 @@ class _SubmitButton extends ConsumerWidget {
           case NoAddAgentsError():
             return;
           case InvalidAddAgentsFormError():
-            context.showSnackbar(const SnackBar(content: Text('Invalid Data')));
+            context.showSnackbar(SnackBar(content: Text(l10n.invalidForm)));
           case InvalidAgentsJsonError():
             context.showSnackbar(
               SnackBar(content: Text(l10n.invalidAgentsFormat)),
             );
-          case UnknownAgentsError():
-            context.showSnackbar(
-              const SnackBar(content: Text('Unknown Error occurred')),
-            );
+          case UnknownAgentsError(:final error):
+            _logger.warning('Unknown Error', error);
+            context.showSnackbar(SnackBar(content: Text(l10n.unknownError)));
         }
       })
       ..listen(addAgentsProvider.select((value) => value.status), (

@@ -116,6 +116,10 @@
     "@copyAgentsHelp": {
         "description": "Copy agents help"
     },
+    "agentsCopiedMessage": "Sample Agents JSON copied to clipboard",
+    "@agentsCopiedMessage": {
+        "description": "The message to show after agents JSON is copied to clipboard."
+    },
     "addAgentRatings": "Add Agents Ratings",
     "@addAgentRatings": {
         "description": "Add agent ratings"
@@ -123,6 +127,14 @@
     "invalidAgentsFormat": "The selected file is likely invalid. Please try again. Copy the samples if necessary",
     "@invalidAgentsFormat": {
         "description": "The error text for invalid agents format."
+    },
+    "invalidForm": "Invalid Form Data",
+    "@invalidForm": {
+        "description": "The error text for when form is not filled correctly."
+    },
+    "unknownError": "Unknown Error Occurred",
+    "@unknownError": {
+        "description": "Unknown error"
     },
     "agentsAdded": "Agent Ratings added successfully as '{name}'.",
     "@agentsAdded": {
@@ -309,13 +321,35 @@
     "@excludeNone": {
         "description": "The label for excluding none of the matches i.e. include all of the matches"
     },
-    "viewStats": "View Stats",
-    "@viewStats": {
+    "selectAcmLabel": "Choose an ACM value",
+    "@selectAcmLabel": {
+        "description": "The label for selecting a single ACM value."
+    },
+    "statsLabel": "Stats",
+    "@statsLabel": {
         "description": "The label for button to view stats"
+    },
+    "synergiesLabel": "Synergies",
+    "@synergiesLabel": {
+        "description": "The label for button to view synergies"
     },
     "viewMatches": "View Matches",
     "@viewMatches": {
         "description": "The label for button to view matches"
+    },
+    "noMatchesForCollection": "{collectionName} Matches is Empty",
+    "@noMatchesForCollection": {
+        "description": "The label for when there are no matches for given collection",
+        "placeholders": {
+            "collectionName": {
+                "type": "String",
+                "description": "The name of matches collection"
+            }
+        }
+    },
+    "backButtonLabel": "Go Back",
+    "@backButtonLabel": {
+        "description": "The label for back button"
     },
     "statsFor": "{collectionName} Stats",
     "@statsFor": {
@@ -468,6 +502,96 @@
                 "description": "Second Style"
             }
         }
+    },
+    "statsForCurrentStyle": "You are looking at stats for this style",
+    "@statsForCurrentStyle": {
+        "description": "The label when hovering the style for currently selected style."
+    },
+    "nMirrorStyledMatches": "{matchesCount} mirror styled matches",
+    "@nMirrorStyledMatches": {
+        "description": "N mirror styled matches",
+        "placeholders": {
+            "matchesCount": {
+                "type": "int",
+                "description": "Number of matches"
+            }
+        }
+    },
+    "collectionSynergiesTitle": "{collectionName} Agent Combo Synergies",
+    "@collectionSynergiesTitle": {
+        "description": "Collection synergies title",
+        "placeholders": {
+            "collectionName": {
+                "type": "String",
+                "description": "The name of matches collection"
+            }
+        }
+    },
+    "comboMatchesTitle": "{collectionName} Matches for {comboName}",
+    "@comboMatchesTitle": {
+        "description": "The title for agent combo matches",
+        "placeholders": {
+            "collectionName": {
+                "type": "String",
+                "description": "The name of matches collection"
+            },
+            "comboName": {
+                "type": "String",
+                "description": "The name of Agent combo",
+                "example": "Raze-Fade"
+            }
+        }
+    },
+    "noComboMatches": "No matches for {comboName} with selected filters",
+    "@noComboMatches": {
+        "description": "No combo matches",
+        "placeholders": {
+            "comboName": {
+                "type": "String",
+                "description": "The name of Agent combo",
+                "example": "Raze-Fade"
+            }
+        }
+    },
+    "comboNonMirrorCriteria": "Non-Mirror Criteria",
+    "@comboNonMirrorCriteria": {
+        "description": "The label for selection criteria of agent combo non-mirror matches"
+    },
+    "soloCriteriaTooltip": "Removes matches where either agent appears on the opposing team",
+    "@soloCriteriaTooltip": {
+        "description": "The tooltip for what Solo criteria for non-mirror match does"
+    },
+    "compositeCriteriaTooltip": "Only removes matches where both agents appear on the opposing team",
+    "@compositeCriteriaTooltip": {
+        "description": "The tooltip for what Composite criteria for non-mirror match does"
+    },
+    "winRateFilter": "Win Rates",
+    "@winRateFilter": {
+        "description": "The label for Win rate filter"
+    },
+    "winningFilterTooltip": "Only shows Combos with WR >= 50%",
+    "@winningFilterTooltip": {
+        "description": "Winning filter tooltip"
+    },
+    "losingFilterTooltip": "Only shows Combos with WR < 50%",
+    "@losingFilterTooltip": {
+        "description": "Losing filter tooltip"
+    },
+    "allCombosFilterTooltip": "Shows All Combos with valid WR",
+    "@allCombosFilterTooltip": {
+        "description": "All combos filter tooltip"
+    },
+    "roleComboFilter": "Role Combos",
+    "@roleComboFilter": {
+        "description": "Role combo filter"
+    },
+    "table": "Table",
+    "@table": {
+        "description": "The label for Table View"
+    },
+    "triangle": "Triangle",
+    "@triangle": {
+        "description": "The label for Triangle View"
     },
     "versusLabel": "vs",
     "@versusLabel": {

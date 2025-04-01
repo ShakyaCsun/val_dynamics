@@ -5,6 +5,7 @@ import 'package:two_dimensional_scrollables/two_dimensional_scrollables.dart';
 import 'package:url_launcher/link.dart';
 import 'package:vsdat/app_router/routes.dart';
 import 'package:vsdat/combo_synergies/combo_synergies.dart';
+import 'package:vsdat/l10n/l10n.dart';
 import 'package:vsdat/matches/matches.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';
 
@@ -15,10 +16,13 @@ class ComboSynergiesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return SimpleProvider<String>(
       value: collectionName,
       child: Scaffold(
-        appBar: AppBar(title: Text('$collectionName Agent Combo Synergies')),
+        appBar: AppBar(
+          title: Text(l10n.collectionSynergiesTitle(collectionName)),
+        ),
         body: const ComboSynergiesBody(),
         drawer:
             context.showStandardDrawer
@@ -36,6 +40,7 @@ class ComboSynergiesBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     final collectionName = context.getProperty<String>();
     return Row(
       children: [
@@ -44,13 +49,13 @@ class ComboSynergiesBody extends StatelessWidget {
             color: Theme.of(context).colorScheme.surfaceContainerLow,
             child: ComboSynergiesFilterDrawer(collectionName: collectionName),
           ),
-        const DefaultTabController(
+        DefaultTabController(
           length: 2,
           child: Expanded(
             child: Column(
               children: [
-                TabBar(tabs: [Tab(text: 'Table'), Tab(text: 'Triangle')]),
-                Expanded(
+                TabBar(tabs: [Tab(text: l10n.table), Tab(text: l10n.triangle)]),
+                const Expanded(
                   child: TabBarView(
                     children: [ComboSynergiesTable(), ComboSynergiesTriangle()],
                   ),

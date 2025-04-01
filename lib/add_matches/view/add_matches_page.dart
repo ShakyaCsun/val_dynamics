@@ -96,7 +96,7 @@ class AddMatchesButton extends ConsumerWidget {
           case NoAddMatchesError():
             return;
           case InvalidAddMatchesFormError():
-            context.showSnackbar(const SnackBar(content: Text('Invalid Form')));
+            context.showSnackbar(SnackBar(content: Text(l10n.invalidForm)));
           case InvalidMatchesCsvError(:final message):
             context.showSnackbar(
               SnackBar(
@@ -104,9 +104,7 @@ class AddMatchesButton extends ConsumerWidget {
               ),
             );
           case UnknownMatchesError():
-            context.showSnackbar(
-              const SnackBar(content: Text('Unknown Error')),
-            );
+            context.showSnackbar(SnackBar(content: Text(l10n.unknownError)));
         }
       }
     });
