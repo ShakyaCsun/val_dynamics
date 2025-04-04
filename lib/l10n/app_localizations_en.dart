@@ -367,6 +367,9 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get synergiesTooltip => 'Agent combo synergies';
+
+  @override
   String comboMatchesTitle(String collectionName, String comboName) {
     return '$collectionName Matches for $comboName';
   }

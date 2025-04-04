@@ -18,7 +18,7 @@ class StyledMatches extends _$StyledMatches {
     final styledMatches = ref.watch(
       matchesProvider(
         collectionId: collectionId,
-      ).select((value) => value.matchesByStyle[acm]),
+      ).select((value) => value.groupedByStylePoints()[acm]),
     );
     if (styledMatches == null) {
       return StyledMatchesState.empty(acm: acm);

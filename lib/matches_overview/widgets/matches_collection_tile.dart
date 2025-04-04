@@ -28,7 +28,7 @@ class MatchesCollectionTile extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           IconButton(
-            tooltip: 'Agent Combo Synergies',
+            tooltip: context.l10n.synergiesTooltip,
             onPressed:
                 () => ComboSynergiesRoute(
                   collectionName: collection.collectionName,

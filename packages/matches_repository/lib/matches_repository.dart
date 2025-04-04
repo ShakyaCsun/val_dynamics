@@ -2,3 +2,4 @@
 library;
 
 export 'src/matches_repository.dart';
+export 'src/models/models.dart';

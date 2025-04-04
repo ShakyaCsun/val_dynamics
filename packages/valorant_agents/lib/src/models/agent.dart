@@ -141,15 +141,20 @@ class Agent extends Equatable {
   );
   static const clove = Agent(
     name: 'Clove',
-    aggro: 5,
+    aggro: 4,
     control: 1,
-    midrange: 4,
+    midrange: 5,
     role: Role.controller,
     abilityOne: AbilityOne(
       name: 'Meddle',
-      aggro: 2,
+      aggro: 1,
       control: 1,
-      reasons: ['High Potency', 'Short Range', 'Non-Catalytic'],
+      midrange: 1,
+      reasons: [
+        'High Potency',
+        'Non-Catalytic Duel Facilitation',
+        'Intermediate Range',
+      ],
     ),
     abilityTwo: AbilityTwo(
       name: 'Ruse',
@@ -163,7 +168,11 @@ class Agent extends Equatable {
       midrange: 1,
       reasons: ['', '', ''],
     ),
-    ultimateAbility: UltimateAbility(name: 'Not Dead Yet', midrange: 1),
+    ultimateAbility: UltimateAbility(
+      name: 'Not Dead Yet',
+      midrange: 1,
+      reasons: ['Post mortem'],
+    ),
   );
   static const cypher = Agent(
     name: 'Cypher',
@@ -280,7 +289,7 @@ class Agent extends Equatable {
       control: 1,
       midrange: 1,
       reasons: [
-        'Explosiveness',
+        'Explosiveness/Anti-utility',
         'Non-Catalytic Duel Facilitation',
         'Intermediate Range',
       ],
@@ -376,10 +385,37 @@ class Agent extends Equatable {
     control: 6,
     midrange: 1,
     role: Role.controller,
-    abilityOne: AbilityOne(name: 'Paranoia', reasons: ['', '', '']),
-    abilityTwo: AbilityTwo(name: 'Dark Cover', reasons: ['', '', '']),
-    abilityThree: AbilityThree(name: 'Shrouded Step', reasons: ['', '', '']),
-    ultimateAbility: UltimateAbility(name: 'From the Shadows', reasons: ['']),
+    abilityOne: AbilityOne(
+      name: 'Paranoia',
+      aggro: 2,
+      control: 1,
+      reasons: ['Potency', 'Effectively Short Range', 'Stall'],
+    ),
+    abilityTwo: AbilityTwo(
+      name: 'Dark Cover',
+      control: 2,
+      midrange: 1,
+      reasons: [
+        'Entrenchment via One ways/Rat smokes',
+        'High Duration Stall value',
+        'Cooldown',
+      ],
+    ),
+    abilityThree: AbilityThree(
+      name: 'Shrouded Step',
+      aggro: 1,
+      control: 2,
+      reasons: [
+        'Pseudo Dive',
+        'Access to Verticality',
+        'Reposition for Entrenchment',
+      ],
+    ),
+    ultimateAbility: UltimateAbility(
+      name: 'From the Shadows',
+      control: 1,
+      reasons: ['Hard Info/Global Range'],
+    ),
   );
   static const phoenix = Agent(
     name: 'Phoenix',
@@ -620,13 +656,32 @@ class Agent extends Equatable {
     name: 'Waylay',
     // Man's just guessing
     aggro: 7,
-    control: 3,
-    midrange: 0,
+    control: 2,
+    midrange: 1,
     role: Role.duelist,
-    abilityOne: AbilityOne(name: 'Lightspeed', reasons: ['', '', '']),
-    abilityTwo: AbilityTwo(name: 'Refract', reasons: ['', '', '']),
-    abilityThree: AbilityThree(name: 'Saturate', reasons: ['', '', '']),
-    ultimateAbility: UltimateAbility(name: 'Convergent Paths', reasons: ['']),
+    abilityOne: AbilityOne(
+      name: 'Lightspeed',
+      aggro: 2,
+      control: 1,
+      reasons: ['Dive', 'Explosiveness', 'Access to Verticality'],
+    ),
+    abilityTwo: AbilityTwo(
+      name: 'Refract',
+      aggro: 2,
+      midrange: 1,
+      reasons: ['Untradeability', 'Kill Reset', 'Intermediate Range'],
+    ),
+    abilityThree: AbilityThree(
+      name: 'Saturate',
+      aggro: 2,
+      control: 1,
+      reasons: ['Fast Cast', 'Short Range', 'Non-catalytic Duel Facilitation'],
+    ),
+    ultimateAbility: UltimateAbility(
+      name: 'Convergent Paths',
+      aggro: 1,
+      reasons: ['Explosive and Self-capitalizable'],
+    ),
   );
   static const yoru = Agent(
     name: 'Yoru',

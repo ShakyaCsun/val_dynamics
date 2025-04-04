@@ -561,6 +561,12 @@ abstract class AppLocalizations {
   /// **'{collectionName} Agent Combo Synergies'**
   String collectionSynergiesTitle(String collectionName);
 
+  /// The tooltip for button to go to Agent Synergies page
+  ///
+  /// In en, this message translates to:
+  /// **'Agent combo synergies'**
+  String get synergiesTooltip;
+
   /// The title for agent combo matches
   ///
   /// In en, this message translates to:

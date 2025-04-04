@@ -43,6 +43,7 @@ MatchesRepository matchesRepository(Ref ref, {required String collectionId}) {
       }
       for (final exception in exceptions.toSet()) {
         if (exception case InvalidTeamSizeException()) {
+          log.info(exception.message);
           continue;
         }
         log.warning(exception.message, exception);
@@ -115,36 +116,8 @@ abstract class MatchesFilterState with _$MatchesFilterState {
 }
 
 extension ValorantMatchesExtension on ValorantMatches {
-  ValorantMatches filterMaps(Set<String> maps) {
-    if (maps.isEmpty) {
-      return this;
-    }
-    return ValorantMatches(
-      [...this]..retainWhere((match) => maps.contains(match.mapName)),
-    );
-  }
-
-  Map<StylePoints, ValorantMatches> get matchesByStyle {
-    return fold(<StylePoints, ValorantMatches>{}, (matchesGroup, match) {
-      final stylePoints1 = match.stylePoints1;
-      final stylePoints2 = match.stylePoints2;
-      matchesGroup
-        ..update(
-          stylePoints1,
-          (value) => ValorantMatches([...value, match]),
-          ifAbsent: () => ValorantMatches([match]),
-        )
-        ..update(
-          stylePoints2,
-          (value) => ValorantMatches([...value, match.reversed]),
-          ifAbsent: () => ValorantMatches([match.reversed]),
-        );
-      return matchesGroup;
-    });
-  }
-
   Map<ValorantMatches, TernaryPoint> get plotData {
-    final stylePointsMatches = matchesByStyle;
+    final stylePointsMatches = groupedByStylePoints();
     return {
       for (final MapEntry(key: stylePoints, value: valMatches)
           in stylePointsMatches.entries)

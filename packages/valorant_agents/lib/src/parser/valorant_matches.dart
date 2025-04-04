@@ -100,91 +100,29 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
     );
   }
 
-  (int score1, int score2) sumScores() {
-    return fold((0, 0), (previousValue, match) {
-      final (score1, score2) = previousValue;
-      return (score1 + match.teamOne.score, score2 + match.teamTwo.score);
-    });
-  }
-
   Score collectTeamOneScore() {
-    return fold(Score.zero, (previousValue, element) {
-      return previousValue + element.scoreOne;
-    });
-  }
-
-  Score collectScore({
-    required Score Function(ValorantMatch match) matchScore,
-  }) {
-    return fold(Score.zero, (previousValue, element) {
-      return previousValue + matchScore(element);
-    });
-  }
-
-  T foldWinRate<T>({required T win, required T draw, required T loss}) {
-    final (wins, losses) = sumScores();
-    if (wins > losses) {
-      return win;
-    }
-    if (wins < losses) {
-      return loss;
-    }
-    return draw;
+    return fold((0, 0), (previousValue, element) {
+      return previousValue + element.scoreOne.tuple;
+    }).toScore;
   }
 
   Map<(StylePoints, StylePoints), ValorantMatches>
-  groupMatchesByStylisticClash({bool includeMirrorMatchup = false}) {
+  groupMatchesByStylisticClash() {
     return fold(<(StylePoints, StylePoints), ValorantMatches>{}, (
       matchesGroup,
       match,
     ) {
-      final isMirror = match.stylePoints1 == match.stylePoints2;
-      if (isMirror) {
-        if (includeMirrorMatchup) {
-          matchesGroup.update(
-            (match.stylePoints1, match.stylePoints2),
-            (value) {
-              return ValorantMatches([...value, match, match.reversed]);
-            },
-            ifAbsent: () => ValorantMatches([match, match.reversed]),
-          );
-          return matchesGroup;
-        }
-        return matchesGroup;
-      }
       final key = (match.stylePoints1, match.stylePoints2);
       final alternateKey = (match.stylePoints2, match.stylePoints1);
-      if (matchesGroup.containsKey(key)) {
-        matchesGroup.update(key, (value) => ValorantMatches([...value, match]));
-        return matchesGroup;
-      }
-      if (matchesGroup.containsKey(alternateKey)) {
+      if (match.isMirrorStyle) {
         matchesGroup.update(
-          alternateKey,
-          (value) => ValorantMatches([...value, match.reversed]),
+          key,
+          (value) => ValorantMatches([...value, match, match.reversed]),
+          ifAbsent: () => ValorantMatches([match, match.reversed]),
         );
         return matchesGroup;
       }
-      matchesGroup[key] = ValorantMatches([match]);
-      return matchesGroup;
-    });
-  }
 
-  Map<StylePoints, ValorantMatches> groupByStylisticDifference({
-    bool includeMirrorMatchup = false,
-  }) {
-    return fold(<StylePoints, ValorantMatches>{}, (matchesGroup, match) {
-      if (match.stylePoints1 == match.stylePoints2 && !includeMirrorMatchup) {
-        return matchesGroup;
-      }
-      final stylePoints1 = match.stylePoints1;
-      final stylePoints2 = match.stylePoints2;
-      final key = stylePoints1 - stylePoints2;
-      final alternateKey = stylePoints2 - stylePoints1;
-      if (matchesGroup.containsKey(key)) {
-        matchesGroup.update(key, (value) => ValorantMatches([...value, match]));
-        return matchesGroup;
-      }
       if (matchesGroup.containsKey(alternateKey)) {
         matchesGroup.update(
           alternateKey,
@@ -192,7 +130,11 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
         );
         return matchesGroup;
       }
-      matchesGroup[key] = ValorantMatches([match]);
+      matchesGroup.update(
+        key,
+        (value) => ValorantMatches([...value, match]),
+        ifAbsent: () => ValorantMatches([match]),
+      );
       return matchesGroup;
     });
   }
@@ -234,15 +176,14 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
     });
   }
 
-  Map<StylePoints, ValorantMatches> groupMatchesByStylePoints({
-    bool includeMirrorMatchup = false,
-  }) {
-    return fold(<StylePoints, ValorantMatches>{}, (matchesGroup, match) {
-      if (match.stylePoints1 == match.stylePoints2 && !includeMirrorMatchup) {
-        return matchesGroup;
-      }
-      final stylePoints1 = match.stylePoints1;
-      final stylePoints2 = match.stylePoints2;
+  /// Groups the current matches by [StylePoints].
+  ///
+  /// The corresponding [ValorantMatches] for given [StylePoints] key is
+  /// guaranteed to have matches with teamOne having the said StylePoints.
+  Map<StylePoints, ValorantMatches> groupedByStylePoints() {
+    final matchesGroup = <StylePoints, ValorantMatches>{};
+    for (final match in this) {
+      final ValorantMatch(:stylePoints1, :stylePoints2) = match;
       matchesGroup
         ..update(
           stylePoints1,
@@ -254,8 +195,8 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
           (value) => ValorantMatches([...value, match.reversed]),
           ifAbsent: () => ValorantMatches([match.reversed]),
         );
-      return matchesGroup;
-    });
+    }
+    return matchesGroup;
   }
 
   ValorantMatches get nonMirroredMatches {
