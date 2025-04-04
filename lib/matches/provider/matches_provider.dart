@@ -2,11 +2,11 @@ import 'package:collection/collection.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logging/logging.dart';
+import 'package:matches_repository/matches_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:ternary_plot/ternary_plot.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 import 'package:vsdat/agents/agents.dart';
-import 'package:vsdat/matches/matches.dart';
 import 'package:vsdat/matches_overview/matches_overview.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';
 
@@ -14,68 +14,91 @@ part 'matches_provider.freezed.dart';
 part 'matches_provider.g.dart';
 
 @riverpod
+MatchesRepository matchesRepository(Ref ref, {required String collectionId}) {
+  final collection = ref.watch(
+    matchesCollectionListProvider.select(
+      (value) => value.firstWhereOrNull(
+        (element) => element.collectionName == collectionId,
+      ),
+    ),
+  );
+  if (collection == null) {
+    return MatchesRepository(matches: [], agentRoster: Agents([]));
+  }
+  final agentRoster = ref.watch(
+    agentsProvider(rosterName: collection.rosterName),
+  );
+  return MatchesRepository(
+    matches: collection.rawMatches,
+    agentRoster: agentRoster,
+    ignoredExceptionHandler: (exceptions) {
+      final log = Logger('MatchesIgnoredExceptions($collectionId)');
+      final teamSizeExceptionCount =
+          exceptions.whereType<InvalidTeamSizeException>().length;
+      if (teamSizeExceptionCount > 0) {
+        log.warning(
+          'Matches contain $teamSizeExceptionCount comps '
+          'that do not have 5 agents.',
+        );
+      }
+      for (final exception in exceptions.toSet()) {
+        if (exception case InvalidTeamSizeException()) {
+          log.info(exception.message);
+          continue;
+        }
+        log.warning(exception.message, exception);
+      }
+    },
+  );
+}
+
+@riverpod
 Set<String> availableMaps(Ref ref, {required String collectionName}) {
   return ref.watch(
-    matchesProvider(
+    matchesRepositoryProvider(
       collectionId: collectionName,
-    ).select((state) => state.allMaps),
+    ).select((state) => state.availableMaps),
   );
 }
 
 @riverpod
 Set<String> selectedMaps(Ref ref, {required String collectionName}) {
   return ref.watch(
-    matchesProvider(collectionId: collectionName).select((state) => state.maps),
+    matchesFilterProvider(
+      collectionId: collectionName,
+    ).select((state) => state.maps),
   );
 }
 
 @riverpod
 class Matches extends _$Matches {
   @override
-  MatchesState build({required String collectionId}) {
-    final collection = ref.watch(
-      matchesCollectionListProvider.select(
-        (value) => value.firstWhereOrNull(
-          (element) => element.collectionName == collectionId,
-        ),
-      ),
+  ValorantMatches build({required String collectionId}) {
+    final matchRepository = ref.watch(
+      matchesRepositoryProvider(collectionId: collectionId),
     );
-    if (collection == null) {
-      return MatchesState.empty();
-    }
-    final agents = ref.watch(agentsProvider(rosterName: collection.rosterName));
-    final agentsMap = agents.nameMap;
-    return MatchesState(
-      matches: ValorantMatches.fromRawMatches(
-        collection.rawMatches,
-        agentsMap: agentsMap,
-        ignoreTeamParserExceptions: true,
-        ignoredExceptionHandler: (exceptions) {
-          final log = Logger('MatchesIgnoredExceptions');
-          final teamSizeExceptionCount =
-              exceptions.whereType<InvalidTeamSizeException>().length;
-          if (teamSizeExceptionCount > 0) {
-            log.warning(
-              'Matches contain $teamSizeExceptionCount comps '
-              'that do not have 5 agents.',
-            );
-          }
-          for (final exception in exceptions.toSet()) {
-            if (exception case InvalidTeamSizeException()) {
-              continue;
-            }
-            log.warning(exception.message, exception);
-          }
-        },
-      ),
+    final filters = ref.watch(
+      matchesFilterProvider(collectionId: collectionId),
     );
+    return matchRepository.getMatches(
+      filter: filters.filter,
+      maps: filters.maps,
+    );
+  }
+}
+
+@riverpod
+class MatchesFilter extends _$MatchesFilter {
+  @override
+  MatchesFilterState build({required String collectionId}) {
+    return const MatchesFilterState();
   }
 
   void changeMatchUpFilter(MatchUpFilter filter) {
     state = state.copyWith(filter: filter);
   }
 
-  void changeMaps(String mapName) {
+  void toggleMap(String mapName) {
     if (state.maps.contains(mapName)) {
       state = state.copyWith(maps: state.maps.difference({mapName}));
     } else {
@@ -84,86 +107,21 @@ class Matches extends _$Matches {
   }
 }
 
-enum MatchUpFilter {
-  /// Exclude matches where both teams have same [StylePoints]
-  styles,
-
-  /// Only exclude matches if both teams have same [AgentComp]
-  composition,
-
-  /// Include all the matches
-  none,
-}
-
 @freezed
-abstract class MatchesState with _$MatchesState {
-  const factory MatchesState({
-    required ValorantMatches matches,
+abstract class MatchesFilterState with _$MatchesFilterState {
+  const factory MatchesFilterState({
     @Default(MatchUpFilter.styles) MatchUpFilter filter,
     @Default({}) Set<String> maps,
   }) = _MatchesState;
+}
 
-  const MatchesState._();
-
-  factory MatchesState.empty() => MatchesState(matches: ValorantMatches([]));
-
-  Set<String> get allMaps => {for (final match in matches) match.mapName};
-
-  bool get isEmpty => this == MatchesState.empty();
-
-  ValorantMatches get filteredMatches {
-    final matchList = [...matches.filterMaps(maps)]..removeWhere((match) {
-      switch (filter) {
-        case MatchUpFilter.styles:
-          return match.isMirrorStyle;
-        case MatchUpFilter.composition:
-          return match.isMirrorComp;
-        case MatchUpFilter.none:
-          return false;
-      }
-    });
-    return ValorantMatches(matchList);
-  }
-
-  Map<StylePoints, ValorantMatches> get matchesByStyle {
-    return filteredMatches.fold(<StylePoints, ValorantMatches>{}, (
-      matchesGroup,
-      match,
-    ) {
-      final stylePoints1 = match.stylePoints1;
-      final stylePoints2 = match.stylePoints2;
-      matchesGroup
-        ..update(
-          stylePoints1,
-          (value) => ValorantMatches([...value, match]),
-          ifAbsent: () => ValorantMatches([match]),
-        )
-        ..update(
-          stylePoints2,
-          (value) => ValorantMatches([...value, match.switchTeams()]),
-          ifAbsent: () => ValorantMatches([match.switchTeams()]),
-        );
-      return matchesGroup;
-    });
-  }
-
+extension ValorantMatchesExtension on ValorantMatches {
   Map<ValorantMatches, TernaryPoint> get plotData {
-    final stylePointsMatches = matchesByStyle;
+    final stylePointsMatches = groupedByStylePoints();
     return {
       for (final MapEntry(key: stylePoints, value: valMatches)
           in stylePointsMatches.entries)
         valMatches: stylePoints.ternaryPoint,
     };
-  }
-}
-
-extension ValorantMatchesExtension on ValorantMatches {
-  ValorantMatches filterMaps(Set<String> maps) {
-    if (maps.isEmpty) {
-      return this;
-    }
-    return ValorantMatches(
-      [...this]..retainWhere((match) => maps.contains(match.mapName)),
-    );
   }
 }

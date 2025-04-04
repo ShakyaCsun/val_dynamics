@@ -1,4 +1,3 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:ternary_plot/ternary_plot.dart';
@@ -8,16 +7,6 @@ import 'package:vsdat_ui/vsdat_ui.dart';
 
 part 'styled_matches_provider.freezed.dart';
 part 'styled_matches_provider.g.dart';
-
-@Riverpod(dependencies: [])
-String collectionName(Ref ref) {
-  throw UnimplementedError();
-}
-
-@Riverpod(dependencies: [])
-StylePoints stylePoints(Ref ref) {
-  throw UnimplementedError();
-}
 
 @riverpod
 class StyledMatches extends _$StyledMatches {
@@ -29,7 +18,7 @@ class StyledMatches extends _$StyledMatches {
     final styledMatches = ref.watch(
       matchesProvider(
         collectionId: collectionId,
-      ).select((value) => value.matchesByStyle[acm]),
+      ).select((value) => value.groupedByStylePoints()[acm]),
     );
     if (styledMatches == null) {
       return StyledMatchesState.empty(acm: acm);

@@ -16,9 +16,9 @@ ValorantMatches styledMatchesList(
   required StylePoints acm,
 }) {
   return ref.watch(
-    matchesProvider(
-      collectionId: collectionId,
-    ).select((value) => value.matchesByStyle[acm] ?? ValorantMatches([])),
+    matchesProvider(collectionId: collectionId).select(
+      (value) => value.groupedByStylePoints()[acm] ?? ValorantMatches([]),
+    ),
   );
 }
 

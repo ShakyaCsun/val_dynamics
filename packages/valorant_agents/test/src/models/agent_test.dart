@@ -7,6 +7,7 @@ final knownAgentBreakdowns = <Agent>{
   Agent.deadlock,
   Agent.iso,
   Agent.neon,
+  Agent.omen,
   Agent.phoenix,
   Agent.raze,
   Agent.sage,
@@ -14,6 +15,7 @@ final knownAgentBreakdowns = <Agent>{
   Agent.viper,
   Agent.vyse,
   Agent.yoru,
+  Agent.waylay,
 };
 
 void main() {

@@ -44,7 +44,7 @@ class TeamCompsDetailView extends StatelessWidget {
     return ResponsiveListView(
       items: teamComps,
       itemBuilder: (context, comp) {
-        return ListTile(title: Text(comp.agentNames));
+        return ListTile(title: Text(comp.groupedAgentNames));
       },
     );
   }

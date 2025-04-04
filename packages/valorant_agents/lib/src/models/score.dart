@@ -2,19 +2,24 @@ import 'package:equatable/equatable.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
 class Score extends Equatable implements Comparable<Score> {
-  const Score({required this.won, required this.lost}) : played = won + lost;
+  const Score({required this.won, required this.lost})
+    : played = won + lost,
+      tuple = (won, lost),
+      winRate = won / (won + lost);
 
   static const zero = Score(won: 0, lost: 0);
 
   final int won;
   final int lost;
   final int played;
+  final (int, int) tuple;
 
-  double get winRate => won / played;
+  final double winRate;
 
   String get winRatePercent => winRate.asPercent;
   String get winRateFraction => '$won/$played';
   String get winLoss => '$won-$lost';
+  String get roundPercentStat => '$winRatePercent ($winRateFraction)';
 
   ScoreType get scoreType => ScoreType.fromScore(this);
 
@@ -37,9 +42,7 @@ class Score extends Equatable implements Comparable<Score> {
     return Score(won: won - other.won, lost: lost - other.lost);
   }
 
-  Score reverse() {
-    return Score(won: lost, lost: won);
-  }
+  Score get reversed => Score(won: lost, lost: won);
 
   @override
   List<Object> get props => [won, lost];
@@ -68,4 +71,14 @@ enum ScoreType {
     }
     return ScoreType.veryNegative;
   }
+}
+
+extension ScoreTupleX on (int, int) {
+  (int, int) operator +((int, int) other) {
+    final (w, l) = this;
+    final (otherW, otherL) = other;
+    return (w + otherW, l + otherL);
+  }
+
+  Score get toScore => Score(won: $1, lost: $2);
 }

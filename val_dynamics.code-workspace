@@ -10,6 +10,9 @@
 			"path": "packages/formz_inputs"
 		},
 		{
+			"path": "packages/matches_repository"
+		},
+		{
 			"path": "packages/valorant_agents"
 		},
 		{
@@ -31,16 +34,21 @@
 			"Giga",
 			"GravNet",
 			"Jett",
+			"Lightspeed",
 			"Lockdown",
 			"ment",
 			"Nanoswarm",
+			"Nmrwr",
+			"Nmwr",
 			"Razorvine",
 			"Refreshable",
+			"scrollables",
 			"Sova",
 			"Spycam",
 			"Stim",
 			"Tejo",
 			"Trapwire",
+			"Untradeability",
 			"Valorant",
 			"vsdat",
 			"Vyse",

@@ -19,12 +19,12 @@ class StyledMatchesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ProviderScope(
-      overrides: [
-        stylePointsProvider.overrideWithValue(stylePoints),
-        collectionNameProvider.overrideWithValue(collectionName),
-      ],
-      child: const StyledMatchesView(),
+    return SimpleProvider(
+      value: collectionName,
+      child: SimpleProvider(
+        value: stylePoints,
+        child: const StyledMatchesView(),
+      ),
     );
   }
 }
@@ -37,8 +37,8 @@ class StyledMatchesView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
     final showStandardDrawer = context.showStandardDrawer;
-    final collectionName = ref.watch(collectionNameProvider);
-    final stylePoints = ref.watch(stylePointsProvider);
+    final collectionName = context.getProperty<String>();
+    final stylePoints = context.getProperty<StylePoints>();
     return Scaffold(
       appBar: AppBar(
         leading: const BackButton(),
@@ -94,8 +94,8 @@ class StyledMatchesTriangleView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final collectionName = ref.watch(collectionNameProvider);
-    final stylePoints = ref.watch(stylePointsProvider);
+    final collectionName = context.getProperty<String>();
+    final stylePoints = context.getProperty<StylePoints>();
     return StyledMatchesTriangle(
       matches: ref.watch(
         styledMatchesProvider(
@@ -114,8 +114,8 @@ class StyledMatchesDrawerView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final collectionName = ref.watch(collectionNameProvider);
-    final stylePoints = ref.watch(stylePointsProvider);
+    final collectionName = context.getProperty<String>();
+    final stylePoints = context.getProperty<StylePoints>();
     return StyledMatchesFilterDrawer(
       collectionName: collectionName,
       highlightStyle: stylePoints,

@@ -1,0 +1,19 @@
+name: matches_repository
+description: A Repository for Valorant Matches and stats relating to it
+version: 0.1.0+1
+publish_to: none
+
+environment:
+  sdk: ^3.8.0-0
+
+resolution: workspace
+
+dependencies:
+  collection: ^1.19.1
+  valorant_agents:
+    path: ../valorant_agents
+
+dev_dependencies:
+  benchmark_harness: ^2.3.1
+  mocktail: ^1.0.4
+  test: ^1.25.15

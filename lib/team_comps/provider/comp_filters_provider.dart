@@ -69,33 +69,28 @@ abstract class CompFiltersState with _$CompFiltersState {
     if (hasDefaultFilters) {
       return compositions;
     }
-    final coreAgents =
+    final coreAgentNames =
         agentFilters.entries
             .where((element) => element.value == AgentStatus.core)
-            .map((e) => e.key)
-            .toList();
-    final excludeAgents =
+            .map((e) => e.key.name)
+            .toSet();
+    final excludeAgentNames =
         agentFilters.entries
             .where((element) => element.value == AgentStatus.exclude)
-            .map((e) => e.key)
-            .toList();
+            .map((e) => e.key.name)
+            .toSet();
     final changedRoleFilters = {...roleFilters}
       ..removeWhere((_, range) => range == RoleRange.all);
     return compositions.where((composition) {
-      final coreAgentSatisfied = coreAgents.every(
-        (agent) => composition.hasAgent(agent),
-      );
+      final agentNames = composition.agentNames;
+      final coreAgentSatisfied = coreAgentNames.difference(agentNames).isEmpty;
       if (coreAgentSatisfied) {
-        final excludeAgentSatisfied = excludeAgents.every(
-          (agent) => !composition.hasAgent(agent),
-        );
+        final excludeAgentSatisfied =
+            excludeAgentNames.intersection(agentNames).isEmpty;
         if (excludeAgentSatisfied) {
           return changedRoleFilters.entries.every((entry) {
             final MapEntry(key: role, value: range) = entry;
-            final roleAgentCount =
-                composition.agents
-                    .where((element) => element.role == role)
-                    .length;
+            final roleAgentCount = composition.roleCounts[role] ?? 0;
             return range.isInRange(roleAgentCount);
           });
         }

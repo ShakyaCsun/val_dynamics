@@ -37,26 +37,34 @@ packages:
     dependency: transitive
     description:
       name: archive
-      sha256: "0c64e928dcbefddecd234205422bcfc2b5e6d31be0b86fef0d0dd48d7b4c9742"
+      sha256: "7dcbd0f87fe5f61cb28da39a1a8b70dbc106e2fe0516f7836eb7bb2948481a12"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.4"
+    version: "4.0.5"
   args:
     dependency: transitive
     description:
       name: args
-      sha256: bf9f5caeea8d8fe6721a9c358dd8a5c1947b27f1cfaa18b39c301273594919e6
+      sha256: d0481093c50b1da8910eb0bb301626d4d8eb7284aa739614d2b394ee09e3ea04
       url: "https://pub.dev"
     source: hosted
-    version: "2.6.0"
+    version: "2.7.0"
   async:
     dependency: transitive
     description:
       name: async
-      sha256: d2872f9c19731c2e5f10444b14686eb7cc85c76274bd6c16e1816bff9a3bab63
+      sha256: "758e6d74e971c3e5aceb4110bfd6698efc7f501675bcfe0c775459a8140750eb"
       url: "https://pub.dev"
     source: hosted
-    version: "2.12.0"
+    version: "2.13.0"
+  benchmark_harness:
+    dependency: transitive
+    description:
+      name: benchmark_harness
+      sha256: "83f65107165883ba8623eb822daacb23dcf9f795c66841de758c9dd7c5a0cf28"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -497,10 +505,10 @@ packages:
     dependency: "direct dev"
     description:
       name: freezed
-      sha256: a6274c34d61b3d68082f2b0e9a641a3ec197e525d269f35b82f62d5b2c6d9f75
+      sha256: "7ed2ddaa47524976d5f2aa91432a79da36a76969edd84170777ac5bea82d797c"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.3"
+    version: "3.0.4"
   freezed_annotation:
     dependency: "direct main"
     description:
@@ -1023,7 +1031,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "03e9ec7750e3e93d91c49ecd738b2e2cbc808b7e"
+      resolved-ref: "8a4e9c941beef2f45158090557a5f4d9a947a9c0"
       url: "https://github.com/ShakyaCsun/ternary_plot.git"
     source: git
     version: "0.1.0+1"
@@ -1067,6 +1075,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.2"
+  two_dimensional_scrollables:
+    dependency: "direct main"
+    description:
+      name: two_dimensional_scrollables
+      sha256: b6028c80e782e58a5d18f9491737aae4f70d72dc08050ac92006905c7c0b5e21
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.3"
   typed_data:
     dependency: transitive
     description:
@@ -1095,10 +1111,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_ios
-      sha256: "16a513b6c12bb419304e72ea0ae2ab4fed569920d1c7cb850263fe3acc824626"
+      sha256: "7f2022359d4c099eea7df3fdf739f7d3d3b9faf3166fb1dd390775176e0b76cb"
       url: "https://pub.dev"
     source: hosted
-    version: "6.3.2"
+    version: "6.3.3"
   url_launcher_linux:
     dependency: transitive
     description:

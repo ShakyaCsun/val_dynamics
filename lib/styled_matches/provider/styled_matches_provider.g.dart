@@ -6,40 +6,6 @@ part of 'styled_matches_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$collectionNameHash() => r'7baa29a8ce282c7b8761f1c627a09de30386a508';
-
-/// See also [collectionName].
-@ProviderFor(collectionName)
-final collectionNameProvider = AutoDisposeProvider<String>.internal(
-  collectionName,
-  name: r'collectionNameProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product')
-          ? null
-          : _$collectionNameHash,
-  dependencies: const <ProviderOrFamily>[],
-  allTransitiveDependencies: const <ProviderOrFamily>{},
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef CollectionNameRef = AutoDisposeProviderRef<String>;
-String _$stylePointsHash() => r'364c3d8d50404ffa74390bc76eb0a77afe5ec9d0';
-
-/// See also [stylePoints].
-@ProviderFor(stylePoints)
-final stylePointsProvider = AutoDisposeProvider<StylePoints>.internal(
-  stylePoints,
-  name: r'stylePointsProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$stylePointsHash,
-  dependencies: const <ProviderOrFamily>[],
-  allTransitiveDependencies: const <ProviderOrFamily>{},
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef StylePointsRef = AutoDisposeProviderRef<StylePoints>;
 String _$styledMatchesHash() => r'77524b31cfb2c86ad44708601b741430d99f5bfc';
 
 /// Copied from Dart SDK

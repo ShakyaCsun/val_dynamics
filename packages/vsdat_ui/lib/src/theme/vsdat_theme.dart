@@ -41,6 +41,9 @@ class VsdatTheme {
         backgroundColor: colorScheme.surfaceContainer,
         labelType: NavigationRailLabelType.all,
       ),
+      // It is how we opt into newer slider theme for now
+      // ignore: deprecated_member_use
+      sliderTheme: const SliderThemeData(year2023: false),
     );
   }
 }

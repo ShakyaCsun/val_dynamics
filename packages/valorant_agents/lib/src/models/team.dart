@@ -1,23 +1,27 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
 import 'package:valorant_agents/valorant_agents.dart';
-
-part 'team.freezed.dart';
 
 /// {@template team}
 /// Details of a team participating in a [ValorantMatch]
 /// {@endtemplate}
-@freezed
-abstract class Team with _$Team {
+class Team extends Equatable {
   /// {@macro team}
-  const factory Team({
-    required String name,
-    required int score,
-    required int attackScore,
-    required AgentComp agents,
-  }) = _Team;
+  Team({
+    required this.name,
+    required this.score,
+    required this.attackScore,
+    required this.agents,
+  }) : defenseScore = score - attackScore,
+       stylePoints = agents.stylePoints;
 
-  const Team._();
+  final String name;
+  final int score;
+  final int attackScore;
+  final AgentComp agents;
 
-  int get defenseScore => score - attackScore;
-  StylePoints get stylePoints => agents.stylePoints;
+  final int defenseScore;
+  final StylePoints stylePoints;
+
+  @override
+  List<Object> get props => [name, score, attackScore, agents];
 }

@@ -3,12 +3,12 @@ import 'package:ternary_plot/ternary_plot.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
 extension AgentCompToTernaryDataAdaptor on Iterable<AgentComp> {
-  Map<StylePoints, Set<AgentComp>> get groupedByStylePoints {
-    return fold(<StylePoints, Set<AgentComp>>{}, (resultingGroup, comp) {
+  Map<StylePoints, List<AgentComp>> get groupedByStylePoints {
+    return fold(<StylePoints, List<AgentComp>>{}, (resultingGroup, comp) {
       resultingGroup.update(
         comp.stylePoints,
-        (value) => {...value, comp},
-        ifAbsent: () => {comp},
+        (value) => [...value, comp],
+        ifAbsent: () => [comp],
       );
       return resultingGroup;
     });

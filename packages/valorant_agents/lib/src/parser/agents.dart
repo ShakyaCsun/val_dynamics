@@ -133,6 +133,7 @@ extension type const Agents._(List<Agent> agents) implements List<Agent> {
     Agent.viper,
     Agent.vyse,
     Agent.yoru,
+    Agent.waylay,
   ]);
 
   static final champs24Roster = Agents([
@@ -140,7 +141,36 @@ extension type const Agents._(List<Agent> agents) implements List<Agent> {
     Agent.breach,
     Agent.brimstone,
     Agent.chamber,
-    Agent.clove,
+    const Agent(
+      name: 'Clove',
+      aggro: 5,
+      control: 1,
+      midrange: 4,
+      role: Role.controller,
+      abilityOne: AbilityOne(
+        name: 'Meddle',
+        aggro: 2,
+        control: 1,
+        reasons: ['High Potency', 'Short Range', 'Non-Catalytic'],
+      ),
+      abilityTwo: AbilityTwo(
+        name: 'Ruse',
+        aggro: 1,
+        midrange: 2,
+        reasons: ['Burst Smokes', 'Cooldown', 'Post mortem'],
+      ),
+      abilityThree: AbilityThree(
+        name: 'Pick-me-up',
+        aggro: 2,
+        midrange: 1,
+        reasons: ['', '', ''],
+      ),
+      ultimateAbility: UltimateAbility(
+        name: 'Not Dead Yet',
+        midrange: 1,
+        reasons: ['Post mortem'],
+      ),
+    ),
     Agent.cypher,
     Agent.deadlock,
     Agent.fade,

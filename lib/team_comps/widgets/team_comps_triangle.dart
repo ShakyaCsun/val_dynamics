@@ -44,7 +44,7 @@ class TeamCompsTriangle extends StatelessWidget {
                 context: context,
                 builder: (context) {
                   return SimpleDialog(
-                    title: const Text('Choose a ACM value'),
+                    title: Text(context.l10n.selectAcmLabel),
                     children: [
                       for (final compsData in compsDataList)
                         SimpleDialogOption(

@@ -213,6 +213,12 @@ abstract class AppLocalizations {
   /// **'Copies a JSON sample with all the fields for agents ratings to the clipboard.'**
   String get copyAgentsHelp;
 
+  /// The message to show after agents JSON is copied to clipboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Sample Agents JSON copied to clipboard'**
+  String get agentsCopiedMessage;
+
   /// Add agent ratings
   ///
   /// In en, this message translates to:
@@ -224,6 +230,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The selected file is likely invalid. Please try again. Copy the samples if necessary'**
   String get invalidAgentsFormat;
+
+  /// The error text for when form is not filled correctly.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid Form Data'**
+  String get invalidForm;
+
+  /// Unknown error
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown Error Occurred'**
+  String get unknownError;
 
   /// Agents added
   ///
@@ -405,17 +423,41 @@ abstract class AppLocalizations {
   /// **'None'**
   String get excludeNone;
 
+  /// The label for selecting a single ACM value.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose an ACM value'**
+  String get selectAcmLabel;
+
   /// The label for button to view stats
   ///
   /// In en, this message translates to:
-  /// **'View Stats'**
-  String get viewStats;
+  /// **'Stats'**
+  String get statsLabel;
+
+  /// The label for button to view synergies
+  ///
+  /// In en, this message translates to:
+  /// **'Synergies'**
+  String get synergiesLabel;
 
   /// The label for button to view matches
   ///
   /// In en, this message translates to:
   /// **'View Matches'**
   String get viewMatches;
+
+  /// The label for when there are no matches for given collection
+  ///
+  /// In en, this message translates to:
+  /// **'{collectionName} Matches is Empty'**
+  String noMatchesForCollection(String collectionName);
+
+  /// The label for back button
+  ///
+  /// In en, this message translates to:
+  /// **'Go Back'**
+  String get backButtonLabel;
 
   /// The header for matches stats page
   ///
@@ -500,6 +542,102 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{styleA} loses heavily to {styleB}'**
   String veryNegativeWinRate(String styleA, String styleB);
+
+  /// The label when hovering the style for currently selected style.
+  ///
+  /// In en, this message translates to:
+  /// **'You are looking at stats for this style'**
+  String get statsForCurrentStyle;
+
+  /// N mirror styled matches
+  ///
+  /// In en, this message translates to:
+  /// **'{matchesCount} mirror styled matches'**
+  String nMirrorStyledMatches(int matchesCount);
+
+  /// Collection synergies title
+  ///
+  /// In en, this message translates to:
+  /// **'{collectionName} Agent Combo Synergies'**
+  String collectionSynergiesTitle(String collectionName);
+
+  /// The tooltip for button to go to Agent Synergies page
+  ///
+  /// In en, this message translates to:
+  /// **'Agent combo synergies'**
+  String get synergiesTooltip;
+
+  /// The title for agent combo matches
+  ///
+  /// In en, this message translates to:
+  /// **'{collectionName} Matches for {comboName}'**
+  String comboMatchesTitle(String collectionName, String comboName);
+
+  /// No combo matches
+  ///
+  /// In en, this message translates to:
+  /// **'No matches for {comboName} with selected filters'**
+  String noComboMatches(String comboName);
+
+  /// The label for selection criteria of agent combo non-mirror matches
+  ///
+  /// In en, this message translates to:
+  /// **'Non-Mirror Criteria'**
+  String get comboNonMirrorCriteria;
+
+  /// The tooltip for what Solo criteria for non-mirror match does
+  ///
+  /// In en, this message translates to:
+  /// **'Removes matches where either agent appears on the opposing team'**
+  String get soloCriteriaTooltip;
+
+  /// The tooltip for what Composite criteria for non-mirror match does
+  ///
+  /// In en, this message translates to:
+  /// **'Only removes matches where both agents appear on the opposing team'**
+  String get compositeCriteriaTooltip;
+
+  /// The label for Win rate filter
+  ///
+  /// In en, this message translates to:
+  /// **'Win Rates'**
+  String get winRateFilter;
+
+  /// Winning filter tooltip
+  ///
+  /// In en, this message translates to:
+  /// **'Only shows Combos with WR >= 50%'**
+  String get winningFilterTooltip;
+
+  /// Losing filter tooltip
+  ///
+  /// In en, this message translates to:
+  /// **'Only shows Combos with WR < 50%'**
+  String get losingFilterTooltip;
+
+  /// All combos filter tooltip
+  ///
+  /// In en, this message translates to:
+  /// **'Shows All Combos with valid WR'**
+  String get allCombosFilterTooltip;
+
+  /// Role combo filter
+  ///
+  /// In en, this message translates to:
+  /// **'Role Combos'**
+  String get roleComboFilter;
+
+  /// The label for Table View
+  ///
+  /// In en, this message translates to:
+  /// **'Table'**
+  String get table;
+
+  /// The label for Triangle View
+  ///
+  /// In en, this message translates to:
+  /// **'Triangle'**
+  String get triangle;
 
   /// Versus label
   ///

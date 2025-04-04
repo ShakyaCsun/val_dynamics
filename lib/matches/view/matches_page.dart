@@ -5,11 +5,6 @@ import 'package:vsdat/l10n/l10n.dart';
 import 'package:vsdat/matches/matches.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';
 
-@visibleForTesting
-final collectionNameProvider = Provider<String>(
-  (ref) => throw UnimplementedError(),
-);
-
 class MatchesPage extends StatelessWidget {
   const MatchesPage({required this.collectionName, super.key});
 
@@ -17,10 +12,7 @@ class MatchesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ProviderScope(
-      overrides: [collectionNameProvider.overrideWithValue(collectionName)],
-      child: const MatchesView(),
-    );
+    return SimpleProvider(value: collectionName, child: const MatchesView());
   }
 }
 
@@ -30,7 +22,8 @@ class MatchesView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final collectionName = ref.watch(collectionNameProvider);
+    final collectionName = context.getProperty<String>();
+    final l10n = context.l10n;
 
     return Scaffold(
       appBar: AppBar(
@@ -38,9 +31,15 @@ class MatchesView extends ConsumerWidget {
         actions: [
           TextButton(
             onPressed: () {
+              ComboSynergiesRoute(collectionName: collectionName).go(context);
+            },
+            child: Text(l10n.synergiesLabel),
+          ),
+          TextButton(
+            onPressed: () {
               MatchesStatsRoute(collectionName: collectionName).go(context);
             },
-            child: Text(context.l10n.viewStats),
+            child: Text(l10n.statsLabel),
           ),
         ],
         leading: const BackButton(),
@@ -61,7 +60,7 @@ class MatchesBody extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final collectionName = ref.watch(collectionNameProvider);
+    final collectionName = context.getProperty<String>();
     final isEmptyMatches = ref.watch(
       matchesProvider(
         collectionId: collectionName,
@@ -98,7 +97,7 @@ class MatchesTriangleView extends StatelessWidget {
       children: [
         Consumer(
           builder: (context, ref, child) {
-            final collectionName = ref.watch(collectionNameProvider);
+            final collectionName = context.getProperty<String>();
             return MatchesTriangle(
               matches: ref.watch(
                 matchesProvider(
@@ -129,10 +128,11 @@ class MatchesNotFoundView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Column(
       children: [
-        Text('$collectionName Matches not found'),
-        TextButton(onPressed: () {}, child: const Text('Go back')),
+        Text(l10n.noMatchesForCollection(collectionName)),
+        TextButton(onPressed: () {}, child: Text(l10n.backButtonLabel)),
       ],
     );
   }

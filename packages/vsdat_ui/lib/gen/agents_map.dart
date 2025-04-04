@@ -31,6 +31,7 @@ AssetGenImage? defaultAgentIcon(String agent) {
     'tejo' => ValAssets.agents.tejo.icon,
     'viper' => ValAssets.agents.viper.icon,
     'vyse' => ValAssets.agents.vyse.icon,
+    'waylay' => ValAssets.agents.waylay.icon,
     'yoru' => ValAssets.agents.yoru.icon,
     _ => null,
   };
@@ -63,6 +64,7 @@ AssetGenImage? defaultAgentPortrait(String agent) {
     'tejo' => ValAssets.agents.tejo.portrait,
     'viper' => ValAssets.agents.viper.portrait,
     'vyse' => ValAssets.agents.vyse.portrait,
+    'waylay' => ValAssets.agents.waylay.portrait,
     'yoru' => ValAssets.agents.yoru.portrait,
     _ => null,
   };
@@ -95,6 +97,7 @@ AssetGenImage? defaultAbility1Icon(String agent) {
     'tejo' => ValAssets.agents.tejo.ability1,
     'viper' => ValAssets.agents.viper.ability1,
     'vyse' => ValAssets.agents.vyse.ability1,
+    'waylay' => ValAssets.agents.waylay.ability1,
     'yoru' => ValAssets.agents.yoru.ability1,
     _ => null,
   };
@@ -127,6 +130,7 @@ AssetGenImage? defaultAbility2Icon(String agent) {
     'tejo' => ValAssets.agents.tejo.ability2,
     'viper' => ValAssets.agents.viper.ability2,
     'vyse' => ValAssets.agents.vyse.ability2,
+    'waylay' => ValAssets.agents.waylay.ability2,
     'yoru' => ValAssets.agents.yoru.ability2,
     _ => null,
   };
@@ -159,6 +163,7 @@ AssetGenImage? defaultAbility3Icon(String agent) {
     'tejo' => ValAssets.agents.tejo.ability3,
     'viper' => ValAssets.agents.viper.ability3,
     'vyse' => ValAssets.agents.vyse.ability3,
+    'waylay' => ValAssets.agents.waylay.ability3,
     'yoru' => ValAssets.agents.yoru.ability3,
     _ => null,
   };
@@ -191,6 +196,7 @@ AssetGenImage? defaultUltimateIcon(String agent) {
     'tejo' => ValAssets.agents.tejo.ultimate,
     'viper' => ValAssets.agents.viper.ultimate,
     'vyse' => ValAssets.agents.vyse.ultimate,
+    'waylay' => ValAssets.agents.waylay.ultimate,
     'yoru' => ValAssets.agents.yoru.ultimate,
     _ => null,
   };

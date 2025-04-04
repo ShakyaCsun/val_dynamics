@@ -5,11 +5,13 @@ import 'package:go_router/go_router.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 import 'package:vsdat/add_agents/view/add_agents_page.dart';
 import 'package:vsdat/add_matches/view/add_matches_page.dart';
+import 'package:vsdat/agent_combo_matches/view/agent_combo_matches_page.dart';
 import 'package:vsdat/agents/view/agents_page.dart';
 import 'package:vsdat/agents_overview/view/agents_overview_page.dart';
 import 'package:vsdat/agents_stats/view/agents_stats_page.dart';
 import 'package:vsdat/app/view/app.dart';
 import 'package:vsdat/app_router/pages.dart';
+import 'package:vsdat/combo_synergies/view/combo_synergies_page.dart';
 import 'package:vsdat/matches/view/matches_page.dart';
 import 'package:vsdat/matches_overview/view/matches_overview_page.dart';
 import 'package:vsdat/matches_stats/view/matches_stats_page.dart';
@@ -69,6 +71,12 @@ class TeamCompsRedirectRoute extends GoRouteData {
         TypedGoRoute<MatchesRoute>(
           path: ':collectionName',
           routes: [
+            TypedGoRoute<ComboSynergiesRoute>(
+              path: 'synergies',
+              routes: [
+                TypedGoRoute<AgentComboMatchesRoute>(path: ':comboName'),
+              ],
+            ),
             TypedGoRoute<MatchesStatsRoute>(path: 'stats'),
             TypedGoRoute<StyledMatchesRoute>(
               path: 'acm/:acm',
@@ -166,6 +174,51 @@ class AddMatchesRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const AddMatchesPage();
+  }
+}
+
+@immutable
+class ComboSynergiesRoute extends GoRouteData {
+  const ComboSynergiesRoute({required this.collectionName});
+
+  final String collectionName;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return ComboSynergiesPage(collectionName: collectionName);
+  }
+}
+
+@immutable
+class AgentComboMatchesRoute extends GoRouteData {
+  @visibleForTesting
+  const AgentComboMatchesRoute({
+    required this.collectionName,
+    required this.comboName,
+  });
+
+  AgentComboMatchesRoute.safe({
+    required this.collectionName,
+    required (Agent, Agent) agentCombo,
+  }) : comboName = agentCombo.normalized.comboName;
+
+  final String collectionName;
+  final String comboName;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return AgentComboMatchesPage(
+      collectionName: collectionName,
+      comboName: comboName,
+    );
+  }
+
+  @override
+  FutureOr<String?> redirect(BuildContext context, GoRouterState state) async {
+    if (comboName.split('-') case [_, _]) {
+      return null;
+    }
+    return ComboSynergiesRoute(collectionName: collectionName).location;
   }
 }
 

@@ -21,6 +21,8 @@ class ValColors {
     end: const Color(0xFF760002),
   ).chain(CurveTween(curve: Curves.decelerate));
 
+  static const winningScore = Color(0xFF61B875);
+
   static ThemedColor style(Style style) {
     return switch (style) {
       Style.aggro => aggro,

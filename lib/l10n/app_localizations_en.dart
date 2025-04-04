@@ -100,10 +100,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get copyAgentsHelp => 'Copies a JSON sample with all the fields for agents ratings to the clipboard.';
 
   @override
+  String get agentsCopiedMessage => 'Sample Agents JSON copied to clipboard';
+
+  @override
   String get addAgentRatings => 'Add Agents Ratings';
 
   @override
   String get invalidAgentsFormat => 'The selected file is likely invalid. Please try again. Copy the samples if necessary';
+
+  @override
+  String get invalidForm => 'Invalid Form Data';
+
+  @override
+  String get unknownError => 'Unknown Error Occurred';
 
   @override
   String agentsAdded(String name) {
@@ -259,10 +268,24 @@ class AppLocalizationsEn extends AppLocalizations {
   String get excludeNone => 'None';
 
   @override
-  String get viewStats => 'View Stats';
+  String get selectAcmLabel => 'Choose an ACM value';
+
+  @override
+  String get statsLabel => 'Stats';
+
+  @override
+  String get synergiesLabel => 'Synergies';
 
   @override
   String get viewMatches => 'View Matches';
+
+  @override
+  String noMatchesForCollection(String collectionName) {
+    return '$collectionName Matches is Empty';
+  }
+
+  @override
+  String get backButtonLabel => 'Go Back';
 
   @override
   String statsFor(String collectionName) {
@@ -329,6 +352,62 @@ class AppLocalizationsEn extends AppLocalizations {
   String veryNegativeWinRate(String styleA, String styleB) {
     return '$styleA loses heavily to $styleB';
   }
+
+  @override
+  String get statsForCurrentStyle => 'You are looking at stats for this style';
+
+  @override
+  String nMirrorStyledMatches(int matchesCount) {
+    return '$matchesCount mirror styled matches';
+  }
+
+  @override
+  String collectionSynergiesTitle(String collectionName) {
+    return '$collectionName Agent Combo Synergies';
+  }
+
+  @override
+  String get synergiesTooltip => 'Agent combo synergies';
+
+  @override
+  String comboMatchesTitle(String collectionName, String comboName) {
+    return '$collectionName Matches for $comboName';
+  }
+
+  @override
+  String noComboMatches(String comboName) {
+    return 'No matches for $comboName with selected filters';
+  }
+
+  @override
+  String get comboNonMirrorCriteria => 'Non-Mirror Criteria';
+
+  @override
+  String get soloCriteriaTooltip => 'Removes matches where either agent appears on the opposing team';
+
+  @override
+  String get compositeCriteriaTooltip => 'Only removes matches where both agents appear on the opposing team';
+
+  @override
+  String get winRateFilter => 'Win Rates';
+
+  @override
+  String get winningFilterTooltip => 'Only shows Combos with WR >= 50%';
+
+  @override
+  String get losingFilterTooltip => 'Only shows Combos with WR < 50%';
+
+  @override
+  String get allCombosFilterTooltip => 'Shows All Combos with valid WR';
+
+  @override
+  String get roleComboFilter => 'Role Combos';
+
+  @override
+  String get table => 'Table';
+
+  @override
+  String get triangle => 'Triangle';
 
   @override
   String get versusLabel => 'vs';

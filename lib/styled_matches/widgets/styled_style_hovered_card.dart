@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:valorant_agents/valorant_agents.dart';
+import 'package:vsdat/l10n/l10n.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';
 
 class StyledStyleHoveredCard extends StatelessWidget {
@@ -14,13 +15,15 @@ class StyledStyleHoveredCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     if (matches.isEmpty) {
       return Card.outlined(
         child: ResponsivePadding(
           child: Column(
             children: [
               ColoredAcm(acm: stylePoints),
-              const Text('You are looking at stats for this style'),
+              Text(l10n.statsForCurrentStyle),
             ],
           ),
         ),
@@ -31,7 +34,7 @@ class StyledStyleHoveredCard extends StatelessWidget {
         child: Column(
           children: [
             ColoredAcm(acm: stylePoints),
-            Text('${matches.length} mirror styled matches'),
+            Text(l10n.nMirrorStyledMatches(matches.length)),
           ],
         ),
       ),

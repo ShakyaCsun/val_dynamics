@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:equatable/equatable.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
@@ -22,13 +23,26 @@ class AgentNotFoundException extends AgentsParserException {
 }
 
 class AgentComp extends Equatable {
-  const AgentComp(
-    this.agent1,
-    this.agent2,
-    this.agent3,
-    this.agent4,
-    this.agent5,
-  );
+  AgentComp(
+    Agent agent1,
+    Agent agent2,
+    Agent agent3,
+    Agent agent4,
+    Agent agent5,
+  ) : agents = List.unmodifiable(
+        [agent1, agent2, agent3, agent4, agent5].sorted((a, b) {
+          if (a.role == b.role) {
+            return a.name.compareTo(b.name);
+          }
+          return a.role.index.compareTo(b.role.index);
+        }),
+      ),
+      stylePoints =
+          agent1.stylePoints +
+          agent2.stylePoints +
+          agent3.stylePoints +
+          agent4.stylePoints +
+          agent5.stylePoints;
 
   factory AgentComp.fromAgentNames(
     String agents, {
@@ -42,9 +56,9 @@ class AgentComp extends Equatable {
     }
     Agent getAgent(String name) {
       switch (agentsMap[name]) {
-        case final Agent agent:
+        case final agent?:
           return agent;
-        case null:
+        default:
           throw AgentNotFoundException('Agent $name not found');
       }
     }
@@ -58,23 +72,17 @@ class AgentComp extends Equatable {
     );
   }
 
-  final Agent agent1;
-  final Agent agent2;
-  final Agent agent3;
-  final Agent agent4;
-  final Agent agent5;
+  final List<Agent> agents;
 
-  (Agent, Agent, Agent, Agent, Agent) get tuple {
-    return (agents[0], agents[1], agents[2], agents[3], agents[4]);
-  }
+  final StylePoints stylePoints;
 
-  List<Agent> get agents =>
-      [agent1, agent2, agent3, agent4, agent5]..sort((a, b) {
-        if (a.role == b.role) {
-          return a.name.compareTo(b.name);
-        }
-        return a.role.index.compareTo(b.role.index);
-      });
+  late final Set<String> agentNames = Set.unmodifiable(
+    agents.map((e) => e.name),
+  );
+
+  late final Map<Role, int> roleCounts = Map.unmodifiable({
+    for (final group in agentsGroup) group.first.role: group.length,
+  });
 
   List<List<Agent>> get agentsGroup {
     final group = <List<Agent>>[];
@@ -93,27 +101,22 @@ class AgentComp extends Equatable {
     return group;
   }
 
-  String get agentNames {
-    return agentsGroup
-        .map((group) => group.map((agent) => agent.name).join(', '))
-        .join(' - ');
-  }
-
-  StylePoints get stylePoints {
-    return agents.fold((aggro: 0, control: 0, midrange: 0), (
-      previousValue,
-      element,
-    ) {
-      return previousValue + element.stylePoints;
-    });
-  }
+  /// Agent names of same roles are separated by ',' and agents of
+  /// different roles are then separated by ' - '.
+  late final String groupedAgentNames = agentsGroup
+      .map((group) => group.map((agent) => agent.name).join(', '))
+      .join(' - ');
 
   bool hasAgent(Agent agent) {
     return agents.contains(agent);
   }
 
+  bool hasAgentName(String name) {
+    return agentNames.contains(name);
+  }
+
   bool hasRole(Role role) {
-    return agents.map((agent) => agent.role).contains(role);
+    return roleCounts.keys.contains(role);
   }
 
   @override
@@ -122,10 +125,9 @@ class AgentComp extends Equatable {
   }
 
   String prettyPrint({required String name}) {
-    return '$name(agents: ${agents.map((e) => e.name).toList()}, '
-        'acm: ${stylePoints.acm})';
+    return '$name(agents: $groupedAgentNames, acm: ${stylePoints.acm})';
   }
 
   @override
-  List<Object> get props => [tuple];
+  List<Object> get props => [agents];
 }

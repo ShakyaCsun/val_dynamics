@@ -61,6 +61,7 @@ String generate({required String funcName, required String property}) {
     'tejo',
     'viper',
     'vyse',
+    'waylay',
     'yoru',
   ];
   final prefix = '''

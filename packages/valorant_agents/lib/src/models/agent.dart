@@ -1,42 +1,48 @@
-// Necessary for using json_serializable with freezed
-// ignore_for_file: invalid_annotation_target
-
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
-part 'agent.freezed.dart';
 part 'agent.g.dart';
 
 /// {@template agent}
 /// Agent
 /// {@endtemplate}
-@freezed
-abstract class Agent with _$Agent {
+@JsonSerializable(includeIfNull: false)
+class Agent extends Equatable {
   /// {@macro agent}
-  @JsonSerializable(includeIfNull: false)
-  const factory Agent({
-    required String name,
-    required double aggro,
-    required double control,
-    required double midrange,
-    required Role role,
-    String? iconUrl,
-    String? portraitUrl,
-    @Default(AbilityOne()) AbilityOne abilityOne,
-    @Default(AbilityTwo()) AbilityTwo abilityTwo,
-    @Default(AbilityThree()) AbilityThree abilityThree,
-    @Default(UltimateAbility()) UltimateAbility ultimateAbility,
-  }) = _Agent;
-
-  const Agent._();
+  const Agent({
+    required this.name,
+    required this.aggro,
+    required this.control,
+    required this.midrange,
+    required this.role,
+    this.iconUrl,
+    this.portraitUrl,
+    this.abilityOne = const AbilityOne(),
+    this.abilityTwo = const AbilityTwo(),
+    this.abilityThree = const AbilityThree(),
+    this.ultimateAbility = const UltimateAbility(),
+  }) : stylePoints = (aggro: aggro, control: control, midrange: midrange);
 
   /// Deserializes the given [json] into a [Agent]
   factory Agent.fromJson(Map<String, dynamic> json) => _$AgentFromJson(json);
 
+  Map<String, dynamic> toJson() => _$AgentToJson(this);
+
+  final String name;
+  final double aggro;
+  final double control;
+  final double midrange;
+  final Role role;
+  final String? iconUrl;
+  final String? portraitUrl;
+  final AbilityOne abilityOne;
+  final AbilityTwo abilityTwo;
+  final AbilityThree abilityThree;
+  final UltimateAbility ultimateAbility;
+  final StylePoints stylePoints;
+
   double get totalPoints => aggro + control + midrange;
-  StylePoints get stylePoints {
-    return (aggro: aggro, control: control, midrange: midrange);
-  }
 
   Map<String, dynamic> toMinimalJson() {
     return {
@@ -60,10 +66,10 @@ abstract class Agent with _$Agent {
   @override
   String toString() {
     if (iconUrl != null) {
-      return '$name(acm: $aggro-$control-$midrange, '
+      return '$name(acm: ${stylePoints.acm}, '
           'role: ${role.name}, iconUrl: $iconUrl)';
     }
-    return '$name(acm: $aggro-$control-$midrange, role: ${role.name})';
+    return '$name(acm: ${stylePoints.acm}, role: ${role.name})';
   }
 
   static const astra = Agent(
@@ -83,7 +89,7 @@ abstract class Agent with _$Agent {
       ],
     ),
     abilityTwo: AbilityTwo(
-      name: 'Nebula  / Dissipate',
+      name: 'Nebula / Dissipate',
       control: 1,
       midrange: 2,
       reasons: ['Stall', 'Refreshable/Cooldown', 'Multi-modal'],
@@ -135,15 +141,20 @@ abstract class Agent with _$Agent {
   );
   static const clove = Agent(
     name: 'Clove',
-    aggro: 5,
+    aggro: 4,
     control: 1,
-    midrange: 4,
+    midrange: 5,
     role: Role.controller,
     abilityOne: AbilityOne(
       name: 'Meddle',
-      aggro: 2,
+      aggro: 1,
       control: 1,
-      reasons: ['High Potency', 'Short Range', 'Non-Catalytic'],
+      midrange: 1,
+      reasons: [
+        'High Potency',
+        'Non-Catalytic Duel Facilitation',
+        'Intermediate Range',
+      ],
     ),
     abilityTwo: AbilityTwo(
       name: 'Ruse',
@@ -157,7 +168,11 @@ abstract class Agent with _$Agent {
       midrange: 1,
       reasons: ['', '', ''],
     ),
-    ultimateAbility: UltimateAbility(name: 'Not Dead Yet', midrange: 1),
+    ultimateAbility: UltimateAbility(
+      name: 'Not Dead Yet',
+      midrange: 1,
+      reasons: ['Post mortem'],
+    ),
   );
   static const cypher = Agent(
     name: 'Cypher',
@@ -183,16 +198,6 @@ abstract class Agent with _$Agent {
       reasons: ['Pre-placement', 'Audio-based Trigger', 'Soft Info'],
     ),
     abilityTwo: AbilityTwo(
-      name: 'Barrier Mesh',
-      control: 2,
-      midrange: 1,
-      reasons: [
-        'Stall',
-        'Passive Value',
-        'Permeable Zone Denial/Intermediate Range',
-      ],
-    ),
-    abilityThree: AbilityThree(
       name: 'GravNet',
       control: 2,
       midrange: 1,
@@ -200,6 +205,16 @@ abstract class Agent with _$Agent {
         'Stall',
         'Non-catalytic Duel Facilitation',
         'Intermediate Range/Large Zone Denial/Soft Info',
+      ],
+    ),
+    abilityThree: AbilityThree(
+      name: 'Barrier Mesh',
+      control: 2,
+      midrange: 1,
+      reasons: [
+        'Stall',
+        'Passive Value',
+        'Permeable Zone Denial/Intermediate Range',
       ],
     ),
     ultimateAbility: UltimateAbility(
@@ -274,7 +289,7 @@ abstract class Agent with _$Agent {
       control: 1,
       midrange: 1,
       reasons: [
-        'Explosiveness',
+        'Explosiveness/Anti-utility',
         'Non-Catalytic Duel Facilitation',
         'Intermediate Range',
       ],
@@ -370,10 +385,37 @@ abstract class Agent with _$Agent {
     control: 6,
     midrange: 1,
     role: Role.controller,
-    abilityOne: AbilityOne(name: 'Paranoia', reasons: ['', '', '']),
-    abilityTwo: AbilityTwo(name: 'Dark Cover', reasons: ['', '', '']),
-    abilityThree: AbilityThree(name: 'Shrouded Step', reasons: ['', '', '']),
-    ultimateAbility: UltimateAbility(name: 'From the Shadows', reasons: ['']),
+    abilityOne: AbilityOne(
+      name: 'Paranoia',
+      aggro: 2,
+      control: 1,
+      reasons: ['Potency', 'Effectively Short Range', 'Stall'],
+    ),
+    abilityTwo: AbilityTwo(
+      name: 'Dark Cover',
+      control: 2,
+      midrange: 1,
+      reasons: [
+        'Entrenchment via One ways/Rat smokes',
+        'High Duration Stall value',
+        'Cooldown',
+      ],
+    ),
+    abilityThree: AbilityThree(
+      name: 'Shrouded Step',
+      aggro: 1,
+      control: 2,
+      reasons: [
+        'Pseudo Dive',
+        'Access to Verticality',
+        'Reposition for Entrenchment',
+      ],
+    ),
+    ultimateAbility: UltimateAbility(
+      name: 'From the Shadows',
+      control: 1,
+      reasons: ['Hard Info/Global Range'],
+    ),
   );
   static const phoenix = Agent(
     name: 'Phoenix',
@@ -610,6 +652,37 @@ abstract class Agent with _$Agent {
       reasons: ["Primary Weapon 'Permission' Denied"],
     ),
   );
+  static const waylay = Agent(
+    name: 'Waylay',
+    // Man's just guessing
+    aggro: 7,
+    control: 2,
+    midrange: 1,
+    role: Role.duelist,
+    abilityOne: AbilityOne(
+      name: 'Lightspeed',
+      aggro: 2,
+      control: 1,
+      reasons: ['Dive', 'Explosiveness', 'Access to Verticality'],
+    ),
+    abilityTwo: AbilityTwo(
+      name: 'Refract',
+      aggro: 2,
+      midrange: 1,
+      reasons: ['Untradeability', 'Kill Reset', 'Intermediate Range'],
+    ),
+    abilityThree: AbilityThree(
+      name: 'Saturate',
+      aggro: 2,
+      control: 1,
+      reasons: ['Fast Cast', 'Short Range', 'Non-catalytic Duel Facilitation'],
+    ),
+    ultimateAbility: UltimateAbility(
+      name: 'Convergent Paths',
+      aggro: 1,
+      reasons: ['Explosive and Self-capitalizable'],
+    ),
+  );
   static const yoru = Agent(
     name: 'Yoru',
     aggro: 5,
@@ -646,4 +719,17 @@ abstract class Agent with _$Agent {
       reasons: ['Dive'],
     ),
   );
+
+  @override
+  List<Object?> get props => [
+    name,
+    stylePoints,
+    role,
+    iconUrl,
+    portraitUrl,
+    abilityOne,
+    abilityTwo,
+    abilityThree,
+    ultimateAbility,
+  ];
 }

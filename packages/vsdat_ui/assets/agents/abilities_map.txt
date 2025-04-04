@@ -30,8 +30,8 @@ Ability3: Trapwire
 Ultimate: Neural Theft
 Deadlock
 Ability1: Sonic Sensor
-Ability2: Barrier Mesh
-Ability3: GravNet
+Ability2: GravNet
+Ability3: Barrier Mesh
 Ultimate: Annihilation
 Fade
 Ability1: Seize
@@ -123,6 +123,11 @@ Ability1: Shear
 Ability2: Arc Rose
 Ability3: Razorvine
 Ultimate: Steel Garden
+Waylay
+Ability1: Lightspeed
+Ability2: Refract
+Ability3: Saturate
+Ultimate: Convergent Paths
 Yoru
 Ability1: BLINDSIDE
 Ability2: GATECRASH

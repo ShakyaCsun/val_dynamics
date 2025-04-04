@@ -60,8 +60,8 @@ class $AssetsCsvMatchesGen {
   /// File path: assets/csv/matches/Game Changers 2024.csv
   String get gameChangers2024 => 'assets/csv/matches/Game Changers 2024.csv';
 
-  /// File path: assets/csv/matches/Jan-Feb-2025.csv
-  String get janFeb2025 => 'assets/csv/matches/Jan-Feb-2025.csv';
+  /// File path: assets/csv/matches/Jan-March 2025.csv
+  String get janMarch2025 => 'assets/csv/matches/Jan-March 2025.csv';
 
   /// File path: assets/csv/matches/Kickoff and Bangkok.csv
   String get kickoffAndBangkok => 'assets/csv/matches/Kickoff and Bangkok.csv';
@@ -77,7 +77,7 @@ class $AssetsCsvMatchesGen {
     champions2024,
     championsAndAscension2024,
     gameChangers2024,
-    janFeb2025,
+    janMarch2025,
     kickoffAndBangkok,
     mastersTokyoAndChampions2023,
   ];

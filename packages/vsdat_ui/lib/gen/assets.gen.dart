@@ -91,6 +91,9 @@ class $AssetsAgentsGen {
   /// Directory path: assets/agents/vyse
   $AssetsAgentsVyseGen get vyse => const $AssetsAgentsVyseGen();
 
+  /// Directory path: assets/agents/waylay
+  $AssetsAgentsWaylayGen get waylay => const $AssetsAgentsWaylayGen();
+
   /// Directory path: assets/agents/yoru
   $AssetsAgentsYoruGen get yoru => const $AssetsAgentsYoruGen();
 
@@ -1041,6 +1044,44 @@ class $AssetsAgentsVyseGen {
   /// File path: assets/agents/vyse/ultimate.png
   AssetGenImage get ultimate =>
       const AssetGenImage('assets/agents/vyse/ultimate.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
+}
+
+class $AssetsAgentsWaylayGen {
+  const $AssetsAgentsWaylayGen();
+
+  /// File path: assets/agents/waylay/ability1.png
+  AssetGenImage get ability1 =>
+      const AssetGenImage('assets/agents/waylay/ability1.png');
+
+  /// File path: assets/agents/waylay/ability2.png
+  AssetGenImage get ability2 =>
+      const AssetGenImage('assets/agents/waylay/ability2.png');
+
+  /// File path: assets/agents/waylay/ability3.png
+  AssetGenImage get ability3 =>
+      const AssetGenImage('assets/agents/waylay/ability3.png');
+
+  /// File path: assets/agents/waylay/icon.png
+  AssetGenImage get icon =>
+      const AssetGenImage('assets/agents/waylay/icon.png');
+
+  /// File path: assets/agents/waylay/portrait.png
+  AssetGenImage get portrait =>
+      const AssetGenImage('assets/agents/waylay/portrait.png');
+
+  /// File path: assets/agents/waylay/ultimate.png
+  AssetGenImage get ultimate =>
+      const AssetGenImage('assets/agents/waylay/ultimate.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [
