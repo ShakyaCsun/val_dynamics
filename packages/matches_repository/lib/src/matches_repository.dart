@@ -1,5 +1,6 @@
 import 'dart:collection';
 
+import 'package:collection/collection.dart';
 import 'package:matches_repository/matches_repository.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
@@ -23,7 +24,7 @@ class MatchesRepository {
   final Agents agentRoster;
   final ValorantMatches matches;
   late final Set<String> availableMaps = Set<String>.unmodifiable(
-    matches.map((match) => match.mapName),
+    matches.map((match) => match.mapName).sorted(),
   );
   late final ValorantMatches nonMirrorMatches = matches.nonMirroredMatches;
   late final ValorantMatches nonMirrorStyledMatches =
