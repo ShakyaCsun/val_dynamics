@@ -37,8 +37,7 @@ class VsdatTheme {
     return theme.copyWith(
       appBarTheme: const AppBarTheme(centerTitle: true),
       drawerTheme: const DrawerThemeData(width: 360),
-      navigationRailTheme: NavigationRailThemeData(
-        backgroundColor: colorScheme.surfaceContainer,
+      navigationRailTheme: const NavigationRailThemeData(
         labelType: NavigationRailLabelType.all,
       ),
       // It is how we opt into newer slider theme for now

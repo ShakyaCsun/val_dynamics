@@ -10,6 +10,7 @@ resolution: workspace
 
 dependencies:
   collection: ^1.19.1
+  equatable: ^2.0.7
   valorant_agents:
     path: ../valorant_agents
 

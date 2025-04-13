@@ -259,10 +259,10 @@ extension SynergyInMatchesCalculator on ValorantMatches {
   /// this [ValorantMatches].
   Score getAgentNmrwr(Agent agent) {
     final name = agent.name;
-    return fold(Score.zero, (score, valMatch) {
+    return fold((0, 0), (tuple, valMatch) {
       final ValorantMatch(
-        :scoreOne,
-        :scoreTwo,
+        scoreOne: Score(tuple: tupleOne),
+        scoreTwo: Score(tuple: tupleTwo),
         teamOne: Team(agents: agentsOne),
         teamTwo: Team(agents: agentsTwo),
       ) = valMatch;
@@ -270,11 +270,11 @@ extension SynergyInMatchesCalculator on ValorantMatches {
         agentsOne.hasAgentName(name),
         agentsTwo.hasAgentName(name),
       )) {
-        (true, false) => score + scoreOne,
-        (false, true) => score + scoreTwo,
-        _ => score,
+        (true, false) => tuple + tupleOne,
+        (false, true) => tuple + tupleTwo,
+        _ => tuple,
       };
-    });
+    }).toScore;
   }
 
   Score getComboNmwr(
@@ -302,19 +302,19 @@ extension SynergyInMatchesCalculator on ValorantMatches {
     Agent agentTwo, {
     ComboCriteria criteria = ComboCriteria.composite,
   }) {
-    return fold(Score.zero, (score, valMatch) {
+    return fold((0, 0), (score, valMatch) {
       if (valMatch.satisfiesComboNM(agentOne, agentTwo, criteria: criteria)) {
-        return score + valMatch.scoreOne;
+        return score + valMatch.scoreOne.tuple;
       }
       if (valMatch.reversed.satisfiesComboNM(
         agentOne,
         agentTwo,
         criteria: criteria,
       )) {
-        return score + valMatch.scoreTwo;
+        return score + valMatch.scoreTwo.tuple;
       }
       return score;
-    });
+    }).toScore;
   }
 
   /// Generates [ComboSynergyStat] for all agent combos of given [agentRoster].

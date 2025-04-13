@@ -7,5 +7,6 @@ export 'raw_match.dart';
 export 'role.dart';
 export 'score.dart';
 export 'style_points.dart';
+export 'style_type.dart';
 export 'team.dart';
 export 'valorant_match.dart';

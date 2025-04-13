@@ -56,10 +56,7 @@ abstract mixin class $StyledMatchesStateCopyWith<$Res> {
     $Res Function(StyledMatchesState) _then,
   ) = _$StyledMatchesStateCopyWithImpl;
   @useResult
-  $Res call({
-    ValorantMatches matches,
-    ({double aggro, double control, double midrange}) acm,
-  });
+  $Res call({ValorantMatches matches, StylePoints acm});
 }
 
 /// @nodoc
@@ -86,7 +83,7 @@ class _$StyledMatchesStateCopyWithImpl<$Res>
             null == acm
                 ? _self.acm
                 : acm // ignore: cast_nullable_to_non_nullable
-                    as ({double aggro, double control, double midrange}),
+                    as StylePoints,
       ),
     );
   }
@@ -101,7 +98,7 @@ class _StyledMatchesState extends StyledMatchesState {
   @override
   final ValorantMatches matches;
   @override
-  final ({double aggro, double control, double midrange}) acm;
+  final StylePoints acm;
 
   /// Create a copy of StyledMatchesState
   /// with the given fields replaced by the non-null parameter values.
@@ -142,10 +139,7 @@ abstract mixin class _$StyledMatchesStateCopyWith<$Res>
   ) = __$StyledMatchesStateCopyWithImpl;
   @override
   @useResult
-  $Res call({
-    ValorantMatches matches,
-    ({double aggro, double control, double midrange}) acm,
-  });
+  $Res call({ValorantMatches matches, StylePoints acm});
 }
 
 /// @nodoc
@@ -172,7 +166,7 @@ class __$StyledMatchesStateCopyWithImpl<$Res>
             null == acm
                 ? _self.acm
                 : acm // ignore: cast_nullable_to_non_nullable
-                    as ({double aggro, double control, double midrange}),
+                    as StylePoints,
       ),
     );
   }

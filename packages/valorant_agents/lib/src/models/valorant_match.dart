@@ -20,6 +20,9 @@ class ValorantMatch extends Equatable {
   final StylePoints stylePoints1;
   final StylePoints stylePoints2;
 
+  late final StyleType typeOne = StyleType.fromStylePoints(stylePoints1);
+  late final StyleType typeTwo = StyleType.fromStylePoints(stylePoints2);
+
   /// A simplified match result for [teamOne].
   ///
   /// If the match was won by team one, then this will be Score(won: 1, lost: 0)

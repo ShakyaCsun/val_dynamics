@@ -84,6 +84,61 @@ class MatchesRepository {
     );
   }
 
+  Map<StyleType, StyleTypeStat> getStyleTypeStats({
+    Set<String> maps = const {},
+  }) {
+    final matches = getMatches(maps: maps, filter: MatchUpFilter.none);
+    final styleTypeMatches = <StyleType, ValorantMatches>{};
+    final totalCompPicks = matches.length * 2;
+    final stylePicks = <StyleType, int>{};
+    for (final match in matches) {
+      final ValorantMatch(:typeOne, :typeTwo) = match;
+      stylePicks
+        ..update(typeOne, (value) => value + 1, ifAbsent: () => 1)
+        ..update(typeTwo, (value) => value + 1, ifAbsent: () => 1);
+      if (typeOne == typeTwo) {
+        continue;
+      }
+      styleTypeMatches
+        ..update(
+          typeOne,
+          (value) => ValorantMatches([...value, match]),
+          ifAbsent: () => ValorantMatches([match]),
+        )
+        ..update(
+          typeTwo,
+          (value) => ValorantMatches([...value, match.reversed]),
+          ifAbsent: () => ValorantMatches([match.reversed]),
+        );
+    }
+    final styleTypeStats = <StyleType, StyleTypeStat>{};
+    for (final MapEntry(key: styleType, value: picks) in stylePicks.entries) {
+      final matches = styleTypeMatches[styleType] ?? ValorantMatches([]);
+      final otherTypeMatches = matches.fold(
+        <StyleType, List<ValorantMatch>>{},
+        (previousValue, match) {
+          previousValue.update(
+            match.typeTwo,
+            (value) => [...value, match],
+            ifAbsent: () => [match],
+          );
+          return previousValue;
+        },
+      );
+      styleTypeStats[styleType] = StyleTypeStat(
+        type: styleType,
+        picks: picks,
+        pickRate: picks / totalCompPicks,
+        nonMirrorWR: matches.collectTeamOneScore(),
+        winRates: {
+          for (final MapEntry(:key, value: matches) in otherTypeMatches.entries)
+            key: ValorantMatches(matches).collectTeamOneScore(),
+        },
+      );
+    }
+    return styleTypeStats;
+  }
+
   Map<(Agent, Agent), ComboSynergyStat> getAllComboSynergies({
     Set<String> maps = const {},
     ComboCriteria criteria = ComboCriteria.composite,
@@ -146,7 +201,7 @@ class MatchesRepository {
         );
       }
     }
-    return Map.unmodifiable(comboSynergyStats);
+    return comboSynergyStats;
   }
 
   Map<(Agent, Agent), ComboSynergyStat> _filterSynergies(
