@@ -3,6 +3,7 @@ export 'agent.dart';
 export 'agent_ability.dart';
 export 'agent_comp.dart';
 export 'matchup_type.dart';
+export 'non_mirror.dart';
 export 'raw_match.dart';
 export 'role.dart';
 export 'score.dart';

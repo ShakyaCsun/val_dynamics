@@ -29,6 +29,40 @@ void main() {
         expect(totalPickRates, closeTo(1, 1e-10));
       });
 
+      test('generates correct NMWR stats', () {
+        final styleTypeMatches = <StyleType, ValorantMatches>{};
+        final matches = matchesRepository.getMatches(
+          filter: MatchUpFilter.none,
+        );
+        for (final match in matches) {
+          final ValorantMatch(:typeOne, :typeTwo) = match;
+          if (typeOne == typeTwo) {
+            continue;
+          }
+          styleTypeMatches
+            ..update(
+              typeOne,
+              (value) => ValorantMatches([...value, match]),
+              ifAbsent: () => ValorantMatches([match]),
+            )
+            ..update(
+              typeTwo,
+              (value) => ValorantMatches([...value, match.reversed]),
+              ifAbsent: () => ValorantMatches([match.reversed]),
+            );
+        }
+        final styleWinRates = {
+          for (final MapEntry(:key, value: matches) in styleTypeMatches.entries)
+            key: matches.collectTeamOneScore(),
+        };
+        final calculatedWinRates = {
+          for (final MapEntry(:key, value: StyleTypeStat(:nonMirrorWR))
+              in styleStats.entries)
+            key: nonMirrorWR,
+        };
+        expect(calculatedWinRates, styleWinRates);
+      });
+
       test('generates correct NMWR and typed WR stats', () {
         expect(
           styleStats.values.map(

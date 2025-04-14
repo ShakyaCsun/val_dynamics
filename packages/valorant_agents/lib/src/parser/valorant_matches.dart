@@ -200,15 +200,11 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
   }
 
   ValorantMatches get nonMirroredMatches {
-    return ValorantMatches(
-      [...matches]..removeWhere((match) => match.isMirrorComp),
-    );
+    return ValorantMatches([...where((match) => !match.isMirrorComp)]);
   }
 
   ValorantMatches get nonMirrorStyledMatches {
-    return ValorantMatches(
-      [...matches]..removeWhere((match) => match.isMirrorStyle),
-    );
+    return ValorantMatches([...where((match) => !match.isMirrorStyle)]);
   }
 
   MatchesComparator get compareKey =>
@@ -258,23 +254,54 @@ extension SynergyInMatchesCalculator on ValorantMatches {
   /// Get the given [Agent]'s Non-Mirror Round Win Rate using
   /// this [ValorantMatches].
   Score getAgentNmrwr(Agent agent) {
-    final name = agent.name;
     return fold((0, 0), (tuple, valMatch) {
       final ValorantMatch(
         scoreOne: Score(tuple: tupleOne),
         scoreTwo: Score(tuple: tupleTwo),
-        teamOne: Team(agents: agentsOne),
-        teamTwo: Team(agents: agentsTwo),
       ) = valMatch;
-      return switch ((
-        agentsOne.hasAgentName(name),
-        agentsTwo.hasAgentName(name),
-      )) {
-        (true, false) => tuple + tupleOne,
-        (false, true) => tuple + tupleTwo,
-        _ => tuple,
+      return switch (valMatch.checkAgentNonMirror(agent)) {
+        NonMirror.yes => tuple + tupleOne,
+        NonMirror.yesIfReversed => tuple + tupleTwo,
+        NonMirror.no => tuple,
       };
     }).toScore;
+  }
+
+  /// Get the Non-Mirror Round Win Rate for all [Agent]s that are played
+  FastAgentMap<Score> getAllAgentNmrwr() {
+    final agentNonMirrorScoreTuples = FastAgentMap<(int, int)>();
+    for (final ValorantMatch(
+          scoreOne: Score(tuple: tupleOne),
+          scoreTwo: Score(tuple: tupleTwo),
+          :nonMirrorAgents,
+        )
+        in this) {
+      for (final MapEntry(key: agent, value: nonMirror)
+          in nonMirrorAgents.entries) {
+        if (nonMirror == NonMirror.yes) {
+          agentNonMirrorScoreTuples.update(
+            agent,
+            (value) => value + tupleOne,
+            ifAbsent: () => tupleOne,
+          );
+        } else {
+          assert(
+            nonMirror == NonMirror.yesIfReversed,
+            'nonMirrorAgents should only have yes or yesIfReversed values',
+          );
+          agentNonMirrorScoreTuples.update(
+            agent,
+            (value) => value + tupleTwo,
+            ifAbsent: () => tupleTwo,
+          );
+        }
+      }
+    }
+    return FastAgentMap.fromEntries(
+      agentNonMirrorScoreTuples.entries.map(
+        (e) => MapEntry(e.key, e.value.toScore),
+      ),
+    );
   }
 
   Score getComboNmwr(
@@ -283,17 +310,15 @@ extension SynergyInMatchesCalculator on ValorantMatches {
     ComboCriteria criteria = ComboCriteria.composite,
   }) {
     return fold(Score.zero, (score, valMatch) {
-      if (valMatch.satisfiesComboNM(agentOne, agentTwo, criteria: criteria)) {
-        return score + valMatch.resultOne;
-      }
-      if (valMatch.reversed.satisfiesComboNM(
+      return switch (valMatch.satisfiesComboNM(
         agentOne,
         agentTwo,
         criteria: criteria,
       )) {
-        return score + valMatch.resultOne.reversed;
-      }
-      return score;
+        NonMirror.yes => score + valMatch.resultOne,
+        NonMirror.yesIfReversed => score + valMatch.resultOne.reversed,
+        NonMirror.no => score,
+      };
     });
   }
 
@@ -303,54 +328,16 @@ extension SynergyInMatchesCalculator on ValorantMatches {
     ComboCriteria criteria = ComboCriteria.composite,
   }) {
     return fold((0, 0), (score, valMatch) {
-      if (valMatch.satisfiesComboNM(agentOne, agentTwo, criteria: criteria)) {
-        return score + valMatch.scoreOne.tuple;
-      }
-      if (valMatch.reversed.satisfiesComboNM(
+      return switch (valMatch.satisfiesComboNM(
         agentOne,
         agentTwo,
         criteria: criteria,
       )) {
-        return score + valMatch.scoreTwo.tuple;
-      }
-      return score;
+        NonMirror.yes => score + valMatch.scoreOne.tuple,
+        NonMirror.yesIfReversed => score + valMatch.scoreTwo.tuple,
+        NonMirror.no => score,
+      };
     }).toScore;
-  }
-
-  /// Generates [ComboSynergyStat] for all agent combos of given [agentRoster].
-  ///
-  /// The key [(Agent, Agent)] tuple is normalized/sorted for consistency.
-  /// ```dart
-  /// // Remember to use .normalized when querying the returned Map.
-  /// final synergies = matches.getAllComboSynergies(agentRoster);
-  /// print(synergies[(agent1, agent2).normalized]);
-  /// ```
-  Map<(Agent, Agent), ComboSynergyStat> getAllComboSynergies(
-    Agents agentRoster, {
-    ComboCriteria criteria = ComboCriteria.composite,
-  }) {
-    final agentWRs = <Agent, Score>{};
-    final comboSynergyStats = <(Agent, Agent), ComboSynergyStat>{};
-    for (final (i, one) in agentRoster.indexed) {
-      for (final two in agentRoster.skip(i + 1)) {
-        final (agentOne, agentTwo) = (one, two).normalized;
-        final oneWR = agentWRs.putIfAbsent(
-          agentOne,
-          () => getAgentNmrwr(agentOne),
-        );
-        final twoWR = agentWRs.putIfAbsent(
-          agentTwo,
-          () => getAgentNmrwr(agentTwo),
-        );
-        final comboWR = getComboNmrwr(agentOne, agentTwo, criteria: criteria);
-        comboSynergyStats[(agentOne, agentTwo)] = ComboSynergyStat(
-          oneWR: oneWR,
-          twoWR: twoWR,
-          comboWR: comboWR,
-        );
-      }
-    }
-    return Map.unmodifiable(comboSynergyStats);
   }
 }
 
@@ -408,8 +395,7 @@ extension ComboAgentExtension on (Agent, Agent) {
     };
   }
 
-  /// Agent one's name and agent two's name separated by '-' in their normalized
-  /// form.
+  /// Agent one's name and agent two's name separated by '-'.
   String get comboName {
     final (Agent(name: nameOne), Agent(name: nameTwo)) = this;
     return '$nameOne-$nameTwo';

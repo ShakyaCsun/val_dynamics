@@ -78,7 +78,12 @@ class MatchesRepository {
           .expand((match) => [match, match.reversed])
           .where(
             (match) =>
-                match.satisfiesComboNM(agentOne, agentTwo, criteria: criteria),
+                match.satisfiesComboNM(
+                  agentOne,
+                  agentTwo,
+                  criteria: criteria,
+                ) ==
+                NonMirror.yes,
           )
           .toList(),
     );
@@ -88,7 +93,7 @@ class MatchesRepository {
     Set<String> maps = const {},
   }) {
     final matches = getMatches(maps: maps, filter: MatchUpFilter.none);
-    final styleTypeMatches = <StyleType, ValorantMatches>{};
+    final styleTypeMatches = <(StyleType, StyleType), List<ValorantMatch>>{};
     final totalCompPicks = matches.length * 2;
     final stylePicks = <StyleType, int>{};
     for (final match in matches) {
@@ -99,40 +104,59 @@ class MatchesRepository {
       if (typeOne == typeTwo) {
         continue;
       }
-      styleTypeMatches
-        ..update(
-          typeOne,
-          (value) => ValorantMatches([...value, match]),
-          ifAbsent: () => ValorantMatches([match]),
-        )
-        ..update(
-          typeTwo,
-          (value) => ValorantMatches([...value, match.reversed]),
-          ifAbsent: () => ValorantMatches([match.reversed]),
+      final key = (typeOne, typeTwo);
+      final alternateKey = (typeTwo, typeOne);
+      if (styleTypeMatches.containsKey(alternateKey)) {
+        styleTypeMatches.update(
+          alternateKey,
+          (value) => [...value, match.reversed],
         );
+      } else {
+        styleTypeMatches.update(
+          key,
+          (value) => [...value, match],
+          ifAbsent: () => [match],
+        );
+      }
     }
     final styleTypeStats = <StyleType, StyleTypeStat>{};
+    final styleTypeWinRates = <(StyleType, StyleType), Score>{
+      for (final MapEntry(key: (typeOne, typeTwo), value: score)
+          in styleTypeMatches.entries
+              .map<MapEntry<(StyleType, StyleType), Score>>(
+                (entry) => MapEntry(
+                  entry.key,
+                  ValorantMatches(entry.value).collectTeamOneScore(),
+                ),
+              )) ...{
+        (typeOne, typeTwo): score,
+        (typeTwo, typeOne): score.reversed,
+      },
+    };
+    Score winRateOfStyleType(
+      Map<(StyleType, StyleType), Score> typedMatchWR,
+      StyleType styleType,
+    ) {
+      return typedMatchWR.entries.fold(Score.zero, (previousValue, element) {
+        if (element.key.$1 == styleType) {
+          return previousValue + element.value;
+        }
+        return previousValue;
+      });
+    }
+
     for (final MapEntry(key: styleType, value: picks) in stylePicks.entries) {
-      final matches = styleTypeMatches[styleType] ?? ValorantMatches([]);
-      final otherTypeMatches = matches.fold(
-        <StyleType, List<ValorantMatch>>{},
-        (previousValue, match) {
-          previousValue.update(
-            match.typeTwo,
-            (value) => [...value, match],
-            ifAbsent: () => [match],
-          );
-          return previousValue;
-        },
-      );
       styleTypeStats[styleType] = StyleTypeStat(
         type: styleType,
         picks: picks,
         pickRate: picks / totalCompPicks,
-        nonMirrorWR: matches.collectTeamOneScore(),
+        nonMirrorWR: winRateOfStyleType(styleTypeWinRates, styleType),
         winRates: {
-          for (final MapEntry(:key, value: matches) in otherTypeMatches.entries)
-            key: ValorantMatches(matches).collectTeamOneScore(),
+          for (final MapEntry(key: (_, typeTwo), value: winRate)
+              in styleTypeWinRates.entries.where(
+                (element) => element.key.$1 == styleType,
+              ))
+            typeTwo: winRate,
         },
       );
     }
@@ -174,26 +198,20 @@ class MatchesRepository {
     required ValorantMatches matches,
     ComboCriteria criteria = ComboCriteria.composite,
   }) {
-    final agentWRs = <String, Score>{};
-    final comboSynergyStats = LinkedHashMap<(Agent, Agent), ComboSynergyStat>(
-      equals: (key1, key2) => key1.comboName == key2.comboName,
-      hashCode: (p0) => p0.comboName.hashCode,
-    );
+    final agentWRs = matches.getAllAgentNmrwr();
+    final comboSynergyStats =
+        CanonicalizedMap<String, (Agent, Agent), ComboSynergyStat>(
+          (key) => key.comboName,
+        );
     for (final (agentOne, agentTwo) in _availableCombos) {
-      final oneWR = agentWRs.putIfAbsent(
-        agentOne.name,
-        () => matches.getAgentNmrwr(agentOne),
-      );
-      final twoWR = agentWRs.putIfAbsent(
-        agentTwo.name,
-        () => matches.getAgentNmrwr(agentTwo),
-      );
       final comboWR = matches.getComboNmrwr(
         agentOne,
         agentTwo,
         criteria: criteria,
       );
       if (comboWR.played > 0) {
+        final oneWR = agentWRs[agentOne] ?? Score.zero;
+        final twoWR = agentWRs[agentTwo] ?? Score.zero;
         comboSynergyStats[(agentOne, agentTwo)] = ComboSynergyStat(
           oneWR: oneWR,
           twoWR: twoWR,
@@ -209,19 +227,27 @@ class MatchesRepository {
     WinLossFilter winLossFilter = WinLossFilter.all,
     (Role, Role) rolesCombo = (Role.unknown, Role.unknown),
   }) {
-    final winLossStats = winLossFilter.apply(synergyStats);
-    return {
-      for (final MapEntry(key: combo, value: stat) in winLossStats.entries)
-        if (switch (rolesCombo) {
+    return CanonicalizedMap<
+      String,
+      (Agent, Agent),
+      ComboSynergyStat
+    >.fromEntries(
+      synergyStats.entries.where((entry) {
+        final MapEntry(key: combo, value: stat) = entry;
+        if (!winLossFilter.check(stat.comboWR)) {
+          return false;
+        }
+        return switch (rolesCombo) {
           (Role.unknown, Role.unknown) => true,
           (final role, Role.unknown) || (Role.unknown, final role) =>
             combo.$1.role == role || combo.$2.role == role,
           (final roleOne, final roleTwo) =>
             (roleOne, roleTwo) == combo.roleCombo ||
                 (roleTwo, roleOne) == combo.roleCombo,
-        })
-          combo: stat,
-    };
+        };
+      }),
+      (key) => key.comboName,
+    );
   }
 }
 
