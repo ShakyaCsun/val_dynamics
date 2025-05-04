@@ -569,6 +569,14 @@
     "@compositeCriteriaTooltip": {
         "description": "The tooltip for what Composite criteria for non-mirror match does"
     },
+    "minMatchesLabel": "Minimum Matches",
+    "@minMatchesLabel": {
+        "description": "The label for minimum matches played filter."
+    },
+    "minRoundsLabel": "Minimum Rounds",
+    "@minRoundsLabel": {
+        "description": "The label for minimum rounds played filter."
+    },
     "winRateFilter": "Win Rates",
     "@winRateFilter": {
         "description": "The label for Win rate filter"

@@ -25,7 +25,8 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String equalPoints(double count) {
-    final intl.NumberFormat countNumberFormat = intl.NumberFormat.decimalPattern(localeName);
+    final intl.NumberFormat countNumberFormat = intl
+        .NumberFormat.decimalPattern(localeName);
     final String countString = countNumberFormat.format(count);
 
     return 'each with $countString points';
@@ -33,7 +34,8 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String nearlyEqualPoints(double count) {
-    final intl.NumberFormat countNumberFormat = intl.NumberFormat.decimalPattern(localeName);
+    final intl.NumberFormat countNumberFormat = intl
+        .NumberFormat.decimalPattern(localeName);
     final String countString = countNumberFormat.format(count);
 
     return 'each with around $countString points';
@@ -41,9 +43,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String differentPointsRange(int count, double low, double high) {
-    final intl.NumberFormat lowNumberFormat = intl.NumberFormat.decimalPattern(localeName);
+    final intl.NumberFormat lowNumberFormat = intl.NumberFormat.decimalPattern(
+      localeName,
+    );
     final String lowString = lowNumberFormat.format(low);
-    final intl.NumberFormat highNumberFormat = intl.NumberFormat.decimalPattern(localeName);
+    final intl.NumberFormat highNumberFormat = intl.NumberFormat.decimalPattern(
+      localeName,
+    );
     final String highString = highNumberFormat.format(high);
 
     String _temp0 = intl.Intl.pluralLogic(
@@ -85,19 +91,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get importAgentsJson => 'Import Agents JSON';
 
   @override
-  String get importAgentsHelp => 'Copy one of the JSON samples to create your own agents rating JSON file. Importing Agents is temporary (for now) and does not leave your browser.';
+  String get importAgentsHelp =>
+      'Copy one of the JSON samples to create your own agents rating JSON file. Importing Agents is temporary (for now) and does not leave your browser.';
 
   @override
   String get copyMinAgentsSample => 'Copy minimal Agents JSON';
 
   @override
-  String get copyMinAgentsHelp => 'Copies a JSON sample with minimum required fields to the clipboard.';
+  String get copyMinAgentsHelp =>
+      'Copies a JSON sample with minimum required fields to the clipboard.';
 
   @override
   String get copyAgentsSample => 'Copy Agents JSON';
 
   @override
-  String get copyAgentsHelp => 'Copies a JSON sample with all the fields for agents ratings to the clipboard.';
+  String get copyAgentsHelp =>
+      'Copies a JSON sample with all the fields for agents ratings to the clipboard.';
 
   @override
   String get agentsCopiedMessage => 'Sample Agents JSON copied to clipboard';
@@ -106,7 +115,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get addAgentRatings => 'Add Agents Ratings';
 
   @override
-  String get invalidAgentsFormat => 'The selected file is likely invalid. Please try again. Copy the samples if necessary';
+  String get invalidAgentsFormat =>
+      'The selected file is likely invalid. Please try again. Copy the samples if necessary';
 
   @override
   String get invalidForm => 'Invalid Form Data';
@@ -129,19 +139,23 @@ class AppLocalizationsEn extends AppLocalizations {
   String get matchesCollectionNameLabel => 'Event/Collection Name';
 
   @override
-  String get emptyMatchesCollectionNameError => 'Event/Collection Name cannot be empty';
+  String get emptyMatchesCollectionNameError =>
+      'Event/Collection Name cannot be empty';
 
   @override
-  String get selectRibMatchesCsv => 'Select a csv file with matches from Run it Back(rib.gg)';
+  String get selectRibMatchesCsv =>
+      'Select a csv file with matches from Run it Back(rib.gg)';
 
   @override
-  String get pleaseSelectRibMatchesCsv => 'Please select a csv file with matches from Run it Back(rib.gg)';
+  String get pleaseSelectRibMatchesCsv =>
+      'Please select a csv file with matches from Run it Back(rib.gg)';
 
   @override
   String get importMatchesCsv => 'Import Matches CSV';
 
   @override
-  String get invalidMatchesCsvError => 'The selected matches CSV is invalid. Please check the csv and ensure the csv has same format as output of rib matches.';
+  String get invalidMatchesCsvError =>
+      'The selected matches CSV is invalid. Please check the csv and ensure the csv has same format as output of rib matches.';
 
   @override
   String matchesAdded(String csvFile, String name) {
@@ -206,7 +220,8 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get noCompsForFilter => 'No Comps matching selected filters. Try Resetting';
+  String get noCompsForFilter =>
+      'No Comps matching selected filters. Try Resetting';
 
   @override
   String nDifferentComps(int count) {
@@ -309,9 +324,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String winRatePercent(double winRate) {
-    final intl.NumberFormat winRateNumberFormat = intl.NumberFormat.decimalPercentPattern(
+    final intl.NumberFormat winRateNumberFormat = intl
+        .NumberFormat.decimalPercentPattern(
       locale: localeName,
-      decimalDigits: 2
+      decimalDigits: 2,
     );
     final String winRateString = winRateNumberFormat.format(winRate);
 
@@ -383,10 +399,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get comboNonMirrorCriteria => 'Non-Mirror Criteria';
 
   @override
-  String get soloCriteriaTooltip => 'Removes matches where either agent appears on the opposing team';
+  String get soloCriteriaTooltip =>
+      'Removes matches where either agent appears on the opposing team';
 
   @override
-  String get compositeCriteriaTooltip => 'Only removes matches where both agents appear on the opposing team';
+  String get compositeCriteriaTooltip =>
+      'Only removes matches where both agents appear on the opposing team';
+
+  @override
+  String get minMatchesLabel => 'Minimum Matches';
+
+  @override
+  String get minRoundsLabel => 'Minimum Rounds';
 
   @override
   String get winRateFilter => 'Win Rates';

@@ -168,6 +168,7 @@ class MatchesRepository {
     ComboCriteria criteria = ComboCriteria.composite,
     WinLossFilter winLossFilter = WinLossFilter.all,
     (Role, Role) rolesCombo = (Role.unknown, Role.unknown),
+    int minRounds = 0,
   }) {
     final cache = switch (criteria) {
       ComboCriteria.composite => _cachedMapSynergiesComposite,
@@ -179,6 +180,7 @@ class MatchesRepository {
         stats,
         winLossFilter: winLossFilter,
         rolesCombo: rolesCombo,
+        minRounds: minRounds,
       );
     }
     final matches = getMatches(maps: maps, filter: MatchUpFilter.composition);
@@ -191,6 +193,7 @@ class MatchesRepository {
       synergyStats,
       winLossFilter: winLossFilter,
       rolesCombo: rolesCombo,
+      minRounds: minRounds,
     );
   }
 
@@ -226,6 +229,7 @@ class MatchesRepository {
     Map<(Agent, Agent), ComboSynergyStat> synergyStats, {
     WinLossFilter winLossFilter = WinLossFilter.all,
     (Role, Role) rolesCombo = (Role.unknown, Role.unknown),
+    int minRounds = 0,
   }) {
     return CanonicalizedMap<
       String,
@@ -235,6 +239,9 @@ class MatchesRepository {
       synergyStats.entries.where((entry) {
         final MapEntry(key: combo, value: stat) = entry;
         if (!winLossFilter.check(stat.comboWR)) {
+          return false;
+        }
+        if (stat.comboWR.played < minRounds) {
           return false;
         }
         return switch (rolesCombo) {

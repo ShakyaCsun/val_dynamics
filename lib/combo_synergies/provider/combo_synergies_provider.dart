@@ -24,12 +24,14 @@ Map<(Agent, Agent), ComboSynergyStat> comboSynergies(
     :rolesCombo,
     :selectedMaps,
     :winLossFilter,
+    :minRounds,
   ) = ref.watch(comboSynergyFilterProvider(collectionId: collectionId));
   return matchRepository.getAllComboSynergies(
     criteria: comboCriteria,
     maps: selectedMaps,
     rolesCombo: rolesCombo,
     winLossFilter: winLossFilter,
+    minRounds: minRounds,
   );
 }
 
@@ -119,14 +121,13 @@ class ComboSynergyFilter extends _$ComboSynergyFilter {
     }
   }
 
+  void changeMinRounds(int minRounds) {
+    state = state.copyWith(minRounds: minRounds);
+  }
+
   void resetAll() {
     if (!state.defaultSettings) {
-      state = state.copyWith(
-        comboCriteria: ComboCriteria.composite,
-        selectedMaps: {},
-        rolesCombo: (Role.unknown, Role.unknown),
-        winLossFilter: WinLossFilter.all,
-      );
+      state = const SynergiesFilterState();
     }
   }
 }
@@ -138,15 +139,13 @@ abstract class SynergiesFilterState with _$SynergiesFilterState {
     @Default({}) Set<String> selectedMaps,
     @Default((Role.unknown, Role.unknown)) (Role, Role) rolesCombo,
     @Default(ComboCriteria.composite) ComboCriteria comboCriteria,
+    @Default(0) int minRounds,
   }) = _SynergiesState;
 
   const SynergiesFilterState._();
 
   bool get defaultSettings {
-    return selectedMaps.isEmpty &&
-        comboCriteria == ComboCriteria.composite &&
-        rolesCombo == (Role.unknown, Role.unknown) &&
-        winLossFilter == WinLossFilter.all;
+    return this == const SynergiesFilterState();
   }
 }
 

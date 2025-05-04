@@ -16,6 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$MatchesFilterState {
   MatchUpFilter get filter;
   Set<String> get maps;
+  int get minMatches;
 
   /// Create a copy of MatchesFilterState
   /// with the given fields replaced by the non-null parameter values.
@@ -33,7 +34,9 @@ mixin _$MatchesFilterState {
         (other.runtimeType == runtimeType &&
             other is MatchesFilterState &&
             (identical(other.filter, filter) || other.filter == filter) &&
-            const DeepCollectionEquality().equals(other.maps, maps));
+            const DeepCollectionEquality().equals(other.maps, maps) &&
+            (identical(other.minMatches, minMatches) ||
+                other.minMatches == minMatches));
   }
 
   @override
@@ -41,11 +44,12 @@ mixin _$MatchesFilterState {
     runtimeType,
     filter,
     const DeepCollectionEquality().hash(maps),
+    minMatches,
   );
 
   @override
   String toString() {
-    return 'MatchesFilterState(filter: $filter, maps: $maps)';
+    return 'MatchesFilterState(filter: $filter, maps: $maps, minMatches: $minMatches)';
   }
 }
 
@@ -56,7 +60,7 @@ abstract mixin class $MatchesFilterStateCopyWith<$Res> {
     $Res Function(MatchesFilterState) _then,
   ) = _$MatchesFilterStateCopyWithImpl;
   @useResult
-  $Res call({MatchUpFilter filter, Set<String> maps});
+  $Res call({MatchUpFilter filter, Set<String> maps, int minMatches});
 }
 
 /// @nodoc
@@ -71,7 +75,11 @@ class _$MatchesFilterStateCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? filter = null, Object? maps = null}) {
+  $Res call({
+    Object? filter = null,
+    Object? maps = null,
+    Object? minMatches = null,
+  }) {
     return _then(
       _self.copyWith(
         filter:
@@ -84,6 +92,11 @@ class _$MatchesFilterStateCopyWithImpl<$Res>
                 ? _self.maps
                 : maps // ignore: cast_nullable_to_non_nullable
                     as Set<String>,
+        minMatches:
+            null == minMatches
+                ? _self.minMatches
+                : minMatches // ignore: cast_nullable_to_non_nullable
+                    as int,
       ),
     );
   }
@@ -95,6 +108,7 @@ class _MatchesState implements MatchesFilterState {
   const _MatchesState({
     this.filter = MatchUpFilter.styles,
     final Set<String> maps = const {},
+    this.minMatches = 0,
   }) : _maps = maps;
 
   @override
@@ -108,6 +122,10 @@ class _MatchesState implements MatchesFilterState {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableSetView(_maps);
   }
+
+  @override
+  @JsonKey()
+  final int minMatches;
 
   /// Create a copy of MatchesFilterState
   /// with the given fields replaced by the non-null parameter values.
@@ -123,7 +141,9 @@ class _MatchesState implements MatchesFilterState {
         (other.runtimeType == runtimeType &&
             other is _MatchesState &&
             (identical(other.filter, filter) || other.filter == filter) &&
-            const DeepCollectionEquality().equals(other._maps, _maps));
+            const DeepCollectionEquality().equals(other._maps, _maps) &&
+            (identical(other.minMatches, minMatches) ||
+                other.minMatches == minMatches));
   }
 
   @override
@@ -131,11 +151,12 @@ class _MatchesState implements MatchesFilterState {
     runtimeType,
     filter,
     const DeepCollectionEquality().hash(_maps),
+    minMatches,
   );
 
   @override
   String toString() {
-    return 'MatchesFilterState(filter: $filter, maps: $maps)';
+    return 'MatchesFilterState(filter: $filter, maps: $maps, minMatches: $minMatches)';
   }
 }
 
@@ -148,7 +169,7 @@ abstract mixin class _$MatchesStateCopyWith<$Res>
   ) = __$MatchesStateCopyWithImpl;
   @override
   @useResult
-  $Res call({MatchUpFilter filter, Set<String> maps});
+  $Res call({MatchUpFilter filter, Set<String> maps, int minMatches});
 }
 
 /// @nodoc
@@ -163,7 +184,11 @@ class __$MatchesStateCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? filter = null, Object? maps = null}) {
+  $Res call({
+    Object? filter = null,
+    Object? maps = null,
+    Object? minMatches = null,
+  }) {
     return _then(
       _MatchesState(
         filter:
@@ -176,6 +201,11 @@ class __$MatchesStateCopyWithImpl<$Res>
                 ? _self._maps
                 : maps // ignore: cast_nullable_to_non_nullable
                     as Set<String>,
+        minMatches:
+            null == minMatches
+                ? _self.minMatches
+                : minMatches // ignore: cast_nullable_to_non_nullable
+                    as int,
       ),
     );
   }

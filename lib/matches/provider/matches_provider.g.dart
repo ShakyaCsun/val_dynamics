@@ -528,7 +528,7 @@ class _MatchesProviderElement
   String get collectionId => (origin as MatchesProvider).collectionId;
 }
 
-String _$matchesFilterHash() => r'617199f2b5b64c070b731c7473d185f0ca0bae5b';
+String _$matchesFilterHash() => r'8fccfeb0a893a7a5d58e6dc0c7b9d8f7ac67c3cd';
 
 abstract class _$MatchesFilter
     extends BuildlessAutoDisposeNotifier<MatchesFilterState> {
