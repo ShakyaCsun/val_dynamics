@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:ternary_plot/ternary_plot.dart';
@@ -41,7 +42,11 @@ abstract class StyledMatchesState with _$StyledMatchesState {
   }
 
   Set<AgentComp> get comps {
-    return matches.map((e) => e.teamOne.agents).toSet();
+    return {
+      ...matches
+          .map((e) => e.teamOne.agents)
+          .sortedBy((element) => element.groupedAgentNames),
+    };
   }
 
   Map<ValorantMatches, TernaryPoint> get plotData {
