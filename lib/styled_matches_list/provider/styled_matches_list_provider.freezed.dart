@@ -55,11 +55,7 @@ abstract mixin class $StyledMatchesSummaryDataCopyWith<$Res> {
     $Res Function(StyledMatchesSummaryData) _then,
   ) = _$StyledMatchesSummaryDataCopyWithImpl;
   @useResult
-  $Res call({
-    ({double aggro, double control, double midrange}) acm,
-    ({double aggro, double control, double midrange}) opponentAcm,
-    MatchesSummary summary,
-  });
+  $Res call({StylePoints acm, StylePoints opponentAcm, MatchesSummary summary});
 
   $MatchesSummaryCopyWith<$Res> get summary;
 }
@@ -87,12 +83,12 @@ class _$StyledMatchesSummaryDataCopyWithImpl<$Res>
             null == acm
                 ? _self.acm
                 : acm // ignore: cast_nullable_to_non_nullable
-                    as ({double aggro, double control, double midrange}),
+                    as StylePoints,
         opponentAcm:
             null == opponentAcm
                 ? _self.opponentAcm
                 : opponentAcm // ignore: cast_nullable_to_non_nullable
-                    as ({double aggro, double control, double midrange}),
+                    as StylePoints,
         summary:
             null == summary
                 ? _self.summary
@@ -123,9 +119,9 @@ class _StyledMatchesSummaryData implements StyledMatchesSummaryData {
   });
 
   @override
-  final ({double aggro, double control, double midrange}) acm;
+  final StylePoints acm;
   @override
-  final ({double aggro, double control, double midrange}) opponentAcm;
+  final StylePoints opponentAcm;
   @override
   final MatchesSummary summary;
 
@@ -169,11 +165,7 @@ abstract mixin class _$StyledMatchesSummaryDataCopyWith<$Res>
   ) = __$StyledMatchesSummaryDataCopyWithImpl;
   @override
   @useResult
-  $Res call({
-    ({double aggro, double control, double midrange}) acm,
-    ({double aggro, double control, double midrange}) opponentAcm,
-    MatchesSummary summary,
-  });
+  $Res call({StylePoints acm, StylePoints opponentAcm, MatchesSummary summary});
 
   @override
   $MatchesSummaryCopyWith<$Res> get summary;
@@ -202,12 +194,12 @@ class __$StyledMatchesSummaryDataCopyWithImpl<$Res>
             null == acm
                 ? _self.acm
                 : acm // ignore: cast_nullable_to_non_nullable
-                    as ({double aggro, double control, double midrange}),
+                    as StylePoints,
         opponentAcm:
             null == opponentAcm
                 ? _self.opponentAcm
                 : opponentAcm // ignore: cast_nullable_to_non_nullable
-                    as ({double aggro, double control, double midrange}),
+                    as StylePoints,
         summary:
             null == summary
                 ? _self.summary

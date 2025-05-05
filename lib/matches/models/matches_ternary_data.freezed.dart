@@ -82,7 +82,7 @@ abstract mixin class $MatchesTernaryDataCopyWith<$Res> {
   ) = _$MatchesTernaryDataCopyWithImpl;
   @useResult
   $Res call({
-    ({double aggro, double control, double midrange}) stylePoints,
+    StylePoints stylePoints,
     int matchesCount,
     Score score,
     Score attackScore,
@@ -119,7 +119,7 @@ class _$MatchesTernaryDataCopyWithImpl<$Res>
             null == stylePoints
                 ? _self.stylePoints
                 : stylePoints // ignore: cast_nullable_to_non_nullable
-                    as ({double aggro, double control, double midrange}),
+                    as StylePoints,
         matchesCount:
             null == matchesCount
                 ? _self.matchesCount
@@ -171,7 +171,7 @@ class _MatchesTernaryData extends MatchesTernaryData {
        super._();
 
   @override
-  final ({double aggro, double control, double midrange}) stylePoints;
+  final StylePoints stylePoints;
   @override
   final int matchesCount;
   @override
@@ -257,7 +257,7 @@ abstract mixin class _$MatchesTernaryDataCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    ({double aggro, double control, double midrange}) stylePoints,
+    StylePoints stylePoints,
     int matchesCount,
     Score score,
     Score attackScore,
@@ -294,7 +294,7 @@ class __$MatchesTernaryDataCopyWithImpl<$Res>
             null == stylePoints
                 ? _self.stylePoints
                 : stylePoints // ignore: cast_nullable_to_non_nullable
-                    as ({double aggro, double control, double midrange}),
+                    as StylePoints,
         matchesCount:
             null == matchesCount
                 ? _self.matchesCount

@@ -18,6 +18,7 @@ mixin _$SynergiesFilterState {
   Set<String> get selectedMaps;
   (Role, Role) get rolesCombo;
   ComboCriteria get comboCriteria;
+  int get minRounds;
 
   /// Create a copy of SynergiesFilterState
   /// with the given fields replaced by the non-null parameter values.
@@ -43,7 +44,9 @@ mixin _$SynergiesFilterState {
             (identical(other.rolesCombo, rolesCombo) ||
                 other.rolesCombo == rolesCombo) &&
             (identical(other.comboCriteria, comboCriteria) ||
-                other.comboCriteria == comboCriteria));
+                other.comboCriteria == comboCriteria) &&
+            (identical(other.minRounds, minRounds) ||
+                other.minRounds == minRounds));
   }
 
   @override
@@ -53,11 +56,12 @@ mixin _$SynergiesFilterState {
     const DeepCollectionEquality().hash(selectedMaps),
     rolesCombo,
     comboCriteria,
+    minRounds,
   );
 
   @override
   String toString() {
-    return 'SynergiesFilterState(winLossFilter: $winLossFilter, selectedMaps: $selectedMaps, rolesCombo: $rolesCombo, comboCriteria: $comboCriteria)';
+    return 'SynergiesFilterState(winLossFilter: $winLossFilter, selectedMaps: $selectedMaps, rolesCombo: $rolesCombo, comboCriteria: $comboCriteria, minRounds: $minRounds)';
   }
 }
 
@@ -73,6 +77,7 @@ abstract mixin class $SynergiesFilterStateCopyWith<$Res> {
     Set<String> selectedMaps,
     (Role, Role) rolesCombo,
     ComboCriteria comboCriteria,
+    int minRounds,
   });
 }
 
@@ -93,6 +98,7 @@ class _$SynergiesFilterStateCopyWithImpl<$Res>
     Object? selectedMaps = null,
     Object? rolesCombo = null,
     Object? comboCriteria = null,
+    Object? minRounds = null,
   }) {
     return _then(
       _self.copyWith(
@@ -116,6 +122,11 @@ class _$SynergiesFilterStateCopyWithImpl<$Res>
                 ? _self.comboCriteria
                 : comboCriteria // ignore: cast_nullable_to_non_nullable
                     as ComboCriteria,
+        minRounds:
+            null == minRounds
+                ? _self.minRounds
+                : minRounds // ignore: cast_nullable_to_non_nullable
+                    as int,
       ),
     );
   }
@@ -129,6 +140,7 @@ class _SynergiesState extends SynergiesFilterState {
     final Set<String> selectedMaps = const {},
     this.rolesCombo = const (Role.unknown, Role.unknown),
     this.comboCriteria = ComboCriteria.composite,
+    this.minRounds = 0,
   }) : _selectedMaps = selectedMaps,
        super._();
 
@@ -150,6 +162,9 @@ class _SynergiesState extends SynergiesFilterState {
   @override
   @JsonKey()
   final ComboCriteria comboCriteria;
+  @override
+  @JsonKey()
+  final int minRounds;
 
   /// Create a copy of SynergiesFilterState
   /// with the given fields replaced by the non-null parameter values.
@@ -173,7 +188,9 @@ class _SynergiesState extends SynergiesFilterState {
             (identical(other.rolesCombo, rolesCombo) ||
                 other.rolesCombo == rolesCombo) &&
             (identical(other.comboCriteria, comboCriteria) ||
-                other.comboCriteria == comboCriteria));
+                other.comboCriteria == comboCriteria) &&
+            (identical(other.minRounds, minRounds) ||
+                other.minRounds == minRounds));
   }
 
   @override
@@ -183,11 +200,12 @@ class _SynergiesState extends SynergiesFilterState {
     const DeepCollectionEquality().hash(_selectedMaps),
     rolesCombo,
     comboCriteria,
+    minRounds,
   );
 
   @override
   String toString() {
-    return 'SynergiesFilterState(winLossFilter: $winLossFilter, selectedMaps: $selectedMaps, rolesCombo: $rolesCombo, comboCriteria: $comboCriteria)';
+    return 'SynergiesFilterState(winLossFilter: $winLossFilter, selectedMaps: $selectedMaps, rolesCombo: $rolesCombo, comboCriteria: $comboCriteria, minRounds: $minRounds)';
   }
 }
 
@@ -205,6 +223,7 @@ abstract mixin class _$SynergiesStateCopyWith<$Res>
     Set<String> selectedMaps,
     (Role, Role) rolesCombo,
     ComboCriteria comboCriteria,
+    int minRounds,
   });
 }
 
@@ -225,6 +244,7 @@ class __$SynergiesStateCopyWithImpl<$Res>
     Object? selectedMaps = null,
     Object? rolesCombo = null,
     Object? comboCriteria = null,
+    Object? minRounds = null,
   }) {
     return _then(
       _SynergiesState(
@@ -248,6 +268,11 @@ class __$SynergiesStateCopyWithImpl<$Res>
                 ? _self.comboCriteria
                 : comboCriteria // ignore: cast_nullable_to_non_nullable
                     as ComboCriteria,
+        minRounds:
+            null == minRounds
+                ? _self.minRounds
+                : minRounds // ignore: cast_nullable_to_non_nullable
+                    as int,
       ),
     );
   }

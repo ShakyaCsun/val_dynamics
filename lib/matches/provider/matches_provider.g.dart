@@ -6,7 +6,7 @@ part of 'matches_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$matchesRepositoryHash() => r'f3c0495b70914631f92bebeafed97793e2c7d84c';
+String _$matchesRepositoryHash() => r'2570457637d02aa38fa33943af48e7ce4355feb5';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -528,7 +528,7 @@ class _MatchesProviderElement
   String get collectionId => (origin as MatchesProvider).collectionId;
 }
 
-String _$matchesFilterHash() => r'617199f2b5b64c070b731c7473d185f0ca0bae5b';
+String _$matchesFilterHash() => r'8fccfeb0a893a7a5d58e6dc0c7b9d8f7ac67c3cd';
 
 abstract class _$MatchesFilter
     extends BuildlessAutoDisposeNotifier<MatchesFilterState> {

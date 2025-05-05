@@ -34,7 +34,10 @@ class AddMatches extends _$AddMatches {
     if (state.isValid) {
       try {
         final matchesCsv = await state.csvFile.value!.readAsString();
-        final matches = ValorantMatches.rawMatchesFrom(csv: matchesCsv);
+        final matches = ValorantMatches.rawMatchesFrom(
+          // Fix for Waylay bug in RiB
+          csv: matchesCsv.replaceAll('Waylay\n', 'Waylay'),
+        );
         final defaultRosterName = ref.read(defaultRosterNameProvider);
         final addedName = ref
             .read(matchesCollectionListProvider.notifier)

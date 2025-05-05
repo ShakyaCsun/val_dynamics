@@ -6,7 +6,7 @@ part of 'combo_synergies_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$comboSynergiesHash() => r'ea45c5dfb7fe268a6c95ae792c4f9df1d20bf59b';
+String _$comboSynergiesHash() => r'e9fc749b34b6338b9bd586bef89a68e6d407e120';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -306,7 +306,7 @@ final comboSynergySortProvider =
 
 typedef _$ComboSynergySort = Notifier<SynergySort>;
 String _$comboSynergyFilterHash() =>
-    r'36d5b50cd24c2349bcf372dad8ad7fa83e206311';
+    r'85d7a22647572ccbc0c3c131ce981b9da95132ef';
 
 abstract class _$ComboSynergyFilter
     extends BuildlessAutoDisposeNotifier<SynergiesFilterState> {

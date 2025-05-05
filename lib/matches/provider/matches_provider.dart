@@ -105,6 +105,10 @@ class MatchesFilter extends _$MatchesFilter {
       state = state.copyWith(maps: state.maps.union({mapName}));
     }
   }
+
+  void changeMinMatches(int minMatches) {
+    state = state.copyWith(minMatches: minMatches);
+  }
 }
 
 @freezed
@@ -112,6 +116,7 @@ abstract class MatchesFilterState with _$MatchesFilterState {
   const factory MatchesFilterState({
     @Default(MatchUpFilter.styles) MatchUpFilter filter,
     @Default({}) Set<String> maps,
+    @Default(0) int minMatches,
   }) = _MatchesState;
 }
 
@@ -122,6 +127,16 @@ extension ValorantMatchesExtension on ValorantMatches {
       for (final MapEntry(key: stylePoints, value: valMatches)
           in stylePointsMatches.entries)
         valMatches: stylePoints.ternaryPoint,
+    };
+  }
+
+  Map<ValorantMatches, TernaryPoint> filteredPlotData(int minMatches) {
+    final stylePointsMatches = groupedByStylePoints();
+    return {
+      for (final MapEntry(key: stylePoints, value: valMatches)
+          in stylePointsMatches.entries)
+        if (valMatches.length >= minMatches)
+          valMatches: stylePoints.ternaryPoint,
     };
   }
 }

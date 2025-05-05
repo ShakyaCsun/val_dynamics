@@ -131,4 +131,25 @@ extension StylePointsExtension on StylePoints {
     }
     return 'Aggro($A) Control($C) Midrange($M)';
   }
+
+  StyleType get styleType => StyleType.fromStylePoints(this);
+
+  /// Normalized to total of 100 points.
+  ///
+  /// Note: it is not guaranteed that the return [StylePoints] will total to
+  /// exactly 100, because of how floating points work.
+  StylePoints get normalized {
+    final totalPoints = total;
+    if (totalPoints == 100) {
+      return this;
+    }
+    final aggroPercentage = aggro / totalPoints * 100;
+    final controlPercentage = control / totalPoints * 100;
+    final midrangePercentage = midrange / totalPoints * 100;
+    return (
+      aggro: aggroPercentage,
+      control: controlPercentage,
+      midrange: midrangePercentage,
+    );
+  }
 }

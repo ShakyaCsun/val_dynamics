@@ -150,6 +150,11 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
             },
           ),
         ),
+        DrawerHeaderText(l10n.minRoundsLabel),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 28),
+          child: MinRoundsInput(collectionName: collectionName),
+        ),
         DrawerHeaderText(l10n.roleComboFilter),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 28),
@@ -191,6 +196,37 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class MinRoundsInput extends StatelessWidget {
+  const MinRoundsInput({required this.collectionName, super.key});
+
+  final String collectionName;
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer(
+      builder: (context, ref, child) {
+        final minRounds = ref.watch(
+          comboSynergyFilterProvider(
+            collectionId: collectionName,
+          ).select((state) => state.minRounds),
+        );
+        return SliderTextInput(
+          currentValue: minRounds,
+          onChanged: (value) {
+            ref
+                .read(
+                  comboSynergyFilterProvider(
+                    collectionId: collectionName,
+                  ).notifier,
+                )
+                .changeMinRounds(value);
+          },
+        );
+      },
     );
   }
 }

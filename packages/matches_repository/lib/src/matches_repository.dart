@@ -1,5 +1,6 @@
 import 'dart:collection';
 
+import 'package:collection/collection.dart';
 import 'package:matches_repository/matches_repository.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
@@ -23,7 +24,7 @@ class MatchesRepository {
   final Agents agentRoster;
   final ValorantMatches matches;
   late final Set<String> availableMaps = Set<String>.unmodifiable(
-    matches.map((match) => match.mapName),
+    matches.map((match) => match.mapName).sorted(),
   );
   late final ValorantMatches nonMirrorMatches = matches.nonMirroredMatches;
   late final ValorantMatches nonMirrorStyledMatches =
@@ -77,10 +78,89 @@ class MatchesRepository {
           .expand((match) => [match, match.reversed])
           .where(
             (match) =>
-                match.satisfiesComboNM(agentOne, agentTwo, criteria: criteria),
+                match.satisfiesComboNM(
+                  agentOne,
+                  agentTwo,
+                  criteria: criteria,
+                ) ==
+                NonMirror.yes,
           )
           .toList(),
     );
+  }
+
+  Map<StyleType, StyleTypeStat> getStyleTypeStats({
+    Set<String> maps = const {},
+  }) {
+    final matches = getMatches(maps: maps, filter: MatchUpFilter.none);
+    final styleTypeMatches = <(StyleType, StyleType), List<ValorantMatch>>{};
+    final totalCompPicks = matches.length * 2;
+    final stylePicks = <StyleType, int>{};
+    for (final match in matches) {
+      final ValorantMatch(:typeOne, :typeTwo) = match;
+      stylePicks
+        ..update(typeOne, (value) => value + 1, ifAbsent: () => 1)
+        ..update(typeTwo, (value) => value + 1, ifAbsent: () => 1);
+      if (typeOne == typeTwo) {
+        continue;
+      }
+      final key = (typeOne, typeTwo);
+      final alternateKey = (typeTwo, typeOne);
+      if (styleTypeMatches.containsKey(alternateKey)) {
+        styleTypeMatches.update(
+          alternateKey,
+          (value) => [...value, match.reversed],
+        );
+      } else {
+        styleTypeMatches.update(
+          key,
+          (value) => [...value, match],
+          ifAbsent: () => [match],
+        );
+      }
+    }
+    final styleTypeStats = <StyleType, StyleTypeStat>{};
+    final styleTypeWinRates = <(StyleType, StyleType), Score>{
+      for (final MapEntry(key: (typeOne, typeTwo), value: score)
+          in styleTypeMatches.entries
+              .map<MapEntry<(StyleType, StyleType), Score>>(
+                (entry) => MapEntry(
+                  entry.key,
+                  ValorantMatches(entry.value).collectTeamOneScore(),
+                ),
+              )) ...{
+        (typeOne, typeTwo): score,
+        (typeTwo, typeOne): score.reversed,
+      },
+    };
+    Score winRateOfStyleType(
+      Map<(StyleType, StyleType), Score> typedMatchWR,
+      StyleType styleType,
+    ) {
+      return typedMatchWR.entries.fold(Score.zero, (previousValue, element) {
+        if (element.key.$1 == styleType) {
+          return previousValue + element.value;
+        }
+        return previousValue;
+      });
+    }
+
+    for (final MapEntry(key: styleType, value: picks) in stylePicks.entries) {
+      styleTypeStats[styleType] = StyleTypeStat(
+        type: styleType,
+        picks: picks,
+        pickRate: picks / totalCompPicks,
+        nonMirrorWR: winRateOfStyleType(styleTypeWinRates, styleType),
+        winRates: {
+          for (final MapEntry(key: (_, typeTwo), value: winRate)
+              in styleTypeWinRates.entries.where(
+                (element) => element.key.$1 == styleType,
+              ))
+            typeTwo: winRate,
+        },
+      );
+    }
+    return styleTypeStats;
   }
 
   Map<(Agent, Agent), ComboSynergyStat> getAllComboSynergies({
@@ -88,6 +168,7 @@ class MatchesRepository {
     ComboCriteria criteria = ComboCriteria.composite,
     WinLossFilter winLossFilter = WinLossFilter.all,
     (Role, Role) rolesCombo = (Role.unknown, Role.unknown),
+    int minRounds = 0,
   }) {
     final cache = switch (criteria) {
       ComboCriteria.composite => _cachedMapSynergiesComposite,
@@ -99,6 +180,7 @@ class MatchesRepository {
         stats,
         winLossFilter: winLossFilter,
         rolesCombo: rolesCombo,
+        minRounds: minRounds,
       );
     }
     final matches = getMatches(maps: maps, filter: MatchUpFilter.composition);
@@ -111,6 +193,7 @@ class MatchesRepository {
       synergyStats,
       winLossFilter: winLossFilter,
       rolesCombo: rolesCombo,
+      minRounds: minRounds,
     );
   }
 
@@ -118,26 +201,20 @@ class MatchesRepository {
     required ValorantMatches matches,
     ComboCriteria criteria = ComboCriteria.composite,
   }) {
-    final agentWRs = <String, Score>{};
-    final comboSynergyStats = LinkedHashMap<(Agent, Agent), ComboSynergyStat>(
-      equals: (key1, key2) => key1.comboName == key2.comboName,
-      hashCode: (p0) => p0.comboName.hashCode,
-    );
+    final agentWRs = matches.getAllAgentNmrwr();
+    final comboSynergyStats =
+        CanonicalizedMap<String, (Agent, Agent), ComboSynergyStat>(
+          (key) => key.comboName,
+        );
     for (final (agentOne, agentTwo) in _availableCombos) {
-      final oneWR = agentWRs.putIfAbsent(
-        agentOne.name,
-        () => matches.getAgentNmrwr(agentOne),
-      );
-      final twoWR = agentWRs.putIfAbsent(
-        agentTwo.name,
-        () => matches.getAgentNmrwr(agentTwo),
-      );
       final comboWR = matches.getComboNmrwr(
         agentOne,
         agentTwo,
         criteria: criteria,
       );
       if (comboWR.played > 0) {
+        final oneWR = agentWRs[agentOne] ?? Score.zero;
+        final twoWR = agentWRs[agentTwo] ?? Score.zero;
         comboSynergyStats[(agentOne, agentTwo)] = ComboSynergyStat(
           oneWR: oneWR,
           twoWR: twoWR,
@@ -145,27 +222,39 @@ class MatchesRepository {
         );
       }
     }
-    return Map.unmodifiable(comboSynergyStats);
+    return comboSynergyStats;
   }
 
   Map<(Agent, Agent), ComboSynergyStat> _filterSynergies(
     Map<(Agent, Agent), ComboSynergyStat> synergyStats, {
     WinLossFilter winLossFilter = WinLossFilter.all,
     (Role, Role) rolesCombo = (Role.unknown, Role.unknown),
+    int minRounds = 0,
   }) {
-    final winLossStats = winLossFilter.apply(synergyStats);
-    return {
-      for (final MapEntry(key: combo, value: stat) in winLossStats.entries)
-        if (switch (rolesCombo) {
+    return CanonicalizedMap<
+      String,
+      (Agent, Agent),
+      ComboSynergyStat
+    >.fromEntries(
+      synergyStats.entries.where((entry) {
+        final MapEntry(key: combo, value: stat) = entry;
+        if (!winLossFilter.check(stat.comboWR)) {
+          return false;
+        }
+        if (stat.comboWR.played < minRounds) {
+          return false;
+        }
+        return switch (rolesCombo) {
           (Role.unknown, Role.unknown) => true,
           (final role, Role.unknown) || (Role.unknown, final role) =>
             combo.$1.role == role || combo.$2.role == role,
           (final roleOne, final roleTwo) =>
             (roleOne, roleTwo) == combo.roleCombo ||
                 (roleTwo, roleOne) == combo.roleCombo,
-        })
-          combo: stat,
-    };
+        };
+      }),
+      (key) => key.comboName,
+    );
   }
 }
 

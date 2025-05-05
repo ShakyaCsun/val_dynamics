@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:vsdat/app_router/routes.dart';
 import 'package:vsdat/l10n/l10n.dart';
 import 'package:vsdat/matches/matches.dart';
+import 'package:vsdat/matches/widgets/min_matches_input.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';
 
 class MatchesPage extends StatelessWidget {
@@ -46,9 +47,7 @@ class MatchesView extends ConsumerWidget {
       ),
       body: const MatchesBody(),
       drawer:
-          context.showStandardDrawer
-              ? null
-              : MatchesFilterDrawer(collectionName: collectionName),
+          context.showStandardDrawer ? null : const MinMatchesFilterDrawer(),
       drawerEnableOpenDragGesture: false,
     );
   }
@@ -76,9 +75,29 @@ class MatchesBody extends ConsumerWidget {
         if (showStandardDrawer)
           ColoredBox(
             color: Theme.of(context).colorScheme.surfaceContainerLow,
-            child: MatchesFilterDrawer(collectionName: collectionName),
+            child: const MinMatchesFilterDrawer(),
           ),
         const Expanded(child: MatchesTriangleView()),
+      ],
+    );
+  }
+}
+
+class MinMatchesFilterDrawer extends StatelessWidget {
+  @visibleForTesting
+  const MinMatchesFilterDrawer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final collectionName = context.getProperty<String>();
+    return MatchesFilterDrawer(
+      collectionName: collectionName,
+      trailing: [
+        DrawerHeaderText(context.l10n.minMatchesLabel),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 28),
+          child: MinMatchesInput(collectionName: collectionName),
+        ),
       ],
     );
   }
@@ -98,11 +117,16 @@ class MatchesTriangleView extends StatelessWidget {
         Consumer(
           builder: (context, ref, child) {
             final collectionName = context.getProperty<String>();
+            final minMatches = ref.watch(
+              matchesFilterProvider(
+                collectionId: collectionName,
+              ).select((state) => state.minMatches),
+            );
             return MatchesTriangle(
               matches: ref.watch(
                 matchesProvider(
                   collectionId: collectionName,
-                ).select((value) => value.plotData),
+                ).select((value) => value.filteredPlotData(minMatches)),
               ),
               onTap: (tappedMatches) {
                 final matches = tappedMatches.first;

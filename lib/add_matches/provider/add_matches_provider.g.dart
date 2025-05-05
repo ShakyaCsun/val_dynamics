@@ -6,7 +6,7 @@ part of 'add_matches_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$addMatchesHash() => r'a43040636f8af96dd5b5450593d32c27f119fca6';
+String _$addMatchesHash() => r'e23df694cf009e117e41dec1f789db44ee3a081a';
 
 /// See also [AddMatches].
 @ProviderFor(AddMatches)

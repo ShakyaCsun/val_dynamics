@@ -1,7 +1,6 @@
 // Example is only meant to be run in console environment
 // ignore_for_file: avoid_print
 
-import 'package:collection/collection.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
 void main() async {
@@ -80,32 +79,6 @@ void main() async {
   print(matches.getAgentNmrwr(Agent.astra));
   print(matches.getComboNmwr(Agent.astra, Agent.clove));
   print(matches.getComboNmrwr(Agent.astra, Agent.clove));
-  for (final MapEntry(
-        key: (Agent(name: agentOne), Agent(name: agentTwo)),
-        value: ComboSynergyStat(
-          :oneWR,
-          :twoWR,
-          :comboWR,
-          :synergyOne,
-          :synergyTwo,
-        ),
-      )
-      in matches
-          .getAllComboSynergies(Agents.defaultRoster)
-          .entries
-          // .sortedBy((element) => element.value.comboWR.played)
-          .sortedBy((element) => element.value.comboWR)
-          .reversed
-          .skipWhile((element) => element.value.comboWR.played == 0)
-          .take(30)) {
-    print(
-      '$agentOne($oneWR) + $agentTwo($twoWR): '
-      '$comboWR (${comboWR.winRatePercent})',
-    );
-    print('$agentOne: ${oneWR.winRatePercent} + ${synergyOne.asPercent}');
-    print('$agentTwo: ${twoWR.winRatePercent} + ${synergyTwo.asPercent}');
-    print('Combined Synergy: ${(synergyOne + synergyTwo).asPercent}');
-    print('-' * 46);
-  }
+
   print(matches.length);
 }

@@ -13,7 +13,7 @@ dependencies:
   equatable: ^2.0.7
   flutter:
     sdk: flutter
-  flutter_adaptive_scaffold: ^0.3.2
+  flutter_adaptive_scaffold: ^0.3.3
   flutter_portal: ^1.1.4
   ternary_plot:
     git: https://github.com/ShakyaCsun/ternary_plot.git

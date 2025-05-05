@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:equatable/equatable.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
@@ -19,6 +21,9 @@ class ValorantMatch extends Equatable {
 
   final StylePoints stylePoints1;
   final StylePoints stylePoints2;
+
+  late final StyleType typeOne = StyleType.fromStylePoints(stylePoints1);
+  late final StyleType typeTwo = StyleType.fromStylePoints(stylePoints2);
 
   /// A simplified match result for [teamOne].
   ///
@@ -42,6 +47,36 @@ class ValorantMatch extends Equatable {
   late final bool isMirrorComp = teamOne.agents == teamTwo.agents;
   late final bool isMirrorStyle = stylePoints1 == stylePoints2;
 
+  late final FastAgentMap<NonMirror> nonMirrorAgents = () {
+    final agentMap = FastAgentMap<NonMirror>();
+    if (isMirrorComp) {
+      return agentMap;
+    }
+    final ValorantMatch(
+      teamOne: Team(agents: agentsOne),
+      teamTwo: Team(agents: agentsTwo),
+    ) = this;
+    final oneSet = LinkedHashSet<Agent>(
+      equals: (p0, p1) => p0.name == p1.name,
+      hashCode: (p0) => p0.name.hashCode,
+    )..addAll(agentsOne.agents);
+    final twoSet = LinkedHashSet<Agent>(
+      equals: (p0, p1) => p0.name == p1.name,
+      hashCode: (p0) => p0.name.hashCode,
+    )..addAll(agentsTwo.agents);
+    for (final agent in oneSet.difference(twoSet)) {
+      agentMap[agent] = NonMirror.yes;
+    }
+    for (final agent in twoSet.difference(oneSet)) {
+      agentMap[agent] = NonMirror.yesIfReversed;
+    }
+    return agentMap;
+  }();
+
+  NonMirror checkAgentNonMirror(Agent agent) {
+    return nonMirrorAgents[agent] ?? NonMirror.no;
+  }
+
   /// Switch Team One and Team Two
   late final ValorantMatch reversed = ValorantMatch(
     mapName: mapName,
@@ -49,9 +84,14 @@ class ValorantMatch extends Equatable {
     teamTwo: teamOne,
   );
 
-  /// Returns `true` if team one has the combo of agents and team two satisfies
-  /// the criteria for this being a non-mirror combo matchup.
-  bool satisfiesComboNM(
+  /// Check if this is a non-mirror match for agents [agentOne] and [agentTwo]
+  /// in given [criteria].
+  ///
+  /// Returns:
+  /// - [NonMirror.yes] when team one satisfies the condition
+  /// - [NonMirror.yesIfReversed] when team one satisfies the condition
+  /// - [NonMirror.no] if otherwise
+  NonMirror satisfiesComboNM(
     Agent agentOne,
     Agent agentTwo, {
     required ComboCriteria criteria,
@@ -62,16 +102,30 @@ class ValorantMatch extends Equatable {
       teamTwo: Team(agents: AgentComp(agentNames: agentsTwo)),
     ) = this;
     if (agentsOne.containsAll(agentCombo)) {
-      return switch (agentsTwo.intersection(agentCombo).length) {
-        2 => false,
-        1 => switch (criteria) {
-          ComboCriteria.solo => false,
-          ComboCriteria.composite => true,
-        },
-        _ => true,
-      };
+      switch (agentsTwo.intersection(agentCombo).length) {
+        case 2:
+          return NonMirror.no;
+        case 1:
+          return switch (criteria) {
+            ComboCriteria.solo => NonMirror.no,
+            ComboCriteria.composite => NonMirror.yes,
+          };
+        default:
+          return NonMirror.yes;
+      }
     }
-    return false;
+    if (agentsTwo.containsAll(agentCombo)) {
+      switch (agentsOne.intersection(agentCombo).length) {
+        case 1:
+          return switch (criteria) {
+            ComboCriteria.solo => NonMirror.no,
+            ComboCriteria.composite => NonMirror.yesIfReversed,
+          };
+        default:
+          return NonMirror.yesIfReversed;
+      }
+    }
+    return NonMirror.no;
   }
 
   @override
