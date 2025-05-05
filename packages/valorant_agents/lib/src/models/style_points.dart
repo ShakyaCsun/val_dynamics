@@ -132,6 +132,8 @@ extension StylePointsExtension on StylePoints {
     return 'Aggro($A) Control($C) Midrange($M)';
   }
 
+  StyleType get styleType => StyleType.fromStylePoints(this);
+
   /// Normalized to total of 100 points.
   ///
   /// Note: it is not guaranteed that the return [StylePoints] will total to

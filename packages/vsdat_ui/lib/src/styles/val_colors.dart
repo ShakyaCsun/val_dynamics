@@ -30,4 +30,25 @@ class ValColors {
       Style.midrange => midrange,
     };
   }
+
+  static Color forStyleType(StyleType styleType) {
+    return switch (styleType) {
+      StyleType.heavyAggro => const Color(0xFFFF4040),
+      StyleType.heavyControl => const Color(0xFF4040FF),
+      StyleType.heavyMidrange => const Color(0xFF40FF40),
+      StyleType.aggroSubControl => const Color(0xFFCC3380),
+      StyleType.aggroSubMidrange => const Color(0xFFCC8033),
+      StyleType.aggroSubHybrid => const Color(0xFFCC5959),
+      StyleType.controlSubAggro => const Color(0xFF8033CC),
+      StyleType.controlSubMidrange => const Color(0xFF3380CC),
+      StyleType.controlSubHybrid => const Color(0xFF5959CC),
+      StyleType.midrangeSubControl => const Color(0xFF33CC80),
+      StyleType.midrangeSubAggro => const Color(0xFF80CC33),
+      StyleType.midrangeSubHybrid => const Color(0xFF59CC59),
+      StyleType.aggroControl => const Color(0xFFB31AB3),
+      StyleType.controlMidrange => const Color(0xFF1AB3B3),
+      StyleType.midrangeAggro => const Color(0xFFB3B31A),
+      StyleType.center => const Color(0xFF808080),
+    };
+  }
 }
