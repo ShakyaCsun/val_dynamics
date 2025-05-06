@@ -1,3 +1,4 @@
+import 'package:agents_repository/agents_repository.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -68,7 +69,11 @@ class AppDataNotifier extends _$AppDataNotifier {
 
       for (final (index, agentCsv) in Assets.csv.agents.values.indexed) {
         try {
-          bundledAgents[agentCsv.split('/').last] = Agents.fromCsv(
+          var keyName = agentCsv.split('/').last;
+          if (agentCsv == Assets.csv.agents.agentRatings2023) {
+            keyName = AgentsRepository.sd2_2023;
+          }
+          bundledAgents[keyName] = Agents.fromCsv(
             await rootBundle.loadString(agentCsv),
           );
         } on Exception catch (e, st) {

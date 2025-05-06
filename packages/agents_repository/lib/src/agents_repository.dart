@@ -12,14 +12,10 @@ class AgentsRepository {
   /// Dynamics 2.0 agent scoring as default and a SD2 rated agents of Champions
   /// 2024.
   AgentsRepository.basic({Map<String, Agents>? agentsCsvs})
-    : _builtInRosterNames = [
-        'Default SD2',
-        'Champions 2024 SD2',
-        ...?agentsCsvs?.keys,
-      ] {
+    : _builtInRosterNames = [defaultSD2, champs24SD2, ...?agentsCsvs?.keys] {
     final rosters = {
-      'Default SD2': Agents.defaultRoster,
-      'Champions 2024 SD2': Agents.champs24Roster,
+      defaultSD2: Agents.defaultRoster,
+      champs24SD2: Agents.champs24Roster,
       for (final MapEntry(:key, value: agents)
           in (agentsCsvs ?? <String, Agents>{}).entries)
         key: agents,
@@ -32,6 +28,15 @@ class AgentsRepository {
 
   /// List of built-in roster names that cannot be edited.
   List<String> get builtInRosterNames => _builtInRosterNames;
+
+  /// The default SD2 Roster name
+  static const defaultSD2 = 'Default SD2';
+
+  /// The SD2 Roster name for 2024 agents.
+  static const champs24SD2 = '2024 SD2';
+
+  /// The SD2 Roster name for 2023 agents.
+  static const sd2_2023 = '2023 SD2';
 
   final _defaultNameStreamController = BehaviorSubject<String>.seeded('');
 

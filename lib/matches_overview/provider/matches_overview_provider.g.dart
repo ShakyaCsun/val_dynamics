@@ -7,7 +7,7 @@ part of 'matches_overview_provider.dart';
 // **************************************************************************
 
 String _$matchesCollectionListHash() =>
-    r'39816f5b94e01a169b3842e7c827ac7f22def903';
+    r'd9e306170c938fb71b32e2655b32e7229ab09cf8';
 
 /// See also [MatchesCollectionList].
 @ProviderFor(MatchesCollectionList)

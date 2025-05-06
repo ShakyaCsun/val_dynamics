@@ -16,32 +16,30 @@ class MatchesCollectionList extends _$MatchesCollectionList {
     final matchesList = <MatchesCollection>[];
     for (final MapEntry(key: name, value: rawMatches) in matches.entries) {
       switch (name) {
-        case 'April to October 7 2024.csv':
-        case 'August-November-24.csv':
-        case 'Champions 2024.csv':
-        case 'Champions and Ascension 2024.csv':
-        case 'Game Changers 2024.csv':
+        case '2024 Game Changers and Ascension.csv':
+        case '2024 July-December.csv':
+        case '2024 VCT Season.csv':
           matchesList.add(
             MatchesCollection(
-              collectionName: name.substring(0, name.length - 4),
+              collectionName: name.csvFileName,
               rawMatches: rawMatches,
-              rosterName: 'Champions 2024 SD2',
+              rosterName: AgentsRepository.champs24SD2,
             ),
           );
-        case 'Masters Tokyo and Champions 2023.csv':
+        case '2023 Masters Tokyo and Champions.csv':
           matchesList.add(
             MatchesCollection(
-              collectionName: 'Masters Tokyo and Champions 2023',
+              collectionName: name.csvFileName,
               rawMatches: rawMatches,
-              rosterName: 'agent_ratings_2023.csv',
+              rosterName: AgentsRepository.sd2_2023,
             ),
           );
         case _:
           matchesList.add(
             MatchesCollection(
-              collectionName: name.substring(0, name.length - 4),
+              collectionName: name.csvFileName,
               rawMatches: rawMatches,
-              rosterName: 'Default SD2',
+              rosterName: AgentsRepository.defaultSD2,
             ),
           );
       }
@@ -92,4 +90,13 @@ abstract class MatchesCollection with _$MatchesCollection {
   const MatchesCollection._();
 
   int get matchesCount => rawMatches.length;
+}
+
+extension on String {
+  /// Removes last 4 characters from the String.
+  ///
+  /// It is assumed that those 4 characters are '.csv'.
+  String get csvFileName {
+    return substring(0, length - 4);
+  }
 }
