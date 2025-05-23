@@ -48,5 +48,5 @@ csv files output from the above commands.
 [anderzz_youtube_link]: https://www.youtube.com/@AnderzzTV
 [valorant_synergies_link]: https://val-synergies.pages.dev
 [run_it_back_link]: https://www.rib.gg
-[abilities_map_txt_path]: packages\vsdat_ui\assets\agents\abilities_map.txt
-[matches_csvs_path]: assets\csv\matches
+[abilities_map_txt_path]: packages/vsdat_ui/assets/agents/abilities_map.txt
+[matches_csvs_path]: assets/csv/matches/
