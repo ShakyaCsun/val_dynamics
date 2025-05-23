@@ -14,10 +14,9 @@ final addMatchesProvider =
     AutoDisposeNotifierProvider<AddMatches, AddMatchesForm>.internal(
       AddMatches.new,
       name: r'addMatchesProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$addMatchesHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$addMatchesHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );

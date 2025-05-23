@@ -98,31 +98,26 @@ class _$MatchesSummaryCopyWithImpl<$Res>
   }) {
     return _then(
       _self.copyWith(
-        matchesCount:
-            null == matchesCount
-                ? _self.matchesCount
-                : matchesCount // ignore: cast_nullable_to_non_nullable
-                    as int,
-        scoreOne:
-            null == scoreOne
-                ? _self.scoreOne
-                : scoreOne // ignore: cast_nullable_to_non_nullable
-                    as Score,
-        attackScoreOne:
-            null == attackScoreOne
-                ? _self.attackScoreOne
-                : attackScoreOne // ignore: cast_nullable_to_non_nullable
-                    as Score,
-        compsOne:
-            null == compsOne
-                ? _self.compsOne
-                : compsOne // ignore: cast_nullable_to_non_nullable
-                    as Set<AgentComp>,
-        compsTwo:
-            null == compsTwo
-                ? _self.compsTwo
-                : compsTwo // ignore: cast_nullable_to_non_nullable
-                    as Set<AgentComp>,
+        matchesCount: null == matchesCount
+            ? _self.matchesCount
+            : matchesCount // ignore: cast_nullable_to_non_nullable
+                  as int,
+        scoreOne: null == scoreOne
+            ? _self.scoreOne
+            : scoreOne // ignore: cast_nullable_to_non_nullable
+                  as Score,
+        attackScoreOne: null == attackScoreOne
+            ? _self.attackScoreOne
+            : attackScoreOne // ignore: cast_nullable_to_non_nullable
+                  as Score,
+        compsOne: null == compsOne
+            ? _self.compsOne
+            : compsOne // ignore: cast_nullable_to_non_nullable
+                  as Set<AgentComp>,
+        compsTwo: null == compsTwo
+            ? _self.compsTwo
+            : compsTwo // ignore: cast_nullable_to_non_nullable
+                  as Set<AgentComp>,
       ),
     );
   }
@@ -241,31 +236,26 @@ class __$MatchesSummaryCopyWithImpl<$Res>
   }) {
     return _then(
       _MatchesSummary(
-        matchesCount:
-            null == matchesCount
-                ? _self.matchesCount
-                : matchesCount // ignore: cast_nullable_to_non_nullable
-                    as int,
-        scoreOne:
-            null == scoreOne
-                ? _self.scoreOne
-                : scoreOne // ignore: cast_nullable_to_non_nullable
-                    as Score,
-        attackScoreOne:
-            null == attackScoreOne
-                ? _self.attackScoreOne
-                : attackScoreOne // ignore: cast_nullable_to_non_nullable
-                    as Score,
-        compsOne:
-            null == compsOne
-                ? _self._compsOne
-                : compsOne // ignore: cast_nullable_to_non_nullable
-                    as Set<AgentComp>,
-        compsTwo:
-            null == compsTwo
-                ? _self._compsTwo
-                : compsTwo // ignore: cast_nullable_to_non_nullable
-                    as Set<AgentComp>,
+        matchesCount: null == matchesCount
+            ? _self.matchesCount
+            : matchesCount // ignore: cast_nullable_to_non_nullable
+                  as int,
+        scoreOne: null == scoreOne
+            ? _self.scoreOne
+            : scoreOne // ignore: cast_nullable_to_non_nullable
+                  as Score,
+        attackScoreOne: null == attackScoreOne
+            ? _self.attackScoreOne
+            : attackScoreOne // ignore: cast_nullable_to_non_nullable
+                  as Score,
+        compsOne: null == compsOne
+            ? _self._compsOne
+            : compsOne // ignore: cast_nullable_to_non_nullable
+                  as Set<AgentComp>,
+        compsTwo: null == compsTwo
+            ? _self._compsTwo
+            : compsTwo // ignore: cast_nullable_to_non_nullable
+                  as Set<AgentComp>,
       ),
     );
   }

@@ -78,10 +78,9 @@ class FilteredCompositionsProvider
         ),
         from: filteredCompositionsProvider,
         name: r'filteredCompositionsProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product')
-                ? null
-                : _$filteredCompositionsHash,
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$filteredCompositionsHash,
         dependencies: FilteredCompositionsFamily._dependencies,
         allTransitiveDependencies:
             FilteredCompositionsFamily._allTransitiveDependencies,
@@ -206,10 +205,9 @@ class TeamCompsTernaryDataProvider
         ),
         from: teamCompsTernaryDataProvider,
         name: r'teamCompsTernaryDataProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product')
-                ? null
-                : _$teamCompsTernaryDataHash,
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$teamCompsTernaryDataHash,
         dependencies: TeamCompsTernaryDataFamily._dependencies,
         allTransitiveDependencies:
             TeamCompsTernaryDataFamily._allTransitiveDependencies,
@@ -336,10 +334,9 @@ class CompositionsReadyProvider extends AutoDisposeProvider<bool> {
         ),
         from: compositionsReadyProvider,
         name: r'compositionsReadyProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product')
-                ? null
-                : _$compositionsReadyHash,
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$compositionsReadyHash,
         dependencies: CompositionsReadyFamily._dependencies,
         allTransitiveDependencies:
             CompositionsReadyFamily._allTransitiveDependencies,
@@ -463,10 +460,9 @@ class CompositionsProvider
         () => Compositions()..rosterName = rosterName,
         from: compositionsProvider,
         name: r'compositionsProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product')
-                ? null
-                : _$compositionsHash,
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$compositionsHash,
         dependencies: CompositionsFamily._dependencies,
         allTransitiveDependencies:
             CompositionsFamily._allTransitiveDependencies,

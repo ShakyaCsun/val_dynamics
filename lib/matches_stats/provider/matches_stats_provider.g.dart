@@ -82,10 +82,9 @@ class MatchesStatsProvider
         () => MatchesStats()..collectionId = collectionId,
         from: matchesStatsProvider,
         name: r'matchesStatsProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product')
-                ? null
-                : _$matchesStatsHash,
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$matchesStatsHash,
         dependencies: MatchesStatsFamily._dependencies,
         allTransitiveDependencies:
             MatchesStatsFamily._allTransitiveDependencies,

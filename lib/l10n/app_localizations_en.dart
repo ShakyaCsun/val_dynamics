@@ -25,8 +25,8 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String equalPoints(double count) {
-    final intl.NumberFormat countNumberFormat = intl
-        .NumberFormat.decimalPattern(localeName);
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
     final String countString = countNumberFormat.format(count);
 
     return 'each with $countString points';
@@ -34,8 +34,8 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String nearlyEqualPoints(double count) {
-    final intl.NumberFormat countNumberFormat = intl
-        .NumberFormat.decimalPattern(localeName);
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
     final String countString = countNumberFormat.format(count);
 
     return 'each with around $countString points';
@@ -324,11 +324,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String winRatePercent(double winRate) {
-    final intl.NumberFormat winRateNumberFormat = intl
-        .NumberFormat.decimalPercentPattern(
-      locale: localeName,
-      decimalDigits: 2,
-    );
+    final intl.NumberFormat winRateNumberFormat =
+        intl.NumberFormat.decimalPercentPattern(
+          locale: localeName,
+          decimalDigits: 2,
+        );
     final String winRateString = winRateNumberFormat.format(winRate);
 
     return '$winRateString';

@@ -13,10 +13,9 @@ String _$bundledAgentsHash() => r'dbc8ee8b8882885aa9f3fbfd8255915c340d656f';
 final bundledAgentsProvider = AutoDisposeProvider<Map<String, Agents>>.internal(
   bundledAgents,
   name: r'bundledAgentsProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product')
-          ? null
-          : _$bundledAgentsHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$bundledAgentsHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
@@ -32,10 +31,9 @@ final bundledMatchesProvider =
     AutoDisposeProvider<Map<String, List<RawMatch>>>.internal(
       bundledMatches,
       name: r'bundledMatchesProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$bundledMatchesHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$bundledMatchesHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );
@@ -52,10 +50,9 @@ final appDataInitializationStatusProvider =
     AutoDisposeProvider<(String message, bool isInitialized)>.internal(
       appDataInitializationStatus,
       name: r'appDataInitializationStatusProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$appDataInitializationStatusHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$appDataInitializationStatusHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );
@@ -72,10 +69,9 @@ final appDataNotifierProvider =
     AutoDisposeNotifierProvider<AppDataNotifier, AppData>.internal(
       AppDataNotifier.new,
       name: r'appDataNotifierProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$appDataNotifierHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$appDataNotifierHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );

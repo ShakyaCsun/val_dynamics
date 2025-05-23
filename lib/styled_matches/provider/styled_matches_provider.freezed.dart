@@ -74,16 +74,14 @@ class _$StyledMatchesStateCopyWithImpl<$Res>
   $Res call({Object? matches = null, Object? acm = null}) {
     return _then(
       _self.copyWith(
-        matches:
-            null == matches
-                ? _self.matches
-                : matches // ignore: cast_nullable_to_non_nullable
-                    as ValorantMatches,
-        acm:
-            null == acm
-                ? _self.acm
-                : acm // ignore: cast_nullable_to_non_nullable
-                    as StylePoints,
+        matches: null == matches
+            ? _self.matches
+            : matches // ignore: cast_nullable_to_non_nullable
+                  as ValorantMatches,
+        acm: null == acm
+            ? _self.acm
+            : acm // ignore: cast_nullable_to_non_nullable
+                  as StylePoints,
       ),
     );
   }
@@ -157,16 +155,14 @@ class __$StyledMatchesStateCopyWithImpl<$Res>
   $Res call({Object? matches = null, Object? acm = null}) {
     return _then(
       _StyledMatchesState(
-        matches:
-            null == matches
-                ? _self.matches
-                : matches // ignore: cast_nullable_to_non_nullable
-                    as ValorantMatches,
-        acm:
-            null == acm
-                ? _self.acm
-                : acm // ignore: cast_nullable_to_non_nullable
-                    as StylePoints,
+        matches: null == matches
+            ? _self.matches
+            : matches // ignore: cast_nullable_to_non_nullable
+                  as ValorantMatches,
+        acm: null == acm
+            ? _self.acm
+            : acm // ignore: cast_nullable_to_non_nullable
+                  as StylePoints,
       ),
     );
   }

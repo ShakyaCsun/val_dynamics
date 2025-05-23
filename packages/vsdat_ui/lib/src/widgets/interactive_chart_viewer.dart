@@ -34,8 +34,9 @@ class _InteractiveChartViewerState extends State<InteractiveChartViewer> {
       builder: (context, constraints) {
         final BoxConstraints(:maxHeight, :maxWidth) = constraints;
         final maxSmallSide = math.min(maxWidth, maxHeight);
-        final maxScale =
-            maxSmallSide <= 0.0 ? 3 : math.max(4000 ~/ maxSmallSide, 3);
+        final maxScale = maxSmallSide <= 0.0
+            ? 3
+            : math.max(4000 ~/ maxSmallSide, 3);
         return InteractiveViewer(
           maxScale: maxScale.toDouble(),
           transformationController: controller,

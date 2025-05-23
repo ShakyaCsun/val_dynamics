@@ -24,10 +24,9 @@ class ComboSynergiesPage extends StatelessWidget {
           title: Text(l10n.collectionSynergiesTitle(collectionName)),
         ),
         body: const ComboSynergiesBody(),
-        drawer:
-            context.showStandardDrawer
-                ? null
-                : ComboSynergiesFilterDrawer(collectionName: collectionName),
+        drawer: context.showStandardDrawer
+            ? null
+            : ComboSynergiesFilterDrawer(collectionName: collectionName),
       ),
     );
   }
@@ -54,7 +53,12 @@ class ComboSynergiesBody extends StatelessWidget {
           child: Expanded(
             child: Column(
               children: [
-                TabBar(tabs: [Tab(text: l10n.table), Tab(text: l10n.triangle)]),
+                TabBar(
+                  tabs: [
+                    Tab(text: l10n.table),
+                    Tab(text: l10n.triangle),
+                  ],
+                ),
                 const Expanded(
                   child: TabBarView(
                     children: [ComboSynergiesTable(), ComboSynergiesTriangle()],
@@ -79,34 +83,35 @@ class ComboSynergiesTriangle extends StatelessWidget {
       children: [
         TernaryPlotHoverInfo<ComboData>(
           maxItems: 10,
-          builder: (
-            BuildContext context,
-            void Function(List<ComboData>) hoveredItemsChanged,
-          ) {
-            return Consumer(
-              builder: (context, ref, child) {
-                final plotData = ref.watch(
-                  comboSynergiesProvider(
-                    collectionId: collectionName,
-                  ).select((state) => state.plotData),
-                );
-                return StyleTriangle(
-                  data: plotData,
-                  onHover: hoveredItemsChanged,
-                  onTap: (points) {
-                    final ComboData(:agentOne, :agentTwo) = points.first;
-                    AgentComboMatchesRoute.safe(
-                      collectionName: collectionName,
-                      agentCombo: (agentOne, agentTwo),
-                    ).go(context);
-                  },
-                  builder: (comboData, _) {
-                    return ComboAgentIndicator(comboData: comboData);
+          builder:
+              (
+                BuildContext context,
+                void Function(List<ComboData>) hoveredItemsChanged,
+              ) {
+                return Consumer(
+                  builder: (context, ref, child) {
+                    final plotData = ref.watch(
+                      comboSynergiesProvider(
+                        collectionId: collectionName,
+                      ).select((state) => state.plotData),
+                    );
+                    return StyleTriangle(
+                      data: plotData,
+                      onHover: hoveredItemsChanged,
+                      onTap: (points) {
+                        final ComboData(:agentOne, :agentTwo) = points.first;
+                        AgentComboMatchesRoute.safe(
+                          collectionName: collectionName,
+                          agentCombo: (agentOne, agentTwo),
+                        ).go(context);
+                      },
+                      builder: (comboData, _) {
+                        return ComboAgentIndicator(comboData: comboData);
+                      },
+                    );
                   },
                 );
               },
-            );
-          },
           itemBuilder: (comboData) {
             return HoveredSynergyStatCard(comboData: comboData);
           },
@@ -170,8 +175,9 @@ class _ComboSynergiesTableState extends State<ComboSynergiesTable> {
               columnCount: 7,
               rowCount: tableData.length + 1,
               columnBuilder: (index) {
-                final borderColor =
-                    Theme.of(context).colorScheme.outlineVariant;
+                final borderColor = Theme.of(
+                  context,
+                ).colorScheme.outlineVariant;
                 return TableSpan(
                   foregroundDecoration: TableSpanDecoration(
                     border: SpanBorder(
@@ -183,8 +189,9 @@ class _ComboSynergiesTableState extends State<ComboSynergiesTable> {
               },
               rowBuilder: (index) {
                 if (index == 0) {
-                  final borderColor =
-                      Theme.of(context).colorScheme.outlineVariant;
+                  final borderColor = Theme.of(
+                    context,
+                  ).colorScheme.outlineVariant;
                   return TableSpan(
                     backgroundDecoration: TableSpanDecoration(
                       border: TableSpanBorder(
@@ -194,8 +201,9 @@ class _ComboSynergiesTableState extends State<ComboSynergiesTable> {
                     extent: const FixedSpanExtent(64),
                   );
                 }
-                final evenColor =
-                    Theme.of(context).colorScheme.surfaceContainer;
+                final evenColor = Theme.of(
+                  context,
+                ).colorScheme.surfaceContainer;
                 return TableSpan(
                   backgroundDecoration: TableSpanDecoration(
                     color: index.isOdd ? evenColor : null,
@@ -244,10 +252,9 @@ class _ComboSynergiesTableState extends State<ComboSynergiesTable> {
                         sort: SynergySort.combinedSynergy,
                       ),
                     ),
-                    _ =>
-                      throw StateError(
-                        'Number of Columns is more than expected',
-                      ),
+                    _ => throw StateError(
+                      'Number of Columns is more than expected',
+                    ),
                   };
                 }
                 final ComboSynergyTableData(
@@ -264,41 +271,33 @@ class _ComboSynergiesTableState extends State<ComboSynergiesTable> {
                   0 => CenteredTableViewCell(
                     child: Link(
                       uri: Uri(
-                        path:
-                            AgentComboMatchesRoute.safe(
-                              collectionName: collectionName,
-                              agentCombo: (agentOne, agentTwo),
-                            ).location,
+                        path: AgentComboMatchesRoute.safe(
+                          collectionName: collectionName,
+                          agentCombo: (agentOne, agentTwo),
+                        ).location,
                       ),
-                      builder:
-                          (context, followLink) => InkWell(
-                            onTap: followLink,
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  flex: 6,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      AgentIndicator(
-                                        agent: agentOne,
-                                        radius: 22,
-                                      ),
-                                      const Text(' - '),
-                                      AgentIndicator(
-                                        agent: agentTwo,
-                                        radius: 22,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 5,
-                                  child: Center(child: Text(comboNmrwr)),
-                                ),
-                              ],
+                      builder: (context, followLink) => InkWell(
+                        onTap: followLink,
+                        child: Row(
+                          children: [
+                            Expanded(
+                              flex: 6,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  AgentIndicator(agent: agentOne, radius: 22),
+                                  const Text(' - '),
+                                  AgentIndicator(agent: agentTwo, radius: 22),
+                                ],
+                              ),
                             ),
-                          ),
+                            Expanded(
+                              flex: 5,
+                              child: Center(child: Text(comboNmrwr)),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                   1 => CenteredTableViewCell(child: Text(comboRounds)),
@@ -307,8 +306,9 @@ class _ComboSynergiesTableState extends State<ComboSynergiesTable> {
                   4 => CenteredTableViewCell(child: Text(agent2Nmrwr)),
                   5 => CenteredTableViewCell(child: Text(agent2Synergy)),
                   6 => CenteredTableViewCell(child: Text(combinedSynergy)),
-                  _ =>
-                    throw StateError('Number of Columns is more than expected'),
+                  _ => throw StateError(
+                    'Number of Columns is more than expected',
+                  ),
                 };
               },
             ),

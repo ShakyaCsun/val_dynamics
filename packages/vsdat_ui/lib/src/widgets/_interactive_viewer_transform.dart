@@ -612,8 +612,8 @@ class _InteractiveViewerState extends State<InteractiveViewer>
       alignedTranslation = translation;
     }
 
-    final nextMatrix =
-        matrix.clone()..translate(alignedTranslation.dx, alignedTranslation.dy);
+    final nextMatrix = matrix.clone()
+      ..translate(alignedTranslation.dx, alignedTranslation.dy);
 
     // Transform the viewport to determine where its four corners will be after
     // the child has been transformed.
@@ -648,14 +648,10 @@ class _InteractiveViewerState extends State<InteractiveViewer>
       nextTotalTranslation.dx - offendingDistance.dx * currentScale,
       nextTotalTranslation.dy - offendingDistance.dy * currentScale,
     );
-    final correctedMatrix =
-        matrix.clone()..setTranslation(
-          Vector3(
-            correctedTotalTranslation.dx,
-            correctedTotalTranslation.dy,
-            0,
-          ),
-        );
+    final correctedMatrix = matrix.clone()
+      ..setTranslation(
+        Vector3(correctedTotalTranslation.dx, correctedTotalTranslation.dy, 0),
+      );
 
     // Double check that the corrected translation fits.
     final correctedViewport = _transformViewport(correctedMatrix, _viewport);
@@ -914,12 +910,16 @@ class _InteractiveViewerState extends State<InteractiveViewer>
           details.velocity.pixelsPerSecond.distance,
           widget.interactionEndFrictionCoefficient,
         );
-        _animation = Tween<Offset>(
-          begin: translation,
-          end: Offset(frictionSimulationX.finalX, frictionSimulationY.finalX),
-        ).animate(
-          CurvedAnimation(parent: _controller, curve: Curves.decelerate),
-        );
+        _animation =
+            Tween<Offset>(
+              begin: translation,
+              end: Offset(
+                frictionSimulationX.finalX,
+                frictionSimulationY.finalX,
+              ),
+            ).animate(
+              CurvedAnimation(parent: _controller, curve: Curves.decelerate),
+            );
         _controller.duration = Duration(milliseconds: (tFinal * 1000).round());
         _animation!.addListener(_handleInertiaAnimation);
         _controller.forward();
@@ -939,12 +939,16 @@ class _InteractiveViewerState extends State<InteractiveViewer>
           widget.interactionEndFrictionCoefficient,
           effectivelyMotionless: 0.1,
         );
-        _scaleAnimation = Tween<double>(
-          begin: scale,
-          end: frictionSimulation.x(tFinal),
-        ).animate(
-          CurvedAnimation(parent: _scaleController, curve: Curves.decelerate),
-        );
+        _scaleAnimation =
+            Tween<double>(
+              begin: scale,
+              end: frictionSimulation.x(tFinal),
+            ).animate(
+              CurvedAnimation(
+                parent: _scaleController,
+                curve: Curves.decelerate,
+              ),
+            );
         _scaleController.duration = Duration(
           milliseconds: (tFinal * 1000).round(),
         );
@@ -1286,11 +1290,10 @@ Quad _transformViewport(Matrix4 matrix, Rect viewport) {
 // Find the axis aligned bounding box for the rect rotated about its center by
 // the given amount.
 Quad _getAxisAlignedBoundingBoxWithRotation(Rect rect, double rotation) {
-  final rotationMatrix =
-      Matrix4.identity()
-        ..translate(rect.size.width / 2, rect.size.height / 2)
-        ..rotateZ(rotation)
-        ..translate(-rect.size.width / 2, -rect.size.height / 2);
+  final rotationMatrix = Matrix4.identity()
+    ..translate(rect.size.width / 2, rect.size.height / 2)
+    ..rotateZ(rotation)
+    ..translate(-rect.size.width / 2, -rect.size.height / 2);
   final boundariesRotated = Quad.points(
     rotationMatrix.transform3(Vector3(rect.left, rect.top, 0)),
     rotationMatrix.transform3(Vector3(rect.right, rect.top, 0)),

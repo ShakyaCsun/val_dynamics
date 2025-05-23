@@ -23,12 +23,12 @@ class SynergiesBenchmark extends MatchesBenchmarkBase {
   @override
   void run() {
     for (var i = 0; i < numberOfMaps * 4; i++) {
-      final criteria =
-          random.nextBool() ? ComboCriteria.composite : ComboCriteria.solo;
-      final maps =
-          matchesRepository.availableMaps
-              .sample(random.nextInt(numberOfMaps), random)
-              .toSet();
+      final criteria = random.nextBool()
+          ? ComboCriteria.composite
+          : ComboCriteria.solo;
+      final maps = matchesRepository.availableMaps
+          .sample(random.nextInt(numberOfMaps), random)
+          .toSet();
       matchesRepository.getAllComboSynergies(criteria: criteria, maps: maps);
     }
   }

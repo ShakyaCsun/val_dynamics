@@ -102,31 +102,26 @@ class _$SynergiesFilterStateCopyWithImpl<$Res>
   }) {
     return _then(
       _self.copyWith(
-        winLossFilter:
-            null == winLossFilter
-                ? _self.winLossFilter
-                : winLossFilter // ignore: cast_nullable_to_non_nullable
-                    as WinLossFilter,
-        selectedMaps:
-            null == selectedMaps
-                ? _self.selectedMaps
-                : selectedMaps // ignore: cast_nullable_to_non_nullable
-                    as Set<String>,
-        rolesCombo:
-            null == rolesCombo
-                ? _self.rolesCombo
-                : rolesCombo // ignore: cast_nullable_to_non_nullable
-                    as (Role, Role),
-        comboCriteria:
-            null == comboCriteria
-                ? _self.comboCriteria
-                : comboCriteria // ignore: cast_nullable_to_non_nullable
-                    as ComboCriteria,
-        minRounds:
-            null == minRounds
-                ? _self.minRounds
-                : minRounds // ignore: cast_nullable_to_non_nullable
-                    as int,
+        winLossFilter: null == winLossFilter
+            ? _self.winLossFilter
+            : winLossFilter // ignore: cast_nullable_to_non_nullable
+                  as WinLossFilter,
+        selectedMaps: null == selectedMaps
+            ? _self.selectedMaps
+            : selectedMaps // ignore: cast_nullable_to_non_nullable
+                  as Set<String>,
+        rolesCombo: null == rolesCombo
+            ? _self.rolesCombo
+            : rolesCombo // ignore: cast_nullable_to_non_nullable
+                  as (Role, Role),
+        comboCriteria: null == comboCriteria
+            ? _self.comboCriteria
+            : comboCriteria // ignore: cast_nullable_to_non_nullable
+                  as ComboCriteria,
+        minRounds: null == minRounds
+            ? _self.minRounds
+            : minRounds // ignore: cast_nullable_to_non_nullable
+                  as int,
       ),
     );
   }
@@ -248,31 +243,26 @@ class __$SynergiesStateCopyWithImpl<$Res>
   }) {
     return _then(
       _SynergiesState(
-        winLossFilter:
-            null == winLossFilter
-                ? _self.winLossFilter
-                : winLossFilter // ignore: cast_nullable_to_non_nullable
-                    as WinLossFilter,
-        selectedMaps:
-            null == selectedMaps
-                ? _self._selectedMaps
-                : selectedMaps // ignore: cast_nullable_to_non_nullable
-                    as Set<String>,
-        rolesCombo:
-            null == rolesCombo
-                ? _self.rolesCombo
-                : rolesCombo // ignore: cast_nullable_to_non_nullable
-                    as (Role, Role),
-        comboCriteria:
-            null == comboCriteria
-                ? _self.comboCriteria
-                : comboCriteria // ignore: cast_nullable_to_non_nullable
-                    as ComboCriteria,
-        minRounds:
-            null == minRounds
-                ? _self.minRounds
-                : minRounds // ignore: cast_nullable_to_non_nullable
-                    as int,
+        winLossFilter: null == winLossFilter
+            ? _self.winLossFilter
+            : winLossFilter // ignore: cast_nullable_to_non_nullable
+                  as WinLossFilter,
+        selectedMaps: null == selectedMaps
+            ? _self._selectedMaps
+            : selectedMaps // ignore: cast_nullable_to_non_nullable
+                  as Set<String>,
+        rolesCombo: null == rolesCombo
+            ? _self.rolesCombo
+            : rolesCombo // ignore: cast_nullable_to_non_nullable
+                  as (Role, Role),
+        comboCriteria: null == comboCriteria
+            ? _self.comboCriteria
+            : comboCriteria // ignore: cast_nullable_to_non_nullable
+                  as ComboCriteria,
+        minRounds: null == minRounds
+            ? _self.minRounds
+            : minRounds // ignore: cast_nullable_to_non_nullable
+                  as int,
       ),
     );
   }
@@ -339,21 +329,18 @@ class _$ComboDataCopyWithImpl<$Res> implements $ComboDataCopyWith<$Res> {
   }) {
     return _then(
       _self.copyWith(
-        agentOne:
-            null == agentOne
-                ? _self.agentOne
-                : agentOne // ignore: cast_nullable_to_non_nullable
-                    as Agent,
-        agentTwo:
-            null == agentTwo
-                ? _self.agentTwo
-                : agentTwo // ignore: cast_nullable_to_non_nullable
-                    as Agent,
-        synergyStat:
-            null == synergyStat
-                ? _self.synergyStat
-                : synergyStat // ignore: cast_nullable_to_non_nullable
-                    as ComboSynergyStat,
+        agentOne: null == agentOne
+            ? _self.agentOne
+            : agentOne // ignore: cast_nullable_to_non_nullable
+                  as Agent,
+        agentTwo: null == agentTwo
+            ? _self.agentTwo
+            : agentTwo // ignore: cast_nullable_to_non_nullable
+                  as Agent,
+        synergyStat: null == synergyStat
+            ? _self.synergyStat
+            : synergyStat // ignore: cast_nullable_to_non_nullable
+                  as ComboSynergyStat,
       ),
     );
   }
@@ -435,21 +422,18 @@ class __$ComboDataCopyWithImpl<$Res> implements _$ComboDataCopyWith<$Res> {
   }) {
     return _then(
       _ComboData(
-        agentOne:
-            null == agentOne
-                ? _self.agentOne
-                : agentOne // ignore: cast_nullable_to_non_nullable
-                    as Agent,
-        agentTwo:
-            null == agentTwo
-                ? _self.agentTwo
-                : agentTwo // ignore: cast_nullable_to_non_nullable
-                    as Agent,
-        synergyStat:
-            null == synergyStat
-                ? _self.synergyStat
-                : synergyStat // ignore: cast_nullable_to_non_nullable
-                    as ComboSynergyStat,
+        agentOne: null == agentOne
+            ? _self.agentOne
+            : agentOne // ignore: cast_nullable_to_non_nullable
+                  as Agent,
+        agentTwo: null == agentTwo
+            ? _self.agentTwo
+            : agentTwo // ignore: cast_nullable_to_non_nullable
+                  as Agent,
+        synergyStat: null == synergyStat
+            ? _self.synergyStat
+            : synergyStat // ignore: cast_nullable_to_non_nullable
+                  as ComboSynergyStat,
       ),
     );
   }

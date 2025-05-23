@@ -127,17 +127,17 @@ class AgentsRow extends StatelessWidget {
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(2),
-                    child:
-                        agent.iconUrl == null
-                            ? defaultAgentIcon(agent.name)?.image() ??
-                                Center(
-                                  child: Text(
-                                    agent.name,
-                                    style:
-                                        Theme.of(context).textTheme.titleMedium,
-                                  ),
-                                )
-                            : Image.network(agent.iconUrl!),
+                    child: agent.iconUrl == null
+                        ? defaultAgentIcon(agent.name)?.image() ??
+                              Center(
+                                child: Text(
+                                  agent.name,
+                                  style: Theme.of(
+                                    context,
+                                  ).textTheme.titleMedium,
+                                ),
+                              )
+                        : Image.network(agent.iconUrl!),
                   ),
                 ),
               ),

@@ -88,10 +88,9 @@ class AgentComboMatchesProvider extends AutoDisposeProvider<ValorantMatches> {
          ),
          from: agentComboMatchesProvider,
          name: r'agentComboMatchesProvider',
-         debugGetCreateSourceHash:
-             const bool.fromEnvironment('dart.vm.product')
-                 ? null
-                 : _$agentComboMatchesHash,
+         debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+             ? null
+             : _$agentComboMatchesHash,
          dependencies: AgentComboMatchesFamily._dependencies,
          allTransitiveDependencies:
              AgentComboMatchesFamily._allTransitiveDependencies,

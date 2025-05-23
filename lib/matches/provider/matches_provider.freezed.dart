@@ -82,21 +82,18 @@ class _$MatchesFilterStateCopyWithImpl<$Res>
   }) {
     return _then(
       _self.copyWith(
-        filter:
-            null == filter
-                ? _self.filter
-                : filter // ignore: cast_nullable_to_non_nullable
-                    as MatchUpFilter,
-        maps:
-            null == maps
-                ? _self.maps
-                : maps // ignore: cast_nullable_to_non_nullable
-                    as Set<String>,
-        minMatches:
-            null == minMatches
-                ? _self.minMatches
-                : minMatches // ignore: cast_nullable_to_non_nullable
-                    as int,
+        filter: null == filter
+            ? _self.filter
+            : filter // ignore: cast_nullable_to_non_nullable
+                  as MatchUpFilter,
+        maps: null == maps
+            ? _self.maps
+            : maps // ignore: cast_nullable_to_non_nullable
+                  as Set<String>,
+        minMatches: null == minMatches
+            ? _self.minMatches
+            : minMatches // ignore: cast_nullable_to_non_nullable
+                  as int,
       ),
     );
   }
@@ -191,21 +188,18 @@ class __$MatchesStateCopyWithImpl<$Res>
   }) {
     return _then(
       _MatchesState(
-        filter:
-            null == filter
-                ? _self.filter
-                : filter // ignore: cast_nullable_to_non_nullable
-                    as MatchUpFilter,
-        maps:
-            null == maps
-                ? _self._maps
-                : maps // ignore: cast_nullable_to_non_nullable
-                    as Set<String>,
-        minMatches:
-            null == minMatches
-                ? _self.minMatches
-                : minMatches // ignore: cast_nullable_to_non_nullable
-                    as int,
+        filter: null == filter
+            ? _self.filter
+            : filter // ignore: cast_nullable_to_non_nullable
+                  as MatchUpFilter,
+        maps: null == maps
+            ? _self._maps
+            : maps // ignore: cast_nullable_to_non_nullable
+                  as Set<String>,
+        minMatches: null == minMatches
+            ? _self.minMatches
+            : minMatches // ignore: cast_nullable_to_non_nullable
+                  as int,
       ),
     );
   }

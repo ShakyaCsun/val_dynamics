@@ -117,13 +117,12 @@ class AddMatchesButton extends ConsumerWidget {
     return isInProgress
         ? const CircularProgressIndicator()
         : ElevatedButton(
-          onPressed:
-              isValid
-                  ? () {
+            onPressed: isValid
+                ? () {
                     ref.read(addMatchesProvider.notifier).submit();
                   }
-                  : null,
-          child: Text(l10n.addMatches),
-        );
+                : null,
+            child: Text(l10n.addMatches),
+          );
   }
 }

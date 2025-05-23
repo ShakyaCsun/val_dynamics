@@ -90,21 +90,18 @@ class _$MatchesCollectionCopyWithImpl<$Res>
   }) {
     return _then(
       _self.copyWith(
-        collectionName:
-            null == collectionName
-                ? _self.collectionName
-                : collectionName // ignore: cast_nullable_to_non_nullable
-                    as String,
-        rawMatches:
-            null == rawMatches
-                ? _self.rawMatches
-                : rawMatches // ignore: cast_nullable_to_non_nullable
-                    as List<RawMatch>,
-        rosterName:
-            null == rosterName
-                ? _self.rosterName
-                : rosterName // ignore: cast_nullable_to_non_nullable
-                    as String,
+        collectionName: null == collectionName
+            ? _self.collectionName
+            : collectionName // ignore: cast_nullable_to_non_nullable
+                  as String,
+        rawMatches: null == rawMatches
+            ? _self.rawMatches
+            : rawMatches // ignore: cast_nullable_to_non_nullable
+                  as List<RawMatch>,
+        rosterName: null == rosterName
+            ? _self.rosterName
+            : rosterName // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }
@@ -205,21 +202,18 @@ class __$MatchesCollectionCopyWithImpl<$Res>
   }) {
     return _then(
       _MatchesCollection(
-        collectionName:
-            null == collectionName
-                ? _self.collectionName
-                : collectionName // ignore: cast_nullable_to_non_nullable
-                    as String,
-        rawMatches:
-            null == rawMatches
-                ? _self._rawMatches
-                : rawMatches // ignore: cast_nullable_to_non_nullable
-                    as List<RawMatch>,
-        rosterName:
-            null == rosterName
-                ? _self.rosterName
-                : rosterName // ignore: cast_nullable_to_non_nullable
-                    as String,
+        collectionName: null == collectionName
+            ? _self.collectionName
+            : collectionName // ignore: cast_nullable_to_non_nullable
+                  as String,
+        rawMatches: null == rawMatches
+            ? _self._rawMatches
+            : rawMatches // ignore: cast_nullable_to_non_nullable
+                  as List<RawMatch>,
+        rosterName: null == rosterName
+            ? _self.rosterName
+            : rosterName // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }

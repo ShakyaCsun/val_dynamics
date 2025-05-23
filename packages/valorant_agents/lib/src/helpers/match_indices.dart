@@ -87,10 +87,9 @@ class MatchIndices extends Equatable {
   }
 
   String minifiedCsv(List<List<String>> csvRows) {
-    final minifiedRows =
-        csvRows.map<List<String>>((row) {
-          return [for (final index in _indices) row[index]];
-        }).toList();
+    final minifiedRows = csvRows.map<List<String>>((row) {
+      return [for (final index in _indices) row[index]];
+    }).toList();
     return writeCsv([MatchHeader.all, ...minifiedRows]);
   }
 

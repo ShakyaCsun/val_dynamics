@@ -72,10 +72,9 @@ class _TernaryPlotHoverInfoState<T> extends State<TernaryPlotHoverInfo<T>> {
                 HoverAnchor.left => CrossAxisAlignment.start,
                 HoverAnchor.right => CrossAxisAlignment.end,
               },
-              children:
-                  items.take(widget.maxItems).map((item) {
-                    return widget.itemBuilder(item);
-                  }).toList(),
+              children: items.take(widget.maxItems).map((item) {
+                return widget.itemBuilder(item);
+              }).toList(),
             ),
           );
         },

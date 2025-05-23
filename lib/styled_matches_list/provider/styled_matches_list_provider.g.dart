@@ -82,10 +82,9 @@ class StyledMatchesListProvider extends AutoDisposeProvider<ValorantMatches> {
          ),
          from: styledMatchesListProvider,
          name: r'styledMatchesListProvider',
-         debugGetCreateSourceHash:
-             const bool.fromEnvironment('dart.vm.product')
-                 ? null
-                 : _$styledMatchesListHash,
+         debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+             ? null
+             : _$styledMatchesListHash,
          dependencies: StyledMatchesListFamily._dependencies,
          allTransitiveDependencies:
              StyledMatchesListFamily._allTransitiveDependencies,
@@ -229,10 +228,9 @@ class StyledMatchesDataListProvider
          ),
          from: styledMatchesDataListProvider,
          name: r'styledMatchesDataListProvider',
-         debugGetCreateSourceHash:
-             const bool.fromEnvironment('dart.vm.product')
-                 ? null
-                 : _$styledMatchesDataListHash,
+         debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+             ? null
+             : _$styledMatchesDataListHash,
          dependencies: StyledMatchesDataListFamily._dependencies,
          allTransitiveDependencies:
              StyledMatchesDataListFamily._allTransitiveDependencies,

@@ -13,8 +13,9 @@ String _$rosterNameHash() => r'bec4ddf348c3698ff3b5d06887aa2a0294675ea1';
 final rosterNameProvider = AutoDisposeProvider<String>.internal(
   rosterName,
   name: r'rosterNameProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$rosterNameHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$rosterNameHash,
   dependencies: const <ProviderOrFamily>[],
   allTransitiveDependencies: const <ProviderOrFamily>{},
 );
@@ -87,8 +88,9 @@ class AgentsProvider extends AutoDisposeProvider<Agents> {
         (ref) => agents(ref as AgentsRef, rosterName: rosterName),
         from: agentsProvider,
         name: r'agentsProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product') ? null : _$agentsHash,
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$agentsHash,
         dependencies: AgentsFamily._dependencies,
         allTransitiveDependencies: AgentsFamily._allTransitiveDependencies,
         rosterName: rosterName,
@@ -209,10 +211,9 @@ class SelectedAgentProvider
         () => SelectedAgent()..rosterName = rosterName,
         from: selectedAgentProvider,
         name: r'selectedAgentProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product')
-                ? null
-                : _$selectedAgentHash,
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$selectedAgentHash,
         dependencies: SelectedAgentFamily._dependencies,
         allTransitiveDependencies:
             SelectedAgentFamily._allTransitiveDependencies,

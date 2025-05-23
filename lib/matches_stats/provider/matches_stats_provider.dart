@@ -48,8 +48,11 @@ class MatchesStats extends _$MatchesStats {
   }
 }
 
-typedef StyledMatchesStat =
-    ({StylePoints styleOne, StylePoints styleTwo, MatchesSummary summary});
+typedef StyledMatchesStat = ({
+  StylePoints styleOne,
+  StylePoints styleTwo,
+  MatchesSummary summary,
+});
 
 @freezed
 abstract class MatchesSummary with _$MatchesSummary {

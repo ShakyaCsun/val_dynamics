@@ -15,21 +15,18 @@ class TeamCompsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading:
-            !context.mediumLargeAndUp
-                ? Builder(
-                  builder: (context) {
-                    return IconButton(
-                      onPressed: () {
-                        TeamCompsFilterRoute(
-                          rosterName: rosterName,
-                        ).go(context);
-                      },
-                      icon: const Icon(Icons.filter_alt_outlined),
-                    );
-                  },
-                )
-                : null,
+        leading: !context.mediumLargeAndUp
+            ? Builder(
+                builder: (context) {
+                  return IconButton(
+                    onPressed: () {
+                      TeamCompsFilterRoute(rosterName: rosterName).go(context);
+                    },
+                    icon: const Icon(Icons.filter_alt_outlined),
+                  );
+                },
+              )
+            : null,
         title: Consumer(
           builder: (context, ref, child) {
             final compsReady = ref.watch(

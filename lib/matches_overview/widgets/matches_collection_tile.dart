@@ -29,10 +29,9 @@ class MatchesCollectionTile extends StatelessWidget {
         children: [
           IconButton(
             tooltip: context.l10n.synergiesTooltip,
-            onPressed:
-                () => ComboSynergiesRoute(
-                  collectionName: collection.collectionName,
-                ).go(context),
+            onPressed: () => ComboSynergiesRoute(
+              collectionName: collection.collectionName,
+            ).go(context),
             icon: const Icon(Icons.connect_without_contact),
           ),
           RosterSelectButton(

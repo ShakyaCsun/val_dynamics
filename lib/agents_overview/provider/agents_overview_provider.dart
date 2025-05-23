@@ -14,16 +14,15 @@ class AgentsOverviewNotifier extends _$AgentsOverviewNotifier {
   AgentsOverviewState build() {
     final agentsRepository = ref.watch(agentsRepositoryProvider);
     final rosterSubscription = agentsRepository.getRosters().listen((rosters) {
-      final agentDetails =
-          rosters.entries.map((entry) {
-            final MapEntry(key: name, value: agents) = entry;
-            return AgentsOverview(
-              rosterName: name,
-              agentCount: agents.length,
-              range: PointsRange.from(agents: agents),
-              isBuiltIn: agentsRepository.builtInRosterNames.contains(name),
-            );
-          }).toList();
+      final agentDetails = rosters.entries.map((entry) {
+        final MapEntry(key: name, value: agents) = entry;
+        return AgentsOverview(
+          rosterName: name,
+          agentCount: agents.length,
+          range: PointsRange.from(agents: agents),
+          isBuiltIn: agentsRepository.builtInRosterNames.contains(name),
+        );
+      }).toList();
       state = state.copyWith(agentDetails: agentDetails);
     });
     final defaultNameSubscription = agentsRepository.defaultName.listen((name) {

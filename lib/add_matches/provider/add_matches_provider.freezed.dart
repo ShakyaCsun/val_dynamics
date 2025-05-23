@@ -137,11 +137,10 @@ class _$InvalidMatchesCsvErrorCopyWithImpl<$Res>
   $Res call({Object? message = null}) {
     return _then(
       InvalidMatchesCsvError(
-        message:
-            null == message
-                ? _self.message
-                : message // ignore: cast_nullable_to_non_nullable
-                    as String,
+        message: null == message
+            ? _self.message
+            : message // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }
