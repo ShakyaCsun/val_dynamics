@@ -43,43 +43,39 @@ class $AssetsCsvAgentsGen {
 class $AssetsCsvMatchesGen {
   const $AssetsCsvMatchesGen();
 
-  /// File path: assets/csv/matches/April to October 7 2024.csv
-  String get aprilToOctober72024 =>
-      'assets/csv/matches/April to October 7 2024.csv';
+  /// File path: assets/csv/matches/2023 Masters Tokyo and Champions.csv
+  String get a2023MastersTokyoAndChampions =>
+      'assets/csv/matches/2023 Masters Tokyo and Champions.csv';
 
-  /// File path: assets/csv/matches/August-November-24.csv
-  String get augustNovember24 => 'assets/csv/matches/August-November-24.csv';
+  /// File path: assets/csv/matches/2024 Game Changers and Ascension.csv
+  String get a2024GameChangersAndAscension =>
+      'assets/csv/matches/2024 Game Changers and Ascension.csv';
 
-  /// File path: assets/csv/matches/Champions 2024.csv
-  String get champions2024 => 'assets/csv/matches/Champions 2024.csv';
+  /// File path: assets/csv/matches/2024 July-December.csv
+  String get a2024JulyDecember => 'assets/csv/matches/2024 July-December.csv';
 
-  /// File path: assets/csv/matches/Champions and Ascension 2024.csv
-  String get championsAndAscension2024 =>
-      'assets/csv/matches/Champions and Ascension 2024.csv';
+  /// File path: assets/csv/matches/2024 VCT Season.csv
+  String get a2024VCTSeason => 'assets/csv/matches/2024 VCT Season.csv';
 
-  /// File path: assets/csv/matches/Game Changers 2024.csv
-  String get gameChangers2024 => 'assets/csv/matches/Game Changers 2024.csv';
+  /// File path: assets/csv/matches/2025 Jan-April.csv
+  String get a2025JanApril => 'assets/csv/matches/2025 Jan-April.csv';
 
-  /// File path: assets/csv/matches/Jan-March 2025.csv
-  String get janMarch2025 => 'assets/csv/matches/Jan-March 2025.csv';
+  /// File path: assets/csv/matches/2025 Kickoff and Masters Bangkok.csv
+  String get a2025KickoffAndMastersBangkok =>
+      'assets/csv/matches/2025 Kickoff and Masters Bangkok.csv';
 
-  /// File path: assets/csv/matches/Kickoff and Bangkok.csv
-  String get kickoffAndBangkok => 'assets/csv/matches/Kickoff and Bangkok.csv';
-
-  /// File path: assets/csv/matches/Masters Tokyo and Champions 2023.csv
-  String get mastersTokyoAndChampions2023 =>
-      'assets/csv/matches/Masters Tokyo and Champions 2023.csv';
+  /// File path: assets/csv/matches/2025 VCT Stage 1.csv
+  String get a2025VCTStage1 => 'assets/csv/matches/2025 VCT Stage 1.csv';
 
   /// List of all assets
   List<String> get values => [
-    aprilToOctober72024,
-    augustNovember24,
-    champions2024,
-    championsAndAscension2024,
-    gameChangers2024,
-    janMarch2025,
-    kickoffAndBangkok,
-    mastersTokyoAndChampions2023,
+    a2023MastersTokyoAndChampions,
+    a2024GameChangersAndAscension,
+    a2024JulyDecember,
+    a2024VCTSeason,
+    a2025JanApril,
+    a2025KickoffAndMastersBangkok,
+    a2025VCTStage1,
   ];
 }
 

@@ -237,11 +237,11 @@ class MatchesRepository {
       ComboSynergyStat
     >.fromEntries(
       synergyStats.entries.where((entry) {
-        final MapEntry(key: combo, value: stat) = entry;
-        if (!winLossFilter.check(stat.comboWR)) {
+        final MapEntry(key: combo, value: ComboSynergyStat(:comboWR)) = entry;
+        if (!winLossFilter.check(comboWR)) {
           return false;
         }
-        if (stat.comboWR.played < minRounds) {
+        if (comboWR.played < minRounds) {
           return false;
         }
         return switch (rolesCombo) {
