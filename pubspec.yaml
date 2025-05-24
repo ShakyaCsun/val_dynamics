@@ -7,6 +7,7 @@ version: 1.0.0+1
 
 environment:
   sdk: ^3.9.0-0
+  flutter: '>=3.33.0-0'
 
 workspace:
   - packages/agents_repository
