@@ -1,5 +1,5 @@
+import 'package:custom_adaptive_scaffold/custom_adaptive_scaffold.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 
 const _breakpoints = [
   Breakpoint.extraLarge(),
