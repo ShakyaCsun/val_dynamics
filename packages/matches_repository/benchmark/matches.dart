@@ -25,7 +25,7 @@ const _mapNames = [
   'Split',
 ];
 
-final _numberOfMaps = _mapNames.length;
+final int _numberOfMaps = _mapNames.length;
 
 List<RawMatch> generateRawMatches(Random random, [int count = 1000]) {
   return [for (var i = 0; i < count; i++) _generateMatch(random)];

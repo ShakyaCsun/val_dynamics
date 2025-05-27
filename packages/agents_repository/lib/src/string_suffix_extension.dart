@@ -1,6 +1,6 @@
 import 'dart:math';
 
-final _validCharacters =
+final List<String> _validCharacters =
     <(int, int)>[
       // Uppercase Alphabets
       (65, 90),
@@ -14,7 +14,7 @@ final _validCharacters =
       ];
     });
 
-final _count = _validCharacters.length;
+final int _count = _validCharacters.length;
 
 final _random = Random.secure();
 

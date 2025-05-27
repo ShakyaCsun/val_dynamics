@@ -7,5 +7,4 @@ analyzer:
 linter:
   rules:
     public_member_api_docs: false
-    # Dart automatically formats and adds/removes trailing commas since 3.7
-    require_trailing_commas: false
+    use_null_aware_elements: true

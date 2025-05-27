@@ -100,8 +100,8 @@ abstract class CompFiltersState with _$CompFiltersState {
 
   CompFiltersState reset() {
     return CompFiltersState(
-      agentFilters: {...agentFilters}..updateAll((_, __) => AgentStatus.normal),
-      roleFilters: {...roleFilters}..updateAll((_, __) => RoleRange.all),
+      agentFilters: {...agentFilters}..updateAll((_, _) => AgentStatus.normal),
+      roleFilters: {...roleFilters}..updateAll((_, _) => RoleRange.all),
     );
   }
 

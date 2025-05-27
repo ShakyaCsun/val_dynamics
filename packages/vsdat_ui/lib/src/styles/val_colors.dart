@@ -11,12 +11,12 @@ class ValColors {
 
   static const tiedWR = Color(0xFFFFD573);
 
-  static final positiveTween = ColorTween(
+  static final Animatable<Color?> positiveTween = ColorTween(
     begin: const Color(0xFFDBFA41),
     end: const Color(0xFF007A1B),
   ).chain(CurveTween(curve: Curves.decelerate));
 
-  static final negativeTween = ColorTween(
+  static final Animatable<Color?> negativeTween = ColorTween(
     begin: const Color(0xFFFFA571),
     end: const Color(0xFF760002),
   ).chain(CurveTween(curve: Curves.decelerate));

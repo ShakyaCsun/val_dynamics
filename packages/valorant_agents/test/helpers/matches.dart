@@ -50,7 +50,7 @@ Match Id,Series Id,Event Name,Map Name,Team 1 Id,Team 1 Name,Team 2 Id,Team 2 Na
 186511,83035,Game Changers 2024 Championship: Berlin,Bind,5837,KRÜ BLAZE,611,ZETA DIVISION,2,13,9,7,5,1,1,0,6,4,7,5,1,1,0,5,7,4,6,standard,2024-11-08T00:00:00.000Z,"[12659,6258,19314,5982,23463]","[9545,38844,23100,38845,34319]","Viper,Brimstone,Skye,Yoru,Neon","Raze,Cypher,Viper,Brimstone,Skye",44''';
 // cSpell: enable
 
-final rawMatchesSample = ValorantMatches.rawMatchesFrom(
+final List<RawMatch> rawMatchesSample = ValorantMatches.rawMatchesFrom(
   csv: gameChangers2024csv,
 );
 
