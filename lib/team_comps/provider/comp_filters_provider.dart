@@ -69,24 +69,23 @@ abstract class CompFiltersState with _$CompFiltersState {
     if (hasDefaultFilters) {
       return compositions;
     }
-    final coreAgentNames =
-        agentFilters.entries
-            .where((element) => element.value == AgentStatus.core)
-            .map((e) => e.key.name)
-            .toSet();
-    final excludeAgentNames =
-        agentFilters.entries
-            .where((element) => element.value == AgentStatus.exclude)
-            .map((e) => e.key.name)
-            .toSet();
+    final coreAgentNames = agentFilters.entries
+        .where((element) => element.value == AgentStatus.core)
+        .map((e) => e.key.name)
+        .toSet();
+    final excludeAgentNames = agentFilters.entries
+        .where((element) => element.value == AgentStatus.exclude)
+        .map((e) => e.key.name)
+        .toSet();
     final changedRoleFilters = {...roleFilters}
       ..removeWhere((_, range) => range == RoleRange.all);
     return compositions.where((composition) {
       final agentNames = composition.agentNames;
       final coreAgentSatisfied = coreAgentNames.difference(agentNames).isEmpty;
       if (coreAgentSatisfied) {
-        final excludeAgentSatisfied =
-            excludeAgentNames.intersection(agentNames).isEmpty;
+        final excludeAgentSatisfied = excludeAgentNames
+            .intersection(agentNames)
+            .isEmpty;
         if (excludeAgentSatisfied) {
           return changedRoleFilters.entries.every((entry) {
             final MapEntry(key: role, value: range) = entry;
@@ -101,8 +100,8 @@ abstract class CompFiltersState with _$CompFiltersState {
 
   CompFiltersState reset() {
     return CompFiltersState(
-      agentFilters: {...agentFilters}..updateAll((_, __) => AgentStatus.normal),
-      roleFilters: {...roleFilters}..updateAll((_, __) => RoleRange.all),
+      agentFilters: {...agentFilters}..updateAll((_, _) => AgentStatus.normal),
+      roleFilters: {...roleFilters}..updateAll((_, _) => RoleRange.all),
     );
   }
 

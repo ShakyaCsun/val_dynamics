@@ -15,10 +15,9 @@ final matchesCollectionListProvider =
     NotifierProvider<MatchesCollectionList, List<MatchesCollection>>.internal(
       MatchesCollectionList.new,
       name: r'matchesCollectionListProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$matchesCollectionListHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$matchesCollectionListHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );

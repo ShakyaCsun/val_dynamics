@@ -14,10 +14,9 @@ final addAgentsProvider =
     AutoDisposeNotifierProvider<AddAgents, AddAgentsForm>.internal(
       AddAgents.new,
       name: r'addAgentsProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$addAgentsHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$addAgentsHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );

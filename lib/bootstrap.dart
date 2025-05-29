@@ -17,10 +17,9 @@ class AppProviderObserver extends ProviderObserver {
     Object? value,
     ProviderContainer container,
   ) {
-    final providerName =
-        provider.from != null
-            ? '${provider.name}(${provider.argument})'
-            : provider.name;
+    final providerName = provider.from != null
+        ? '${provider.name}(${provider.argument})'
+        : provider.name;
     _logger.info('$providerName created');
   }
 

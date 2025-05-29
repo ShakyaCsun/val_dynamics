@@ -66,16 +66,15 @@ class AgentsListTile extends StatelessWidget {
     final rangeDetail = switch (range) {
       SinglePoint(:final total) => l10n.equalPoints(total),
       NearlyEqualPoints(:final total) => l10n.nearlyEqualPoints(total),
-      VariedPointsRange(:final low, :final high, :final count) => l10n
-          .differentPointsRange(count, low, high),
+      VariedPointsRange(:final low, :final high, :final count) =>
+        l10n.differentPointsRange(count, low, high),
     };
     final subtitle = '${l10n.nAgents(agentCount)}, $rangeDetail';
-    final chipLabel =
-        isSelected
-            ? l10n.defaultLabel
-            : isBuiltIn
-            ? l10n.builtIn
-            : null;
+    final chipLabel = isSelected
+        ? l10n.defaultLabel
+        : isBuiltIn
+        ? l10n.builtIn
+        : null;
 
     return WidthConstrainedBox(
       child: ListTile(

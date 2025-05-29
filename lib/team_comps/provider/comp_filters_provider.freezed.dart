@@ -83,16 +83,14 @@ class _$CompFiltersStateCopyWithImpl<$Res>
   $Res call({Object? agentFilters = null, Object? roleFilters = null}) {
     return _then(
       _self.copyWith(
-        agentFilters:
-            null == agentFilters
-                ? _self.agentFilters
-                : agentFilters // ignore: cast_nullable_to_non_nullable
-                    as Map<Agent, AgentStatus>,
-        roleFilters:
-            null == roleFilters
-                ? _self.roleFilters
-                : roleFilters // ignore: cast_nullable_to_non_nullable
-                    as Map<Role, RoleRange>,
+        agentFilters: null == agentFilters
+            ? _self.agentFilters
+            : agentFilters // ignore: cast_nullable_to_non_nullable
+                  as Map<Agent, AgentStatus>,
+        roleFilters: null == roleFilters
+            ? _self.roleFilters
+            : roleFilters // ignore: cast_nullable_to_non_nullable
+                  as Map<Role, RoleRange>,
       ),
     );
   }
@@ -190,16 +188,14 @@ class __$CompFiltersStateCopyWithImpl<$Res>
   $Res call({Object? agentFilters = null, Object? roleFilters = null}) {
     return _then(
       _CompFiltersState(
-        agentFilters:
-            null == agentFilters
-                ? _self._agentFilters
-                : agentFilters // ignore: cast_nullable_to_non_nullable
-                    as Map<Agent, AgentStatus>,
-        roleFilters:
-            null == roleFilters
-                ? _self._roleFilters
-                : roleFilters // ignore: cast_nullable_to_non_nullable
-                    as Map<Role, RoleRange>,
+        agentFilters: null == agentFilters
+            ? _self._agentFilters
+            : agentFilters // ignore: cast_nullable_to_non_nullable
+                  as Map<Agent, AgentStatus>,
+        roleFilters: null == roleFilters
+            ? _self._roleFilters
+            : roleFilters // ignore: cast_nullable_to_non_nullable
+                  as Map<Role, RoleRange>,
       ),
     );
   }

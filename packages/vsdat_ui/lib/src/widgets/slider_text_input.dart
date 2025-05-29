@@ -51,10 +51,9 @@ class _SliderTextInputState extends State<SliderTextInput> {
   Widget build(BuildContext context) {
     final currentValue = widget.currentValue;
     final maxSliderValue = widget.maxSliderValue.toDouble();
-    final sliderValue =
-        currentValue > maxSliderValue
-            ? maxSliderValue
-            : currentValue.toDouble();
+    final sliderValue = currentValue > maxSliderValue
+        ? maxSliderValue
+        : currentValue.toDouble();
     return Row(
       children: [
         Expanded(

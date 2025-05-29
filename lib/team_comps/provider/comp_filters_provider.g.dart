@@ -81,10 +81,9 @@ class CompFiltersProvider
         () => CompFilters()..rosterName = rosterName,
         from: compFiltersProvider,
         name: r'compFiltersProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product')
-                ? null
-                : _$compFiltersHash,
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$compFiltersHash,
         dependencies: CompFiltersFamily._dependencies,
         allTransitiveDependencies: CompFiltersFamily._allTransitiveDependencies,
         rosterName: rosterName,

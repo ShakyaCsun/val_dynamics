@@ -87,16 +87,14 @@ class StyledMatchesProvider
     required String collectionId,
     required ({double aggro, double control, double midrange}) acm,
   }) : this._internal(
-         () =>
-             StyledMatches()
-               ..collectionId = collectionId
-               ..acm = acm,
+         () => StyledMatches()
+           ..collectionId = collectionId
+           ..acm = acm,
          from: styledMatchesProvider,
          name: r'styledMatchesProvider',
-         debugGetCreateSourceHash:
-             const bool.fromEnvironment('dart.vm.product')
-                 ? null
-                 : _$styledMatchesHash,
+         debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+             ? null
+             : _$styledMatchesHash,
          dependencies: StyledMatchesFamily._dependencies,
          allTransitiveDependencies:
              StyledMatchesFamily._allTransitiveDependencies,
@@ -128,10 +126,9 @@ class StyledMatchesProvider
     return ProviderOverride(
       origin: this,
       override: StyledMatchesProvider._internal(
-        () =>
-            create()
-              ..collectionId = collectionId
-              ..acm = acm,
+        () => create()
+          ..collectionId = collectionId
+          ..acm = acm,
         from: from,
         name: null,
         dependencies: null,

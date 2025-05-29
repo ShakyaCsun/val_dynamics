@@ -79,21 +79,18 @@ class _$StyledMatchesSummaryDataCopyWithImpl<$Res>
   }) {
     return _then(
       _self.copyWith(
-        acm:
-            null == acm
-                ? _self.acm
-                : acm // ignore: cast_nullable_to_non_nullable
-                    as StylePoints,
-        opponentAcm:
-            null == opponentAcm
-                ? _self.opponentAcm
-                : opponentAcm // ignore: cast_nullable_to_non_nullable
-                    as StylePoints,
-        summary:
-            null == summary
-                ? _self.summary
-                : summary // ignore: cast_nullable_to_non_nullable
-                    as MatchesSummary,
+        acm: null == acm
+            ? _self.acm
+            : acm // ignore: cast_nullable_to_non_nullable
+                  as StylePoints,
+        opponentAcm: null == opponentAcm
+            ? _self.opponentAcm
+            : opponentAcm // ignore: cast_nullable_to_non_nullable
+                  as StylePoints,
+        summary: null == summary
+            ? _self.summary
+            : summary // ignore: cast_nullable_to_non_nullable
+                  as MatchesSummary,
       ),
     );
   }
@@ -190,21 +187,18 @@ class __$StyledMatchesSummaryDataCopyWithImpl<$Res>
   }) {
     return _then(
       _StyledMatchesSummaryData(
-        acm:
-            null == acm
-                ? _self.acm
-                : acm // ignore: cast_nullable_to_non_nullable
-                    as StylePoints,
-        opponentAcm:
-            null == opponentAcm
-                ? _self.opponentAcm
-                : opponentAcm // ignore: cast_nullable_to_non_nullable
-                    as StylePoints,
-        summary:
-            null == summary
-                ? _self.summary
-                : summary // ignore: cast_nullable_to_non_nullable
-                    as MatchesSummary,
+        acm: null == acm
+            ? _self.acm
+            : acm // ignore: cast_nullable_to_non_nullable
+                  as StylePoints,
+        opponentAcm: null == opponentAcm
+            ? _self.opponentAcm
+            : opponentAcm // ignore: cast_nullable_to_non_nullable
+                  as StylePoints,
+        summary: null == summary
+            ? _self.summary
+            : summary // ignore: cast_nullable_to_non_nullable
+                  as MatchesSummary,
       ),
     );
   }

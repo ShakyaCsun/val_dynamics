@@ -25,7 +25,9 @@ Map<(Agent, Agent), ComboSynergyStat> comboSynergies(
     :selectedMaps,
     :winLossFilter,
     :minRounds,
-  ) = ref.watch(comboSynergyFilterProvider(collectionId: collectionId));
+  ) = ref.watch(
+    comboSynergyFilterProvider(collectionId: collectionId),
+  );
   return matchRepository.getAllComboSynergies(
     criteria: comboCriteria,
     maps: selectedMaps,
@@ -166,11 +168,10 @@ extension ComboSynergyToPlotData on Map<(Agent, Agent), ComboSynergyStat> {
       for (final MapEntry(key: (agentOne, agentTwo), value: synergyStat)
           in entries)
         ComboData(
-              agentOne: agentOne,
-              agentTwo: agentTwo,
-              synergyStat: synergyStat,
-            ):
-            (agentOne.stylePoints + agentTwo.stylePoints).ternaryPoint,
+          agentOne: agentOne,
+          agentTwo: agentTwo,
+          synergyStat: synergyStat,
+        ): (agentOne.stylePoints + agentTwo.stylePoints).ternaryPoint,
     };
   }
 }

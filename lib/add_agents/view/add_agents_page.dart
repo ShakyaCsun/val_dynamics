@@ -131,12 +131,11 @@ class _SubmitButton extends ConsumerWidget {
       return const Center(child: CircularProgressIndicator());
     }
     return ElevatedButton(
-      onPressed:
-          isValid
-              ? () {
-                ref.read(addAgentsProvider.notifier).submit();
-              }
-              : null,
+      onPressed: isValid
+          ? () {
+              ref.read(addAgentsProvider.notifier).submit();
+            }
+          : null,
       child: Text(l10n.addAgentRatings),
     );
   }

@@ -64,41 +64,31 @@ class CircleIndicator extends StatelessWidget {
       decoration: BoxDecoration(
         color: color,
         shape: BoxShape.circle,
-        border:
-            borderColor != null
-                ? Border.all(color: borderColor!, width: borderWidth ?? 1.0)
-                : null,
+        border: borderColor != null
+            ? Border.all(color: borderColor!, width: borderWidth ?? 1.0)
+            : null,
       ),
-      foregroundDecoration:
-          image != null
-              ? BoxDecoration(
-                image: DecorationImage(image: image!, fit: BoxFit.cover),
-                border:
-                    borderColor != null
-                        ? Border.all(
-                          color: borderColor!,
-                          width: borderWidth ?? 1.0,
-                        )
-                        : null,
-                shape: BoxShape.circle,
-              )
-              : null,
-      child:
-          text == null
-              ? null
-              : Center(
-                // Need to disable text scaling here so that the text doesn't
-                // escape the avatar when the textScaleFactor is large.
-                child: MediaQuery.withNoTextScaling(
-                  child: IconTheme(
-                    data: theme.iconTheme.copyWith(color: textStyle.color),
-                    child: DefaultTextStyle(
-                      style: textStyle,
-                      child: Text(text!),
-                    ),
-                  ),
+      foregroundDecoration: image != null
+          ? BoxDecoration(
+              image: DecorationImage(image: image!, fit: BoxFit.cover),
+              border: borderColor != null
+                  ? Border.all(color: borderColor!, width: borderWidth ?? 1.0)
+                  : null,
+              shape: BoxShape.circle,
+            )
+          : null,
+      child: text == null
+          ? null
+          : Center(
+              // Need to disable text scaling here so that the text doesn't
+              // escape the avatar when the textScaleFactor is large.
+              child: MediaQuery.withNoTextScaling(
+                child: IconTheme(
+                  data: theme.iconTheme.copyWith(color: textStyle.color),
+                  child: DefaultTextStyle(style: textStyle, child: Text(text!)),
                 ),
               ),
+            ),
     );
   }
 }

@@ -46,8 +46,9 @@ class MatchesView extends ConsumerWidget {
         leading: const BackButton(),
       ),
       body: const MatchesBody(),
-      drawer:
-          context.showStandardDrawer ? null : const MinMatchesFilterDrawer(),
+      drawer: context.showStandardDrawer
+          ? null
+          : const MinMatchesFilterDrawer(),
       drawerEnableOpenDragGesture: false,
     );
   }

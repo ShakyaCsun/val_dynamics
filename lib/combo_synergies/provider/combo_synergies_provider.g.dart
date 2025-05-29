@@ -78,10 +78,9 @@ class ComboSynergiesProvider
         ),
         from: comboSynergiesProvider,
         name: r'comboSynergiesProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product')
-                ? null
-                : _$comboSynergiesHash,
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$comboSynergiesHash,
         dependencies: ComboSynergiesFamily._dependencies,
         allTransitiveDependencies:
             ComboSynergiesFamily._allTransitiveDependencies,
@@ -209,10 +208,9 @@ class SortedComboSynergiesListProvider
         ),
         from: sortedComboSynergiesListProvider,
         name: r'sortedComboSynergiesListProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product')
-                ? null
-                : _$sortedComboSynergiesListHash,
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$sortedComboSynergiesListHash,
         dependencies: SortedComboSynergiesListFamily._dependencies,
         allTransitiveDependencies:
             SortedComboSynergiesListFamily._allTransitiveDependencies,
@@ -296,10 +294,9 @@ final comboSynergySortProvider =
     NotifierProvider<ComboSynergySort, SynergySort>.internal(
       ComboSynergySort.new,
       name: r'comboSynergySortProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$comboSynergySortHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$comboSynergySortHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );
@@ -364,10 +361,9 @@ class ComboSynergyFilterProvider
         () => ComboSynergyFilter()..collectionId = collectionId,
         from: comboSynergyFilterProvider,
         name: r'comboSynergyFilterProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product')
-                ? null
-                : _$comboSynergyFilterHash,
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$comboSynergyFilterHash,
         dependencies: ComboSynergyFilterFamily._dependencies,
         allTransitiveDependencies:
             ComboSynergyFilterFamily._allTransitiveDependencies,

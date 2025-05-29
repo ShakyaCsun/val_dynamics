@@ -90,26 +90,22 @@ class _$AppDataCopyWithImpl<$Res> implements $AppDataCopyWith<$Res> {
   }) {
     return _then(
       _self.copyWith(
-        bundledAgents:
-            null == bundledAgents
-                ? _self.bundledAgents
-                : bundledAgents // ignore: cast_nullable_to_non_nullable
-                    as Map<String, Agents>,
-        bundledMatches:
-            null == bundledMatches
-                ? _self.bundledMatches
-                : bundledMatches // ignore: cast_nullable_to_non_nullable
-                    as Map<String, List<RawMatch>>,
-        message:
-            null == message
-                ? _self.message
-                : message // ignore: cast_nullable_to_non_nullable
-                    as String,
-        status:
-            null == status
-                ? _self.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as AppDataStatus,
+        bundledAgents: null == bundledAgents
+            ? _self.bundledAgents
+            : bundledAgents // ignore: cast_nullable_to_non_nullable
+                  as Map<String, Agents>,
+        bundledMatches: null == bundledMatches
+            ? _self.bundledMatches
+            : bundledMatches // ignore: cast_nullable_to_non_nullable
+                  as Map<String, List<RawMatch>>,
+        message: null == message
+            ? _self.message
+            : message // ignore: cast_nullable_to_non_nullable
+                  as String,
+        status: null == status
+            ? _self.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as AppDataStatus,
       ),
     );
   }
@@ -224,26 +220,22 @@ class __$AppDataCopyWithImpl<$Res> implements _$AppDataCopyWith<$Res> {
   }) {
     return _then(
       _AppData(
-        bundledAgents:
-            null == bundledAgents
-                ? _self._bundledAgents
-                : bundledAgents // ignore: cast_nullable_to_non_nullable
-                    as Map<String, Agents>,
-        bundledMatches:
-            null == bundledMatches
-                ? _self._bundledMatches
-                : bundledMatches // ignore: cast_nullable_to_non_nullable
-                    as Map<String, List<RawMatch>>,
-        message:
-            null == message
-                ? _self.message
-                : message // ignore: cast_nullable_to_non_nullable
-                    as String,
-        status:
-            null == status
-                ? _self.status
-                : status // ignore: cast_nullable_to_non_nullable
-                    as AppDataStatus,
+        bundledAgents: null == bundledAgents
+            ? _self._bundledAgents
+            : bundledAgents // ignore: cast_nullable_to_non_nullable
+                  as Map<String, Agents>,
+        bundledMatches: null == bundledMatches
+            ? _self._bundledMatches
+            : bundledMatches // ignore: cast_nullable_to_non_nullable
+                  as Map<String, List<RawMatch>>,
+        message: null == message
+            ? _self.message
+            : message // ignore: cast_nullable_to_non_nullable
+                  as String,
+        status: null == status
+            ? _self.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as AppDataStatus,
       ),
     );
   }

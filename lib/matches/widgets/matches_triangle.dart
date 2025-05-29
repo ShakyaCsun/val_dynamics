@@ -17,22 +17,21 @@ class MatchesTriangle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TernaryPlotHoverInfo<ValorantMatches>(
-      builder:
-          (context, hoveredItemsChanged) => StyleTriangle(
-            data: matches,
-            builder: (datum, radius) {
-              final matchesCount = datum.length;
-              final color = datum.collectTeamOneScore().color;
-              return CircleAvatar(
-                radius: radius,
-                backgroundColor: color,
-                foregroundColor: color.onColor,
-                child: Text('$matchesCount'),
-              );
-            },
-            onHover: hoveredItemsChanged,
-            onTap: onTap,
-          ),
+      builder: (context, hoveredItemsChanged) => StyleTriangle(
+        data: matches,
+        builder: (datum, radius) {
+          final matchesCount = datum.length;
+          final color = datum.collectTeamOneScore().color;
+          return CircleAvatar(
+            radius: radius,
+            backgroundColor: color,
+            foregroundColor: color.onColor,
+            child: Text('$matchesCount'),
+          );
+        },
+        onHover: hoveredItemsChanged,
+        onTap: onTap,
+      ),
       itemBuilder: (valMatches) {
         final matchesData = MatchesTernaryData.fromMatches(valMatches);
         return MatchesHoverInfoCard(matchesData: matchesData);

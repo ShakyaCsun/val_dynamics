@@ -93,10 +93,9 @@ class StyledMatchupListProvider extends AutoDisposeProvider<ValorantMatches> {
          ),
          from: styledMatchupListProvider,
          name: r'styledMatchupListProvider',
-         debugGetCreateSourceHash:
-             const bool.fromEnvironment('dart.vm.product')
-                 ? null
-                 : _$styledMatchupListHash,
+         debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+             ? null
+             : _$styledMatchupListHash,
          dependencies: StyledMatchupListFamily._dependencies,
          allTransitiveDependencies:
              StyledMatchupListFamily._allTransitiveDependencies,

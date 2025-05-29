@@ -250,13 +250,12 @@ final class _AgentCsvIndices {
   bool get hasRole => role >= 0;
 
   Agent parseAgent(List<String> csvRow) {
-    final imageUrl =
-        hasImage
-            ? switch (csvRow[image].trim()) {
-              '' => null,
-              _ => csvRow[image],
-            }
-            : null;
+    final imageUrl = hasImage
+        ? switch (csvRow[image].trim()) {
+            '' => null,
+            _ => csvRow[image],
+          }
+        : null;
     final agentRole = hasRole ? Role.fromJson(csvRow[role]) : Role.unknown;
     return Agent(
       name: csvRow[name],

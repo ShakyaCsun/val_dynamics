@@ -19,45 +19,45 @@ class StyledMatchesTriangle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TernaryPlotHoverInfo<ValorantMatches>(
-      builder:
-          (context, hoveredItemsChanged) => StyleTriangle(
-            data: matches,
-            builder: (datum, radius) {
-              var highlight = false;
-              if (datum.matches.isEmpty ||
-                  datum.matches.first.teamTwo.stylePoints == highlightStyle) {
-                highlight = true;
-              }
-              final matchesCount = datum.length;
-              final color = datum.collectTeamOneScore().color;
-              if (highlight) {
-                return CircleAvatar(
-                  radius: radius,
-                  backgroundColor: Theme.of(context).colorScheme.primary,
-                  foregroundColor: Theme.of(context).colorScheme.onPrimary,
-                  child: Text(matchesCount > 0 ? '$matchesCount' : 'H'),
-                );
-              }
-              return CircleAvatar(
-                radius: radius,
-                backgroundColor: color,
-                foregroundColor: color.onColor,
-                child: Text('$matchesCount'),
-              );
-            },
-            onHover: hoveredItemsChanged,
-            onTap: (points) {
-              final validPoints =
-                  points.where((element) => element.isNotEmpty).toList();
-              if (validPoints.isNotEmpty) {
-                StyledMatchupListRoute.safe(
-                  collectionName: context.collectionName!,
-                  acm: highlightStyle,
-                  opponentAcm: validPoints.first.matches.first.stylePoints2,
-                ).go(context);
-              }
-            },
-          ),
+      builder: (context, hoveredItemsChanged) => StyleTriangle(
+        data: matches,
+        builder: (datum, radius) {
+          var highlight = false;
+          if (datum.matches.isEmpty ||
+              datum.matches.first.teamTwo.stylePoints == highlightStyle) {
+            highlight = true;
+          }
+          final matchesCount = datum.length;
+          final color = datum.collectTeamOneScore().color;
+          if (highlight) {
+            return CircleAvatar(
+              radius: radius,
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              foregroundColor: Theme.of(context).colorScheme.onPrimary,
+              child: Text(matchesCount > 0 ? '$matchesCount' : 'H'),
+            );
+          }
+          return CircleAvatar(
+            radius: radius,
+            backgroundColor: color,
+            foregroundColor: color.onColor,
+            child: Text('$matchesCount'),
+          );
+        },
+        onHover: hoveredItemsChanged,
+        onTap: (points) {
+          final validPoints = points
+              .where((element) => element.isNotEmpty)
+              .toList();
+          if (validPoints.isNotEmpty) {
+            StyledMatchupListRoute.safe(
+              collectionName: context.collectionName!,
+              acm: highlightStyle,
+              opponentAcm: validPoints.first.matches.first.stylePoints2,
+            ).go(context);
+          }
+        },
+      ),
       itemBuilder: (valMatches) {
         if (valMatches.isEmpty ||
             valMatches.first.stylePoints2 == highlightStyle) {

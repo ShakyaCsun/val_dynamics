@@ -89,10 +89,9 @@ class SelectedAgentCompsProvider extends AutoDisposeProvider<List<AgentComp>> {
          ),
          from: selectedAgentCompsProvider,
          name: r'selectedAgentCompsProvider',
-         debugGetCreateSourceHash:
-             const bool.fromEnvironment('dart.vm.product')
-                 ? null
-                 : _$selectedAgentCompsHash,
+         debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+             ? null
+             : _$selectedAgentCompsHash,
          dependencies: SelectedAgentCompsFamily._dependencies,
          allTransitiveDependencies:
              SelectedAgentCompsFamily._allTransitiveDependencies,

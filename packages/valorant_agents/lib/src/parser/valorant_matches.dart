@@ -24,18 +24,17 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
 
     if (ignoreTeamParserExceptions) {
       final exceptions = <AgentsParserException>[];
-      final matches =
-          rows
-              .map<ValorantMatch?>((e) {
-                try {
-                  return indices.parseMatch(e, agentsMap: agentsMap);
-                } on AgentsParserException catch (e) {
-                  exceptions.add(e);
-                  return null;
-                }
-              })
-              .nonNulls
-              .toList();
+      final matches = rows
+          .map<ValorantMatch?>((e) {
+            try {
+              return indices.parseMatch(e, agentsMap: agentsMap);
+            } on AgentsParserException catch (e) {
+              exceptions.add(e);
+              return null;
+            }
+          })
+          .nonNulls
+          .toList();
       ignoredExceptionHandler?.call(exceptions);
       return ValorantMatches(matches);
     }
@@ -55,18 +54,17 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
   }) {
     if (ignoreTeamParserExceptions) {
       final exceptions = <AgentsParserException>[];
-      final matches =
-          rawMatches
-              .map<ValorantMatch?>((match) {
-                try {
-                  return match.toValorantMatch(agentsMap: agentsMap);
-                } on AgentsParserException catch (e) {
-                  exceptions.add(e);
-                  return null;
-                }
-              })
-              .nonNulls
-              .toList();
+      final matches = rawMatches
+          .map<ValorantMatch?>((match) {
+            try {
+              return match.toValorantMatch(agentsMap: agentsMap);
+            } on AgentsParserException catch (e) {
+              exceptions.add(e);
+              return null;
+            }
+          })
+          .nonNulls
+          .toList();
       ignoredExceptionHandler?.call(exceptions);
       return ValorantMatches(matches);
     }

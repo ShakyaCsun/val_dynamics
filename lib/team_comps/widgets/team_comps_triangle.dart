@@ -29,10 +29,9 @@ class TeamCompsTriangle extends StatelessWidget {
           builder: (datum, radius) {
             final maxedComp = datum.count == maxComps;
             return CircleIndicator.bordered(
-              borderColor:
-                  maxedComp
-                      ? colorScheme.primary
-                      : ValColors.forStyleType(datum.stylePoints.styleType),
+              borderColor: maxedComp
+                  ? colorScheme.primary
+                  : ValColors.forStyleType(datum.stylePoints.styleType),
               text: '${datum.count}',
               radius: radius,
             );
@@ -77,13 +76,9 @@ class TeamCompsTriangle extends StatelessWidget {
           },
         );
       },
-      itemBuilder:
-          (compsData) => Text(
-            context.l10n.nCompsOfStyle(
-              compsData.count,
-              compsData.stylePoints.acm,
-            ),
-          ),
+      itemBuilder: (compsData) => Text(
+        context.l10n.nCompsOfStyle(compsData.count, compsData.stylePoints.acm),
+      ),
     );
   }
 }

@@ -92,16 +92,14 @@ class _$CompositionsStateCopyWithImpl<$Res>
   $Res call({Object? agents = null, Object? allCompositions = null}) {
     return _then(
       _self.copyWith(
-        agents:
-            null == agents
-                ? _self.agents
-                : agents // ignore: cast_nullable_to_non_nullable
-                    as Agents,
-        allCompositions:
-            null == allCompositions
-                ? _self.allCompositions
-                : allCompositions // ignore: cast_nullable_to_non_nullable
-                    as List<AgentComp>,
+        agents: null == agents
+            ? _self.agents
+            : agents // ignore: cast_nullable_to_non_nullable
+                  as Agents,
+        allCompositions: null == allCompositions
+            ? _self.allCompositions
+            : allCompositions // ignore: cast_nullable_to_non_nullable
+                  as List<AgentComp>,
       ),
     );
   }
@@ -195,16 +193,14 @@ class __$CompositionsStateCopyWithImpl<$Res>
   $Res call({Object? agents = null, Object? allCompositions = null}) {
     return _then(
       _CompositionsState(
-        agents:
-            null == agents
-                ? _self.agents
-                : agents // ignore: cast_nullable_to_non_nullable
-                    as Agents,
-        allCompositions:
-            null == allCompositions
-                ? _self._allCompositions
-                : allCompositions // ignore: cast_nullable_to_non_nullable
-                    as List<AgentComp>,
+        agents: null == agents
+            ? _self.agents
+            : agents // ignore: cast_nullable_to_non_nullable
+                  as Agents,
+        allCompositions: null == allCompositions
+            ? _self._allCompositions
+            : allCompositions // ignore: cast_nullable_to_non_nullable
+                  as List<AgentComp>,
       ),
     );
   }
@@ -270,16 +266,14 @@ class _$RoleRangeCopyWithImpl<$Res> implements $RoleRangeCopyWith<$Res> {
   $Res call({Object? min = null, Object? max = null}) {
     return _then(
       _self.copyWith(
-        min:
-            null == min
-                ? _self.min
-                : min // ignore: cast_nullable_to_non_nullable
-                    as int,
-        max:
-            null == max
-                ? _self.max
-                : max // ignore: cast_nullable_to_non_nullable
-                    as int,
+        min: null == min
+            ? _self.min
+            : min // ignore: cast_nullable_to_non_nullable
+                  as int,
+        max: null == max
+            ? _self.max
+            : max // ignore: cast_nullable_to_non_nullable
+                  as int,
       ),
     );
   }
@@ -359,16 +353,14 @@ class __$RoleRangeCopyWithImpl<$Res> implements _$RoleRangeCopyWith<$Res> {
   $Res call({Object? min = null, Object? max = null}) {
     return _then(
       _RoleRange(
-        min:
-            null == min
-                ? _self.min
-                : min // ignore: cast_nullable_to_non_nullable
-                    as int,
-        max:
-            null == max
-                ? _self.max
-                : max // ignore: cast_nullable_to_non_nullable
-                    as int,
+        min: null == min
+            ? _self.min
+            : min // ignore: cast_nullable_to_non_nullable
+                  as int,
+        max: null == max
+            ? _self.max
+            : max // ignore: cast_nullable_to_non_nullable
+                  as int,
       ),
     );
   }

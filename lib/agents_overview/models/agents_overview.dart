@@ -26,19 +26,16 @@ sealed class PointsRange extends Equatable {
     if (agents.validPowerLevels) {
       return SinglePoint(total: agents.first.totalPoints);
     }
-    final nearlyEqualPower =
-        tolerance == null
-            ? agents.haveCloseToEqualPower()
-            : agents.haveCloseToEqualPower(tolerance: tolerance);
+    final nearlyEqualPower = tolerance == null
+        ? agents.haveCloseToEqualPower()
+        : agents.haveCloseToEqualPower(tolerance: tolerance);
     if (nearlyEqualPower) {
-      final averagePower = (agents.map((e) => e.totalPoints).reduce((
-                value,
-                element,
-              ) {
-                return value + element;
-              }) /
-              agents.length)
-          .toStringAsFixed(2);
+      final averagePower =
+          (agents.map((e) => e.totalPoints).reduce((value, element) {
+                    return value + element;
+                  }) /
+                  agents.length)
+              .toStringAsFixed(2);
       return NearlyEqualPoints(total: parseDouble(averagePower));
     }
     final agentPowerBudgets = agents.map((agent) => agent.totalPoints).toSet();

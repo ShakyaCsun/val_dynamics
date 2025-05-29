@@ -25,7 +25,7 @@ const _mapNames = [
   'Split',
 ];
 
-final _numberOfMaps = _mapNames.length;
+final int _numberOfMaps = _mapNames.length;
 
 List<RawMatch> generateRawMatches(Random random, [int count = 1000]) {
   return [for (var i = 0; i < count; i++) _generateMatch(random)];
@@ -57,10 +57,12 @@ RawMatch _generateMatch(Random random) {
       teamTwoName: 'Team2',
       teamOneScore: winningScore,
       teamTwoScore: losingScore,
-      teamOneAttackScore:
-          winnersAttackedFirst ? winningFirstHalf : winningSecondHalf,
-      teamTwoAttackScore:
-          winnersAttackedFirst ? losingSecondHalf : losersFirstHalf,
+      teamOneAttackScore: winnersAttackedFirst
+          ? winningFirstHalf
+          : winningSecondHalf,
+      teamTwoAttackScore: winnersAttackedFirst
+          ? losingSecondHalf
+          : losersFirstHalf,
       teamOneAgents: agentsOne,
       teamTwoAgents: agentsTwo,
     );
@@ -71,10 +73,12 @@ RawMatch _generateMatch(Random random) {
     teamTwoName: 'Team2',
     teamOneScore: losingScore,
     teamTwoScore: winningScore,
-    teamOneAttackScore:
-        winnersAttackedFirst ? losingSecondHalf : losersFirstHalf,
-    teamTwoAttackScore:
-        winnersAttackedFirst ? winningFirstHalf : winningSecondHalf,
+    teamOneAttackScore: winnersAttackedFirst
+        ? losingSecondHalf
+        : losersFirstHalf,
+    teamTwoAttackScore: winnersAttackedFirst
+        ? winningFirstHalf
+        : winningSecondHalf,
     teamOneAgents: agentsOne,
     teamTwoAgents: agentsTwo,
   );

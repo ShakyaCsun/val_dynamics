@@ -33,8 +33,9 @@ MatchesRepository matchesRepository(Ref ref, {required String collectionId}) {
     agentRoster: agentRoster,
     ignoredExceptionHandler: (exceptions) {
       final log = Logger('MatchesIgnoredExceptions($collectionId)');
-      final teamSizeExceptionCount =
-          exceptions.whereType<InvalidTeamSizeException>().length;
+      final teamSizeExceptionCount = exceptions
+          .whereType<InvalidTeamSizeException>()
+          .length;
       if (teamSizeExceptionCount > 0) {
         log.warning(
           'Matches contain $teamSizeExceptionCount comps '

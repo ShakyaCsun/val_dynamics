@@ -74,10 +74,9 @@ class AppRouterProvider extends AutoDisposeProvider<GoRouter> {
         ),
         from: appRouterProvider,
         name: r'appRouterProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product')
-                ? null
-                : _$appRouterHash,
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$appRouterHash,
         dependencies: AppRouterFamily._dependencies,
         allTransitiveDependencies: AppRouterFamily._allTransitiveDependencies,
         debugLogDiagnostics: debugLogDiagnostics,

@@ -167,19 +167,18 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
                     collectionId: collectionName,
                   ).select((state) => state.rolesCombo),
                 ),
-                items:
-                    allRoleCombos.map((roleCombo) {
-                      final roleComboText = switch (roleCombo) {
-                        (Role.unknown, Role.unknown) => 'All',
-                        (final role, Role.unknown) => '${role.value}-All',
-                        (final roleA, final roleB) =>
-                          '${roleA.value}-${roleB.value}',
-                      };
-                      return DropdownMenuItem(
-                        value: roleCombo,
-                        child: Text(roleComboText),
-                      );
-                    }).toList(),
+                items: allRoleCombos.map((roleCombo) {
+                  final roleComboText = switch (roleCombo) {
+                    (Role.unknown, Role.unknown) => 'All',
+                    (final role, Role.unknown) => '${role.value}-All',
+                    (final roleA, final roleB) =>
+                      '${roleA.value}-${roleB.value}',
+                  };
+                  return DropdownMenuItem(
+                    value: roleCombo,
+                    child: Text(roleComboText),
+                  );
+                }).toList(),
                 onChanged: (value) {
                   if (value != null) {
                     ref

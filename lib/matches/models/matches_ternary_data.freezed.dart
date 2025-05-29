@@ -115,41 +115,34 @@ class _$MatchesTernaryDataCopyWithImpl<$Res>
   }) {
     return _then(
       _self.copyWith(
-        stylePoints:
-            null == stylePoints
-                ? _self.stylePoints
-                : stylePoints // ignore: cast_nullable_to_non_nullable
-                    as StylePoints,
-        matchesCount:
-            null == matchesCount
-                ? _self.matchesCount
-                : matchesCount // ignore: cast_nullable_to_non_nullable
-                    as int,
-        score:
-            null == score
-                ? _self.score
-                : score // ignore: cast_nullable_to_non_nullable
-                    as Score,
-        attackScore:
-            null == attackScore
-                ? _self.attackScore
-                : attackScore // ignore: cast_nullable_to_non_nullable
-                    as Score,
-        defenseScore:
-            null == defenseScore
-                ? _self.defenseScore
-                : defenseScore // ignore: cast_nullable_to_non_nullable
-                    as Score,
-        compositions:
-            null == compositions
-                ? _self.compositions
-                : compositions // ignore: cast_nullable_to_non_nullable
-                    as Set<AgentComp>,
-        oppositionCompositions:
-            null == oppositionCompositions
-                ? _self.oppositionCompositions
-                : oppositionCompositions // ignore: cast_nullable_to_non_nullable
-                    as Set<AgentComp>,
+        stylePoints: null == stylePoints
+            ? _self.stylePoints
+            : stylePoints // ignore: cast_nullable_to_non_nullable
+                  as StylePoints,
+        matchesCount: null == matchesCount
+            ? _self.matchesCount
+            : matchesCount // ignore: cast_nullable_to_non_nullable
+                  as int,
+        score: null == score
+            ? _self.score
+            : score // ignore: cast_nullable_to_non_nullable
+                  as Score,
+        attackScore: null == attackScore
+            ? _self.attackScore
+            : attackScore // ignore: cast_nullable_to_non_nullable
+                  as Score,
+        defenseScore: null == defenseScore
+            ? _self.defenseScore
+            : defenseScore // ignore: cast_nullable_to_non_nullable
+                  as Score,
+        compositions: null == compositions
+            ? _self.compositions
+            : compositions // ignore: cast_nullable_to_non_nullable
+                  as Set<AgentComp>,
+        oppositionCompositions: null == oppositionCompositions
+            ? _self.oppositionCompositions
+            : oppositionCompositions // ignore: cast_nullable_to_non_nullable
+                  as Set<AgentComp>,
       ),
     );
   }
@@ -290,41 +283,34 @@ class __$MatchesTernaryDataCopyWithImpl<$Res>
   }) {
     return _then(
       _MatchesTernaryData(
-        stylePoints:
-            null == stylePoints
-                ? _self.stylePoints
-                : stylePoints // ignore: cast_nullable_to_non_nullable
-                    as StylePoints,
-        matchesCount:
-            null == matchesCount
-                ? _self.matchesCount
-                : matchesCount // ignore: cast_nullable_to_non_nullable
-                    as int,
-        score:
-            null == score
-                ? _self.score
-                : score // ignore: cast_nullable_to_non_nullable
-                    as Score,
-        attackScore:
-            null == attackScore
-                ? _self.attackScore
-                : attackScore // ignore: cast_nullable_to_non_nullable
-                    as Score,
-        defenseScore:
-            null == defenseScore
-                ? _self.defenseScore
-                : defenseScore // ignore: cast_nullable_to_non_nullable
-                    as Score,
-        compositions:
-            null == compositions
-                ? _self._compositions
-                : compositions // ignore: cast_nullable_to_non_nullable
-                    as Set<AgentComp>,
-        oppositionCompositions:
-            null == oppositionCompositions
-                ? _self._oppositionCompositions
-                : oppositionCompositions // ignore: cast_nullable_to_non_nullable
-                    as Set<AgentComp>,
+        stylePoints: null == stylePoints
+            ? _self.stylePoints
+            : stylePoints // ignore: cast_nullable_to_non_nullable
+                  as StylePoints,
+        matchesCount: null == matchesCount
+            ? _self.matchesCount
+            : matchesCount // ignore: cast_nullable_to_non_nullable
+                  as int,
+        score: null == score
+            ? _self.score
+            : score // ignore: cast_nullable_to_non_nullable
+                  as Score,
+        attackScore: null == attackScore
+            ? _self.attackScore
+            : attackScore // ignore: cast_nullable_to_non_nullable
+                  as Score,
+        defenseScore: null == defenseScore
+            ? _self.defenseScore
+            : defenseScore // ignore: cast_nullable_to_non_nullable
+                  as Score,
+        compositions: null == compositions
+            ? _self._compositions
+            : compositions // ignore: cast_nullable_to_non_nullable
+                  as Set<AgentComp>,
+        oppositionCompositions: null == oppositionCompositions
+            ? _self._oppositionCompositions
+            : oppositionCompositions // ignore: cast_nullable_to_non_nullable
+                  as Set<AgentComp>,
       ),
     );
   }

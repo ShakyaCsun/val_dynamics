@@ -2,24 +2,13 @@ import 'dart:io';
 
 Future<void> main() async {
   final outputFile = File('./lib/gen/agents_map.dart');
-  final buffer =
-      StringBuffer(_importHeaders())
-        ..writeln(generate(funcName: 'defaultAgentIcon', property: 'icon'))
-        ..writeln(
-          generate(funcName: 'defaultAgentPortrait', property: 'portrait'),
-        )
-        ..writeln(
-          generate(funcName: 'defaultAbility1Icon', property: 'ability1'),
-        )
-        ..writeln(
-          generate(funcName: 'defaultAbility2Icon', property: 'ability2'),
-        )
-        ..writeln(
-          generate(funcName: 'defaultAbility3Icon', property: 'ability3'),
-        )
-        ..writeln(
-          generate(funcName: 'defaultUltimateIcon', property: 'ultimate'),
-        );
+  final buffer = StringBuffer(_importHeaders())
+    ..writeln(generate(funcName: 'defaultAgentIcon', property: 'icon'))
+    ..writeln(generate(funcName: 'defaultAgentPortrait', property: 'portrait'))
+    ..writeln(generate(funcName: 'defaultAbility1Icon', property: 'ability1'))
+    ..writeln(generate(funcName: 'defaultAbility2Icon', property: 'ability2'))
+    ..writeln(generate(funcName: 'defaultAbility3Icon', property: 'ability3'))
+    ..writeln(generate(funcName: 'defaultUltimateIcon', property: 'ultimate'));
   await outputFile.writeAsString(buffer.toString());
 }
 
@@ -64,7 +53,8 @@ String generate({required String funcName, required String property}) {
     'waylay',
     'yoru',
   ];
-  final prefix = '''
+  final prefix =
+      '''
 AssetGenImage? $funcName(String agent) {
   return switch (agent.toLowerCase()) {
 ''';

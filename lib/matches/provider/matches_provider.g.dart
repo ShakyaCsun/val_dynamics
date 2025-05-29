@@ -76,10 +76,9 @@ class MatchesRepositoryProvider extends AutoDisposeProvider<MatchesRepository> {
         ),
         from: matchesRepositoryProvider,
         name: r'matchesRepositoryProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product')
-                ? null
-                : _$matchesRepositoryHash,
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$matchesRepositoryHash,
         dependencies: MatchesRepositoryFamily._dependencies,
         allTransitiveDependencies:
             MatchesRepositoryFamily._allTransitiveDependencies,
@@ -201,10 +200,9 @@ class AvailableMapsProvider extends AutoDisposeProvider<Set<String>> {
         ),
         from: availableMapsProvider,
         name: r'availableMapsProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product')
-                ? null
-                : _$availableMapsHash,
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$availableMapsHash,
         dependencies: AvailableMapsFamily._dependencies,
         allTransitiveDependencies:
             AvailableMapsFamily._allTransitiveDependencies,
@@ -326,10 +324,9 @@ class SelectedMapsProvider extends AutoDisposeProvider<Set<String>> {
         ),
         from: selectedMapsProvider,
         name: r'selectedMapsProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product')
-                ? null
-                : _$selectedMapsHash,
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$selectedMapsHash,
         dependencies: SelectedMapsFamily._dependencies,
         allTransitiveDependencies:
             SelectedMapsFamily._allTransitiveDependencies,
@@ -451,10 +448,9 @@ class MatchesProvider
         () => Matches()..collectionId = collectionId,
         from: matchesProvider,
         name: r'matchesProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product')
-                ? null
-                : _$matchesHash,
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$matchesHash,
         dependencies: MatchesFamily._dependencies,
         allTransitiveDependencies: MatchesFamily._allTransitiveDependencies,
         collectionId: collectionId,
@@ -582,10 +578,9 @@ class MatchesFilterProvider
         () => MatchesFilter()..collectionId = collectionId,
         from: matchesFilterProvider,
         name: r'matchesFilterProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product')
-                ? null
-                : _$matchesFilterHash,
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$matchesFilterHash,
         dependencies: MatchesFilterFamily._dependencies,
         allTransitiveDependencies:
             MatchesFilterFamily._allTransitiveDependencies,
