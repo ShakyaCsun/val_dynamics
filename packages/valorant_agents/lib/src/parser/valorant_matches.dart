@@ -52,12 +52,16 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
     void Function(List<AgentsParserException> exception)?
     ignoredExceptionHandler,
   }) {
+    final compsCache = <String, AgentComp>{};
     if (ignoreTeamParserExceptions) {
       final exceptions = <AgentsParserException>[];
       final matches = rawMatches
           .map<ValorantMatch?>((match) {
             try {
-              return match.toValorantMatch(agentsMap: agentsMap);
+              return match.toValorantMatch(
+                agentsMap: agentsMap,
+                compsCache: compsCache,
+              );
             } on AgentsParserException catch (e) {
               exceptions.add(e);
               return null;
@@ -70,7 +74,10 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
     }
     return ValorantMatches(
       rawMatches.map<ValorantMatch>((match) {
-        return match.toValorantMatch(agentsMap: agentsMap);
+        return match.toValorantMatch(
+          agentsMap: agentsMap,
+          compsCache: compsCache,
+        );
       }).toList(),
     );
   }
@@ -267,39 +274,29 @@ extension SynergyInMatchesCalculator on ValorantMatches {
 
   /// Get the Non-Mirror Round Win Rate for all [Agent]s that are played
   FastAgentMap<Score> getAllAgentNmrwr() {
-    final agentNonMirrorScoreTuples = FastAgentMap<(int, int)>();
-    for (final ValorantMatch(
-          scoreOne: Score(tuple: tupleOne),
-          scoreTwo: Score(tuple: tupleTwo),
-          :nonMirrorAgents,
-        )
-        in this) {
+    final agentNonMirrorScores = FastAgentMap<Score>();
+    for (final ValorantMatch(:scoreOne, :scoreTwo, :nonMirrorAgents) in this) {
       for (final MapEntry(key: agent, value: nonMirror)
           in nonMirrorAgents.entries) {
-        if (nonMirror == NonMirror.yes) {
-          agentNonMirrorScoreTuples.update(
-            agent,
-            (value) => value + tupleOne,
-            ifAbsent: () => tupleOne,
-          );
-        } else {
-          assert(
-            nonMirror == NonMirror.yesIfReversed,
-            'nonMirrorAgents should only have yes or yesIfReversed values',
-          );
-          agentNonMirrorScoreTuples.update(
-            agent,
-            (value) => value + tupleTwo,
-            ifAbsent: () => tupleTwo,
-          );
+        switch (nonMirror) {
+          case NonMirror.yes:
+            agentNonMirrorScores.update(
+              agent,
+              (value) => value + scoreOne,
+              ifAbsent: () => scoreOne,
+            );
+          case NonMirror.yesIfReversed:
+            agentNonMirrorScores.update(
+              agent,
+              (value) => value + scoreTwo,
+              ifAbsent: () => scoreTwo,
+            );
+          case NonMirror.no:
+            break;
         }
       }
     }
-    return FastAgentMap.fromEntries(
-      agentNonMirrorScoreTuples.entries.map(
-        (e) => MapEntry(e.key, e.value.toScore),
-      ),
-    );
+    return agentNonMirrorScores;
   }
 
   Score getComboNmwr(

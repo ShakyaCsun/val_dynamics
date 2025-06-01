@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:benchmark_harness/benchmark_harness.dart';
+import 'package:collection/collection.dart';
 import 'package:matches_repository/matches_repository.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
@@ -91,7 +92,11 @@ String _generateComp(Random random) {
   while (true) {
     comp.add(agents[random.nextInt(numberOfAgents)]);
     if (comp.length == 5) {
-      return comp.join(',');
+      /// Matches from RIB.GG have some sorting mechanism where same comp will
+      /// have same comma separated string.
+      /// We return an alphabetically sorted string to increase chances of
+      /// hitting the AgentComp cache.
+      return comp.sorted().join(',');
     }
   }
 }
