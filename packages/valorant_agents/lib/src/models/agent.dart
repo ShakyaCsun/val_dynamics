@@ -8,7 +8,7 @@ part 'agent.g.dart';
 /// Agent
 /// {@endtemplate}
 @JsonSerializable(includeIfNull: false)
-class Agent extends Equatable {
+class Agent extends Equatable implements Comparable<Agent> {
   /// {@macro agent}
   const Agent({
     required this.name,
@@ -732,4 +732,12 @@ class Agent extends Equatable {
     abilityThree,
     ultimateAbility,
   ];
+
+  @override
+  int compareTo(Agent other) {
+    if (role == other.role) {
+      return name.compareTo(other.name);
+    }
+    return role.index.compareTo(other.role.index);
+  }
 }

@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart';
 import 'package:equatable/equatable.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
@@ -30,12 +29,7 @@ class AgentComp extends Equatable {
     Agent agent4,
     Agent agent5,
   ) : agents = List.unmodifiable(
-        [agent1, agent2, agent3, agent4, agent5].sorted((a, b) {
-          if (a.role == b.role) {
-            return a.name.compareTo(b.name);
-          }
-          return a.role.index.compareTo(b.role.index);
-        }),
+        [agent1, agent2, agent3, agent4, agent5]..sort(),
       ),
       stylePoints =
           agent1.stylePoints +

@@ -8,7 +8,7 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
     implements List<ValorantMatch> {
   /// [ValorantMatches] is just a [List<ValorantMatch>] but forces
   /// unmodifiable/immutable list along with helpful extension methods.
-  ValorantMatches(List<ValorantMatch> matches)
+  ValorantMatches(Iterable<ValorantMatch> matches)
     : matches = List.unmodifiable(matches);
 
   factory ValorantMatches.fromCsv(
@@ -24,24 +24,21 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
 
     if (ignoreTeamParserExceptions) {
       final exceptions = <AgentsParserException>[];
-      final matches = rows
-          .map<ValorantMatch?>((e) {
-            try {
-              return indices.parseMatch(e, agentsMap: agentsMap);
-            } on AgentsParserException catch (e) {
-              exceptions.add(e);
-              return null;
-            }
-          })
-          .nonNulls
-          .toList();
+      final matches = rows.map<ValorantMatch?>((e) {
+        try {
+          return indices.parseMatch(e, agentsMap: agentsMap);
+        } on AgentsParserException catch (e) {
+          exceptions.add(e);
+          return null;
+        }
+      }).nonNulls;
       ignoredExceptionHandler?.call(exceptions);
       return ValorantMatches(matches);
     }
     return ValorantMatches(
       rows.map<ValorantMatch>((row) {
         return indices.parseMatch(row, agentsMap: agentsMap);
-      }).toList(),
+      }),
     );
   }
 
@@ -78,7 +75,7 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
           agentsMap: agentsMap,
           compsCache: compsCache,
         );
-      }).toList(),
+      }),
     );
   }
 
@@ -205,11 +202,11 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
   }
 
   ValorantMatches get nonMirroredMatches {
-    return ValorantMatches([...where((match) => !match.isMirrorComp)]);
+    return ValorantMatches(where((match) => !match.isMirrorComp));
   }
 
   ValorantMatches get nonMirrorStyledMatches {
-    return ValorantMatches([...where((match) => !match.isMirrorStyle)]);
+    return ValorantMatches(where((match) => !match.isMirrorStyle));
   }
 
   MatchesComparator get compareKey =>
@@ -377,17 +374,8 @@ enum ComboCriteria {
 extension ComboAgentExtension on (Agent, Agent) {
   (Agent, Agent) get normalized {
     final (agentOne, agentTwo) = this;
-    final (
-      Agent(name: nameOne, role: roleOne),
-      Agent(name: nameTwo, role: roleTwo),
-    ) = this;
-    return switch (roleOne.index.compareTo(roleTwo.index)) {
-      0 => (nameOne.compareTo(nameTwo) < 0) ? this : (agentTwo, agentOne),
-      < 0 => this,
-      > 0 => (agentTwo, agentOne),
-      // https://github.com/dart-lang/language/issues/3083
-      _ => this,
-    };
+    final [one, two] = [agentOne, agentTwo]..sort();
+    return (one, two);
   }
 
   /// Agent one's name and agent two's name separated by '-'.

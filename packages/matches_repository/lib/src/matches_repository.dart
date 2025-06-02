@@ -1,5 +1,3 @@
-import 'dart:collection';
-
 import 'package:collection/collection.dart';
 import 'package:matches_repository/matches_repository.dart';
 import 'package:valorant_agents/valorant_agents.dart';
@@ -30,14 +28,10 @@ class MatchesRepository {
   late final ValorantMatches nonMirrorStyledMatches =
       nonMirrorMatches.nonMirrorStyledMatches;
 
-  late final List<(Agent, Agent)> _availableCombos = List.unmodifiable([
-    for (final (i, one) in agentRoster.indexed)
-      for (final two in agentRoster.skip(i + 1)) (one, two).normalized,
-  ]);
   final Map<String, ValorantMatches> _cachedMapMatches = {};
-  final Map<String, Map<(Agent, Agent), ComboSynergyStat>>
+  final Map<String, FastAgentComboMap<ComboSynergyStat>>
   _cachedMapSynergiesSolo = {};
-  final Map<String, Map<(Agent, Agent), ComboSynergyStat>>
+  final Map<String, FastAgentComboMap<ComboSynergyStat>>
   _cachedMapSynergiesComposite = {};
 
   ValorantMatches getMatches({
@@ -59,7 +53,7 @@ class MatchesRepository {
     final filterCondition = maps.length > excludeMaps.length
         ? (ValorantMatch match) => !excludeMaps.contains(match.mapName)
         : (ValorantMatch match) => maps.contains(match.mapName);
-    final mapMatches = ValorantMatches(matches.where(filterCondition).toList());
+    final mapMatches = ValorantMatches(matches.where(filterCondition));
     _cachedMapMatches[cacheKey] = mapMatches;
 
     return filter.apply(mapMatches);
@@ -73,18 +67,17 @@ class MatchesRepository {
     final matches = getMatches(maps: maps, filter: MatchUpFilter.composition);
     final (agentOne, agentTwo) = agentCombo;
     return ValorantMatches(
-      matches
-          .expand((match) => [match, match.reversed])
-          .where(
-            (match) =>
-                match.satisfiesComboNM(
-                  agentOne,
-                  agentTwo,
-                  criteria: criteria,
-                ) ==
-                NonMirror.yes,
-          )
-          .toList(),
+      matches.expand<ValorantMatch>(
+        (match) => switch (match.satisfiesComboNM(
+          agentOne,
+          agentTwo,
+          criteria: criteria,
+        )) {
+          NonMirror.yes => [match],
+          NonMirror.yesIfReversed => [match.reversed],
+          NonMirror.no => [],
+        },
+      ),
     );
   }
 
@@ -162,7 +155,7 @@ class MatchesRepository {
     return styleTypeStats;
   }
 
-  Map<(Agent, Agent), ComboSynergyStat> getAllComboSynergies({
+  FastAgentComboMap<ComboSynergyStat> getAllComboSynergies({
     Set<String> maps = const {},
     ComboCriteria criteria = ComboCriteria.composite,
     WinLossFilter winLossFilter = WinLossFilter.all,
@@ -196,45 +189,102 @@ class MatchesRepository {
     );
   }
 
-  Map<(Agent, Agent), ComboSynergyStat> _getComboSynergies({
+  FastAgentComboMap<ComboSynergyStat> _getComboSynergies({
     required ValorantMatches matches,
     ComboCriteria criteria = ComboCriteria.composite,
   }) {
-    final agentWRs = matches.getAllAgentNmrwr();
-    final comboSynergyStats =
-        CanonicalizedMap<String, (Agent, Agent), ComboSynergyStat>(
-          (key) => key.comboName,
-        );
-    for (final (agentOne, agentTwo) in _availableCombos) {
-      final comboWR = matches.getComboNmrwr(
-        agentOne,
-        agentTwo,
-        criteria: criteria,
+    final agentWRs = FastAgentMap<Score>();
+    final compositionsComboCache =
+        <String, FastAgentComboMap<ComboNonMirror>>{};
+    final comboWRs = FastAgentComboMap<Score>();
+
+    for (final match in matches) {
+      final ValorantMatch(:scoreOne, :scoreTwo, :nonMirrorAgents, :agentComps) =
+          match;
+      for (final MapEntry(key: agent, value: nonMirror)
+          in nonMirrorAgents.entries) {
+        switch (nonMirror) {
+          case NonMirror.yes:
+            agentWRs.update(
+              agent,
+              (value) => value + scoreOne,
+              ifAbsent: () => scoreOne,
+            );
+          case NonMirror.yesIfReversed:
+            agentWRs.update(
+              agent,
+              (value) => value + scoreTwo,
+              ifAbsent: () => scoreTwo,
+            );
+          case NonMirror.no:
+            break;
+        }
+      }
+
+      final nonMirrorCombos = compositionsComboCache.putIfAbsent(
+        agentComps.key,
+        agentComps.calculateAvailableCombos,
       );
-      if (comboWR.played > 0) {
-        final oneWR = agentWRs[agentOne] ?? Score.zero;
-        final twoWR = agentWRs[agentTwo] ?? Score.zero;
-        comboSynergyStats[(agentOne, agentTwo)] = ComboSynergyStat(
-          oneWR: oneWR,
-          twoWR: twoWR,
-          comboWR: comboWR,
-        );
+      final isCompositeCriteria = criteria == ComboCriteria.composite;
+      for (final MapEntry(key: combo, value: comboNonMirror)
+          in nonMirrorCombos.entries) {
+        switch (comboNonMirror) {
+          case ComboNonMirror.yes:
+            comboWRs.update(
+              combo,
+              (score) => score + scoreOne,
+              ifAbsent: () => scoreOne,
+            );
+          case ComboNonMirror.yesIfReversed:
+            comboWRs.update(
+              combo,
+              (score) => score + scoreTwo,
+              ifAbsent: () => scoreTwo,
+            );
+          case ComboNonMirror.composite:
+            if (isCompositeCriteria) {
+              comboWRs.update(
+                combo,
+                (score) => score + scoreOne,
+                ifAbsent: () => scoreOne,
+              );
+            }
+          case ComboNonMirror.compositeIfReversed:
+            if (isCompositeCriteria) {
+              comboWRs.update(
+                combo,
+                (score) => score + scoreTwo,
+                ifAbsent: () => scoreTwo,
+              );
+            }
+          case ComboNonMirror.no:
+            break;
+        }
       }
     }
-    return comboSynergyStats;
+    return FastAgentComboMap.fromEntries(
+      comboWRs.entries.map((entry) {
+        final MapEntry(key: combo, value: comboWR) = entry;
+        final (one, two) = combo;
+        return MapEntry(
+          combo,
+          ComboSynergyStat(
+            oneWR: agentWRs[one] ?? Score.zero,
+            twoWR: agentWRs[two] ?? Score.zero,
+            comboWR: comboWR,
+          ),
+        );
+      }),
+    );
   }
 
-  Map<(Agent, Agent), ComboSynergyStat> _filterSynergies(
-    Map<(Agent, Agent), ComboSynergyStat> synergyStats, {
+  FastAgentComboMap<ComboSynergyStat> _filterSynergies(
+    FastAgentComboMap<ComboSynergyStat> synergyStats, {
     WinLossFilter winLossFilter = WinLossFilter.all,
     (Role, Role) rolesCombo = (Role.unknown, Role.unknown),
     int minRounds = 0,
   }) {
-    return CanonicalizedMap<
-      String,
-      (Agent, Agent),
-      ComboSynergyStat
-    >.fromEntries(
+    return FastAgentComboMap<ComboSynergyStat>.fromEntries(
       synergyStats.entries.where((entry) {
         final MapEntry(key: combo, value: ComboSynergyStat(:comboWR)) = entry;
         if (!winLossFilter.check(comboWR)) {
@@ -252,7 +302,6 @@ class MatchesRepository {
                 (roleTwo, roleOne) == combo.roleCombo,
         };
       }),
-      (key) => key.comboName,
     );
   }
 }
