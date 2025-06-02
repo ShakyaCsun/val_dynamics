@@ -31,6 +31,7 @@ class MatchesTriangle extends StatelessWidget {
         },
         onHover: hoveredItemsChanged,
         onTap: onTap,
+        offsetChildren: false,
       ),
       itemBuilder: (valMatches) {
         final matchesData = MatchesTernaryData.fromMatches(valMatches);

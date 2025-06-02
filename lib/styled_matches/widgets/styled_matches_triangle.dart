@@ -57,6 +57,7 @@ class StyledMatchesTriangle extends StatelessWidget {
             ).go(context);
           }
         },
+        offsetChildren: false,
       ),
       itemBuilder: (valMatches) {
         if (valMatches.isEmpty ||
