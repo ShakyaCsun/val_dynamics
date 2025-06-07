@@ -134,6 +134,26 @@ extension StylePointsExtension on StylePoints {
 
   StyleType get styleType => StyleType.fromStylePoints(this);
 
+  /// [StylePoints] that represents the natural prey for this [StylePoints].
+  ///
+  /// Suppose we have 'x' aggro, 'y' control and 'z' midrange, Then:
+  /// Since Aggro beats Control, for our x aggro, the prey gets x control.
+  /// Control beats Midrange, for our y control, the prey gets y midrange.
+  /// Midrange beats Aggro, for our z midrange, the prey gets z aggro.
+  StylePoints get prey {
+    return (aggro: midrange, control: aggro, midrange: control);
+  }
+
+  /// [StylePoints] that represents the natural predator of this [StylePoints].
+  ///
+  /// Suppose we have 'x' aggro, 'y' control and 'z' midrange, Then:
+  /// Since Aggro beats Control, the predator gets y aggro for our y control.
+  /// Control beats Midrange, the predator gets z control for our z midrange.
+  /// Midrange beats Aggro, the predator gets x midrange for our x aggro.
+  StylePoints get predator {
+    return (aggro: control, control: midrange, midrange: aggro);
+  }
+
   /// Normalized to total of 100 points.
   ///
   /// Note: it is not guaranteed that the return [StylePoints] will total to
