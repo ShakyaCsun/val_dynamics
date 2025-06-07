@@ -11,10 +11,10 @@ List<RouteBase> get $appRoutes => [$teamCompsRedirectRoute, $homeScreenRoute];
 RouteBase get $teamCompsRedirectRoute => GoRouteData.$route(
   path: '/comps',
 
-  factory: $TeamCompsRedirectRouteExtension._fromState,
+  factory: _$TeamCompsRedirectRoute._fromState,
 );
 
-extension $TeamCompsRedirectRouteExtension on TeamCompsRedirectRoute {
+mixin _$TeamCompsRedirectRoute on GoRouteData {
   static TeamCompsRedirectRoute _fromState(GoRouterState state) =>
       const TeamCompsRedirectRoute();
 
@@ -36,22 +36,22 @@ RouteBase get $homeScreenRoute => ShellRouteData.$route(
     GoRouteData.$route(
       path: '/',
 
-      factory: $AgentsOverviewRouteExtension._fromState,
+      factory: _$AgentsOverviewRoute._fromState,
       routes: [
         GoRouteData.$route(
           path: 'agents/add',
 
-          factory: $AddAgentsRouteExtension._fromState,
+          factory: _$AddAgentsRoute._fromState,
         ),
         GoRouteData.$route(
           path: 'agents/:rosterName',
 
-          factory: $AgentsRouteExtension._fromState,
+          factory: _$AgentsRoute._fromState,
           routes: [
             GoRouteData.$route(
               path: 'stats',
 
-              factory: $AgentsStatRouteExtension._fromState,
+              factory: _$AgentsStatRoute._fromState,
             ),
           ],
         ),
@@ -60,66 +60,62 @@ RouteBase get $homeScreenRoute => ShellRouteData.$route(
     GoRouteData.$route(
       path: '/comps/:rosterName',
 
-      factory: $TeamCompsRouteExtension._fromState,
+      factory: _$TeamCompsRoute._fromState,
       routes: [
         GoRouteData.$route(
           path: 'filter',
 
-          factory: $TeamCompsFilterRouteExtension._fromState,
+          factory: _$TeamCompsFilterRoute._fromState,
         ),
         GoRouteData.$route(
           path: 'details/:acm',
 
-          factory: $TeamCompsDetailRouteExtension._fromState,
+          factory: _$TeamCompsDetailRoute._fromState,
         ),
       ],
     ),
     GoRouteData.$route(
       path: '/matches',
 
-      factory: $MatchesOverviewRouteExtension._fromState,
+      factory: _$MatchesOverviewRoute._fromState,
       routes: [
-        GoRouteData.$route(
-          path: 'add',
-
-          factory: $AddMatchesRouteExtension._fromState,
-        ),
+        GoRouteData.$route(path: 'add', factory: _$AddMatchesRoute._fromState),
         GoRouteData.$route(
           path: ':collectionName',
 
-          factory: $MatchesRouteExtension._fromState,
+          factory: _$MatchesRoute._fromState,
           routes: [
             GoRouteData.$route(
               path: 'synergies',
 
-              factory: $ComboSynergiesRouteExtension._fromState,
+              factory: _$ComboSynergiesRoute._fromState,
               routes: [
                 GoRouteData.$route(
                   path: ':comboName',
 
-                  factory: $AgentComboMatchesRouteExtension._fromState,
+                  factory: _$AgentComboMatchesRoute._fromState,
                 ),
               ],
             ),
             GoRouteData.$route(
               path: 'stats',
 
-              factory: $MatchesStatsRouteExtension._fromState,
+              factory: _$MatchesStatsRoute._fromState,
             ),
             GoRouteData.$route(
               path: 'acm/:acm',
 
-              factory: $StyledMatchesRouteExtension._fromState,
+              factory: _$StyledMatchesRoute._fromState,
               routes: [
                 GoRouteData.$route(
                   path: 'matches',
 
-                  factory: $StyledMatchesListRouteExtension._fromState,
+                  factory: _$StyledMatchesListRoute._fromState,
                 ),
                 GoRouteData.$route(
                   path: 'vs/:opponentAcm',
 
-                  factory: $StyledMatchupListRouteExtension._fromState,
+                  factory: _$StyledMatchupListRoute._fromState,
                 ),
               ],
             ),
@@ -135,7 +131,7 @@ extension $HomeScreenRouteExtension on HomeScreenRoute {
       const HomeScreenRoute();
 }
 
-extension $AgentsOverviewRouteExtension on AgentsOverviewRoute {
+mixin _$AgentsOverviewRoute on GoRouteData {
   static AgentsOverviewRoute _fromState(GoRouterState state) =>
       const AgentsOverviewRoute();
 
@@ -151,7 +147,7 @@ extension $AgentsOverviewRouteExtension on AgentsOverviewRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $AddAgentsRouteExtension on AddAgentsRoute {
+mixin _$AddAgentsRoute on GoRouteData {
   static AddAgentsRoute _fromState(GoRouterState state) =>
       const AddAgentsRoute();
 
@@ -167,12 +163,14 @@ extension $AddAgentsRouteExtension on AddAgentsRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $AgentsRouteExtension on AgentsRoute {
+mixin _$AgentsRoute on GoRouteData {
   static AgentsRoute _fromState(GoRouterState state) =>
       AgentsRoute(rosterName: state.pathParameters['rosterName']!);
 
+  AgentsRoute get _self => this as AgentsRoute;
+
   String get location =>
-      GoRouteData.$location('/agents/${Uri.encodeComponent(rosterName)}');
+      GoRouteData.$location('/agents/${Uri.encodeComponent(_self.rosterName)}');
 
   void go(BuildContext context) => context.go(location);
 
@@ -184,66 +182,14 @@ extension $AgentsRouteExtension on AgentsRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $AgentsStatRouteExtension on AgentsStatRoute {
+mixin _$AgentsStatRoute on GoRouteData {
   static AgentsStatRoute _fromState(GoRouterState state) =>
       AgentsStatRoute(rosterName: state.pathParameters['rosterName']!);
 
-  String get location =>
-      GoRouteData.$location('/agents/${Uri.encodeComponent(rosterName)}/stats');
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-extension $TeamCompsRouteExtension on TeamCompsRoute {
-  static TeamCompsRoute _fromState(GoRouterState state) =>
-      TeamCompsRoute(rosterName: state.pathParameters['rosterName']!);
-
-  String get location =>
-      GoRouteData.$location('/comps/${Uri.encodeComponent(rosterName)}');
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-extension $TeamCompsFilterRouteExtension on TeamCompsFilterRoute {
-  static TeamCompsFilterRoute _fromState(GoRouterState state) =>
-      TeamCompsFilterRoute(rosterName: state.pathParameters['rosterName']!);
-
-  String get location =>
-      GoRouteData.$location('/comps/${Uri.encodeComponent(rosterName)}/filter');
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-extension $TeamCompsDetailRouteExtension on TeamCompsDetailRoute {
-  static TeamCompsDetailRoute _fromState(GoRouterState state) =>
-      TeamCompsDetailRoute(
-        rosterName: state.pathParameters['rosterName']!,
-        acm: state.pathParameters['acm']!,
-      );
+  AgentsStatRoute get _self => this as AgentsStatRoute;
 
   String get location => GoRouteData.$location(
-    '/comps/${Uri.encodeComponent(rosterName)}/details/${Uri.encodeComponent(acm)}',
+    '/agents/${Uri.encodeComponent(_self.rosterName)}/stats',
   );
 
   void go(BuildContext context) => context.go(location);
@@ -256,7 +202,69 @@ extension $TeamCompsDetailRouteExtension on TeamCompsDetailRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $MatchesOverviewRouteExtension on MatchesOverviewRoute {
+mixin _$TeamCompsRoute on GoRouteData {
+  static TeamCompsRoute _fromState(GoRouterState state) =>
+      TeamCompsRoute(rosterName: state.pathParameters['rosterName']!);
+
+  TeamCompsRoute get _self => this as TeamCompsRoute;
+
+  String get location =>
+      GoRouteData.$location('/comps/${Uri.encodeComponent(_self.rosterName)}');
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+mixin _$TeamCompsFilterRoute on GoRouteData {
+  static TeamCompsFilterRoute _fromState(GoRouterState state) =>
+      TeamCompsFilterRoute(rosterName: state.pathParameters['rosterName']!);
+
+  TeamCompsFilterRoute get _self => this as TeamCompsFilterRoute;
+
+  String get location => GoRouteData.$location(
+    '/comps/${Uri.encodeComponent(_self.rosterName)}/filter',
+  );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+mixin _$TeamCompsDetailRoute on GoRouteData {
+  static TeamCompsDetailRoute _fromState(GoRouterState state) =>
+      TeamCompsDetailRoute(
+        rosterName: state.pathParameters['rosterName']!,
+        acm: state.pathParameters['acm']!,
+      );
+
+  TeamCompsDetailRoute get _self => this as TeamCompsDetailRoute;
+
+  String get location => GoRouteData.$location(
+    '/comps/${Uri.encodeComponent(_self.rosterName)}/details/${Uri.encodeComponent(_self.acm)}',
+  );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+mixin _$MatchesOverviewRoute on GoRouteData {
   static MatchesOverviewRoute _fromState(GoRouterState state) =>
       const MatchesOverviewRoute();
 
@@ -272,7 +280,7 @@ extension $MatchesOverviewRouteExtension on MatchesOverviewRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $AddMatchesRouteExtension on AddMatchesRoute {
+mixin _$AddMatchesRoute on GoRouteData {
   static AddMatchesRoute _fromState(GoRouterState state) =>
       const AddMatchesRoute();
 
@@ -288,31 +296,14 @@ extension $AddMatchesRouteExtension on AddMatchesRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $MatchesRouteExtension on MatchesRoute {
+mixin _$MatchesRoute on GoRouteData {
   static MatchesRoute _fromState(GoRouterState state) =>
       MatchesRoute(collectionName: state.pathParameters['collectionName']!);
 
-  String get location =>
-      GoRouteData.$location('/matches/${Uri.encodeComponent(collectionName)}');
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-extension $ComboSynergiesRouteExtension on ComboSynergiesRoute {
-  static ComboSynergiesRoute _fromState(GoRouterState state) =>
-      ComboSynergiesRoute(
-        collectionName: state.pathParameters['collectionName']!,
-      );
+  MatchesRoute get _self => this as MatchesRoute;
 
   String get location => GoRouteData.$location(
-    '/matches/${Uri.encodeComponent(collectionName)}/synergies',
+    '/matches/${Uri.encodeComponent(_self.collectionName)}',
   );
 
   void go(BuildContext context) => context.go(location);
@@ -325,15 +316,39 @@ extension $ComboSynergiesRouteExtension on ComboSynergiesRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $AgentComboMatchesRouteExtension on AgentComboMatchesRoute {
+mixin _$ComboSynergiesRoute on GoRouteData {
+  static ComboSynergiesRoute _fromState(GoRouterState state) =>
+      ComboSynergiesRoute(
+        collectionName: state.pathParameters['collectionName']!,
+      );
+
+  ComboSynergiesRoute get _self => this as ComboSynergiesRoute;
+
+  String get location => GoRouteData.$location(
+    '/matches/${Uri.encodeComponent(_self.collectionName)}/synergies',
+  );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+mixin _$AgentComboMatchesRoute on GoRouteData {
   static AgentComboMatchesRoute _fromState(GoRouterState state) =>
       AgentComboMatchesRoute(
         collectionName: state.pathParameters['collectionName']!,
         comboName: state.pathParameters['comboName']!,
       );
 
+  AgentComboMatchesRoute get _self => this as AgentComboMatchesRoute;
+
   String get location => GoRouteData.$location(
-    '/matches/${Uri.encodeComponent(collectionName)}/synergies/${Uri.encodeComponent(comboName)}',
+    '/matches/${Uri.encodeComponent(_self.collectionName)}/synergies/${Uri.encodeComponent(_self.comboName)}',
   );
 
   void go(BuildContext context) => context.go(location);
@@ -346,13 +361,15 @@ extension $AgentComboMatchesRouteExtension on AgentComboMatchesRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $MatchesStatsRouteExtension on MatchesStatsRoute {
+mixin _$MatchesStatsRoute on GoRouteData {
   static MatchesStatsRoute _fromState(GoRouterState state) => MatchesStatsRoute(
     collectionName: state.pathParameters['collectionName']!,
   );
 
+  MatchesStatsRoute get _self => this as MatchesStatsRoute;
+
   String get location => GoRouteData.$location(
-    '/matches/${Uri.encodeComponent(collectionName)}/stats',
+    '/matches/${Uri.encodeComponent(_self.collectionName)}/stats',
   );
 
   void go(BuildContext context) => context.go(location);
@@ -365,15 +382,17 @@ extension $MatchesStatsRouteExtension on MatchesStatsRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $StyledMatchesRouteExtension on StyledMatchesRoute {
+mixin _$StyledMatchesRoute on GoRouteData {
   static StyledMatchesRoute _fromState(GoRouterState state) =>
       StyledMatchesRoute(
         state.pathParameters['collectionName']!,
         state.pathParameters['acm']!,
       );
 
+  StyledMatchesRoute get _self => this as StyledMatchesRoute;
+
   String get location => GoRouteData.$location(
-    '/matches/${Uri.encodeComponent(collectionName)}/acm/${Uri.encodeComponent(acm)}',
+    '/matches/${Uri.encodeComponent(_self.collectionName)}/acm/${Uri.encodeComponent(_self.acm)}',
   );
 
   void go(BuildContext context) => context.go(location);
@@ -386,15 +405,17 @@ extension $StyledMatchesRouteExtension on StyledMatchesRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $StyledMatchesListRouteExtension on StyledMatchesListRoute {
+mixin _$StyledMatchesListRoute on GoRouteData {
   static StyledMatchesListRoute _fromState(GoRouterState state) =>
       StyledMatchesListRoute(
         state.pathParameters['collectionName']!,
         state.pathParameters['acm']!,
       );
 
+  StyledMatchesListRoute get _self => this as StyledMatchesListRoute;
+
   String get location => GoRouteData.$location(
-    '/matches/${Uri.encodeComponent(collectionName)}/acm/${Uri.encodeComponent(acm)}/matches',
+    '/matches/${Uri.encodeComponent(_self.collectionName)}/acm/${Uri.encodeComponent(_self.acm)}/matches',
   );
 
   void go(BuildContext context) => context.go(location);
@@ -407,7 +428,7 @@ extension $StyledMatchesListRouteExtension on StyledMatchesListRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $StyledMatchupListRouteExtension on StyledMatchupListRoute {
+mixin _$StyledMatchupListRoute on GoRouteData {
   static StyledMatchupListRoute _fromState(GoRouterState state) =>
       StyledMatchupListRoute(
         collectionName: state.pathParameters['collectionName']!,
@@ -415,8 +436,10 @@ extension $StyledMatchupListRouteExtension on StyledMatchupListRoute {
         opponentAcm: state.pathParameters['opponentAcm']!,
       );
 
+  StyledMatchupListRoute get _self => this as StyledMatchupListRoute;
+
   String get location => GoRouteData.$location(
-    '/matches/${Uri.encodeComponent(collectionName)}/acm/${Uri.encodeComponent(acm)}/vs/${Uri.encodeComponent(opponentAcm)}',
+    '/matches/${Uri.encodeComponent(_self.collectionName)}/acm/${Uri.encodeComponent(_self.acm)}/vs/${Uri.encodeComponent(_self.opponentAcm)}',
   );
 
   void go(BuildContext context) => context.go(location);
