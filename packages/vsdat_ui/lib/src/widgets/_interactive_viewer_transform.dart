@@ -613,7 +613,7 @@ class _InteractiveViewerState extends State<InteractiveViewer>
     }
 
     final nextMatrix = matrix.clone()
-      ..translate(alignedTranslation.dx, alignedTranslation.dy);
+      ..translateByDouble(alignedTranslation.dx, alignedTranslation.dy, 0, 1);
 
     // Transform the viewport to determine where its four corners will be after
     // the child has been transformed.
@@ -712,7 +712,7 @@ class _InteractiveViewerState extends State<InteractiveViewer>
       widget.maxScale,
     );
     final clampedScale = clampedTotalScale / currentScale;
-    return matrix.clone()..scale(clampedScale);
+    return matrix.clone()..scaleByVector3(Vector3.all(clampedScale));
   }
 
   // Return a new matrix representing the given matrix after applying the given
@@ -723,9 +723,9 @@ class _InteractiveViewerState extends State<InteractiveViewer>
     }
     final focalPointScene = _transformer.toScene(focalPoint);
     return matrix.clone()
-      ..translate(focalPointScene.dx, focalPointScene.dy)
+      ..translateByDouble(focalPointScene.dx, focalPointScene.dy, 0, 1)
       ..rotateZ(-rotation)
-      ..translate(-focalPointScene.dx, -focalPointScene.dy);
+      ..translateByDouble(-focalPointScene.dx, -focalPointScene.dy, 0, 1);
   }
 
   // Returns true if the given _GestureType is enabled.
@@ -1291,9 +1291,9 @@ Quad _transformViewport(Matrix4 matrix, Rect viewport) {
 // the given amount.
 Quad _getAxisAlignedBoundingBoxWithRotation(Rect rect, double rotation) {
   final rotationMatrix = Matrix4.identity()
-    ..translate(rect.size.width / 2, rect.size.height / 2)
+    ..translateByDouble(rect.size.width / 2, rect.size.height / 2, 0, 1)
     ..rotateZ(rotation)
-    ..translate(-rect.size.width / 2, -rect.size.height / 2);
+    ..translateByDouble(-rect.size.width / 2, -rect.size.height / 2, 0, 1);
   final boundariesRotated = Quad.points(
     rotationMatrix.transform3(Vector3(rect.left, rect.top, 0)),
     rotationMatrix.transform3(Vector3(rect.right, rect.top, 0)),

@@ -18,15 +18,20 @@ mixin _$TeamCompsRedirectRoute on GoRouteData {
   static TeamCompsRedirectRoute _fromState(GoRouterState state) =>
       const TeamCompsRedirectRoute();
 
+  @override
   String get location => GoRouteData.$location('/comps');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
@@ -135,15 +140,20 @@ mixin _$AgentsOverviewRoute on GoRouteData {
   static AgentsOverviewRoute _fromState(GoRouterState state) =>
       const AgentsOverviewRoute();
 
+  @override
   String get location => GoRouteData.$location('/');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
@@ -151,15 +161,20 @@ mixin _$AddAgentsRoute on GoRouteData {
   static AddAgentsRoute _fromState(GoRouterState state) =>
       const AddAgentsRoute();
 
+  @override
   String get location => GoRouteData.$location('/agents/add');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
@@ -169,16 +184,21 @@ mixin _$AgentsRoute on GoRouteData {
 
   AgentsRoute get _self => this as AgentsRoute;
 
+  @override
   String get location =>
       GoRouteData.$location('/agents/${Uri.encodeComponent(_self.rosterName)}');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
@@ -188,17 +208,22 @@ mixin _$AgentsStatRoute on GoRouteData {
 
   AgentsStatRoute get _self => this as AgentsStatRoute;
 
+  @override
   String get location => GoRouteData.$location(
     '/agents/${Uri.encodeComponent(_self.rosterName)}/stats',
   );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
@@ -208,16 +233,21 @@ mixin _$TeamCompsRoute on GoRouteData {
 
   TeamCompsRoute get _self => this as TeamCompsRoute;
 
+  @override
   String get location =>
       GoRouteData.$location('/comps/${Uri.encodeComponent(_self.rosterName)}');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
@@ -227,17 +257,22 @@ mixin _$TeamCompsFilterRoute on GoRouteData {
 
   TeamCompsFilterRoute get _self => this as TeamCompsFilterRoute;
 
+  @override
   String get location => GoRouteData.$location(
     '/comps/${Uri.encodeComponent(_self.rosterName)}/filter',
   );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
@@ -250,17 +285,22 @@ mixin _$TeamCompsDetailRoute on GoRouteData {
 
   TeamCompsDetailRoute get _self => this as TeamCompsDetailRoute;
 
+  @override
   String get location => GoRouteData.$location(
     '/comps/${Uri.encodeComponent(_self.rosterName)}/details/${Uri.encodeComponent(_self.acm)}',
   );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
@@ -268,15 +308,20 @@ mixin _$MatchesOverviewRoute on GoRouteData {
   static MatchesOverviewRoute _fromState(GoRouterState state) =>
       const MatchesOverviewRoute();
 
+  @override
   String get location => GoRouteData.$location('/matches');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
@@ -284,15 +329,20 @@ mixin _$AddMatchesRoute on GoRouteData {
   static AddMatchesRoute _fromState(GoRouterState state) =>
       const AddMatchesRoute();
 
+  @override
   String get location => GoRouteData.$location('/matches/add');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
@@ -302,17 +352,22 @@ mixin _$MatchesRoute on GoRouteData {
 
   MatchesRoute get _self => this as MatchesRoute;
 
+  @override
   String get location => GoRouteData.$location(
     '/matches/${Uri.encodeComponent(_self.collectionName)}',
   );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
@@ -324,17 +379,22 @@ mixin _$ComboSynergiesRoute on GoRouteData {
 
   ComboSynergiesRoute get _self => this as ComboSynergiesRoute;
 
+  @override
   String get location => GoRouteData.$location(
     '/matches/${Uri.encodeComponent(_self.collectionName)}/synergies',
   );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
@@ -347,17 +407,22 @@ mixin _$AgentComboMatchesRoute on GoRouteData {
 
   AgentComboMatchesRoute get _self => this as AgentComboMatchesRoute;
 
+  @override
   String get location => GoRouteData.$location(
     '/matches/${Uri.encodeComponent(_self.collectionName)}/synergies/${Uri.encodeComponent(_self.comboName)}',
   );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
@@ -368,17 +433,22 @@ mixin _$MatchesStatsRoute on GoRouteData {
 
   MatchesStatsRoute get _self => this as MatchesStatsRoute;
 
+  @override
   String get location => GoRouteData.$location(
     '/matches/${Uri.encodeComponent(_self.collectionName)}/stats',
   );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
@@ -391,17 +461,22 @@ mixin _$StyledMatchesRoute on GoRouteData {
 
   StyledMatchesRoute get _self => this as StyledMatchesRoute;
 
+  @override
   String get location => GoRouteData.$location(
     '/matches/${Uri.encodeComponent(_self.collectionName)}/acm/${Uri.encodeComponent(_self.acm)}',
   );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
@@ -414,17 +489,22 @@ mixin _$StyledMatchesListRoute on GoRouteData {
 
   StyledMatchesListRoute get _self => this as StyledMatchesListRoute;
 
+  @override
   String get location => GoRouteData.$location(
     '/matches/${Uri.encodeComponent(_self.collectionName)}/acm/${Uri.encodeComponent(_self.acm)}/matches',
   );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
@@ -438,16 +518,21 @@ mixin _$StyledMatchupListRoute on GoRouteData {
 
   StyledMatchupListRoute get _self => this as StyledMatchupListRoute;
 
+  @override
   String get location => GoRouteData.$location(
     '/matches/${Uri.encodeComponent(_self.collectionName)}/acm/${Uri.encodeComponent(_self.acm)}/vs/${Uri.encodeComponent(_self.opponentAcm)}',
   );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
