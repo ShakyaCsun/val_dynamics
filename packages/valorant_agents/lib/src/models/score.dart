@@ -29,7 +29,11 @@ class Score extends Equatable implements Comparable<Score> {
   String get roundPercentStat => '$winRatePercent ($winRateFraction)';
 
   /// Descriptive won lost string. e.g. Won 13 and Lost 6.
-  String get wonLost => 'Won $won and Lost $lost';
+  String get wonLost => switch (this) {
+    Score(won: 0) => 'Lost all',
+    Score(lost: 0) => 'Won all',
+    _ => 'Won $won and Lost $lost',
+  };
 
   ScoreType get scoreType => ScoreType.fromScore(this);
 

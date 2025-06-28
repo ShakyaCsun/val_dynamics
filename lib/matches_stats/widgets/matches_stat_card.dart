@@ -19,6 +19,7 @@ class MatchesStatCard extends StatelessWidget {
       summary: MatchesSummary(
         :matchesCount,
         :scoreOne,
+        :mapScore,
         :attackScoreOne,
         :defenseScoreOne,
       ),
@@ -37,7 +38,7 @@ class MatchesStatCard extends StatelessWidget {
                 ColoredAcm(acm: styleTwo),
               ],
             ),
-            Text(l10n.nMatches(matchesCount)),
+            Text('${l10n.nMatches(matchesCount)}: ${mapScore.wonLost}'),
             Text(scoreOne.winRatePercent, style: textTheme.titleLarge),
             Text('${l10n.overallScore}: $scoreOne'),
             Text('${l10n.attackScore}: ${attackScoreOne.roundPercentStat}'),
