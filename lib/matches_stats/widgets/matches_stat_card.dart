@@ -19,6 +19,7 @@ class MatchesStatCard extends StatelessWidget {
       summary: MatchesSummary(
         :matchesCount,
         :scoreOne,
+        :mapScore,
         :attackScoreOne,
         :defenseScoreOne,
       ),
@@ -37,11 +38,11 @@ class MatchesStatCard extends StatelessWidget {
                 ColoredAcm(acm: styleTwo),
               ],
             ),
-            Text(l10n.nMatches(matchesCount)),
+            Text('${l10n.nMatches(matchesCount)}: ${mapScore.wonLost}'),
             Text(scoreOne.winRatePercent, style: textTheme.titleLarge),
-            Text('${l10n.overallScore}: ${scoreOne.winRateFraction}'),
-            Text('${l10n.attackScore}: ${attackScoreOne.winRateFraction}'),
-            Text('${l10n.defenseScore}: ${defenseScoreOne.winRateFraction}'),
+            Text('${l10n.overallScore}: $scoreOne'),
+            Text('${l10n.attackScore}: ${attackScoreOne.roundPercentStat}'),
+            Text('${l10n.defenseScore}: ${defenseScoreOne.roundPercentStat}'),
             OverflowBar(
               spacing: getBreakpointOf(context).padding,
               overflowSpacing: getBreakpointOf(context).padding,

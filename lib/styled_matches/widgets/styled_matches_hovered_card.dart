@@ -23,6 +23,7 @@ class StyledMatchesHoveredCard extends StatelessWidget {
     final MatchesSummary(
       :attackScoreOne,
       :scoreOne,
+      :mapScore,
       :compsOne,
       :compsTwo,
       :defenseScoreOne,
@@ -44,10 +45,10 @@ class StyledMatchesHoveredCard extends StatelessWidget {
       child: ResponsivePadding(
         child: Column(
           children: [
-            Text('$scoreDescription ($scoreOne)'),
-            Text(l10n.nMatches(matchesCount)),
-            Text('${l10n.attackScore}: $attackScoreOne'),
-            Text('${l10n.defenseScore}: $defenseScoreOne'),
+            Text('$scoreDescription ${scoreOne.roundPercentStat}'),
+            Text('${l10n.nMatches(matchesCount)}: ${mapScore.wonLost}'),
+            Text('${l10n.attack}: ${attackScoreOne.roundPercentStat}'),
+            Text('${l10n.defense}: ${defenseScoreOne.roundPercentStat}'),
             Text(compsMatchUp),
           ],
         ),

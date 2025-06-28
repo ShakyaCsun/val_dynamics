@@ -12,7 +12,9 @@ class StyleTriangle<T> extends StatelessWidget {
     this.onTap,
     this.minRadius = 16,
     this.showLabels = false,
+    this.offsetChildren = true,
     this.labelStyle,
+    this.areas,
     super.key,
   });
 
@@ -23,6 +25,8 @@ class StyleTriangle<T> extends StatelessWidget {
   final double minRadius;
   final bool showLabels;
   final TextStyle? labelStyle;
+  final bool offsetChildren;
+  final List<TernaryPlotArea>? areas;
 
   @override
   Widget build(BuildContext context) {
@@ -45,10 +49,15 @@ class StyleTriangle<T> extends StatelessWidget {
           settings: TernaryPlotSettings(
             minPadding: breakpoint.padding + minRadius,
             ternaryLabels: showLabels ? ternaryPlotStyles.label() : null,
+            gridLines: 4,
+            gridLineColor: Theme.of(
+              context,
+            ).colorScheme.onSurface.withAlpha(150),
           ),
-          areas: ternaryPlotStyles.areas(),
+          areas: [...ternaryPlotStyles.areas(), ...?areas],
           onPointHovered: onHover,
           onPointTap: onTap,
+          offsetChildrenAtSamePoint: offsetChildren,
         );
       },
     );

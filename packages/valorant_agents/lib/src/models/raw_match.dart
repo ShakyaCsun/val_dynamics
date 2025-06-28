@@ -30,20 +30,31 @@ class RawMatch {
   final String teamOneAgents;
   final String teamTwoAgents;
 
-  ValorantMatch toValorantMatch({required Map<String, Agent> agentsMap}) {
+  ValorantMatch toValorantMatch({
+    required Map<String, Agent> agentsMap,
+    Map<String, AgentComp>? compsCache,
+  }) {
     return ValorantMatch(
       mapName: mapName,
       teamOne: Team(
         name: teamOneName,
         score: teamOneScore,
         attackScore: teamOneAttackScore,
-        agents: AgentComp.fromAgentNames(teamOneAgents, agentsMap: agentsMap),
+        agents: AgentComp.fromAgentNames(
+          teamOneAgents,
+          agentsMap: agentsMap,
+          compsCache: compsCache,
+        ),
       ),
       teamTwo: Team(
         name: teamTwoName,
         score: teamTwoScore,
         attackScore: teamTwoAttackScore,
-        agents: AgentComp.fromAgentNames(teamTwoAgents, agentsMap: agentsMap),
+        agents: AgentComp.fromAgentNames(
+          teamTwoAgents,
+          agentsMap: agentsMap,
+          compsCache: compsCache,
+        ),
       ),
     );
   }

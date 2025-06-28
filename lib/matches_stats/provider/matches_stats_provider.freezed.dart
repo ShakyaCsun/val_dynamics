@@ -17,6 +17,7 @@ mixin _$MatchesSummary {
   int get matchesCount;
   Score get scoreOne;
   Score get attackScoreOne;
+  Score get mapScore;
   Set<AgentComp> get compsOne;
   Set<AgentComp> get compsTwo;
 
@@ -41,6 +42,8 @@ mixin _$MatchesSummary {
                 other.scoreOne == scoreOne) &&
             (identical(other.attackScoreOne, attackScoreOne) ||
                 other.attackScoreOne == attackScoreOne) &&
+            (identical(other.mapScore, mapScore) ||
+                other.mapScore == mapScore) &&
             const DeepCollectionEquality().equals(other.compsOne, compsOne) &&
             const DeepCollectionEquality().equals(other.compsTwo, compsTwo));
   }
@@ -51,13 +54,14 @@ mixin _$MatchesSummary {
     matchesCount,
     scoreOne,
     attackScoreOne,
+    mapScore,
     const DeepCollectionEquality().hash(compsOne),
     const DeepCollectionEquality().hash(compsTwo),
   );
 
   @override
   String toString() {
-    return 'MatchesSummary(matchesCount: $matchesCount, scoreOne: $scoreOne, attackScoreOne: $attackScoreOne, compsOne: $compsOne, compsTwo: $compsTwo)';
+    return 'MatchesSummary(matchesCount: $matchesCount, scoreOne: $scoreOne, attackScoreOne: $attackScoreOne, mapScore: $mapScore, compsOne: $compsOne, compsTwo: $compsTwo)';
   }
 }
 
@@ -72,6 +76,7 @@ abstract mixin class $MatchesSummaryCopyWith<$Res> {
     int matchesCount,
     Score scoreOne,
     Score attackScoreOne,
+    Score mapScore,
     Set<AgentComp> compsOne,
     Set<AgentComp> compsTwo,
   });
@@ -93,6 +98,7 @@ class _$MatchesSummaryCopyWithImpl<$Res>
     Object? matchesCount = null,
     Object? scoreOne = null,
     Object? attackScoreOne = null,
+    Object? mapScore = null,
     Object? compsOne = null,
     Object? compsTwo = null,
   }) {
@@ -109,6 +115,10 @@ class _$MatchesSummaryCopyWithImpl<$Res>
         attackScoreOne: null == attackScoreOne
             ? _self.attackScoreOne
             : attackScoreOne // ignore: cast_nullable_to_non_nullable
+                  as Score,
+        mapScore: null == mapScore
+            ? _self.mapScore
+            : mapScore // ignore: cast_nullable_to_non_nullable
                   as Score,
         compsOne: null == compsOne
             ? _self.compsOne
@@ -130,6 +140,7 @@ class _MatchesSummary extends MatchesSummary {
     required this.matchesCount,
     required this.scoreOne,
     required this.attackScoreOne,
+    required this.mapScore,
     required final Set<AgentComp> compsOne,
     required final Set<AgentComp> compsTwo,
   }) : _compsOne = compsOne,
@@ -142,6 +153,8 @@ class _MatchesSummary extends MatchesSummary {
   final Score scoreOne;
   @override
   final Score attackScoreOne;
+  @override
+  final Score mapScore;
   final Set<AgentComp> _compsOne;
   @override
   Set<AgentComp> get compsOne {
@@ -177,6 +190,8 @@ class _MatchesSummary extends MatchesSummary {
                 other.scoreOne == scoreOne) &&
             (identical(other.attackScoreOne, attackScoreOne) ||
                 other.attackScoreOne == attackScoreOne) &&
+            (identical(other.mapScore, mapScore) ||
+                other.mapScore == mapScore) &&
             const DeepCollectionEquality().equals(other._compsOne, _compsOne) &&
             const DeepCollectionEquality().equals(other._compsTwo, _compsTwo));
   }
@@ -187,13 +202,14 @@ class _MatchesSummary extends MatchesSummary {
     matchesCount,
     scoreOne,
     attackScoreOne,
+    mapScore,
     const DeepCollectionEquality().hash(_compsOne),
     const DeepCollectionEquality().hash(_compsTwo),
   );
 
   @override
   String toString() {
-    return 'MatchesSummary(matchesCount: $matchesCount, scoreOne: $scoreOne, attackScoreOne: $attackScoreOne, compsOne: $compsOne, compsTwo: $compsTwo)';
+    return 'MatchesSummary(matchesCount: $matchesCount, scoreOne: $scoreOne, attackScoreOne: $attackScoreOne, mapScore: $mapScore, compsOne: $compsOne, compsTwo: $compsTwo)';
   }
 }
 
@@ -210,6 +226,7 @@ abstract mixin class _$MatchesSummaryCopyWith<$Res>
     int matchesCount,
     Score scoreOne,
     Score attackScoreOne,
+    Score mapScore,
     Set<AgentComp> compsOne,
     Set<AgentComp> compsTwo,
   });
@@ -231,6 +248,7 @@ class __$MatchesSummaryCopyWithImpl<$Res>
     Object? matchesCount = null,
     Object? scoreOne = null,
     Object? attackScoreOne = null,
+    Object? mapScore = null,
     Object? compsOne = null,
     Object? compsTwo = null,
   }) {
@@ -247,6 +265,10 @@ class __$MatchesSummaryCopyWithImpl<$Res>
         attackScoreOne: null == attackScoreOne
             ? _self.attackScoreOne
             : attackScoreOne // ignore: cast_nullable_to_non_nullable
+                  as Score,
+        mapScore: null == mapScore
+            ? _self.mapScore
+            : mapScore // ignore: cast_nullable_to_non_nullable
                   as Score,
         compsOne: null == compsOne
             ? _self._compsOne

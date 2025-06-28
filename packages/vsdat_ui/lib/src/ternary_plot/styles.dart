@@ -12,11 +12,15 @@ class TernaryPlotStyles {
     bool colorCenter = false,
   }) {
     return [
-      TernaryPlotArea.top(color: aggro.withValues(alpha: opacity)),
-      TernaryPlotArea.bottomLeft(color: control.withValues(alpha: opacity)),
-      TernaryPlotArea.bottomRight(color: midrange.withValues(alpha: opacity)),
+      SolidTernaryPlotArea.top(color: aggro.withValues(alpha: opacity)),
+      SolidTernaryPlotArea.bottomLeft(
+        color: control.withValues(alpha: opacity),
+      ),
+      SolidTernaryPlotArea.bottomRight(
+        color: midrange.withValues(alpha: opacity),
+      ),
       if (colorCenter)
-        TernaryPlotArea.center(color: center.withValues(alpha: opacity)),
+        SolidTernaryPlotArea.center(color: center.withValues(alpha: opacity)),
     ];
   }
 

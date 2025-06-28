@@ -35,13 +35,15 @@ To obtain the matches data yourself, you can run these commands in the relevant 
 | 2024 VCT Season.csv | `!rib matches -e 4993 4992 4810 4813 4817 4809 4812 4816 4745 4744 4390 4502 4416 4389 4415 4392 4307 4306 4293 4141 4292 4140 4137 4136 4139 4163 4135 -csv` | *Includes every Tier 1 match of VCT 2024 Season from EMEA, Americas and Pacific |
 | 2025 Jan-April.csv | `!rib matches -start 2025-01-01 -end 2025-05-01 -csv` | |
 | 2025 Kickoff and Masters Bangkok.csv | `!rib matches -e 5234 5226 5235 5352 5353 -csv` | *Includes matches from 2025 VCT Kickoff EMEA, Americas and Pacific, and Masters Bangkok |
+| 2025 Masters Toronto.csv | `!rib matches -e 5685 5686 -csv` | |
 | 2025 VCT Stage 1.csv | `!rib matches -e 5462 5468 5470 5607 5466 5594 -csv` | *Includes VCT Stage 1, 2025 matches for EMEA, Americas and Pacific |
 
 Only the columns relating to headers: "Map Name", "Team 1 Name", "Team 2 Name", "Team 1 Score", "Team 2 Score",
 "Team 1 Attacking Wins", "Team 2 Attacking Wins", "Team 1 Agents", and "Team 2 Agents" were kept to reduce the size of
 csv files output from the above commands.
 
-> \*Note: The VCT China matches are excluded because RIB.GG doesn't have the data for the CN region at this moment.
+> [!NOTE]
+> The VCT China matches are excluded because RIB.GG doesn't have the data for the CN region at this moment.
 
 [valorant_api_link]: https://valorant-api.com/
 [anderzz_twitch_link]: https://www.twitch.tv/anderzztv

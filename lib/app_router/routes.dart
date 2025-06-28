@@ -36,7 +36,7 @@ extension GoRouterStateX on BuildContext {
 
 @immutable
 @TypedGoRoute<TeamCompsRedirectRoute>(path: '/comps')
-class TeamCompsRedirectRoute extends GoRouteData {
+class TeamCompsRedirectRoute extends GoRouteData with _$TeamCompsRedirectRoute {
   const TeamCompsRedirectRoute();
 
   @override
@@ -102,7 +102,7 @@ class HomeScreenRoute extends ShellRouteData {
 }
 
 @immutable
-class AgentsRoute extends GoRouteData {
+class AgentsRoute extends GoRouteData with _$AgentsRoute {
   const AgentsRoute({required this.rosterName});
 
   final String rosterName;
@@ -114,7 +114,7 @@ class AgentsRoute extends GoRouteData {
 }
 
 @immutable
-class AgentsStatRoute extends GoRouteData {
+class AgentsStatRoute extends GoRouteData with _$AgentsStatRoute {
   const AgentsStatRoute({required this.rosterName});
 
   final String rosterName;
@@ -126,7 +126,7 @@ class AgentsStatRoute extends GoRouteData {
 }
 
 @immutable
-class AddAgentsRoute extends GoRouteData {
+class AddAgentsRoute extends GoRouteData with _$AddAgentsRoute {
   const AddAgentsRoute();
 
   @override
@@ -136,7 +136,7 @@ class AddAgentsRoute extends GoRouteData {
 }
 
 @immutable
-class AgentsOverviewRoute extends GoRouteData {
+class AgentsOverviewRoute extends GoRouteData with _$AgentsOverviewRoute {
   const AgentsOverviewRoute();
 
   @override
@@ -146,7 +146,7 @@ class AgentsOverviewRoute extends GoRouteData {
 }
 
 @immutable
-class MatchesOverviewRoute extends GoRouteData {
+class MatchesOverviewRoute extends GoRouteData with _$MatchesOverviewRoute {
   const MatchesOverviewRoute();
 
   @override
@@ -156,7 +156,7 @@ class MatchesOverviewRoute extends GoRouteData {
 }
 
 @immutable
-class MatchesRoute extends GoRouteData {
+class MatchesRoute extends GoRouteData with _$MatchesRoute {
   const MatchesRoute({required this.collectionName});
 
   final String collectionName;
@@ -168,7 +168,7 @@ class MatchesRoute extends GoRouteData {
 }
 
 @immutable
-class AddMatchesRoute extends GoRouteData {
+class AddMatchesRoute extends GoRouteData with _$AddMatchesRoute {
   const AddMatchesRoute();
 
   @override
@@ -178,7 +178,7 @@ class AddMatchesRoute extends GoRouteData {
 }
 
 @immutable
-class ComboSynergiesRoute extends GoRouteData {
+class ComboSynergiesRoute extends GoRouteData with _$ComboSynergiesRoute {
   const ComboSynergiesRoute({required this.collectionName});
 
   final String collectionName;
@@ -190,7 +190,7 @@ class ComboSynergiesRoute extends GoRouteData {
 }
 
 @immutable
-class AgentComboMatchesRoute extends GoRouteData {
+class AgentComboMatchesRoute extends GoRouteData with _$AgentComboMatchesRoute {
   @visibleForTesting
   const AgentComboMatchesRoute({
     required this.collectionName,
@@ -223,7 +223,7 @@ class AgentComboMatchesRoute extends GoRouteData {
 }
 
 @immutable
-class MatchesStatsRoute extends GoRouteData {
+class MatchesStatsRoute extends GoRouteData with _$MatchesStatsRoute {
   const MatchesStatsRoute({required this.collectionName});
 
   final String collectionName;
@@ -235,7 +235,7 @@ class MatchesStatsRoute extends GoRouteData {
 }
 
 @immutable
-class StyledMatchesRoute extends GoRouteData {
+class StyledMatchesRoute extends GoRouteData with _$StyledMatchesRoute {
   @visibleForTesting
   const StyledMatchesRoute(this.collectionName, this.acm);
 
@@ -267,7 +267,7 @@ class StyledMatchesRoute extends GoRouteData {
 }
 
 @immutable
-class StyledMatchesListRoute extends GoRouteData {
+class StyledMatchesListRoute extends GoRouteData with _$StyledMatchesListRoute {
   @visibleForTesting
   const StyledMatchesListRoute(this.collectionName, this.acm);
 
@@ -299,7 +299,7 @@ class StyledMatchesListRoute extends GoRouteData {
 }
 
 @immutable
-class StyledMatchupListRoute extends GoRouteData {
+class StyledMatchupListRoute extends GoRouteData with _$StyledMatchupListRoute {
   @visibleForTesting
   const StyledMatchupListRoute({
     required this.collectionName,
@@ -344,7 +344,7 @@ class StyledMatchupListRoute extends GoRouteData {
 }
 
 @immutable
-class TeamCompsRoute extends GoRouteData {
+class TeamCompsRoute extends GoRouteData with _$TeamCompsRoute {
   const TeamCompsRoute({required this.rosterName});
 
   final String rosterName;
@@ -355,7 +355,7 @@ class TeamCompsRoute extends GoRouteData {
   }
 }
 
-class TeamCompsFilterRoute extends GoRouteData {
+class TeamCompsFilterRoute extends GoRouteData with _$TeamCompsFilterRoute {
   const TeamCompsFilterRoute({required this.rosterName});
 
   final String rosterName;
@@ -370,7 +370,7 @@ class TeamCompsFilterRoute extends GoRouteData {
 }
 
 @immutable
-class TeamCompsDetailRoute extends GoRouteData {
+class TeamCompsDetailRoute extends GoRouteData with _$TeamCompsDetailRoute {
   @visibleForTesting
   const TeamCompsDetailRoute({required this.rosterName, required this.acm});
 

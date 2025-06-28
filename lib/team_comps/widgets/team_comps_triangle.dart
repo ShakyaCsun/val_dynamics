@@ -74,6 +74,7 @@ class TeamCompsTriangle extends StatelessWidget {
               ).go(context);
             }
           },
+          offsetChildren: false,
         );
       },
       itemBuilder: (compsData) => Text(

@@ -18,6 +18,7 @@ class StyledMatchesTriangle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return TernaryPlotHoverInfo<ValorantMatches>(
       builder: (context, hoveredItemsChanged) => StyleTriangle(
         data: matches,
@@ -57,6 +58,14 @@ class StyledMatchesTriangle extends StatelessWidget {
             ).go(context);
           }
         },
+        areas: [
+          CounterTriangleArrowPlot(
+            stylePoints: highlightStyle,
+            color: colorScheme.primaryContainer,
+            circleColor: colorScheme.onPrimaryContainer,
+          ),
+        ],
+        offsetChildren: false,
       ),
       itemBuilder: (valMatches) {
         if (valMatches.isEmpty ||

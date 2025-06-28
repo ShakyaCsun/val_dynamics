@@ -60,6 +60,7 @@ abstract class MatchesSummary with _$MatchesSummary {
     required int matchesCount,
     required Score scoreOne,
     required Score attackScoreOne,
+    required Score mapScore,
     required Set<AgentComp> compsOne,
     required Set<AgentComp> compsTwo,
   }) = _MatchesSummary;
@@ -69,11 +70,13 @@ abstract class MatchesSummary with _$MatchesSummary {
   factory MatchesSummary.fromMatches(ValorantMatches matches) {
     var scoreOne = Score.zero;
     var attackScoreOne = Score.zero;
+    var mapScore = Score.zero;
     final compsOne = <AgentComp>{};
     final compsTwo = <AgentComp>{};
     for (final match in matches) {
       scoreOne += match.scoreOne;
       attackScoreOne += match.attackingScore1;
+      mapScore += match.resultOne;
       compsOne.add(match.teamOne.agents);
       compsTwo.add(match.teamTwo.agents);
     }
@@ -81,6 +84,7 @@ abstract class MatchesSummary with _$MatchesSummary {
       matchesCount: matches.length,
       scoreOne: scoreOne,
       attackScoreOne: attackScoreOne,
+      mapScore: mapScore,
       compsOne: compsOne,
       compsTwo: compsTwo,
     );
@@ -91,17 +95,10 @@ abstract class MatchesSummary with _$MatchesSummary {
       matchesCount: matchesCount,
       scoreOne: scoreTwo,
       attackScoreOne: defenseScoreOne.reversed,
+      mapScore: mapScore.reversed,
       compsOne: compsTwo,
       compsTwo: compsOne,
     );
-  }
-
-  String get description {
-    final score = '${scoreOne.winLoss} ${scoreOne.winRatePercent}';
-    final compsCount = compsOne.length;
-    final opponentCompsCount = compsTwo.length;
-    return 'Style 1 with $compsCount comps has a win rate of $score over Style '
-        '2 with $opponentCompsCount different comps over $matchesCount matches';
   }
 
   Score get defenseScoreOne => scoreOne - attackScoreOne;

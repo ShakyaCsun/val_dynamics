@@ -8,7 +8,7 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
     implements List<ValorantMatch> {
   /// [ValorantMatches] is just a [List<ValorantMatch>] but forces
   /// unmodifiable/immutable list along with helpful extension methods.
-  ValorantMatches(List<ValorantMatch> matches)
+  ValorantMatches(Iterable<ValorantMatch> matches)
     : matches = List.unmodifiable(matches);
 
   factory ValorantMatches.fromCsv(
@@ -24,24 +24,21 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
 
     if (ignoreTeamParserExceptions) {
       final exceptions = <AgentsParserException>[];
-      final matches = rows
-          .map<ValorantMatch?>((e) {
-            try {
-              return indices.parseMatch(e, agentsMap: agentsMap);
-            } on AgentsParserException catch (e) {
-              exceptions.add(e);
-              return null;
-            }
-          })
-          .nonNulls
-          .toList();
+      final matches = rows.map<ValorantMatch?>((e) {
+        try {
+          return indices.parseMatch(e, agentsMap: agentsMap);
+        } on AgentsParserException catch (e) {
+          exceptions.add(e);
+          return null;
+        }
+      }).nonNulls;
       ignoredExceptionHandler?.call(exceptions);
       return ValorantMatches(matches);
     }
     return ValorantMatches(
       rows.map<ValorantMatch>((row) {
         return indices.parseMatch(row, agentsMap: agentsMap);
-      }).toList(),
+      }),
     );
   }
 
@@ -52,12 +49,16 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
     void Function(List<AgentsParserException> exception)?
     ignoredExceptionHandler,
   }) {
+    final compsCache = <String, AgentComp>{};
     if (ignoreTeamParserExceptions) {
       final exceptions = <AgentsParserException>[];
       final matches = rawMatches
           .map<ValorantMatch?>((match) {
             try {
-              return match.toValorantMatch(agentsMap: agentsMap);
+              return match.toValorantMatch(
+                agentsMap: agentsMap,
+                compsCache: compsCache,
+              );
             } on AgentsParserException catch (e) {
               exceptions.add(e);
               return null;
@@ -70,8 +71,11 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
     }
     return ValorantMatches(
       rawMatches.map<ValorantMatch>((match) {
-        return match.toValorantMatch(agentsMap: agentsMap);
-      }).toList(),
+        return match.toValorantMatch(
+          agentsMap: agentsMap,
+          compsCache: compsCache,
+        );
+      }),
     );
   }
 
@@ -198,11 +202,11 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
   }
 
   ValorantMatches get nonMirroredMatches {
-    return ValorantMatches([...where((match) => !match.isMirrorComp)]);
+    return ValorantMatches(where((match) => !match.isMirrorComp));
   }
 
   ValorantMatches get nonMirrorStyledMatches {
-    return ValorantMatches([...where((match) => !match.isMirrorStyle)]);
+    return ValorantMatches(where((match) => !match.isMirrorStyle));
   }
 
   MatchesComparator get compareKey =>
@@ -267,39 +271,29 @@ extension SynergyInMatchesCalculator on ValorantMatches {
 
   /// Get the Non-Mirror Round Win Rate for all [Agent]s that are played
   FastAgentMap<Score> getAllAgentNmrwr() {
-    final agentNonMirrorScoreTuples = FastAgentMap<(int, int)>();
-    for (final ValorantMatch(
-          scoreOne: Score(tuple: tupleOne),
-          scoreTwo: Score(tuple: tupleTwo),
-          :nonMirrorAgents,
-        )
-        in this) {
+    final agentNonMirrorScores = FastAgentMap<Score>();
+    for (final ValorantMatch(:scoreOne, :scoreTwo, :nonMirrorAgents) in this) {
       for (final MapEntry(key: agent, value: nonMirror)
           in nonMirrorAgents.entries) {
-        if (nonMirror == NonMirror.yes) {
-          agentNonMirrorScoreTuples.update(
-            agent,
-            (value) => value + tupleOne,
-            ifAbsent: () => tupleOne,
-          );
-        } else {
-          assert(
-            nonMirror == NonMirror.yesIfReversed,
-            'nonMirrorAgents should only have yes or yesIfReversed values',
-          );
-          agentNonMirrorScoreTuples.update(
-            agent,
-            (value) => value + tupleTwo,
-            ifAbsent: () => tupleTwo,
-          );
+        switch (nonMirror) {
+          case NonMirror.yes:
+            agentNonMirrorScores.update(
+              agent,
+              (value) => value + scoreOne,
+              ifAbsent: () => scoreOne,
+            );
+          case NonMirror.yesIfReversed:
+            agentNonMirrorScores.update(
+              agent,
+              (value) => value + scoreTwo,
+              ifAbsent: () => scoreTwo,
+            );
+          case NonMirror.no:
+            break;
         }
       }
     }
-    return FastAgentMap.fromEntries(
-      agentNonMirrorScoreTuples.entries.map(
-        (e) => MapEntry(e.key, e.value.toScore),
-      ),
-    );
+    return agentNonMirrorScores;
   }
 
   Score getComboNmwr(
@@ -380,17 +374,8 @@ enum ComboCriteria {
 extension ComboAgentExtension on (Agent, Agent) {
   (Agent, Agent) get normalized {
     final (agentOne, agentTwo) = this;
-    final (
-      Agent(name: nameOne, role: roleOne),
-      Agent(name: nameTwo, role: roleTwo),
-    ) = this;
-    return switch (roleOne.index.compareTo(roleTwo.index)) {
-      0 => (nameOne.compareTo(nameTwo) < 0) ? this : (agentTwo, agentOne),
-      < 0 => this,
-      > 0 => (agentTwo, agentOne),
-      // https://github.com/dart-lang/language/issues/3083
-      _ => this,
-    };
+    final [one, two] = [agentOne, agentTwo]..sort();
+    return (one, two);
   }
 
   /// Agent one's name and agent two's name separated by '-'.

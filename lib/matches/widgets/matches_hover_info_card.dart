@@ -23,12 +23,11 @@ class MatchesHoverInfoCard extends StatelessWidget {
       :defenseScore,
     ) = matchesData;
     final compsCount = compositions.length;
-    final infoText =
-        '${l10n.nMatches(matchesCount)} ($score) ${score.winRatePercent}';
+    final infoText = '${l10n.nMatches(matchesCount)} ${score.roundPercentStat}';
     final compText = l10n.nDifferentComps(compsCount);
     final wrStat =
-        '${l10n.attack}: $attackScore '
-        '${l10n.defense}: $defenseScore';
+        '${l10n.attack}: ${attackScore.roundPercentStat} '
+        '${l10n.defense}: ${defenseScore.roundPercentStat}';
     return Card.outlined(
       child: ResponsivePadding(
         child: Column(

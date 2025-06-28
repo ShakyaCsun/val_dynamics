@@ -1,5 +1,3 @@
-import 'dart:collection';
-
 import 'package:equatable/equatable.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
@@ -52,21 +50,17 @@ class ValorantMatch extends Equatable {
       return agentMap;
     }
     final ValorantMatch(
-      teamOne: Team(agents: agentsOne),
-      teamTwo: Team(agents: agentsTwo),
+      teamOne: Team(agents: AgentComp(agents: agentsOne)),
+      teamTwo: Team(agents: AgentComp(agents: agentsTwo)),
     ) = this;
-    final oneSet = LinkedHashSet<Agent>(
-      equals: (p0, p1) => p0.name == p1.name,
-      hashCode: (p0) => p0.name.hashCode,
-    )..addAll(agentsOne.agents);
-    final twoSet = LinkedHashSet<Agent>(
-      equals: (p0, p1) => p0.name == p1.name,
-      hashCode: (p0) => p0.name.hashCode,
-    )..addAll(agentsTwo.agents);
-    for (final agent in oneSet.difference(twoSet)) {
+    for (final agent in agentsOne.where(
+      (agent) => !agentsTwo.contains(agent),
+    )) {
       agentMap[agent] = NonMirror.yes;
     }
-    for (final agent in twoSet.difference(oneSet)) {
+    for (final agent in agentsTwo.where(
+      (agent) => !agentsOne.contains(agent),
+    )) {
       agentMap[agent] = NonMirror.yesIfReversed;
     }
     return agentMap;
@@ -88,7 +82,7 @@ class ValorantMatch extends Equatable {
   ///
   /// Returns:
   /// - [NonMirror.yes] when team one satisfies the condition
-  /// - [NonMirror.yesIfReversed] when team one satisfies the condition
+  /// - [NonMirror.yesIfReversed] when team two satisfies the condition
   /// - [NonMirror.no] if otherwise
   NonMirror satisfiesComboNM(
     Agent agentOne,

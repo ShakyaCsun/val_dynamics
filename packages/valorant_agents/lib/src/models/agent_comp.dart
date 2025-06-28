@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart';
 import 'package:equatable/equatable.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
@@ -30,12 +29,7 @@ class AgentComp extends Equatable {
     Agent agent4,
     Agent agent5,
   ) : agents = List.unmodifiable(
-        [agent1, agent2, agent3, agent4, agent5].sorted((a, b) {
-          if (a.role == b.role) {
-            return a.name.compareTo(b.name);
-          }
-          return a.role.index.compareTo(b.role.index);
-        }),
+        [agent1, agent2, agent3, agent4, agent5]..sort(),
       ),
       stylePoints =
           agent1.stylePoints +
@@ -47,28 +41,30 @@ class AgentComp extends Equatable {
   factory AgentComp.fromAgentNames(
     String agents, {
     required Map<String, Agent> agentsMap,
+    Map<String, AgentComp>? compsCache,
   }) {
-    final agentNames = agents.split(',');
-    if (agentNames.length != 5) {
-      throw InvalidTeamSizeException(
-        'Team must have 5 agents. $agents is not valid',
+    if (compsCache?[agents] case final agentComp?) {
+      return agentComp;
+    }
+    if (agents.split(',') case [
+      final agent1,
+      final agent2,
+      final agent3,
+      final agent4,
+      final agent5,
+    ]) {
+      final agentComp = AgentComp(
+        agentsMap.getAgent(agent1),
+        agentsMap.getAgent(agent2),
+        agentsMap.getAgent(agent3),
+        agentsMap.getAgent(agent4),
+        agentsMap.getAgent(agent5),
       );
+      compsCache?[agents] = agentComp;
+      return agentComp;
     }
-    Agent getAgent(String name) {
-      switch (agentsMap[name]) {
-        case final agent?:
-          return agent;
-        default:
-          throw AgentNotFoundException('Agent $name not found');
-      }
-    }
-
-    return AgentComp(
-      getAgent(agentNames[0]),
-      getAgent(agentNames[1]),
-      getAgent(agentNames[2]),
-      getAgent(agentNames[3]),
-      getAgent(agentNames[4]),
+    throw InvalidTeamSizeException(
+      'Team must have 5 agents. $agents is not valid',
     );
   }
 
@@ -130,4 +126,15 @@ class AgentComp extends Equatable {
 
   @override
   List<Object> get props => [agents];
+}
+
+extension AgentsMapExtension on Map<String, Agent> {
+  Agent getAgent(String name) {
+    switch (this[name]) {
+      case final agent?:
+        return agent;
+      default:
+        throw AgentNotFoundException('Agent $name not found');
+    }
+  }
 }

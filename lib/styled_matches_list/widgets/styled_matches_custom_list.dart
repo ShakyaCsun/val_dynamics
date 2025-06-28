@@ -93,10 +93,10 @@ class StylesMatchesSummaryCard extends StatelessWidget {
               ],
             ),
             Text(scoreOne.winRatePercent, style: textTheme.titleLarge),
-            Text('${l10n.overallScore}: ${scoreOne.winRateFraction}'),
+            Text('${l10n.overallScore}: $scoreOne'),
             Text(
-              '${l10n.attack}: ${attackScoreOne.winRateFraction} '
-              '${l10n.defense}: ${defenseScoreOne.winRateFraction}',
+              '${l10n.attack}: ${attackScoreOne.roundPercentStat} '
+              '${l10n.defense}: ${defenseScoreOne.roundPercentStat}',
             ),
           ],
         ),

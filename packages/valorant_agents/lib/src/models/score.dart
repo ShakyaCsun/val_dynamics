@@ -16,10 +16,24 @@ class Score extends Equatable implements Comparable<Score> {
 
   final double winRate;
 
+  /// The current score with 2 decimal places and a percentage sign
   String get winRatePercent => winRate.asPercent;
+
+  /// Won/Played or Won/(Won+Lost) fraction
   String get winRateFraction => '$won/$played';
+
+  /// Won and Loss scores separated by '-'. Used to indicate the Map Score.
   String get winLoss => '$won-$lost';
+
+  /// [winRatePercent] followed by [winRateFraction]
   String get roundPercentStat => '$winRatePercent ($winRateFraction)';
+
+  /// Descriptive won lost string. e.g. Won 13 and Lost 6.
+  String get wonLost => switch (this) {
+    Score(won: 0) => 'Lost all',
+    Score(lost: 0) => 'Won all',
+    _ => 'Won $won and Lost $lost',
+  };
 
   ScoreType get scoreType => ScoreType.fromScore(this);
 
