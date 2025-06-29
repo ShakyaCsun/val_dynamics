@@ -10,7 +10,6 @@ environment:
 resolution: workspace
 
 dependencies:
-  custom_adaptive_scaffold: ^2.0.1
   equatable: ^2.0.7
   flutter:
     sdk: flutter
