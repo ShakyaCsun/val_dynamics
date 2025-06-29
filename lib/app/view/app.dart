@@ -117,83 +117,65 @@ class ValSD2HomeScreen extends ConsumerWidget {
       }
     }
 
+    final showNavigationRail = const Breakpoint.medium(
+      andUp: true,
+    ).isActive(context);
     return Scaffold(
-      body: AdaptiveLayout(
-        transitionDuration: Durations.long2,
-        primaryNavigation: SlotLayout(
-          config: {
-            const Breakpoint.medium(andUp: true): SlotLayout.from(
-              key: const Key('primaryNavigation'),
-              builder: (context) {
-                return SizedBox(
-                  width: 80,
-                  height: MediaQuery.sizeOf(context).height,
-                  child: LayoutBuilder(
-                    builder: (context, constraints) {
-                      return SingleChildScrollView(
-                        child: ConstrainedBox(
-                          constraints: BoxConstraints(
-                            minHeight: constraints.maxHeight,
-                          ),
-                          child: IntrinsicHeight(
-                            child: NavigationRail(
-                              labelType: NavigationRailLabelType.all,
-                              onDestinationSelected: onDestinationSelected,
-                              selectedIndex: getCurrentIndex(context),
-                              destinations: destinations(context)
-                                  .map(
-                                    (e) => NavigationRailDestination(
-                                      icon: e.icon,
-                                      label: Text(e.label),
-                                      selectedIcon: e.selectedIcon,
-                                    ),
-                                  )
-                                  .toList(),
-                              trailing: const Expanded(
-                                child: Align(
-                                  alignment: Alignment.bottomCenter,
-                                  child: Padding(
-                                    padding: EdgeInsets.all(8),
-                                    child: ViewSourceButton(),
-                                  ),
+      body: Row(
+        children: [
+          if (showNavigationRail)
+            SizedBox(
+              width: 80,
+              height: MediaQuery.sizeOf(context).height,
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  return SingleChildScrollView(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight: constraints.maxHeight,
+                      ),
+                      child: IntrinsicHeight(
+                        child: NavigationRail(
+                          labelType: NavigationRailLabelType.all,
+                          onDestinationSelected: onDestinationSelected,
+                          selectedIndex: getCurrentIndex(context),
+                          destinations: destinations(context)
+                              .map(
+                                (e) => NavigationRailDestination(
+                                  icon: e.icon,
+                                  label: Text(e.label),
+                                  selectedIcon: e.selectedIcon,
                                 ),
+                              )
+                              .toList(),
+                          trailing: const Expanded(
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Padding(
+                                padding: EdgeInsets.all(
+                                  kNavigationRailDefaultPadding,
+                                ),
+                                child: ViewSourceButton(),
                               ),
                             ),
                           ),
                         ),
-                      );
-                    },
-                  ),
-                );
-              },
+                      ),
+                    ),
+                  );
+                },
+              ),
             ),
-          },
-        ),
-        body: SlotLayout(
-          config: {
-            Breakpoints.standard: SlotLayout.from(
-              key: const Key('adaptiveValScaffoldBody'),
-              inAnimation: AdaptiveScaffold.fadeIn,
-              outAnimation: AdaptiveScaffold.fadeOut,
-              builder: (context) => child,
+          Expanded(child: child),
+        ],
+      ),
+      bottomNavigationBar: showNavigationRail
+          ? null
+          : NavigationBar(
+              destinations: destinations(context),
+              selectedIndex: getCurrentIndex(context) ?? 0,
+              onDestinationSelected: onDestinationSelected,
             ),
-          },
-        ),
-      ),
-      bottomNavigationBar: SlotLayout(
-        config: <Breakpoint, SlotLayoutConfig>{
-          Breakpoints.small: SlotLayout.from(
-            key: const Key('bottomNavigation'),
-            builder: (_) {
-              return AdaptiveScaffold.standardBottomNavigationBar(
-                currentIndex: getCurrentIndex(context),
-                destinations: destinations(context),
-                onDestinationSelected: onDestinationSelected,
-              );
-            },
-          ),
-        },
-      ),
     );
   }
 }
