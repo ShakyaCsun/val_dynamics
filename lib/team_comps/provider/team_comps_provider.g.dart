@@ -7,7 +7,7 @@ part of 'team_comps_provider.dart';
 // **************************************************************************
 
 String _$filteredCompositionsHash() =>
-    r'0875f264a1e69c79bc7df7bcc379e0ecc0987003';
+    r'e4dfe1dffed3852dfcc359930f8106b94ad723c6';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -35,7 +35,7 @@ class _SystemHash {
 const filteredCompositionsProvider = FilteredCompositionsFamily();
 
 /// See also [filteredCompositions].
-class FilteredCompositionsFamily extends Family<List<AgentComp>> {
+class FilteredCompositionsFamily extends Family<Iterable<AgentComp>> {
   /// See also [filteredCompositions].
   const FilteredCompositionsFamily();
 
@@ -68,7 +68,7 @@ class FilteredCompositionsFamily extends Family<List<AgentComp>> {
 
 /// See also [filteredCompositions].
 class FilteredCompositionsProvider
-    extends AutoDisposeProvider<List<AgentComp>> {
+    extends AutoDisposeProvider<Iterable<AgentComp>> {
   /// See also [filteredCompositions].
   FilteredCompositionsProvider({required String rosterName})
     : this._internal(
@@ -101,7 +101,7 @@ class FilteredCompositionsProvider
 
   @override
   Override overrideWith(
-    List<AgentComp> Function(FilteredCompositionsRef provider) create,
+    Iterable<AgentComp> Function(FilteredCompositionsRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -118,7 +118,7 @@ class FilteredCompositionsProvider
   }
 
   @override
-  AutoDisposeProviderElement<List<AgentComp>> createElement() {
+  AutoDisposeProviderElement<Iterable<AgentComp>> createElement() {
     return _FilteredCompositionsProviderElement(this);
   }
 
@@ -139,13 +139,13 @@ class FilteredCompositionsProvider
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin FilteredCompositionsRef on AutoDisposeProviderRef<List<AgentComp>> {
+mixin FilteredCompositionsRef on AutoDisposeProviderRef<Iterable<AgentComp>> {
   /// The parameter `rosterName` of this provider.
   String get rosterName;
 }
 
 class _FilteredCompositionsProviderElement
-    extends AutoDisposeProviderElement<List<AgentComp>>
+    extends AutoDisposeProviderElement<Iterable<AgentComp>>
     with FilteredCompositionsRef {
   _FilteredCompositionsProviderElement(super.provider);
 

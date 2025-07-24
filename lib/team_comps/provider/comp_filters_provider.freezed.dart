@@ -1,6 +1,5 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -16,6 +15,7 @@ T _$identity<T>(T value) => value;
 mixin _$CompFiltersState {
   Map<Agent, AgentStatus> get agentFilters;
   Map<Role, RoleRange> get roleFilters;
+  List<Role> get roles;
 
   /// Create a copy of CompFiltersState
   /// with the given fields replaced by the non-null parameter values.
@@ -39,7 +39,8 @@ mixin _$CompFiltersState {
             const DeepCollectionEquality().equals(
               other.roleFilters,
               roleFilters,
-            ));
+            ) &&
+            const DeepCollectionEquality().equals(other.roles, roles));
   }
 
   @override
@@ -47,11 +48,12 @@ mixin _$CompFiltersState {
     runtimeType,
     const DeepCollectionEquality().hash(agentFilters),
     const DeepCollectionEquality().hash(roleFilters),
+    const DeepCollectionEquality().hash(roles),
   );
 
   @override
   String toString() {
-    return 'CompFiltersState(agentFilters: $agentFilters, roleFilters: $roleFilters)';
+    return 'CompFiltersState(agentFilters: $agentFilters, roleFilters: $roleFilters, roles: $roles)';
   }
 }
 
@@ -65,6 +67,7 @@ abstract mixin class $CompFiltersStateCopyWith<$Res> {
   $Res call({
     Map<Agent, AgentStatus> agentFilters,
     Map<Role, RoleRange> roleFilters,
+    List<Role> roles,
   });
 }
 
@@ -80,7 +83,11 @@ class _$CompFiltersStateCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? agentFilters = null, Object? roleFilters = null}) {
+  $Res call({
+    Object? agentFilters = null,
+    Object? roleFilters = null,
+    Object? roles = null,
+  }) {
     return _then(
       _self.copyWith(
         agentFilters: null == agentFilters
@@ -91,6 +98,10 @@ class _$CompFiltersStateCopyWithImpl<$Res>
             ? _self.roleFilters
             : roleFilters // ignore: cast_nullable_to_non_nullable
                   as Map<Role, RoleRange>,
+        roles: null == roles
+            ? _self.roles
+            : roles // ignore: cast_nullable_to_non_nullable
+                  as List<Role>,
       ),
     );
   }
@@ -102,8 +113,10 @@ class _CompFiltersState extends CompFiltersState {
   const _CompFiltersState({
     required final Map<Agent, AgentStatus> agentFilters,
     required final Map<Role, RoleRange> roleFilters,
+    required final List<Role> roles,
   }) : _agentFilters = agentFilters,
        _roleFilters = roleFilters,
+       _roles = roles,
        super._();
 
   final Map<Agent, AgentStatus> _agentFilters;
@@ -120,6 +133,14 @@ class _CompFiltersState extends CompFiltersState {
     if (_roleFilters is EqualUnmodifiableMapView) return _roleFilters;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_roleFilters);
+  }
+
+  final List<Role> _roles;
+  @override
+  List<Role> get roles {
+    if (_roles is EqualUnmodifiableListView) return _roles;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_roles);
   }
 
   /// Create a copy of CompFiltersState
@@ -142,7 +163,8 @@ class _CompFiltersState extends CompFiltersState {
             const DeepCollectionEquality().equals(
               other._roleFilters,
               _roleFilters,
-            ));
+            ) &&
+            const DeepCollectionEquality().equals(other._roles, _roles));
   }
 
   @override
@@ -150,11 +172,12 @@ class _CompFiltersState extends CompFiltersState {
     runtimeType,
     const DeepCollectionEquality().hash(_agentFilters),
     const DeepCollectionEquality().hash(_roleFilters),
+    const DeepCollectionEquality().hash(_roles),
   );
 
   @override
   String toString() {
-    return 'CompFiltersState(agentFilters: $agentFilters, roleFilters: $roleFilters)';
+    return 'CompFiltersState(agentFilters: $agentFilters, roleFilters: $roleFilters, roles: $roles)';
   }
 }
 
@@ -170,6 +193,7 @@ abstract mixin class _$CompFiltersStateCopyWith<$Res>
   $Res call({
     Map<Agent, AgentStatus> agentFilters,
     Map<Role, RoleRange> roleFilters,
+    List<Role> roles,
   });
 }
 
@@ -185,7 +209,11 @@ class __$CompFiltersStateCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $Res call({Object? agentFilters = null, Object? roleFilters = null}) {
+  $Res call({
+    Object? agentFilters = null,
+    Object? roleFilters = null,
+    Object? roles = null,
+  }) {
     return _then(
       _CompFiltersState(
         agentFilters: null == agentFilters
@@ -196,6 +224,10 @@ class __$CompFiltersStateCopyWithImpl<$Res>
             ? _self._roleFilters
             : roleFilters // ignore: cast_nullable_to_non_nullable
                   as Map<Role, RoleRange>,
+        roles: null == roles
+            ? _self._roles
+            : roles // ignore: cast_nullable_to_non_nullable
+                  as List<Role>,
       ),
     );
   }

@@ -18,26 +18,38 @@ class AgentIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final iconUrl = agent.iconUrl;
-    final icon = iconUrl == null
-        ? defaultAgentIcon(agent.name)?.image() ??
-              fallback ??
-              Center(
-                child: FittedBox(
-                  child: Text(
-                    agent.name,
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                ),
-              )
-        : Image.network(iconUrl);
     return SizedBox.square(
       dimension: size,
       child: ColoredBox(
         color:
             backgroundColor ?? Theme.of(context).colorScheme.surfaceContainer,
-        child: icon,
+        child: AgentPortrait(agent: agent, fallback: fallback),
       ),
     );
+  }
+}
+
+class AgentPortrait extends StatelessWidget {
+  const AgentPortrait({required this.agent, super.key, this.fallback});
+
+  final Agent agent;
+  final Widget? fallback;
+
+  @override
+  Widget build(BuildContext context) {
+    return switch (agent.iconUrl) {
+      final url? => Image.network(url),
+      null =>
+        defaultAgentIcon(agent.name)?.image() ??
+            fallback ??
+            Center(
+              child: FittedBox(
+                child: Text(
+                  agent.name,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+              ),
+            ),
+    };
   }
 }

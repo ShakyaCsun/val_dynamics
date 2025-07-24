@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:valorant_agents/valorant_agents.dart';
+import 'package:vsdat/agents/agents.dart';
 import 'package:vsdat/app_router/routes.dart';
 import 'package:vsdat/l10n/l10n.dart';
 import 'package:vsdat/team_comps/team_comps.dart';
@@ -34,12 +35,8 @@ class TeamCompsFilter extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final rosterName = context.compRosterName!;
-    final agents = ref.watch(
-      compFiltersProvider(rosterName: rosterName).select((value) {
-        return value.agentsWithStatus;
-      }),
-    );
-    List<List<(Agent, AgentStatus)>> groupedAgents(int count) {
+    final agents = ref.watch(agentsProvider(rosterName: rosterName));
+    List<List<Agent>> groupedAgents(int count) {
       return [
         for (var i = 0; i < agents.length; i += count)
           agents.skip(i).take(count).toList(),
@@ -60,17 +57,22 @@ class TeamCompsFilter extends ConsumerWidget {
           itemCount: agentsRowCount + 2,
           itemBuilder: (context, index) {
             if (index < agentsRowCount) {
-              return AspectRatio(
-                aspectRatio: agentsPerRow.toDouble(),
-                child: AgentsRow(
-                  agents: groupedAgentsList[index],
-                  onAgentTap: (agent) {
-                    ref
-                        .read(
-                          compFiltersProvider(rosterName: rosterName).notifier,
-                        )
-                        .toggleAgent(agent);
-                  },
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: AspectRatio(
+                  aspectRatio: agentsPerRow.toDouble(),
+                  child: AgentsRow(
+                    agents: groupedAgentsList[index],
+                    onAgentTap: (agent) {
+                      ref
+                          .read(
+                            compFiltersProvider(
+                              rosterName: rosterName,
+                            ).notifier,
+                          )
+                          .toggleAgent(agent);
+                    },
+                  ),
                 ),
               );
             }
@@ -103,44 +105,29 @@ class TeamCompsFilter extends ConsumerWidget {
 class AgentsRow extends StatelessWidget {
   const AgentsRow({required this.agents, required this.onAgentTap, super.key});
 
-  final List<(Agent, AgentStatus)> agents;
+  final List<Agent> agents;
   final void Function(Agent agent) onAgentTap;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        for (final (agent, status) in agents)
+        for (final agent in agents)
           AspectRatio(
             aspectRatio: 1,
-            child: Padding(
-              padding: const EdgeInsets.all(2),
-              child: GestureDetector(
-                onTap: () {
-                  onAgentTap(agent);
-                },
-                child: ColoredBox(
-                  color: switch (status) {
-                    AgentStatus.normal => Colors.grey,
-                    AgentStatus.core => Colors.green,
-                    AgentStatus.exclude => Colors.red,
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(2),
-                    child: agent.iconUrl == null
-                        ? defaultAgentIcon(agent.name)?.image() ??
-                              Center(
-                                child: Text(
-                                  agent.name,
-                                  style: Theme.of(
-                                    context,
-                                  ).textTheme.titleMedium,
-                                ),
-                              )
-                        : Image.network(agent.iconUrl!),
+            child: Consumer(
+              builder: (context, ref, child) {
+                return AgentSelect(
+                  key: ValueKey('Agent-${agent.name}_${agent.stylePoints.acm}'),
+                  agent: agent,
+                  status: ref.watch(
+                    compFiltersProvider(
+                      rosterName: context.compRosterName!,
+                    ).select((state) => state.agentFilters[agent]!),
                   ),
-                ),
-              ),
+                  onTap: () => onAgentTap(agent),
+                );
+              },
             ),
           ),
       ],
@@ -154,37 +141,51 @@ class RoleRangeSlider extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final rosterName = context.compRosterName!;
-    final roleRanges = ref.watch(
-      compFiltersProvider(rosterName: rosterName).select((value) {
-        return value.roleFilters;
-      }),
+    final roles = ref.watch(
+      compFiltersProvider(
+        rosterName: rosterName,
+      ).select((state) => state.roles),
     );
     final textTheme = Theme.of(context).textTheme;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        for (final MapEntry(key: role, value: range) in roleRanges.entries)
+        for (final role in roles)
           Column(
             children: [
               Text(role.value, style: textTheme.titleMedium),
-              RangeSlider(
-                values: RangeValues(range.min.toDouble(), range.max.toDouble()),
-                onChanged: (value) {
-                  ref
-                      .read(
-                        compFiltersProvider(rosterName: rosterName).notifier,
-                      )
-                      .changeRoleRange(
-                        role,
-                        RoleRange(
-                          min: value.start.toInt(),
-                          max: value.end.toInt(),
-                        ),
-                      );
+              Consumer(
+                builder: (context, ref, _) {
+                  final range = ref.watch(
+                    compFiltersProvider(
+                      rosterName: rosterName,
+                    ).select((state) => state.roleFilters[role]!),
+                  );
+                  return RangeSlider(
+                    values: RangeValues(
+                      range.min.toDouble(),
+                      range.max.toDouble(),
+                    ),
+                    onChanged: (value) {
+                      ref
+                          .read(
+                            compFiltersProvider(
+                              rosterName: rosterName,
+                            ).notifier,
+                          )
+                          .changeRoleRange(
+                            role,
+                            RoleRange(
+                              min: value.start.toInt(),
+                              max: value.end.toInt(),
+                            ),
+                          );
+                    },
+                    divisions: 5,
+                    max: 5,
+                    labels: RangeLabels('${range.min}', '${range.max}'),
+                  );
                 },
-                divisions: 5,
-                max: 5,
-                labels: RangeLabels('${range.min}', '${range.max}'),
               ),
             ],
           ),
