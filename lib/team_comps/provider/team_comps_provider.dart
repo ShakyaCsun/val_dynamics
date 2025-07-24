@@ -14,18 +14,20 @@ import 'package:vsdat_ui/vsdat_ui.dart';
 part 'team_comps_provider.freezed.dart';
 part 'team_comps_provider.g.dart';
 
-extension AgentCompStylesExtension on List<AgentComp> {
+extension AgentCompStylesExtension on Iterable<AgentComp> {
   int get stylesCount => {...map((comp) => comp.stylePoints)}.length;
 }
 
 @riverpod
-List<AgentComp> filteredCompositions(Ref ref, {required String rosterName}) {
+Iterable<AgentComp> filteredCompositions(
+  Ref ref, {
+  required String rosterName,
+}) {
   final filters = ref.watch(compFiltersProvider(rosterName: rosterName));
   final compositions = ref.watch(compositionsProvider(rosterName: rosterName));
   return switch (compositions) {
-    AsyncData(value: final compsState) => filters.apply(
-      compsState.allCompositions,
-    ),
+    AsyncData(value: CompositionsState(:final allCompositions)) =>
+      filters.apply(allCompositions),
     _ => throw StateError('compositionsProvider not ready'),
   };
 }
@@ -156,23 +158,6 @@ abstract class CompositionsState with _$CompositionsState {
   @override
   late final Map<AgentCompsTernaryData, TernaryPoint> ternaryData =
       allCompositions.asTernaryData;
-}
-
-enum AgentStatus {
-  core,
-  normal,
-  exclude;
-
-  AgentStatus get next {
-    switch (this) {
-      case AgentStatus.core:
-        return AgentStatus.exclude;
-      case AgentStatus.normal:
-        return AgentStatus.core;
-      case AgentStatus.exclude:
-        return AgentStatus.normal;
-    }
-  }
 }
 
 @freezed

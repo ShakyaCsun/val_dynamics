@@ -4,6 +4,8 @@ targets:
       freezed:
         options:
           format: true
+          map: false
+          when: false
       go_router_builder:
         enabled: true
         generate_for:

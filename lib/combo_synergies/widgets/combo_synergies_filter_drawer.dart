@@ -162,7 +162,7 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
             builder: (context, ref, child) {
               return DropdownButtonFormField<(Role, Role)>(
                 decoration: const InputDecoration(border: OutlineInputBorder()),
-                value: ref.watch(
+                initialValue: ref.watch(
                   comboSynergyFilterProvider(
                     collectionId: collectionName,
                   ).select((state) => state.rolesCombo),

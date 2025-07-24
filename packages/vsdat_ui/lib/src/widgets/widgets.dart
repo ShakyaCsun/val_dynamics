@@ -1,6 +1,7 @@
 export 'agent_icon.dart';
 export 'agent_indicator.dart';
 export 'agent_point_breakdown.dart';
+export 'agent_select.dart';
 export 'circle_indicator.dart';
 export 'colored_acm.dart';
 export 'drawer_header_text.dart';

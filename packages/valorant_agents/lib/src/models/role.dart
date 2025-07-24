@@ -1,4 +1,4 @@
-enum Role {
+enum Role implements Comparable<Role> {
   duelist('Duelist'),
   initiator('Initiator'),
   sentinel('Sentinel'),
@@ -21,5 +21,10 @@ enum Role {
 
   String toJson() {
     return value;
+  }
+
+  @override
+  int compareTo(Role other) {
+    return index.compareTo(other.index);
   }
 }
