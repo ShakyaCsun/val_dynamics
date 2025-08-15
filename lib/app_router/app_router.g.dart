@@ -6,144 +6,81 @@ part of 'app_router.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$appRouterHash() => r'7d501198dc0a512b1a9389af4f6018d555e6c2ba';
-
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-/// See also [appRouter].
 @ProviderFor(appRouter)
-const appRouterProvider = AppRouterFamily();
+const appRouterProvider = AppRouterFamily._();
 
-/// See also [appRouter].
-class AppRouterFamily extends Family<GoRouter> {
-  /// See also [appRouter].
-  const AppRouterFamily();
+final class AppRouterProvider
+    extends $FunctionalProvider<GoRouter, GoRouter, GoRouter>
+    with $Provider<GoRouter> {
+  const AppRouterProvider._({
+    required AppRouterFamily super.from,
+    required bool super.argument,
+  }) : super(
+         retry: null,
+         name: r'appRouterProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
 
-  /// See also [appRouter].
-  AppRouterProvider call({bool debugLogDiagnostics = false}) {
-    return AppRouterProvider(debugLogDiagnostics: debugLogDiagnostics);
+  @override
+  String debugGetCreateSourceHash() => _$appRouterHash();
+
+  @override
+  String toString() {
+    return r'appRouterProvider'
+        ''
+        '($argument)';
   }
 
+  @$internal
   @override
-  AppRouterProvider getProviderOverride(covariant AppRouterProvider provider) {
-    return call(debugLogDiagnostics: provider.debugLogDiagnostics);
+  $ProviderElement<GoRouter> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  GoRouter create(Ref ref) {
+    final argument = this.argument as bool;
+    return appRouter(ref, debugLogDiagnostics: argument);
   }
 
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'appRouterProvider';
-}
-
-/// See also [appRouter].
-class AppRouterProvider extends AutoDisposeProvider<GoRouter> {
-  /// See also [appRouter].
-  AppRouterProvider({bool debugLogDiagnostics = false})
-    : this._internal(
-        (ref) => appRouter(
-          ref as AppRouterRef,
-          debugLogDiagnostics: debugLogDiagnostics,
-        ),
-        from: appRouterProvider,
-        name: r'appRouterProvider',
-        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-            ? null
-            : _$appRouterHash,
-        dependencies: AppRouterFamily._dependencies,
-        allTransitiveDependencies: AppRouterFamily._allTransitiveDependencies,
-        debugLogDiagnostics: debugLogDiagnostics,
-      );
-
-  AppRouterProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.debugLogDiagnostics,
-  }) : super.internal();
-
-  final bool debugLogDiagnostics;
-
-  @override
-  Override overrideWith(GoRouter Function(AppRouterRef provider) create) {
-    return ProviderOverride(
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(GoRouter value) {
+    return $ProviderOverride(
       origin: this,
-      override: AppRouterProvider._internal(
-        (ref) => create(ref as AppRouterRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        debugLogDiagnostics: debugLogDiagnostics,
-      ),
+      providerOverride: $SyncValueProvider<GoRouter>(value),
     );
   }
 
   @override
-  AutoDisposeProviderElement<GoRouter> createElement() {
-    return _AppRouterProviderElement(this);
-  }
-
-  @override
   bool operator ==(Object other) {
-    return other is AppRouterProvider &&
-        other.debugLogDiagnostics == debugLogDiagnostics;
+    return other is AppRouterProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, debugLogDiagnostics.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin AppRouterRef on AutoDisposeProviderRef<GoRouter> {
-  /// The parameter `debugLogDiagnostics` of this provider.
-  bool get debugLogDiagnostics;
-}
+String _$appRouterHash() => r'7d501198dc0a512b1a9389af4f6018d555e6c2ba';
 
-class _AppRouterProviderElement extends AutoDisposeProviderElement<GoRouter>
-    with AppRouterRef {
-  _AppRouterProviderElement(super.provider);
+final class AppRouterFamily extends $Family
+    with $FunctionalFamilyOverride<GoRouter, bool> {
+  const AppRouterFamily._()
+    : super(
+        retry: null,
+        name: r'appRouterProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  AppRouterProvider call({bool debugLogDiagnostics = false}) =>
+      AppRouterProvider._(argument: debugLogDiagnostics, from: this);
 
   @override
-  bool get debugLogDiagnostics =>
-      (origin as AppRouterProvider).debugLogDiagnostics;
+  String toString() => r'appRouterProvider';
 }
 
 // ignore_for_file: type=lint

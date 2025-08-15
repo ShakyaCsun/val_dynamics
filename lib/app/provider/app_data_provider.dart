@@ -12,14 +12,14 @@ part 'app_data_provider.g.dart';
 
 final _logger = Logger('AppDataLogger');
 
-@riverpod
+@Riverpod(keepAlive: true)
 Map<String, Agents> bundledAgents(Ref ref) {
   return ref.watch(
     appDataNotifierProvider.select((state) => state.bundledAgents),
   );
 }
 
-@riverpod
+@Riverpod(keepAlive: true)
 Map<String, List<RawMatch>> bundledMatches(Ref ref) {
   return ref.watch(
     appDataNotifierProvider.select((state) => state.bundledMatches),
@@ -35,7 +35,7 @@ Map<String, List<RawMatch>> bundledMatches(Ref ref) {
   );
 }
 
-@riverpod
+@Riverpod(keepAlive: true)
 class AppDataNotifier extends _$AppDataNotifier {
   @override
   AppData build() {

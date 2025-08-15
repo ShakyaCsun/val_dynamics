@@ -1,14 +1,8 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 import 'package:vsdat/agents_overview/agents_overview.dart';
 
 part 'agents_provider.g.dart';
-
-@Riverpod(dependencies: [])
-String rosterName(Ref ref) {
-  throw UnimplementedError('rosterNameProvider not initialized properly.');
-}
 
 @riverpod
 Agents agents(Ref ref, {required String rosterName}) {

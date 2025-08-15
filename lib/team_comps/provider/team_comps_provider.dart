@@ -78,6 +78,8 @@ class Compositions extends _$Compositions {
         switch ((previous, next)) {
           case (AsyncLoading(), AsyncData()):
             _animateComps();
+          default:
+            break;
         }
       });
       return CompositionsState.empty(agents: agents);

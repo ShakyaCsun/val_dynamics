@@ -6,325 +6,196 @@ part of 'styled_matches_list_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$styledMatchesListHash() => r'971e650b9134ba40b6f4ae9d5b4a9c38154606fe';
-
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-/// See also [styledMatchesList].
 @ProviderFor(styledMatchesList)
-const styledMatchesListProvider = StyledMatchesListFamily();
+const styledMatchesListProvider = StyledMatchesListFamily._();
 
-/// See also [styledMatchesList].
-class StyledMatchesListFamily extends Family<ValorantMatches> {
-  /// See also [styledMatchesList].
-  const StyledMatchesListFamily();
-
-  /// See also [styledMatchesList].
-  StyledMatchesListProvider call({
-    required String collectionId,
-    required ({double aggro, double control, double midrange}) acm,
-  }) {
-    return StyledMatchesListProvider(collectionId: collectionId, acm: acm);
-  }
-
-  @override
-  StyledMatchesListProvider getProviderOverride(
-    covariant StyledMatchesListProvider provider,
-  ) {
-    return call(collectionId: provider.collectionId, acm: provider.acm);
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'styledMatchesListProvider';
-}
-
-/// See also [styledMatchesList].
-class StyledMatchesListProvider extends AutoDisposeProvider<ValorantMatches> {
-  /// See also [styledMatchesList].
-  StyledMatchesListProvider({
-    required String collectionId,
-    required ({double aggro, double control, double midrange}) acm,
-  }) : this._internal(
-         (ref) => styledMatchesList(
-           ref as StyledMatchesListRef,
-           collectionId: collectionId,
-           acm: acm,
-         ),
-         from: styledMatchesListProvider,
+final class StyledMatchesListProvider
+    extends
+        $FunctionalProvider<ValorantMatches, ValorantMatches, ValorantMatches>
+    with $Provider<ValorantMatches> {
+  const StyledMatchesListProvider._({
+    required StyledMatchesListFamily super.from,
+    required ({String collectionId, StylePoints acm}) super.argument,
+  }) : super(
+         retry: null,
          name: r'styledMatchesListProvider',
-         debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-             ? null
-             : _$styledMatchesListHash,
-         dependencies: StyledMatchesListFamily._dependencies,
-         allTransitiveDependencies:
-             StyledMatchesListFamily._allTransitiveDependencies,
-         collectionId: collectionId,
-         acm: acm,
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
        );
 
-  StyledMatchesListProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.collectionId,
-    required this.acm,
-  }) : super.internal();
-
-  final String collectionId;
-  final ({double aggro, double control, double midrange}) acm;
+  @override
+  String debugGetCreateSourceHash() => _$styledMatchesListHash();
 
   @override
-  Override overrideWith(
-    ValorantMatches Function(StyledMatchesListRef provider) create,
-  ) {
-    return ProviderOverride(
+  String toString() {
+    return r'styledMatchesListProvider'
+        ''
+        '$argument';
+  }
+
+  @$internal
+  @override
+  $ProviderElement<ValorantMatches> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  ValorantMatches create(Ref ref) {
+    final argument = this.argument as ({String collectionId, StylePoints acm});
+    return styledMatchesList(
+      ref,
+      collectionId: argument.collectionId,
+      acm: argument.acm,
+    );
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(ValorantMatches value) {
+    return $ProviderOverride(
       origin: this,
-      override: StyledMatchesListProvider._internal(
-        (ref) => create(ref as StyledMatchesListRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        collectionId: collectionId,
-        acm: acm,
-      ),
+      providerOverride: $SyncValueProvider<ValorantMatches>(value),
     );
   }
 
   @override
-  AutoDisposeProviderElement<ValorantMatches> createElement() {
-    return _StyledMatchesListProviderElement(this);
-  }
-
-  @override
   bool operator ==(Object other) {
-    return other is StyledMatchesListProvider &&
-        other.collectionId == collectionId &&
-        other.acm == acm;
+    return other is StyledMatchesListProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, collectionId.hashCode);
-    hash = _SystemHash.combine(hash, acm.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin StyledMatchesListRef on AutoDisposeProviderRef<ValorantMatches> {
-  /// The parameter `collectionId` of this provider.
-  String get collectionId;
+String _$styledMatchesListHash() => r'971e650b9134ba40b6f4ae9d5b4a9c38154606fe';
 
-  /// The parameter `acm` of this provider.
-  ({double aggro, double control, double midrange}) get acm;
+final class StyledMatchesListFamily extends $Family
+    with
+        $FunctionalFamilyOverride<
+          ValorantMatches,
+          ({String collectionId, StylePoints acm})
+        > {
+  const StyledMatchesListFamily._()
+    : super(
+        retry: null,
+        name: r'styledMatchesListProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  StyledMatchesListProvider call({
+    required String collectionId,
+    required StylePoints acm,
+  }) => StyledMatchesListProvider._(
+    argument: (collectionId: collectionId, acm: acm),
+    from: this,
+  );
+
+  @override
+  String toString() => r'styledMatchesListProvider';
 }
 
-class _StyledMatchesListProviderElement
-    extends AutoDisposeProviderElement<ValorantMatches>
-    with StyledMatchesListRef {
-  _StyledMatchesListProviderElement(super.provider);
+@ProviderFor(styledMatchesDataList)
+const styledMatchesDataListProvider = StyledMatchesDataListFamily._();
+
+final class StyledMatchesDataListProvider
+    extends
+        $FunctionalProvider<
+          List<(StyledMatchesSummaryData, ValorantMatches)>,
+          List<(StyledMatchesSummaryData, ValorantMatches)>,
+          List<(StyledMatchesSummaryData, ValorantMatches)>
+        >
+    with $Provider<List<(StyledMatchesSummaryData, ValorantMatches)>> {
+  const StyledMatchesDataListProvider._({
+    required StyledMatchesDataListFamily super.from,
+    required ({String collectionId, StylePoints acm}) super.argument,
+  }) : super(
+         retry: null,
+         name: r'styledMatchesDataListProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
 
   @override
-  String get collectionId => (origin as StyledMatchesListProvider).collectionId;
+  String debugGetCreateSourceHash() => _$styledMatchesDataListHash();
+
   @override
-  ({double aggro, double control, double midrange}) get acm =>
-      (origin as StyledMatchesListProvider).acm;
+  String toString() {
+    return r'styledMatchesDataListProvider'
+        ''
+        '$argument';
+  }
+
+  @$internal
+  @override
+  $ProviderElement<List<(StyledMatchesSummaryData, ValorantMatches)>>
+  $createElement($ProviderPointer pointer) => $ProviderElement(pointer);
+
+  @override
+  List<(StyledMatchesSummaryData, ValorantMatches)> create(Ref ref) {
+    final argument = this.argument as ({String collectionId, StylePoints acm});
+    return styledMatchesDataList(
+      ref,
+      collectionId: argument.collectionId,
+      acm: argument.acm,
+    );
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(
+    List<(StyledMatchesSummaryData, ValorantMatches)> value,
+  ) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride:
+          $SyncValueProvider<List<(StyledMatchesSummaryData, ValorantMatches)>>(
+            value,
+          ),
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is StyledMatchesDataListProvider && other.argument == argument;
+  }
+
+  @override
+  int get hashCode {
+    return argument.hashCode;
+  }
 }
 
 String _$styledMatchesDataListHash() =>
     r'94b0011320a0c5ccb22c9818dfbc745907244a8c';
 
-/// See also [styledMatchesDataList].
-@ProviderFor(styledMatchesDataList)
-const styledMatchesDataListProvider = StyledMatchesDataListFamily();
+final class StyledMatchesDataListFamily extends $Family
+    with
+        $FunctionalFamilyOverride<
+          List<(StyledMatchesSummaryData, ValorantMatches)>,
+          ({String collectionId, StylePoints acm})
+        > {
+  const StyledMatchesDataListFamily._()
+    : super(
+        retry: null,
+        name: r'styledMatchesDataListProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
 
-/// See also [styledMatchesDataList].
-class StyledMatchesDataListFamily
-    extends Family<List<(StyledMatchesSummaryData, ValorantMatches)>> {
-  /// See also [styledMatchesDataList].
-  const StyledMatchesDataListFamily();
-
-  /// See also [styledMatchesDataList].
   StyledMatchesDataListProvider call({
     required String collectionId,
-    required ({double aggro, double control, double midrange}) acm,
-  }) {
-    return StyledMatchesDataListProvider(collectionId: collectionId, acm: acm);
-  }
+    required StylePoints acm,
+  }) => StyledMatchesDataListProvider._(
+    argument: (collectionId: collectionId, acm: acm),
+    from: this,
+  );
 
   @override
-  StyledMatchesDataListProvider getProviderOverride(
-    covariant StyledMatchesDataListProvider provider,
-  ) {
-    return call(collectionId: provider.collectionId, acm: provider.acm);
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'styledMatchesDataListProvider';
-}
-
-/// See also [styledMatchesDataList].
-class StyledMatchesDataListProvider
-    extends
-        AutoDisposeProvider<List<(StyledMatchesSummaryData, ValorantMatches)>> {
-  /// See also [styledMatchesDataList].
-  StyledMatchesDataListProvider({
-    required String collectionId,
-    required ({double aggro, double control, double midrange}) acm,
-  }) : this._internal(
-         (ref) => styledMatchesDataList(
-           ref as StyledMatchesDataListRef,
-           collectionId: collectionId,
-           acm: acm,
-         ),
-         from: styledMatchesDataListProvider,
-         name: r'styledMatchesDataListProvider',
-         debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-             ? null
-             : _$styledMatchesDataListHash,
-         dependencies: StyledMatchesDataListFamily._dependencies,
-         allTransitiveDependencies:
-             StyledMatchesDataListFamily._allTransitiveDependencies,
-         collectionId: collectionId,
-         acm: acm,
-       );
-
-  StyledMatchesDataListProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.collectionId,
-    required this.acm,
-  }) : super.internal();
-
-  final String collectionId;
-  final ({double aggro, double control, double midrange}) acm;
-
-  @override
-  Override overrideWith(
-    List<(StyledMatchesSummaryData, ValorantMatches)> Function(
-      StyledMatchesDataListRef provider,
-    )
-    create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: StyledMatchesDataListProvider._internal(
-        (ref) => create(ref as StyledMatchesDataListRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        collectionId: collectionId,
-        acm: acm,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeProviderElement<List<(StyledMatchesSummaryData, ValorantMatches)>>
-  createElement() {
-    return _StyledMatchesDataListProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is StyledMatchesDataListProvider &&
-        other.collectionId == collectionId &&
-        other.acm == acm;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, collectionId.hashCode);
-    hash = _SystemHash.combine(hash, acm.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin StyledMatchesDataListRef
-    on
-        AutoDisposeProviderRef<
-          List<(StyledMatchesSummaryData, ValorantMatches)>
-        > {
-  /// The parameter `collectionId` of this provider.
-  String get collectionId;
-
-  /// The parameter `acm` of this provider.
-  ({double aggro, double control, double midrange}) get acm;
-}
-
-class _StyledMatchesDataListProviderElement
-    extends
-        AutoDisposeProviderElement<
-          List<(StyledMatchesSummaryData, ValorantMatches)>
-        >
-    with StyledMatchesDataListRef {
-  _StyledMatchesDataListProviderElement(super.provider);
-
-  @override
-  String get collectionId =>
-      (origin as StyledMatchesDataListProvider).collectionId;
-  @override
-  ({double aggro, double control, double midrange}) get acm =>
-      (origin as StyledMatchesDataListProvider).acm;
+  String toString() => r'styledMatchesDataListProvider';
 }
 
 // ignore_for_file: type=lint
