@@ -6,190 +6,104 @@ part of 'styled_matchup_list_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$styledMatchupListHash() => r'cf57e7f62d6fb34defae498844cc5e9ea85fa8fc';
-
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-/// See also [styledMatchupList].
 @ProviderFor(styledMatchupList)
-const styledMatchupListProvider = StyledMatchupListFamily();
+const styledMatchupListProvider = StyledMatchupListFamily._();
 
-/// See also [styledMatchupList].
-class StyledMatchupListFamily extends Family<ValorantMatches> {
-  /// See also [styledMatchupList].
-  const StyledMatchupListFamily();
-
-  /// See also [styledMatchupList].
-  StyledMatchupListProvider call({
-    required String collectionId,
-    required ({double aggro, double control, double midrange}) acm,
-    required ({double aggro, double control, double midrange}) opponentAcm,
-  }) {
-    return StyledMatchupListProvider(
-      collectionId: collectionId,
-      acm: acm,
-      opponentAcm: opponentAcm,
-    );
-  }
-
-  @override
-  StyledMatchupListProvider getProviderOverride(
-    covariant StyledMatchupListProvider provider,
-  ) {
-    return call(
-      collectionId: provider.collectionId,
-      acm: provider.acm,
-      opponentAcm: provider.opponentAcm,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'styledMatchupListProvider';
-}
-
-/// See also [styledMatchupList].
-class StyledMatchupListProvider extends AutoDisposeProvider<ValorantMatches> {
-  /// See also [styledMatchupList].
-  StyledMatchupListProvider({
-    required String collectionId,
-    required ({double aggro, double control, double midrange}) acm,
-    required ({double aggro, double control, double midrange}) opponentAcm,
-  }) : this._internal(
-         (ref) => styledMatchupList(
-           ref as StyledMatchupListRef,
-           collectionId: collectionId,
-           acm: acm,
-           opponentAcm: opponentAcm,
-         ),
-         from: styledMatchupListProvider,
+final class StyledMatchupListProvider
+    extends
+        $FunctionalProvider<ValorantMatches, ValorantMatches, ValorantMatches>
+    with $Provider<ValorantMatches> {
+  const StyledMatchupListProvider._({
+    required StyledMatchupListFamily super.from,
+    required ({String collectionId, StylePoints acm, StylePoints opponentAcm})
+    super.argument,
+  }) : super(
+         retry: null,
          name: r'styledMatchupListProvider',
-         debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-             ? null
-             : _$styledMatchupListHash,
-         dependencies: StyledMatchupListFamily._dependencies,
-         allTransitiveDependencies:
-             StyledMatchupListFamily._allTransitiveDependencies,
-         collectionId: collectionId,
-         acm: acm,
-         opponentAcm: opponentAcm,
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
        );
 
-  StyledMatchupListProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.collectionId,
-    required this.acm,
-    required this.opponentAcm,
-  }) : super.internal();
-
-  final String collectionId;
-  final ({double aggro, double control, double midrange}) acm;
-  final ({double aggro, double control, double midrange}) opponentAcm;
+  @override
+  String debugGetCreateSourceHash() => _$styledMatchupListHash();
 
   @override
-  Override overrideWith(
-    ValorantMatches Function(StyledMatchupListRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: StyledMatchupListProvider._internal(
-        (ref) => create(ref as StyledMatchupListRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        collectionId: collectionId,
-        acm: acm,
-        opponentAcm: opponentAcm,
-      ),
+  String toString() {
+    return r'styledMatchupListProvider'
+        ''
+        '$argument';
+  }
+
+  @$internal
+  @override
+  $ProviderElement<ValorantMatches> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  ValorantMatches create(Ref ref) {
+    final argument =
+        this.argument
+            as ({
+              String collectionId,
+              StylePoints acm,
+              StylePoints opponentAcm,
+            });
+    return styledMatchupList(
+      ref,
+      collectionId: argument.collectionId,
+      acm: argument.acm,
+      opponentAcm: argument.opponentAcm,
     );
   }
 
-  @override
-  AutoDisposeProviderElement<ValorantMatches> createElement() {
-    return _StyledMatchupListProviderElement(this);
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(ValorantMatches value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<ValorantMatches>(value),
+    );
   }
 
   @override
   bool operator ==(Object other) {
-    return other is StyledMatchupListProvider &&
-        other.collectionId == collectionId &&
-        other.acm == acm &&
-        other.opponentAcm == opponentAcm;
+    return other is StyledMatchupListProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, collectionId.hashCode);
-    hash = _SystemHash.combine(hash, acm.hashCode);
-    hash = _SystemHash.combine(hash, opponentAcm.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin StyledMatchupListRef on AutoDisposeProviderRef<ValorantMatches> {
-  /// The parameter `collectionId` of this provider.
-  String get collectionId;
+String _$styledMatchupListHash() => r'cf57e7f62d6fb34defae498844cc5e9ea85fa8fc';
 
-  /// The parameter `acm` of this provider.
-  ({double aggro, double control, double midrange}) get acm;
+final class StyledMatchupListFamily extends $Family
+    with
+        $FunctionalFamilyOverride<
+          ValorantMatches,
+          ({String collectionId, StylePoints acm, StylePoints opponentAcm})
+        > {
+  const StyledMatchupListFamily._()
+    : super(
+        retry: null,
+        name: r'styledMatchupListProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
 
-  /// The parameter `opponentAcm` of this provider.
-  ({double aggro, double control, double midrange}) get opponentAcm;
-}
-
-class _StyledMatchupListProviderElement
-    extends AutoDisposeProviderElement<ValorantMatches>
-    with StyledMatchupListRef {
-  _StyledMatchupListProviderElement(super.provider);
+  StyledMatchupListProvider call({
+    required String collectionId,
+    required StylePoints acm,
+    required StylePoints opponentAcm,
+  }) => StyledMatchupListProvider._(
+    argument: (collectionId: collectionId, acm: acm, opponentAcm: opponentAcm),
+    from: this,
+  );
 
   @override
-  String get collectionId => (origin as StyledMatchupListProvider).collectionId;
-  @override
-  ({double aggro, double control, double midrange}) get acm =>
-      (origin as StyledMatchupListProvider).acm;
-  @override
-  ({double aggro, double control, double midrange}) get opponentAcm =>
-      (origin as StyledMatchupListProvider).opponentAcm;
+  String toString() => r'styledMatchupListProvider';
 }
 
 // ignore_for_file: type=lint

@@ -6,184 +6,111 @@ part of 'styled_matches_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$styledMatchesHash() => r'befa3d61ca54ca9453a12524a35e16007b503315';
-
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-abstract class _$StyledMatches
-    extends BuildlessAutoDisposeNotifier<StyledMatchesState> {
-  late final String collectionId;
-  late final ({double aggro, double control, double midrange}) acm;
-
-  StyledMatchesState build({
-    required String collectionId,
-    required ({double aggro, double control, double midrange}) acm,
-  });
-}
-
-/// See also [StyledMatches].
 @ProviderFor(StyledMatches)
-const styledMatchesProvider = StyledMatchesFamily();
+const styledMatchesProvider = StyledMatchesFamily._();
 
-/// See also [StyledMatches].
-class StyledMatchesFamily extends Family<StyledMatchesState> {
-  /// See also [StyledMatches].
-  const StyledMatchesFamily();
-
-  /// See also [StyledMatches].
-  StyledMatchesProvider call({
-    required String collectionId,
-    required ({double aggro, double control, double midrange}) acm,
-  }) {
-    return StyledMatchesProvider(collectionId: collectionId, acm: acm);
-  }
-
-  @override
-  StyledMatchesProvider getProviderOverride(
-    covariant StyledMatchesProvider provider,
-  ) {
-    return call(collectionId: provider.collectionId, acm: provider.acm);
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'styledMatchesProvider';
-}
-
-/// See also [StyledMatches].
-class StyledMatchesProvider
-    extends AutoDisposeNotifierProviderImpl<StyledMatches, StyledMatchesState> {
-  /// See also [StyledMatches].
-  StyledMatchesProvider({
-    required String collectionId,
-    required ({double aggro, double control, double midrange}) acm,
-  }) : this._internal(
-         () => StyledMatches()
-           ..collectionId = collectionId
-           ..acm = acm,
-         from: styledMatchesProvider,
+final class StyledMatchesProvider
+    extends $NotifierProvider<StyledMatches, StyledMatchesState> {
+  const StyledMatchesProvider._({
+    required StyledMatchesFamily super.from,
+    required ({String collectionId, StylePoints acm}) super.argument,
+  }) : super(
+         retry: null,
          name: r'styledMatchesProvider',
-         debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-             ? null
-             : _$styledMatchesHash,
-         dependencies: StyledMatchesFamily._dependencies,
-         allTransitiveDependencies:
-             StyledMatchesFamily._allTransitiveDependencies,
-         collectionId: collectionId,
-         acm: acm,
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
        );
 
-  StyledMatchesProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.collectionId,
-    required this.acm,
-  }) : super.internal();
-
-  final String collectionId;
-  final ({double aggro, double control, double midrange}) acm;
+  @override
+  String debugGetCreateSourceHash() => _$styledMatchesHash();
 
   @override
-  StyledMatchesState runNotifierBuild(covariant StyledMatches notifier) {
-    return notifier.build(collectionId: collectionId, acm: acm);
+  String toString() {
+    return r'styledMatchesProvider'
+        ''
+        '$argument';
   }
 
+  @$internal
   @override
-  Override overrideWith(StyledMatches Function() create) {
-    return ProviderOverride(
+  StyledMatches create() => StyledMatches();
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(StyledMatchesState value) {
+    return $ProviderOverride(
       origin: this,
-      override: StyledMatchesProvider._internal(
-        () => create()
-          ..collectionId = collectionId
-          ..acm = acm,
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        collectionId: collectionId,
-        acm: acm,
-      ),
+      providerOverride: $SyncValueProvider<StyledMatchesState>(value),
     );
   }
 
   @override
-  AutoDisposeNotifierProviderElement<StyledMatches, StyledMatchesState>
-  createElement() {
-    return _StyledMatchesProviderElement(this);
-  }
-
-  @override
   bool operator ==(Object other) {
-    return other is StyledMatchesProvider &&
-        other.collectionId == collectionId &&
-        other.acm == acm;
+    return other is StyledMatchesProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, collectionId.hashCode);
-    hash = _SystemHash.combine(hash, acm.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin StyledMatchesRef on AutoDisposeNotifierProviderRef<StyledMatchesState> {
-  /// The parameter `collectionId` of this provider.
-  String get collectionId;
+String _$styledMatchesHash() => r'befa3d61ca54ca9453a12524a35e16007b503315';
 
-  /// The parameter `acm` of this provider.
-  ({double aggro, double control, double midrange}) get acm;
+final class StyledMatchesFamily extends $Family
+    with
+        $ClassFamilyOverride<
+          StyledMatches,
+          StyledMatchesState,
+          StyledMatchesState,
+          StyledMatchesState,
+          ({String collectionId, StylePoints acm})
+        > {
+  const StyledMatchesFamily._()
+    : super(
+        retry: null,
+        name: r'styledMatchesProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  StyledMatchesProvider call({
+    required String collectionId,
+    required StylePoints acm,
+  }) => StyledMatchesProvider._(
+    argument: (collectionId: collectionId, acm: acm),
+    from: this,
+  );
+
+  @override
+  String toString() => r'styledMatchesProvider';
 }
 
-class _StyledMatchesProviderElement
-    extends
-        AutoDisposeNotifierProviderElement<StyledMatches, StyledMatchesState>
-    with StyledMatchesRef {
-  _StyledMatchesProviderElement(super.provider);
+abstract class _$StyledMatches extends $Notifier<StyledMatchesState> {
+  late final _$args = ref.$arg as ({String collectionId, StylePoints acm});
+  String get collectionId => _$args.collectionId;
+  StylePoints get acm => _$args.acm;
 
+  StyledMatchesState build({
+    required String collectionId,
+    required StylePoints acm,
+  });
+  @$mustCallSuper
   @override
-  String get collectionId => (origin as StyledMatchesProvider).collectionId;
-  @override
-  ({double aggro, double control, double midrange}) get acm =>
-      (origin as StyledMatchesProvider).acm;
+  void runBuild() {
+    final created = build(collectionId: _$args.collectionId, acm: _$args.acm);
+    final ref = this.ref as $Ref<StyledMatchesState, StyledMatchesState>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<StyledMatchesState, StyledMatchesState>,
+              StyledMatchesState,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
 }
 
 // ignore_for_file: type=lint

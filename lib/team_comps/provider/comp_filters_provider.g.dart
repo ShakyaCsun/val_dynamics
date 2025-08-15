@@ -6,156 +6,102 @@ part of 'comp_filters_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$compFiltersHash() => r'04e7febceff2a03ee5816d0abfe30e69ef53ff6c';
-
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-abstract class _$CompFilters
-    extends BuildlessAutoDisposeNotifier<CompFiltersState> {
-  late final String rosterName;
-
-  CompFiltersState build({required String rosterName});
-}
-
-/// See also [CompFilters].
 @ProviderFor(CompFilters)
-const compFiltersProvider = CompFiltersFamily();
+const compFiltersProvider = CompFiltersFamily._();
 
-/// See also [CompFilters].
-class CompFiltersFamily extends Family<CompFiltersState> {
-  /// See also [CompFilters].
-  const CompFiltersFamily();
+final class CompFiltersProvider
+    extends $NotifierProvider<CompFilters, CompFiltersState> {
+  const CompFiltersProvider._({
+    required CompFiltersFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'compFiltersProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
 
-  /// See also [CompFilters].
-  CompFiltersProvider call({required String rosterName}) {
-    return CompFiltersProvider(rosterName: rosterName);
+  @override
+  String debugGetCreateSourceHash() => _$compFiltersHash();
+
+  @override
+  String toString() {
+    return r'compFiltersProvider'
+        ''
+        '($argument)';
   }
 
+  @$internal
   @override
-  CompFiltersProvider getProviderOverride(
-    covariant CompFiltersProvider provider,
-  ) {
-    return call(rosterName: provider.rosterName);
-  }
+  CompFilters create() => CompFilters();
 
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'compFiltersProvider';
-}
-
-/// See also [CompFilters].
-class CompFiltersProvider
-    extends AutoDisposeNotifierProviderImpl<CompFilters, CompFiltersState> {
-  /// See also [CompFilters].
-  CompFiltersProvider({required String rosterName})
-    : this._internal(
-        () => CompFilters()..rosterName = rosterName,
-        from: compFiltersProvider,
-        name: r'compFiltersProvider',
-        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-            ? null
-            : _$compFiltersHash,
-        dependencies: CompFiltersFamily._dependencies,
-        allTransitiveDependencies: CompFiltersFamily._allTransitiveDependencies,
-        rosterName: rosterName,
-      );
-
-  CompFiltersProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.rosterName,
-  }) : super.internal();
-
-  final String rosterName;
-
-  @override
-  CompFiltersState runNotifierBuild(covariant CompFilters notifier) {
-    return notifier.build(rosterName: rosterName);
-  }
-
-  @override
-  Override overrideWith(CompFilters Function() create) {
-    return ProviderOverride(
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(CompFiltersState value) {
+    return $ProviderOverride(
       origin: this,
-      override: CompFiltersProvider._internal(
-        () => create()..rosterName = rosterName,
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        rosterName: rosterName,
-      ),
+      providerOverride: $SyncValueProvider<CompFiltersState>(value),
     );
   }
 
   @override
-  AutoDisposeNotifierProviderElement<CompFilters, CompFiltersState>
-  createElement() {
-    return _CompFiltersProviderElement(this);
-  }
-
-  @override
   bool operator ==(Object other) {
-    return other is CompFiltersProvider && other.rosterName == rosterName;
+    return other is CompFiltersProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, rosterName.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin CompFiltersRef on AutoDisposeNotifierProviderRef<CompFiltersState> {
-  /// The parameter `rosterName` of this provider.
-  String get rosterName;
-}
+String _$compFiltersHash() => r'04e7febceff2a03ee5816d0abfe30e69ef53ff6c';
 
-class _CompFiltersProviderElement
-    extends AutoDisposeNotifierProviderElement<CompFilters, CompFiltersState>
-    with CompFiltersRef {
-  _CompFiltersProviderElement(super.provider);
+final class CompFiltersFamily extends $Family
+    with
+        $ClassFamilyOverride<
+          CompFilters,
+          CompFiltersState,
+          CompFiltersState,
+          CompFiltersState,
+          String
+        > {
+  const CompFiltersFamily._()
+    : super(
+        retry: null,
+        name: r'compFiltersProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  CompFiltersProvider call({required String rosterName}) =>
+      CompFiltersProvider._(argument: rosterName, from: this);
 
   @override
-  String get rosterName => (origin as CompFiltersProvider).rosterName;
+  String toString() => r'compFiltersProvider';
+}
+
+abstract class _$CompFilters extends $Notifier<CompFiltersState> {
+  late final _$args = ref.$arg as String;
+  String get rosterName => _$args;
+
+  CompFiltersState build({required String rosterName});
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build(rosterName: _$args);
+    final ref = this.ref as $Ref<CompFiltersState, CompFiltersState>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<CompFiltersState, CompFiltersState>,
+              CompFiltersState,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
 }
 
 // ignore_for_file: type=lint

@@ -6,444 +6,329 @@ part of 'combo_synergies_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$comboSynergiesHash() => r'e9fc749b34b6338b9bd586bef89a68e6d407e120';
-
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-/// See also [comboSynergies].
 @ProviderFor(comboSynergies)
-const comboSynergiesProvider = ComboSynergiesFamily();
+const comboSynergiesProvider = ComboSynergiesFamily._();
 
-/// See also [comboSynergies].
-class ComboSynergiesFamily
-    extends Family<Map<(Agent, Agent), ComboSynergyStat>> {
-  /// See also [comboSynergies].
-  const ComboSynergiesFamily();
+final class ComboSynergiesProvider
+    extends
+        $FunctionalProvider<
+          Map<(Agent, Agent), ComboSynergyStat>,
+          Map<(Agent, Agent), ComboSynergyStat>,
+          Map<(Agent, Agent), ComboSynergyStat>
+        >
+    with $Provider<Map<(Agent, Agent), ComboSynergyStat>> {
+  const ComboSynergiesProvider._({
+    required ComboSynergiesFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'comboSynergiesProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
 
-  /// See also [comboSynergies].
-  ComboSynergiesProvider call({required String collectionId}) {
-    return ComboSynergiesProvider(collectionId: collectionId);
+  @override
+  String debugGetCreateSourceHash() => _$comboSynergiesHash();
+
+  @override
+  String toString() {
+    return r'comboSynergiesProvider'
+        ''
+        '($argument)';
   }
 
+  @$internal
   @override
-  ComboSynergiesProvider getProviderOverride(
-    covariant ComboSynergiesProvider provider,
-  ) {
-    return call(collectionId: provider.collectionId);
+  $ProviderElement<Map<(Agent, Agent), ComboSynergyStat>> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  Map<(Agent, Agent), ComboSynergyStat> create(Ref ref) {
+    final argument = this.argument as String;
+    return comboSynergies(ref, collectionId: argument);
   }
 
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'comboSynergiesProvider';
-}
-
-/// See also [comboSynergies].
-class ComboSynergiesProvider
-    extends AutoDisposeProvider<Map<(Agent, Agent), ComboSynergyStat>> {
-  /// See also [comboSynergies].
-  ComboSynergiesProvider({required String collectionId})
-    : this._internal(
-        (ref) => comboSynergies(
-          ref as ComboSynergiesRef,
-          collectionId: collectionId,
-        ),
-        from: comboSynergiesProvider,
-        name: r'comboSynergiesProvider',
-        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-            ? null
-            : _$comboSynergiesHash,
-        dependencies: ComboSynergiesFamily._dependencies,
-        allTransitiveDependencies:
-            ComboSynergiesFamily._allTransitiveDependencies,
-        collectionId: collectionId,
-      );
-
-  ComboSynergiesProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.collectionId,
-  }) : super.internal();
-
-  final String collectionId;
-
-  @override
-  Override overrideWith(
-    Map<(Agent, Agent), ComboSynergyStat> Function(ComboSynergiesRef provider)
-    create,
-  ) {
-    return ProviderOverride(
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(Map<(Agent, Agent), ComboSynergyStat> value) {
+    return $ProviderOverride(
       origin: this,
-      override: ComboSynergiesProvider._internal(
-        (ref) => create(ref as ComboSynergiesRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        collectionId: collectionId,
-      ),
+      providerOverride:
+          $SyncValueProvider<Map<(Agent, Agent), ComboSynergyStat>>(value),
     );
-  }
-
-  @override
-  AutoDisposeProviderElement<Map<(Agent, Agent), ComboSynergyStat>>
-  createElement() {
-    return _ComboSynergiesProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is ComboSynergiesProvider &&
-        other.collectionId == collectionId;
+    return other is ComboSynergiesProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, collectionId.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin ComboSynergiesRef
-    on AutoDisposeProviderRef<Map<(Agent, Agent), ComboSynergyStat>> {
-  /// The parameter `collectionId` of this provider.
-  String get collectionId;
-}
+String _$comboSynergiesHash() => r'e9fc749b34b6338b9bd586bef89a68e6d407e120';
 
-class _ComboSynergiesProviderElement
-    extends AutoDisposeProviderElement<Map<(Agent, Agent), ComboSynergyStat>>
-    with ComboSynergiesRef {
-  _ComboSynergiesProviderElement(super.provider);
-
-  @override
-  String get collectionId => (origin as ComboSynergiesProvider).collectionId;
-}
-
-String _$sortedComboSynergiesListHash() =>
-    r'6be6446c36be0799d843530cc31bd530efc9cb48';
-
-/// See also [sortedComboSynergiesList].
-@ProviderFor(sortedComboSynergiesList)
-const sortedComboSynergiesListProvider = SortedComboSynergiesListFamily();
-
-/// See also [sortedComboSynergiesList].
-class SortedComboSynergiesListFamily
-    extends Family<List<ComboSynergyTableData>> {
-  /// See also [sortedComboSynergiesList].
-  const SortedComboSynergiesListFamily();
-
-  /// See also [sortedComboSynergiesList].
-  SortedComboSynergiesListProvider call({required String collectionId}) {
-    return SortedComboSynergiesListProvider(collectionId: collectionId);
-  }
-
-  @override
-  SortedComboSynergiesListProvider getProviderOverride(
-    covariant SortedComboSynergiesListProvider provider,
-  ) {
-    return call(collectionId: provider.collectionId);
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'sortedComboSynergiesListProvider';
-}
-
-/// See also [sortedComboSynergiesList].
-class SortedComboSynergiesListProvider
-    extends AutoDisposeProvider<List<ComboSynergyTableData>> {
-  /// See also [sortedComboSynergiesList].
-  SortedComboSynergiesListProvider({required String collectionId})
-    : this._internal(
-        (ref) => sortedComboSynergiesList(
-          ref as SortedComboSynergiesListRef,
-          collectionId: collectionId,
-        ),
-        from: sortedComboSynergiesListProvider,
-        name: r'sortedComboSynergiesListProvider',
-        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-            ? null
-            : _$sortedComboSynergiesListHash,
-        dependencies: SortedComboSynergiesListFamily._dependencies,
-        allTransitiveDependencies:
-            SortedComboSynergiesListFamily._allTransitiveDependencies,
-        collectionId: collectionId,
+final class ComboSynergiesFamily extends $Family
+    with
+        $FunctionalFamilyOverride<
+          Map<(Agent, Agent), ComboSynergyStat>,
+          String
+        > {
+  const ComboSynergiesFamily._()
+    : super(
+        retry: null,
+        name: r'comboSynergiesProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
       );
 
-  SortedComboSynergiesListProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.collectionId,
-  }) : super.internal();
-
-  final String collectionId;
+  ComboSynergiesProvider call({required String collectionId}) =>
+      ComboSynergiesProvider._(argument: collectionId, from: this);
 
   @override
-  Override overrideWith(
-    List<ComboSynergyTableData> Function(SortedComboSynergiesListRef provider)
-    create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: SortedComboSynergiesListProvider._internal(
-        (ref) => create(ref as SortedComboSynergiesListRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        collectionId: collectionId,
-      ),
-    );
+  String toString() => r'comboSynergiesProvider';
+}
+
+@ProviderFor(sortedComboSynergiesList)
+const sortedComboSynergiesListProvider = SortedComboSynergiesListFamily._();
+
+final class SortedComboSynergiesListProvider
+    extends
+        $FunctionalProvider<
+          List<ComboSynergyTableData>,
+          List<ComboSynergyTableData>,
+          List<ComboSynergyTableData>
+        >
+    with $Provider<List<ComboSynergyTableData>> {
+  const SortedComboSynergiesListProvider._({
+    required SortedComboSynergiesListFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'sortedComboSynergiesListProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$sortedComboSynergiesListHash();
+
+  @override
+  String toString() {
+    return r'sortedComboSynergiesListProvider'
+        ''
+        '($argument)';
   }
 
+  @$internal
   @override
-  AutoDisposeProviderElement<List<ComboSynergyTableData>> createElement() {
-    return _SortedComboSynergiesListProviderElement(this);
+  $ProviderElement<List<ComboSynergyTableData>> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  List<ComboSynergyTableData> create(Ref ref) {
+    final argument = this.argument as String;
+    return sortedComboSynergiesList(ref, collectionId: argument);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(List<ComboSynergyTableData> value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<List<ComboSynergyTableData>>(value),
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return other is SortedComboSynergiesListProvider &&
-        other.collectionId == collectionId;
+        other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, collectionId.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin SortedComboSynergiesListRef
-    on AutoDisposeProviderRef<List<ComboSynergyTableData>> {
-  /// The parameter `collectionId` of this provider.
-  String get collectionId;
-}
+String _$sortedComboSynergiesListHash() =>
+    r'6be6446c36be0799d843530cc31bd530efc9cb48';
 
-class _SortedComboSynergiesListProviderElement
-    extends AutoDisposeProviderElement<List<ComboSynergyTableData>>
-    with SortedComboSynergiesListRef {
-  _SortedComboSynergiesListProviderElement(super.provider);
+final class SortedComboSynergiesListFamily extends $Family
+    with $FunctionalFamilyOverride<List<ComboSynergyTableData>, String> {
+  const SortedComboSynergiesListFamily._()
+    : super(
+        retry: null,
+        name: r'sortedComboSynergiesListProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  SortedComboSynergiesListProvider call({required String collectionId}) =>
+      SortedComboSynergiesListProvider._(argument: collectionId, from: this);
 
   @override
-  String get collectionId =>
-      (origin as SortedComboSynergiesListProvider).collectionId;
+  String toString() => r'sortedComboSynergiesListProvider';
+}
+
+@ProviderFor(ComboSynergySort)
+const comboSynergySortProvider = ComboSynergySortProvider._();
+
+final class ComboSynergySortProvider
+    extends $NotifierProvider<ComboSynergySort, SynergySort> {
+  const ComboSynergySortProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'comboSynergySortProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$comboSynergySortHash();
+
+  @$internal
+  @override
+  ComboSynergySort create() => ComboSynergySort();
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(SynergySort value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<SynergySort>(value),
+    );
+  }
 }
 
 String _$comboSynergySortHash() => r'fc6256e9eee27e259b57bc78ee1b90db912e47f4';
 
-/// See also [ComboSynergySort].
-@ProviderFor(ComboSynergySort)
-final comboSynergySortProvider =
-    NotifierProvider<ComboSynergySort, SynergySort>.internal(
-      ComboSynergySort.new,
-      name: r'comboSynergySortProvider',
-      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-          ? null
-          : _$comboSynergySortHash,
-      dependencies: null,
-      allTransitiveDependencies: null,
-    );
-
-typedef _$ComboSynergySort = Notifier<SynergySort>;
-String _$comboSynergyFilterHash() =>
-    r'85d7a22647572ccbc0c3c131ce981b9da95132ef';
-
-abstract class _$ComboSynergyFilter
-    extends BuildlessAutoDisposeNotifier<SynergiesFilterState> {
-  late final String collectionId;
-
-  SynergiesFilterState build({required String collectionId});
+abstract class _$ComboSynergySort extends $Notifier<SynergySort> {
+  SynergySort build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build();
+    final ref = this.ref as $Ref<SynergySort, SynergySort>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<SynergySort, SynergySort>,
+              SynergySort,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
 }
 
-/// See also [ComboSynergyFilter].
 @ProviderFor(ComboSynergyFilter)
-const comboSynergyFilterProvider = ComboSynergyFilterFamily();
+const comboSynergyFilterProvider = ComboSynergyFilterFamily._();
 
-/// See also [ComboSynergyFilter].
-class ComboSynergyFilterFamily extends Family<SynergiesFilterState> {
-  /// See also [ComboSynergyFilter].
-  const ComboSynergyFilterFamily();
+final class ComboSynergyFilterProvider
+    extends $NotifierProvider<ComboSynergyFilter, SynergiesFilterState> {
+  const ComboSynergyFilterProvider._({
+    required ComboSynergyFilterFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'comboSynergyFilterProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
 
-  /// See also [ComboSynergyFilter].
-  ComboSynergyFilterProvider call({required String collectionId}) {
-    return ComboSynergyFilterProvider(collectionId: collectionId);
+  @override
+  String debugGetCreateSourceHash() => _$comboSynergyFilterHash();
+
+  @override
+  String toString() {
+    return r'comboSynergyFilterProvider'
+        ''
+        '($argument)';
   }
 
+  @$internal
   @override
-  ComboSynergyFilterProvider getProviderOverride(
-    covariant ComboSynergyFilterProvider provider,
-  ) {
-    return call(collectionId: provider.collectionId);
-  }
+  ComboSynergyFilter create() => ComboSynergyFilter();
 
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'comboSynergyFilterProvider';
-}
-
-/// See also [ComboSynergyFilter].
-class ComboSynergyFilterProvider
-    extends
-        AutoDisposeNotifierProviderImpl<
-          ComboSynergyFilter,
-          SynergiesFilterState
-        > {
-  /// See also [ComboSynergyFilter].
-  ComboSynergyFilterProvider({required String collectionId})
-    : this._internal(
-        () => ComboSynergyFilter()..collectionId = collectionId,
-        from: comboSynergyFilterProvider,
-        name: r'comboSynergyFilterProvider',
-        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-            ? null
-            : _$comboSynergyFilterHash,
-        dependencies: ComboSynergyFilterFamily._dependencies,
-        allTransitiveDependencies:
-            ComboSynergyFilterFamily._allTransitiveDependencies,
-        collectionId: collectionId,
-      );
-
-  ComboSynergyFilterProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.collectionId,
-  }) : super.internal();
-
-  final String collectionId;
-
-  @override
-  SynergiesFilterState runNotifierBuild(covariant ComboSynergyFilter notifier) {
-    return notifier.build(collectionId: collectionId);
-  }
-
-  @override
-  Override overrideWith(ComboSynergyFilter Function() create) {
-    return ProviderOverride(
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(SynergiesFilterState value) {
+    return $ProviderOverride(
       origin: this,
-      override: ComboSynergyFilterProvider._internal(
-        () => create()..collectionId = collectionId,
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        collectionId: collectionId,
-      ),
+      providerOverride: $SyncValueProvider<SynergiesFilterState>(value),
     );
-  }
-
-  @override
-  AutoDisposeNotifierProviderElement<ComboSynergyFilter, SynergiesFilterState>
-  createElement() {
-    return _ComboSynergyFilterProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is ComboSynergyFilterProvider &&
-        other.collectionId == collectionId;
+    return other is ComboSynergyFilterProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, collectionId.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin ComboSynergyFilterRef
-    on AutoDisposeNotifierProviderRef<SynergiesFilterState> {
-  /// The parameter `collectionId` of this provider.
-  String get collectionId;
-}
+String _$comboSynergyFilterHash() =>
+    r'85d7a22647572ccbc0c3c131ce981b9da95132ef';
 
-class _ComboSynergyFilterProviderElement
-    extends
-        AutoDisposeNotifierProviderElement<
+final class ComboSynergyFilterFamily extends $Family
+    with
+        $ClassFamilyOverride<
           ComboSynergyFilter,
-          SynergiesFilterState
-        >
-    with ComboSynergyFilterRef {
-  _ComboSynergyFilterProviderElement(super.provider);
+          SynergiesFilterState,
+          SynergiesFilterState,
+          SynergiesFilterState,
+          String
+        > {
+  const ComboSynergyFilterFamily._()
+    : super(
+        retry: null,
+        name: r'comboSynergyFilterProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  ComboSynergyFilterProvider call({required String collectionId}) =>
+      ComboSynergyFilterProvider._(argument: collectionId, from: this);
 
   @override
-  String get collectionId =>
-      (origin as ComboSynergyFilterProvider).collectionId;
+  String toString() => r'comboSynergyFilterProvider';
+}
+
+abstract class _$ComboSynergyFilter extends $Notifier<SynergiesFilterState> {
+  late final _$args = ref.$arg as String;
+  String get collectionId => _$args;
+
+  SynergiesFilterState build({required String collectionId});
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build(collectionId: _$args);
+    final ref = this.ref as $Ref<SynergiesFilterState, SynergiesFilterState>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<SynergiesFilterState, SynergiesFilterState>,
+              SynergiesFilterState,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
 }
 
 // ignore_for_file: type=lint

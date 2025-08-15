@@ -6,172 +6,95 @@ part of 'agent_combo_matches_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$agentComboMatchesHash() => r'da823bd093ec22465917428c330172a10c7026fd';
-
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-/// See also [agentComboMatches].
 @ProviderFor(agentComboMatches)
-const agentComboMatchesProvider = AgentComboMatchesFamily();
+const agentComboMatchesProvider = AgentComboMatchesFamily._();
 
-/// See also [agentComboMatches].
-class AgentComboMatchesFamily extends Family<ValorantMatches> {
-  /// See also [agentComboMatches].
-  const AgentComboMatchesFamily();
-
-  /// See also [agentComboMatches].
-  AgentComboMatchesProvider call({
-    required String collectionId,
-    required String comboName,
-  }) {
-    return AgentComboMatchesProvider(
-      collectionId: collectionId,
-      comboName: comboName,
-    );
-  }
-
-  @override
-  AgentComboMatchesProvider getProviderOverride(
-    covariant AgentComboMatchesProvider provider,
-  ) {
-    return call(
-      collectionId: provider.collectionId,
-      comboName: provider.comboName,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'agentComboMatchesProvider';
-}
-
-/// See also [agentComboMatches].
-class AgentComboMatchesProvider extends AutoDisposeProvider<ValorantMatches> {
-  /// See also [agentComboMatches].
-  AgentComboMatchesProvider({
-    required String collectionId,
-    required String comboName,
-  }) : this._internal(
-         (ref) => agentComboMatches(
-           ref as AgentComboMatchesRef,
-           collectionId: collectionId,
-           comboName: comboName,
-         ),
-         from: agentComboMatchesProvider,
+final class AgentComboMatchesProvider
+    extends
+        $FunctionalProvider<ValorantMatches, ValorantMatches, ValorantMatches>
+    with $Provider<ValorantMatches> {
+  const AgentComboMatchesProvider._({
+    required AgentComboMatchesFamily super.from,
+    required ({String collectionId, String comboName}) super.argument,
+  }) : super(
+         retry: null,
          name: r'agentComboMatchesProvider',
-         debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-             ? null
-             : _$agentComboMatchesHash,
-         dependencies: AgentComboMatchesFamily._dependencies,
-         allTransitiveDependencies:
-             AgentComboMatchesFamily._allTransitiveDependencies,
-         collectionId: collectionId,
-         comboName: comboName,
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
        );
 
-  AgentComboMatchesProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.collectionId,
-    required this.comboName,
-  }) : super.internal();
-
-  final String collectionId;
-  final String comboName;
+  @override
+  String debugGetCreateSourceHash() => _$agentComboMatchesHash();
 
   @override
-  Override overrideWith(
-    ValorantMatches Function(AgentComboMatchesRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: AgentComboMatchesProvider._internal(
-        (ref) => create(ref as AgentComboMatchesRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        collectionId: collectionId,
-        comboName: comboName,
-      ),
+  String toString() {
+    return r'agentComboMatchesProvider'
+        ''
+        '$argument';
+  }
+
+  @$internal
+  @override
+  $ProviderElement<ValorantMatches> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  ValorantMatches create(Ref ref) {
+    final argument = this.argument as ({String collectionId, String comboName});
+    return agentComboMatches(
+      ref,
+      collectionId: argument.collectionId,
+      comboName: argument.comboName,
     );
   }
 
-  @override
-  AutoDisposeProviderElement<ValorantMatches> createElement() {
-    return _AgentComboMatchesProviderElement(this);
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(ValorantMatches value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<ValorantMatches>(value),
+    );
   }
 
   @override
   bool operator ==(Object other) {
-    return other is AgentComboMatchesProvider &&
-        other.collectionId == collectionId &&
-        other.comboName == comboName;
+    return other is AgentComboMatchesProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, collectionId.hashCode);
-    hash = _SystemHash.combine(hash, comboName.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin AgentComboMatchesRef on AutoDisposeProviderRef<ValorantMatches> {
-  /// The parameter `collectionId` of this provider.
-  String get collectionId;
+String _$agentComboMatchesHash() => r'da823bd093ec22465917428c330172a10c7026fd';
 
-  /// The parameter `comboName` of this provider.
-  String get comboName;
-}
+final class AgentComboMatchesFamily extends $Family
+    with
+        $FunctionalFamilyOverride<
+          ValorantMatches,
+          ({String collectionId, String comboName})
+        > {
+  const AgentComboMatchesFamily._()
+    : super(
+        retry: null,
+        name: r'agentComboMatchesProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
 
-class _AgentComboMatchesProviderElement
-    extends AutoDisposeProviderElement<ValorantMatches>
-    with AgentComboMatchesRef {
-  _AgentComboMatchesProviderElement(super.provider);
+  AgentComboMatchesProvider call({
+    required String collectionId,
+    required String comboName,
+  }) => AgentComboMatchesProvider._(
+    argument: (collectionId: collectionId, comboName: comboName),
+    from: this,
+  );
 
   @override
-  String get collectionId => (origin as AgentComboMatchesProvider).collectionId;
-  @override
-  String get comboName => (origin as AgentComboMatchesProvider).comboName;
+  String toString() => r'agentComboMatchesProvider';
 }
 
 // ignore_for_file: type=lint

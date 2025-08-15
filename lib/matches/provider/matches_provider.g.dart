@@ -6,655 +6,437 @@ part of 'matches_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$matchesRepositoryHash() => r'2570457637d02aa38fa33943af48e7ce4355feb5';
-
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-/// See also [matchesRepository].
 @ProviderFor(matchesRepository)
-const matchesRepositoryProvider = MatchesRepositoryFamily();
+const matchesRepositoryProvider = MatchesRepositoryFamily._();
 
-/// See also [matchesRepository].
-class MatchesRepositoryFamily extends Family<MatchesRepository> {
-  /// See also [matchesRepository].
-  const MatchesRepositoryFamily();
+final class MatchesRepositoryProvider
+    extends
+        $FunctionalProvider<
+          MatchesRepository,
+          MatchesRepository,
+          MatchesRepository
+        >
+    with $Provider<MatchesRepository> {
+  const MatchesRepositoryProvider._({
+    required MatchesRepositoryFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'matchesRepositoryProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
 
-  /// See also [matchesRepository].
-  MatchesRepositoryProvider call({required String collectionId}) {
-    return MatchesRepositoryProvider(collectionId: collectionId);
+  @override
+  String debugGetCreateSourceHash() => _$matchesRepositoryHash();
+
+  @override
+  String toString() {
+    return r'matchesRepositoryProvider'
+        ''
+        '($argument)';
   }
 
+  @$internal
   @override
-  MatchesRepositoryProvider getProviderOverride(
-    covariant MatchesRepositoryProvider provider,
-  ) {
-    return call(collectionId: provider.collectionId);
+  $ProviderElement<MatchesRepository> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  MatchesRepository create(Ref ref) {
+    final argument = this.argument as String;
+    return matchesRepository(ref, collectionId: argument);
   }
 
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'matchesRepositoryProvider';
-}
-
-/// See also [matchesRepository].
-class MatchesRepositoryProvider extends AutoDisposeProvider<MatchesRepository> {
-  /// See also [matchesRepository].
-  MatchesRepositoryProvider({required String collectionId})
-    : this._internal(
-        (ref) => matchesRepository(
-          ref as MatchesRepositoryRef,
-          collectionId: collectionId,
-        ),
-        from: matchesRepositoryProvider,
-        name: r'matchesRepositoryProvider',
-        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-            ? null
-            : _$matchesRepositoryHash,
-        dependencies: MatchesRepositoryFamily._dependencies,
-        allTransitiveDependencies:
-            MatchesRepositoryFamily._allTransitiveDependencies,
-        collectionId: collectionId,
-      );
-
-  MatchesRepositoryProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.collectionId,
-  }) : super.internal();
-
-  final String collectionId;
-
-  @override
-  Override overrideWith(
-    MatchesRepository Function(MatchesRepositoryRef provider) create,
-  ) {
-    return ProviderOverride(
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(MatchesRepository value) {
+    return $ProviderOverride(
       origin: this,
-      override: MatchesRepositoryProvider._internal(
-        (ref) => create(ref as MatchesRepositoryRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        collectionId: collectionId,
-      ),
+      providerOverride: $SyncValueProvider<MatchesRepository>(value),
     );
   }
 
   @override
-  AutoDisposeProviderElement<MatchesRepository> createElement() {
-    return _MatchesRepositoryProviderElement(this);
-  }
-
-  @override
   bool operator ==(Object other) {
-    return other is MatchesRepositoryProvider &&
-        other.collectionId == collectionId;
+    return other is MatchesRepositoryProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, collectionId.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin MatchesRepositoryRef on AutoDisposeProviderRef<MatchesRepository> {
-  /// The parameter `collectionId` of this provider.
-  String get collectionId;
-}
+String _$matchesRepositoryHash() => r'2570457637d02aa38fa33943af48e7ce4355feb5';
 
-class _MatchesRepositoryProviderElement
-    extends AutoDisposeProviderElement<MatchesRepository>
-    with MatchesRepositoryRef {
-  _MatchesRepositoryProviderElement(super.provider);
+final class MatchesRepositoryFamily extends $Family
+    with $FunctionalFamilyOverride<MatchesRepository, String> {
+  const MatchesRepositoryFamily._()
+    : super(
+        retry: null,
+        name: r'matchesRepositoryProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  MatchesRepositoryProvider call({required String collectionId}) =>
+      MatchesRepositoryProvider._(argument: collectionId, from: this);
 
   @override
-  String get collectionId => (origin as MatchesRepositoryProvider).collectionId;
+  String toString() => r'matchesRepositoryProvider';
+}
+
+@ProviderFor(availableMaps)
+const availableMapsProvider = AvailableMapsFamily._();
+
+final class AvailableMapsProvider
+    extends $FunctionalProvider<Set<String>, Set<String>, Set<String>>
+    with $Provider<Set<String>> {
+  const AvailableMapsProvider._({
+    required AvailableMapsFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'availableMapsProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$availableMapsHash();
+
+  @override
+  String toString() {
+    return r'availableMapsProvider'
+        ''
+        '($argument)';
+  }
+
+  @$internal
+  @override
+  $ProviderElement<Set<String>> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  Set<String> create(Ref ref) {
+    final argument = this.argument as String;
+    return availableMaps(ref, collectionName: argument);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(Set<String> value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<Set<String>>(value),
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is AvailableMapsProvider && other.argument == argument;
+  }
+
+  @override
+  int get hashCode {
+    return argument.hashCode;
+  }
 }
 
 String _$availableMapsHash() => r'290dccdc7138e2c65994e4988b9ab69286d304ce';
 
-/// See also [availableMaps].
-@ProviderFor(availableMaps)
-const availableMapsProvider = AvailableMapsFamily();
-
-/// See also [availableMaps].
-class AvailableMapsFamily extends Family<Set<String>> {
-  /// See also [availableMaps].
-  const AvailableMapsFamily();
-
-  /// See also [availableMaps].
-  AvailableMapsProvider call({required String collectionName}) {
-    return AvailableMapsProvider(collectionName: collectionName);
-  }
-
-  @override
-  AvailableMapsProvider getProviderOverride(
-    covariant AvailableMapsProvider provider,
-  ) {
-    return call(collectionName: provider.collectionName);
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'availableMapsProvider';
-}
-
-/// See also [availableMaps].
-class AvailableMapsProvider extends AutoDisposeProvider<Set<String>> {
-  /// See also [availableMaps].
-  AvailableMapsProvider({required String collectionName})
-    : this._internal(
-        (ref) => availableMaps(
-          ref as AvailableMapsRef,
-          collectionName: collectionName,
-        ),
-        from: availableMapsProvider,
+final class AvailableMapsFamily extends $Family
+    with $FunctionalFamilyOverride<Set<String>, String> {
+  const AvailableMapsFamily._()
+    : super(
+        retry: null,
         name: r'availableMapsProvider',
-        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-            ? null
-            : _$availableMapsHash,
-        dependencies: AvailableMapsFamily._dependencies,
-        allTransitiveDependencies:
-            AvailableMapsFamily._allTransitiveDependencies,
-        collectionName: collectionName,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
       );
 
-  AvailableMapsProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.collectionName,
-  }) : super.internal();
-
-  final String collectionName;
+  AvailableMapsProvider call({required String collectionName}) =>
+      AvailableMapsProvider._(argument: collectionName, from: this);
 
   @override
-  Override overrideWith(
-    Set<String> Function(AvailableMapsRef provider) create,
-  ) {
-    return ProviderOverride(
+  String toString() => r'availableMapsProvider';
+}
+
+@ProviderFor(selectedMaps)
+const selectedMapsProvider = SelectedMapsFamily._();
+
+final class SelectedMapsProvider
+    extends $FunctionalProvider<Set<String>, Set<String>, Set<String>>
+    with $Provider<Set<String>> {
+  const SelectedMapsProvider._({
+    required SelectedMapsFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'selectedMapsProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$selectedMapsHash();
+
+  @override
+  String toString() {
+    return r'selectedMapsProvider'
+        ''
+        '($argument)';
+  }
+
+  @$internal
+  @override
+  $ProviderElement<Set<String>> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  Set<String> create(Ref ref) {
+    final argument = this.argument as String;
+    return selectedMaps(ref, collectionName: argument);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(Set<String> value) {
+    return $ProviderOverride(
       origin: this,
-      override: AvailableMapsProvider._internal(
-        (ref) => create(ref as AvailableMapsRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        collectionName: collectionName,
-      ),
+      providerOverride: $SyncValueProvider<Set<String>>(value),
     );
   }
 
   @override
-  AutoDisposeProviderElement<Set<String>> createElement() {
-    return _AvailableMapsProviderElement(this);
-  }
-
-  @override
   bool operator ==(Object other) {
-    return other is AvailableMapsProvider &&
-        other.collectionName == collectionName;
+    return other is SelectedMapsProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, collectionName.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
-}
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin AvailableMapsRef on AutoDisposeProviderRef<Set<String>> {
-  /// The parameter `collectionName` of this provider.
-  String get collectionName;
-}
-
-class _AvailableMapsProviderElement
-    extends AutoDisposeProviderElement<Set<String>>
-    with AvailableMapsRef {
-  _AvailableMapsProviderElement(super.provider);
-
-  @override
-  String get collectionName => (origin as AvailableMapsProvider).collectionName;
 }
 
 String _$selectedMapsHash() => r'b3c07a8afd429fb9844a36bf209f96556062895a';
 
-/// See also [selectedMaps].
-@ProviderFor(selectedMaps)
-const selectedMapsProvider = SelectedMapsFamily();
-
-/// See also [selectedMaps].
-class SelectedMapsFamily extends Family<Set<String>> {
-  /// See also [selectedMaps].
-  const SelectedMapsFamily();
-
-  /// See also [selectedMaps].
-  SelectedMapsProvider call({required String collectionName}) {
-    return SelectedMapsProvider(collectionName: collectionName);
-  }
-
-  @override
-  SelectedMapsProvider getProviderOverride(
-    covariant SelectedMapsProvider provider,
-  ) {
-    return call(collectionName: provider.collectionName);
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'selectedMapsProvider';
-}
-
-/// See also [selectedMaps].
-class SelectedMapsProvider extends AutoDisposeProvider<Set<String>> {
-  /// See also [selectedMaps].
-  SelectedMapsProvider({required String collectionName})
-    : this._internal(
-        (ref) => selectedMaps(
-          ref as SelectedMapsRef,
-          collectionName: collectionName,
-        ),
-        from: selectedMapsProvider,
+final class SelectedMapsFamily extends $Family
+    with $FunctionalFamilyOverride<Set<String>, String> {
+  const SelectedMapsFamily._()
+    : super(
+        retry: null,
         name: r'selectedMapsProvider',
-        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-            ? null
-            : _$selectedMapsHash,
-        dependencies: SelectedMapsFamily._dependencies,
-        allTransitiveDependencies:
-            SelectedMapsFamily._allTransitiveDependencies,
-        collectionName: collectionName,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
       );
 
-  SelectedMapsProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.collectionName,
-  }) : super.internal();
-
-  final String collectionName;
+  SelectedMapsProvider call({required String collectionName}) =>
+      SelectedMapsProvider._(argument: collectionName, from: this);
 
   @override
-  Override overrideWith(Set<String> Function(SelectedMapsRef provider) create) {
-    return ProviderOverride(
+  String toString() => r'selectedMapsProvider';
+}
+
+@ProviderFor(Matches)
+const matchesProvider = MatchesFamily._();
+
+final class MatchesProvider
+    extends $NotifierProvider<Matches, ValorantMatches> {
+  const MatchesProvider._({
+    required MatchesFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'matchesProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$matchesHash();
+
+  @override
+  String toString() {
+    return r'matchesProvider'
+        ''
+        '($argument)';
+  }
+
+  @$internal
+  @override
+  Matches create() => Matches();
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(ValorantMatches value) {
+    return $ProviderOverride(
       origin: this,
-      override: SelectedMapsProvider._internal(
-        (ref) => create(ref as SelectedMapsRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        collectionName: collectionName,
-      ),
+      providerOverride: $SyncValueProvider<ValorantMatches>(value),
     );
   }
 
   @override
-  AutoDisposeProviderElement<Set<String>> createElement() {
-    return _SelectedMapsProviderElement(this);
-  }
-
-  @override
   bool operator ==(Object other) {
-    return other is SelectedMapsProvider &&
-        other.collectionName == collectionName;
+    return other is MatchesProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, collectionName.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
-}
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin SelectedMapsRef on AutoDisposeProviderRef<Set<String>> {
-  /// The parameter `collectionName` of this provider.
-  String get collectionName;
-}
-
-class _SelectedMapsProviderElement
-    extends AutoDisposeProviderElement<Set<String>>
-    with SelectedMapsRef {
-  _SelectedMapsProviderElement(super.provider);
-
-  @override
-  String get collectionName => (origin as SelectedMapsProvider).collectionName;
 }
 
 String _$matchesHash() => r'f5f8c2b5beefd480b84cea698a59c7e2028c3508';
 
-abstract class _$Matches extends BuildlessAutoDisposeNotifier<ValorantMatches> {
-  late final String collectionId;
-
-  ValorantMatches build({required String collectionId});
-}
-
-/// See also [Matches].
-@ProviderFor(Matches)
-const matchesProvider = MatchesFamily();
-
-/// See also [Matches].
-class MatchesFamily extends Family<ValorantMatches> {
-  /// See also [Matches].
-  const MatchesFamily();
-
-  /// See also [Matches].
-  MatchesProvider call({required String collectionId}) {
-    return MatchesProvider(collectionId: collectionId);
-  }
-
-  @override
-  MatchesProvider getProviderOverride(covariant MatchesProvider provider) {
-    return call(collectionId: provider.collectionId);
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'matchesProvider';
-}
-
-/// See also [Matches].
-class MatchesProvider
-    extends AutoDisposeNotifierProviderImpl<Matches, ValorantMatches> {
-  /// See also [Matches].
-  MatchesProvider({required String collectionId})
-    : this._internal(
-        () => Matches()..collectionId = collectionId,
-        from: matchesProvider,
+final class MatchesFamily extends $Family
+    with
+        $ClassFamilyOverride<
+          Matches,
+          ValorantMatches,
+          ValorantMatches,
+          ValorantMatches,
+          String
+        > {
+  const MatchesFamily._()
+    : super(
+        retry: null,
         name: r'matchesProvider',
-        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-            ? null
-            : _$matchesHash,
-        dependencies: MatchesFamily._dependencies,
-        allTransitiveDependencies: MatchesFamily._allTransitiveDependencies,
-        collectionId: collectionId,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
       );
 
-  MatchesProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.collectionId,
-  }) : super.internal();
-
-  final String collectionId;
+  MatchesProvider call({required String collectionId}) =>
+      MatchesProvider._(argument: collectionId, from: this);
 
   @override
-  ValorantMatches runNotifierBuild(covariant Matches notifier) {
-    return notifier.build(collectionId: collectionId);
+  String toString() => r'matchesProvider';
+}
+
+abstract class _$Matches extends $Notifier<ValorantMatches> {
+  late final _$args = ref.$arg as String;
+  String get collectionId => _$args;
+
+  ValorantMatches build({required String collectionId});
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build(collectionId: _$args);
+    final ref = this.ref as $Ref<ValorantMatches, ValorantMatches>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<ValorantMatches, ValorantMatches>,
+              ValorantMatches,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
+}
+
+@ProviderFor(MatchesFilter)
+const matchesFilterProvider = MatchesFilterFamily._();
+
+final class MatchesFilterProvider
+    extends $NotifierProvider<MatchesFilter, MatchesFilterState> {
+  const MatchesFilterProvider._({
+    required MatchesFilterFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'matchesFilterProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$matchesFilterHash();
+
+  @override
+  String toString() {
+    return r'matchesFilterProvider'
+        ''
+        '($argument)';
   }
 
+  @$internal
   @override
-  Override overrideWith(Matches Function() create) {
-    return ProviderOverride(
+  MatchesFilter create() => MatchesFilter();
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(MatchesFilterState value) {
+    return $ProviderOverride(
       origin: this,
-      override: MatchesProvider._internal(
-        () => create()..collectionId = collectionId,
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        collectionId: collectionId,
-      ),
+      providerOverride: $SyncValueProvider<MatchesFilterState>(value),
     );
   }
 
   @override
-  AutoDisposeNotifierProviderElement<Matches, ValorantMatches> createElement() {
-    return _MatchesProviderElement(this);
-  }
-
-  @override
   bool operator ==(Object other) {
-    return other is MatchesProvider && other.collectionId == collectionId;
+    return other is MatchesFilterProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, collectionId.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
-}
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin MatchesRef on AutoDisposeNotifierProviderRef<ValorantMatches> {
-  /// The parameter `collectionId` of this provider.
-  String get collectionId;
-}
-
-class _MatchesProviderElement
-    extends AutoDisposeNotifierProviderElement<Matches, ValorantMatches>
-    with MatchesRef {
-  _MatchesProviderElement(super.provider);
-
-  @override
-  String get collectionId => (origin as MatchesProvider).collectionId;
 }
 
 String _$matchesFilterHash() => r'8fccfeb0a893a7a5d58e6dc0c7b9d8f7ac67c3cd';
 
-abstract class _$MatchesFilter
-    extends BuildlessAutoDisposeNotifier<MatchesFilterState> {
-  late final String collectionId;
-
-  MatchesFilterState build({required String collectionId});
-}
-
-/// See also [MatchesFilter].
-@ProviderFor(MatchesFilter)
-const matchesFilterProvider = MatchesFilterFamily();
-
-/// See also [MatchesFilter].
-class MatchesFilterFamily extends Family<MatchesFilterState> {
-  /// See also [MatchesFilter].
-  const MatchesFilterFamily();
-
-  /// See also [MatchesFilter].
-  MatchesFilterProvider call({required String collectionId}) {
-    return MatchesFilterProvider(collectionId: collectionId);
-  }
-
-  @override
-  MatchesFilterProvider getProviderOverride(
-    covariant MatchesFilterProvider provider,
-  ) {
-    return call(collectionId: provider.collectionId);
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'matchesFilterProvider';
-}
-
-/// See also [MatchesFilter].
-class MatchesFilterProvider
-    extends AutoDisposeNotifierProviderImpl<MatchesFilter, MatchesFilterState> {
-  /// See also [MatchesFilter].
-  MatchesFilterProvider({required String collectionId})
-    : this._internal(
-        () => MatchesFilter()..collectionId = collectionId,
-        from: matchesFilterProvider,
+final class MatchesFilterFamily extends $Family
+    with
+        $ClassFamilyOverride<
+          MatchesFilter,
+          MatchesFilterState,
+          MatchesFilterState,
+          MatchesFilterState,
+          String
+        > {
+  const MatchesFilterFamily._()
+    : super(
+        retry: null,
         name: r'matchesFilterProvider',
-        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-            ? null
-            : _$matchesFilterHash,
-        dependencies: MatchesFilterFamily._dependencies,
-        allTransitiveDependencies:
-            MatchesFilterFamily._allTransitiveDependencies,
-        collectionId: collectionId,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
       );
 
-  MatchesFilterProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.collectionId,
-  }) : super.internal();
-
-  final String collectionId;
+  MatchesFilterProvider call({required String collectionId}) =>
+      MatchesFilterProvider._(argument: collectionId, from: this);
 
   @override
-  MatchesFilterState runNotifierBuild(covariant MatchesFilter notifier) {
-    return notifier.build(collectionId: collectionId);
-  }
-
-  @override
-  Override overrideWith(MatchesFilter Function() create) {
-    return ProviderOverride(
-      origin: this,
-      override: MatchesFilterProvider._internal(
-        () => create()..collectionId = collectionId,
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        collectionId: collectionId,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeNotifierProviderElement<MatchesFilter, MatchesFilterState>
-  createElement() {
-    return _MatchesFilterProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is MatchesFilterProvider && other.collectionId == collectionId;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, collectionId.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
+  String toString() => r'matchesFilterProvider';
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin MatchesFilterRef on AutoDisposeNotifierProviderRef<MatchesFilterState> {
-  /// The parameter `collectionId` of this provider.
-  String get collectionId;
-}
+abstract class _$MatchesFilter extends $Notifier<MatchesFilterState> {
+  late final _$args = ref.$arg as String;
+  String get collectionId => _$args;
 
-class _MatchesFilterProviderElement
-    extends
-        AutoDisposeNotifierProviderElement<MatchesFilter, MatchesFilterState>
-    with MatchesFilterRef {
-  _MatchesFilterProviderElement(super.provider);
-
+  MatchesFilterState build({required String collectionId});
+  @$mustCallSuper
   @override
-  String get collectionId => (origin as MatchesFilterProvider).collectionId;
+  void runBuild() {
+    final created = build(collectionId: _$args);
+    final ref = this.ref as $Ref<MatchesFilterState, MatchesFilterState>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<MatchesFilterState, MatchesFilterState>,
+              MatchesFilterState,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
 }
 
 // ignore_for_file: type=lint

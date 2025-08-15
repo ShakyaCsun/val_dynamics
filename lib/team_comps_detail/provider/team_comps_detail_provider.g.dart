@@ -6,174 +6,97 @@ part of 'team_comps_detail_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$selectedAgentCompsHash() =>
-    r'8e40ebc2777a7a795097e3d2571ff137a136137d';
-
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-/// See also [selectedAgentComps].
 @ProviderFor(selectedAgentComps)
-const selectedAgentCompsProvider = SelectedAgentCompsFamily();
+const selectedAgentCompsProvider = SelectedAgentCompsFamily._();
 
-/// See also [selectedAgentComps].
-class SelectedAgentCompsFamily extends Family<List<AgentComp>> {
-  /// See also [selectedAgentComps].
-  const SelectedAgentCompsFamily();
-
-  /// See also [selectedAgentComps].
-  SelectedAgentCompsProvider call({
-    required String rosterName,
-    required ({double aggro, double control, double midrange}) stylePoints,
-  }) {
-    return SelectedAgentCompsProvider(
-      rosterName: rosterName,
-      stylePoints: stylePoints,
-    );
-  }
-
-  @override
-  SelectedAgentCompsProvider getProviderOverride(
-    covariant SelectedAgentCompsProvider provider,
-  ) {
-    return call(
-      rosterName: provider.rosterName,
-      stylePoints: provider.stylePoints,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'selectedAgentCompsProvider';
-}
-
-/// See also [selectedAgentComps].
-class SelectedAgentCompsProvider extends AutoDisposeProvider<List<AgentComp>> {
-  /// See also [selectedAgentComps].
-  SelectedAgentCompsProvider({
-    required String rosterName,
-    required ({double aggro, double control, double midrange}) stylePoints,
-  }) : this._internal(
-         (ref) => selectedAgentComps(
-           ref as SelectedAgentCompsRef,
-           rosterName: rosterName,
-           stylePoints: stylePoints,
-         ),
-         from: selectedAgentCompsProvider,
+final class SelectedAgentCompsProvider
+    extends
+        $FunctionalProvider<List<AgentComp>, List<AgentComp>, List<AgentComp>>
+    with $Provider<List<AgentComp>> {
+  const SelectedAgentCompsProvider._({
+    required SelectedAgentCompsFamily super.from,
+    required ({String rosterName, StylePoints stylePoints}) super.argument,
+  }) : super(
+         retry: null,
          name: r'selectedAgentCompsProvider',
-         debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-             ? null
-             : _$selectedAgentCompsHash,
-         dependencies: SelectedAgentCompsFamily._dependencies,
-         allTransitiveDependencies:
-             SelectedAgentCompsFamily._allTransitiveDependencies,
-         rosterName: rosterName,
-         stylePoints: stylePoints,
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
        );
 
-  SelectedAgentCompsProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.rosterName,
-    required this.stylePoints,
-  }) : super.internal();
-
-  final String rosterName;
-  final ({double aggro, double control, double midrange}) stylePoints;
+  @override
+  String debugGetCreateSourceHash() => _$selectedAgentCompsHash();
 
   @override
-  Override overrideWith(
-    List<AgentComp> Function(SelectedAgentCompsRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: SelectedAgentCompsProvider._internal(
-        (ref) => create(ref as SelectedAgentCompsRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        rosterName: rosterName,
-        stylePoints: stylePoints,
-      ),
+  String toString() {
+    return r'selectedAgentCompsProvider'
+        ''
+        '$argument';
+  }
+
+  @$internal
+  @override
+  $ProviderElement<List<AgentComp>> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  List<AgentComp> create(Ref ref) {
+    final argument =
+        this.argument as ({String rosterName, StylePoints stylePoints});
+    return selectedAgentComps(
+      ref,
+      rosterName: argument.rosterName,
+      stylePoints: argument.stylePoints,
     );
   }
 
-  @override
-  AutoDisposeProviderElement<List<AgentComp>> createElement() {
-    return _SelectedAgentCompsProviderElement(this);
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(List<AgentComp> value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<List<AgentComp>>(value),
+    );
   }
 
   @override
   bool operator ==(Object other) {
-    return other is SelectedAgentCompsProvider &&
-        other.rosterName == rosterName &&
-        other.stylePoints == stylePoints;
+    return other is SelectedAgentCompsProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, rosterName.hashCode);
-    hash = _SystemHash.combine(hash, stylePoints.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin SelectedAgentCompsRef on AutoDisposeProviderRef<List<AgentComp>> {
-  /// The parameter `rosterName` of this provider.
-  String get rosterName;
+String _$selectedAgentCompsHash() =>
+    r'8e40ebc2777a7a795097e3d2571ff137a136137d';
 
-  /// The parameter `stylePoints` of this provider.
-  ({double aggro, double control, double midrange}) get stylePoints;
-}
+final class SelectedAgentCompsFamily extends $Family
+    with
+        $FunctionalFamilyOverride<
+          List<AgentComp>,
+          ({String rosterName, StylePoints stylePoints})
+        > {
+  const SelectedAgentCompsFamily._()
+    : super(
+        retry: null,
+        name: r'selectedAgentCompsProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
 
-class _SelectedAgentCompsProviderElement
-    extends AutoDisposeProviderElement<List<AgentComp>>
-    with SelectedAgentCompsRef {
-  _SelectedAgentCompsProviderElement(super.provider);
+  SelectedAgentCompsProvider call({
+    required String rosterName,
+    required StylePoints stylePoints,
+  }) => SelectedAgentCompsProvider._(
+    argument: (rosterName: rosterName, stylePoints: stylePoints),
+    from: this,
+  );
 
   @override
-  String get rosterName => (origin as SelectedAgentCompsProvider).rosterName;
-  @override
-  ({double aggro, double control, double midrange}) get stylePoints =>
-      (origin as SelectedAgentCompsProvider).stylePoints;
+  String toString() => r'selectedAgentCompsProvider';
 }
 
 // ignore_for_file: type=lint

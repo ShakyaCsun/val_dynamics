@@ -15,10 +15,7 @@ class AgentsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ProviderScope(
-      overrides: [rosterNameProvider.overrideWithValue(rosterName)],
-      child: const AgentsView(),
-    );
+    return SimpleProvider<String>(value: rosterName, child: const AgentsView());
   }
 }
 
@@ -28,7 +25,7 @@ class AgentsView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final rosterName = ref.watch(rosterNameProvider);
+    final rosterName = context.getProperty<String>();
     return Scaffold(
       appBar: AppBar(
         title: Text(rosterName),
@@ -53,7 +50,7 @@ class AgentsBodyView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final hasSpace = context.largeAndUp;
-    final rosterName = ref.watch(rosterNameProvider);
+    final rosterName = context.getProperty<String>();
     final agentSelected = ref.watch(
       selectedAgentProvider(
         rosterName: rosterName,
@@ -74,8 +71,8 @@ class AgentsBodyView extends ConsumerWidget {
               constraints: BoxConstraints(
                 maxHeight: MediaQuery.sizeOf(context).height * 0.8,
               ),
-              child: ProviderScope(
-                overrides: [rosterNameProvider.overrideWithValue(rosterName)],
+              child: SimpleProvider<String>(
+                value: rosterName,
                 child: const SelectedAgentBreakdown(),
               ),
             );
@@ -132,7 +129,7 @@ class SelectedAgentBreakdown extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final rosterName = ref.watch(rosterNameProvider);
+    final rosterName = context.getProperty<String>();
     final selectedAgent = ref.watch(
       selectedAgentProvider(rosterName: rosterName),
     );
@@ -149,6 +146,7 @@ class AgentsTriangleView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final rosterName = context.getProperty<String>();
     return TernaryPlotHoverInfo<Agent>(
       anchor: HoverAnchor.left,
       itemBuilder: (agent) {
@@ -157,7 +155,6 @@ class AgentsTriangleView extends StatelessWidget {
       builder: (context, hoveredAgentsChanged) {
         return Consumer(
           builder: (context, ref, child) {
-            final rosterName = ref.watch(rosterNameProvider);
             final agents = ref.watch(agentsProvider(rosterName: rosterName));
             return StyleTriangle(
               data: {

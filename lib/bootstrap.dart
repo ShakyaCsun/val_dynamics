@@ -12,11 +12,8 @@ class AppProviderObserver extends ProviderObserver {
   static final _logger = Logger('AppProviderObserver');
 
   @override
-  void didAddProvider(
-    ProviderBase<Object?> provider,
-    Object? value,
-    ProviderContainer container,
-  ) {
+  void didAddProvider(ProviderObserverContext context, Object? value) {
+    final provider = context.provider;
     final providerName = provider.from != null
         ? '${provider.name}(${provider.argument})'
         : provider.name;
@@ -25,30 +22,25 @@ class AppProviderObserver extends ProviderObserver {
 
   @override
   void providerDidFail(
-    ProviderBase<Object?> provider,
+    ProviderObserverContext context,
     Object error,
     StackTrace stackTrace,
-    ProviderContainer container,
   ) {
-    _logger.warning(provider, error, stackTrace);
+    _logger.warning(context.provider, error, stackTrace);
   }
 
   @override
   void didUpdateProvider(
-    ProviderBase<Object?> provider,
+    ProviderObserverContext context,
     Object? previousValue,
     Object? newValue,
-    ProviderContainer container,
   ) {
-    _logger.finest('${provider.name} -> $newValue');
+    _logger.finest('${context.provider.name} -> $newValue');
   }
 
   @override
-  void didDisposeProvider(
-    ProviderBase<Object?> provider,
-    ProviderContainer container,
-  ) {
-    _logger.info('${provider.name} was disposed.');
+  void didDisposeProvider(ProviderObserverContext context) {
+    _logger.info('${context.provider.name} was disposed.');
   }
 }
 

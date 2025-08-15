@@ -6,163 +6,103 @@ part of 'matches_stats_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$matchesStatsHash() => r'dc85173723c6711dd88ff8ac93398c272ad6e82b';
-
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-abstract class _$MatchesStats
-    extends BuildlessAutoDisposeNotifier<List<StyledMatchesStat>> {
-  late final String collectionId;
-
-  List<StyledMatchesStat> build({required String collectionId});
-}
-
-/// See also [MatchesStats].
 @ProviderFor(MatchesStats)
-const matchesStatsProvider = MatchesStatsFamily();
+const matchesStatsProvider = MatchesStatsFamily._();
 
-/// See also [MatchesStats].
-class MatchesStatsFamily extends Family<List<StyledMatchesStat>> {
-  /// See also [MatchesStats].
-  const MatchesStatsFamily();
+final class MatchesStatsProvider
+    extends $NotifierProvider<MatchesStats, List<StyledMatchesStat>> {
+  const MatchesStatsProvider._({
+    required MatchesStatsFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'matchesStatsProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
 
-  /// See also [MatchesStats].
-  MatchesStatsProvider call({required String collectionId}) {
-    return MatchesStatsProvider(collectionId: collectionId);
+  @override
+  String debugGetCreateSourceHash() => _$matchesStatsHash();
+
+  @override
+  String toString() {
+    return r'matchesStatsProvider'
+        ''
+        '($argument)';
   }
 
+  @$internal
   @override
-  MatchesStatsProvider getProviderOverride(
-    covariant MatchesStatsProvider provider,
-  ) {
-    return call(collectionId: provider.collectionId);
-  }
+  MatchesStats create() => MatchesStats();
 
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'matchesStatsProvider';
-}
-
-/// See also [MatchesStats].
-class MatchesStatsProvider
-    extends
-        AutoDisposeNotifierProviderImpl<MatchesStats, List<StyledMatchesStat>> {
-  /// See also [MatchesStats].
-  MatchesStatsProvider({required String collectionId})
-    : this._internal(
-        () => MatchesStats()..collectionId = collectionId,
-        from: matchesStatsProvider,
-        name: r'matchesStatsProvider',
-        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-            ? null
-            : _$matchesStatsHash,
-        dependencies: MatchesStatsFamily._dependencies,
-        allTransitiveDependencies:
-            MatchesStatsFamily._allTransitiveDependencies,
-        collectionId: collectionId,
-      );
-
-  MatchesStatsProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.collectionId,
-  }) : super.internal();
-
-  final String collectionId;
-
-  @override
-  List<StyledMatchesStat> runNotifierBuild(covariant MatchesStats notifier) {
-    return notifier.build(collectionId: collectionId);
-  }
-
-  @override
-  Override overrideWith(MatchesStats Function() create) {
-    return ProviderOverride(
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(List<StyledMatchesStat> value) {
+    return $ProviderOverride(
       origin: this,
-      override: MatchesStatsProvider._internal(
-        () => create()..collectionId = collectionId,
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        collectionId: collectionId,
-      ),
+      providerOverride: $SyncValueProvider<List<StyledMatchesStat>>(value),
     );
   }
 
   @override
-  AutoDisposeNotifierProviderElement<MatchesStats, List<StyledMatchesStat>>
-  createElement() {
-    return _MatchesStatsProviderElement(this);
-  }
-
-  @override
   bool operator ==(Object other) {
-    return other is MatchesStatsProvider && other.collectionId == collectionId;
+    return other is MatchesStatsProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, collectionId.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin MatchesStatsRef
-    on AutoDisposeNotifierProviderRef<List<StyledMatchesStat>> {
-  /// The parameter `collectionId` of this provider.
-  String get collectionId;
-}
+String _$matchesStatsHash() => r'dc85173723c6711dd88ff8ac93398c272ad6e82b';
 
-class _MatchesStatsProviderElement
-    extends
-        AutoDisposeNotifierProviderElement<
+final class MatchesStatsFamily extends $Family
+    with
+        $ClassFamilyOverride<
           MatchesStats,
-          List<StyledMatchesStat>
-        >
-    with MatchesStatsRef {
-  _MatchesStatsProviderElement(super.provider);
+          List<StyledMatchesStat>,
+          List<StyledMatchesStat>,
+          List<StyledMatchesStat>,
+          String
+        > {
+  const MatchesStatsFamily._()
+    : super(
+        retry: null,
+        name: r'matchesStatsProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  MatchesStatsProvider call({required String collectionId}) =>
+      MatchesStatsProvider._(argument: collectionId, from: this);
 
   @override
-  String get collectionId => (origin as MatchesStatsProvider).collectionId;
+  String toString() => r'matchesStatsProvider';
+}
+
+abstract class _$MatchesStats extends $Notifier<List<StyledMatchesStat>> {
+  late final _$args = ref.$arg as String;
+  String get collectionId => _$args;
+
+  List<StyledMatchesStat> build({required String collectionId});
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build(collectionId: _$args);
+    final ref =
+        this.ref as $Ref<List<StyledMatchesStat>, List<StyledMatchesStat>>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<List<StyledMatchesStat>, List<StyledMatchesStat>>,
+              List<StyledMatchesStat>,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
 }
 
 // ignore_for_file: type=lint

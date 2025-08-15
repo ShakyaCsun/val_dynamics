@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:matches_repository/matches_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
