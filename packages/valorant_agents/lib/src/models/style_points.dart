@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart';
+import 'package:equatable/equatable.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
 enum Style {
@@ -171,5 +172,44 @@ extension StylePointsExtension on StylePoints {
       control: controlPercentage,
       midrange: midrangePercentage,
     );
+  }
+}
+
+/// {@template style_triplet}
+/// A set of three [StylePoints], usually used to represent 3 styles where
+/// 'a' beats 'b', 'b' beats 'c', and 'c' beats 'a'.
+/// {@endtemplate}
+class StyleTriplet extends Equatable {
+  /// {@macro style_triplet}
+  StyleTriplet(this.a, this.b, this.c)
+    : bFirst = StyleTriplet(b, c, a),
+      cFirst = StyleTriplet(c, a, b);
+
+  final StylePoints a;
+  final StylePoints b;
+  final StylePoints c;
+
+  final StyleTriplet bFirst;
+  final StyleTriplet cFirst;
+
+  @override
+  List<Object> get props => [a, b, c];
+
+  bool equivalentTo(StyleTriplet other) {
+    return other == this || other == bFirst || other == cFirst;
+  }
+
+  bool get isUniqueStyles {
+    return {a.styleType, b.styleType, c.styleType}.length == 3;
+  }
+
+  int equivalentHash() {
+    return [hashCode, bFirst.hashCode, cFirst.hashCode].min;
+  }
+
+  String interactions((Score, Score, Score) scores) {
+    final (ab, bc, ca) = scores;
+    return '${a.acm} beats ${b.acm}: $ab. ${b.acm} beats ${c.acm}: $bc. '
+        '${c.acm} beats ${a.acm}: $ca';
   }
 }

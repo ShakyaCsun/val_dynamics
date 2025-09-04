@@ -70,6 +70,9 @@ enum ScoreType {
   veryNegative;
 
   static ScoreType fromScore(Score score) {
+    if (score == Score.zero) {
+      return ScoreType.tied;
+    }
     final winRate = score.winRate;
     if (winRate >= 0.55) {
       return ScoreType.veryPositive;

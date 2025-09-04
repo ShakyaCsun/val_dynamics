@@ -10,11 +10,10 @@ List<RouteBase> get $appRoutes => [$teamCompsRedirectRoute, $homeScreenRoute];
 
 RouteBase get $teamCompsRedirectRoute => GoRouteData.$route(
   path: '/comps',
-
-  factory: _$TeamCompsRedirectRoute._fromState,
+  factory: $TeamCompsRedirectRoute._fromState,
 );
 
-mixin _$TeamCompsRedirectRoute on GoRouteData {
+mixin $TeamCompsRedirectRoute on GoRouteData {
   static TeamCompsRedirectRoute _fromState(GoRouterState state) =>
       const TeamCompsRedirectRoute();
 
@@ -40,23 +39,19 @@ RouteBase get $homeScreenRoute => ShellRouteData.$route(
   routes: [
     GoRouteData.$route(
       path: '/',
-
-      factory: _$AgentsOverviewRoute._fromState,
+      factory: $AgentsOverviewRoute._fromState,
       routes: [
         GoRouteData.$route(
           path: 'agents/add',
-
-          factory: _$AddAgentsRoute._fromState,
+          factory: $AddAgentsRoute._fromState,
         ),
         GoRouteData.$route(
           path: 'agents/:rosterName',
-
-          factory: _$AgentsRoute._fromState,
+          factory: $AgentsRoute._fromState,
           routes: [
             GoRouteData.$route(
               path: 'stats',
-
-              factory: _$AgentsStatRoute._fromState,
+              factory: $AgentsStatRoute._fromState,
             ),
           ],
         ),
@@ -64,63 +59,52 @@ RouteBase get $homeScreenRoute => ShellRouteData.$route(
     ),
     GoRouteData.$route(
       path: '/comps/:rosterName',
-
-      factory: _$TeamCompsRoute._fromState,
+      factory: $TeamCompsRoute._fromState,
       routes: [
         GoRouteData.$route(
           path: 'filter',
-
-          factory: _$TeamCompsFilterRoute._fromState,
+          factory: $TeamCompsFilterRoute._fromState,
         ),
         GoRouteData.$route(
           path: 'details/:acm',
-
-          factory: _$TeamCompsDetailRoute._fromState,
+          factory: $TeamCompsDetailRoute._fromState,
         ),
       ],
     ),
     GoRouteData.$route(
       path: '/matches',
-
-      factory: _$MatchesOverviewRoute._fromState,
+      factory: $MatchesOverviewRoute._fromState,
       routes: [
-        GoRouteData.$route(path: 'add', factory: _$AddMatchesRoute._fromState),
+        GoRouteData.$route(path: 'add', factory: $AddMatchesRoute._fromState),
         GoRouteData.$route(
           path: ':collectionName',
-
-          factory: _$MatchesRoute._fromState,
+          factory: $MatchesRoute._fromState,
           routes: [
             GoRouteData.$route(
               path: 'synergies',
-
-              factory: _$ComboSynergiesRoute._fromState,
+              factory: $ComboSynergiesRoute._fromState,
               routes: [
                 GoRouteData.$route(
                   path: ':comboName',
-
-                  factory: _$AgentComboMatchesRoute._fromState,
+                  factory: $AgentComboMatchesRoute._fromState,
                 ),
               ],
             ),
             GoRouteData.$route(
               path: 'stats',
-
-              factory: _$MatchesStatsRoute._fromState,
+              factory: $MatchesStatsRoute._fromState,
             ),
             GoRouteData.$route(
               path: 'acm/:acm',
-
-              factory: _$StyledMatchesRoute._fromState,
+              factory: $StyledMatchesRoute._fromState,
               routes: [
                 GoRouteData.$route(
                   path: 'matches',
-
-                  factory: _$StyledMatchesListRoute._fromState,
+                  factory: $StyledMatchesListRoute._fromState,
                 ),
                 GoRouteData.$route(
                   path: 'vs/:opponentAcm',
-
-                  factory: _$StyledMatchupListRoute._fromState,
+                  factory: $StyledMatchupListRoute._fromState,
                 ),
               ],
             ),
@@ -136,7 +120,7 @@ extension $HomeScreenRouteExtension on HomeScreenRoute {
       const HomeScreenRoute();
 }
 
-mixin _$AgentsOverviewRoute on GoRouteData {
+mixin $AgentsOverviewRoute on GoRouteData {
   static AgentsOverviewRoute _fromState(GoRouterState state) =>
       const AgentsOverviewRoute();
 
@@ -157,7 +141,7 @@ mixin _$AgentsOverviewRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$AddAgentsRoute on GoRouteData {
+mixin $AddAgentsRoute on GoRouteData {
   static AddAgentsRoute _fromState(GoRouterState state) =>
       const AddAgentsRoute();
 
@@ -178,7 +162,7 @@ mixin _$AddAgentsRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$AgentsRoute on GoRouteData {
+mixin $AgentsRoute on GoRouteData {
   static AgentsRoute _fromState(GoRouterState state) =>
       AgentsRoute(rosterName: state.pathParameters['rosterName']!);
 
@@ -202,7 +186,7 @@ mixin _$AgentsRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$AgentsStatRoute on GoRouteData {
+mixin $AgentsStatRoute on GoRouteData {
   static AgentsStatRoute _fromState(GoRouterState state) =>
       AgentsStatRoute(rosterName: state.pathParameters['rosterName']!);
 
@@ -227,7 +211,7 @@ mixin _$AgentsStatRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$TeamCompsRoute on GoRouteData {
+mixin $TeamCompsRoute on GoRouteData {
   static TeamCompsRoute _fromState(GoRouterState state) =>
       TeamCompsRoute(rosterName: state.pathParameters['rosterName']!);
 
@@ -251,7 +235,7 @@ mixin _$TeamCompsRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$TeamCompsFilterRoute on GoRouteData {
+mixin $TeamCompsFilterRoute on GoRouteData {
   static TeamCompsFilterRoute _fromState(GoRouterState state) =>
       TeamCompsFilterRoute(rosterName: state.pathParameters['rosterName']!);
 
@@ -276,7 +260,7 @@ mixin _$TeamCompsFilterRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$TeamCompsDetailRoute on GoRouteData {
+mixin $TeamCompsDetailRoute on GoRouteData {
   static TeamCompsDetailRoute _fromState(GoRouterState state) =>
       TeamCompsDetailRoute(
         rosterName: state.pathParameters['rosterName']!,
@@ -304,7 +288,7 @@ mixin _$TeamCompsDetailRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$MatchesOverviewRoute on GoRouteData {
+mixin $MatchesOverviewRoute on GoRouteData {
   static MatchesOverviewRoute _fromState(GoRouterState state) =>
       const MatchesOverviewRoute();
 
@@ -325,7 +309,7 @@ mixin _$MatchesOverviewRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$AddMatchesRoute on GoRouteData {
+mixin $AddMatchesRoute on GoRouteData {
   static AddMatchesRoute _fromState(GoRouterState state) =>
       const AddMatchesRoute();
 
@@ -346,7 +330,7 @@ mixin _$AddMatchesRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$MatchesRoute on GoRouteData {
+mixin $MatchesRoute on GoRouteData {
   static MatchesRoute _fromState(GoRouterState state) =>
       MatchesRoute(collectionName: state.pathParameters['collectionName']!);
 
@@ -371,7 +355,7 @@ mixin _$MatchesRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$ComboSynergiesRoute on GoRouteData {
+mixin $ComboSynergiesRoute on GoRouteData {
   static ComboSynergiesRoute _fromState(GoRouterState state) =>
       ComboSynergiesRoute(
         collectionName: state.pathParameters['collectionName']!,
@@ -398,7 +382,7 @@ mixin _$ComboSynergiesRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$AgentComboMatchesRoute on GoRouteData {
+mixin $AgentComboMatchesRoute on GoRouteData {
   static AgentComboMatchesRoute _fromState(GoRouterState state) =>
       AgentComboMatchesRoute(
         collectionName: state.pathParameters['collectionName']!,
@@ -426,7 +410,7 @@ mixin _$AgentComboMatchesRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$MatchesStatsRoute on GoRouteData {
+mixin $MatchesStatsRoute on GoRouteData {
   static MatchesStatsRoute _fromState(GoRouterState state) => MatchesStatsRoute(
     collectionName: state.pathParameters['collectionName']!,
   );
@@ -452,7 +436,7 @@ mixin _$MatchesStatsRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$StyledMatchesRoute on GoRouteData {
+mixin $StyledMatchesRoute on GoRouteData {
   static StyledMatchesRoute _fromState(GoRouterState state) =>
       StyledMatchesRoute(
         state.pathParameters['collectionName']!,
@@ -480,7 +464,7 @@ mixin _$StyledMatchesRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$StyledMatchesListRoute on GoRouteData {
+mixin $StyledMatchesListRoute on GoRouteData {
   static StyledMatchesListRoute _fromState(GoRouterState state) =>
       StyledMatchesListRoute(
         state.pathParameters['collectionName']!,
@@ -508,7 +492,7 @@ mixin _$StyledMatchesListRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$StyledMatchupListRoute on GoRouteData {
+mixin $StyledMatchupListRoute on GoRouteData {
   static StyledMatchupListRoute _fromState(GoRouterState state) =>
       StyledMatchupListRoute(
         collectionName: state.pathParameters['collectionName']!,

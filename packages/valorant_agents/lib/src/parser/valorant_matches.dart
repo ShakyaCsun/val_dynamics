@@ -270,8 +270,8 @@ extension SynergyInMatchesCalculator on ValorantMatches {
   }
 
   /// Get the Non-Mirror Round Win Rate for all [Agent]s that are played
-  FastAgentMap<Score> getAllAgentNmrwr() {
-    final agentNonMirrorScores = FastAgentMap<Score>();
+  AgentMap<Score> getAllAgentNmrwr() {
+    final agentNonMirrorScores = AgentMap<Score>();
     for (final ValorantMatch(:scoreOne, :scoreTwo, :nonMirrorAgents) in this) {
       for (final MapEntry(key: agent, value: nonMirror)
           in nonMirrorAgents.entries) {

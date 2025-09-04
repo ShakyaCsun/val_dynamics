@@ -22,7 +22,7 @@ extension type AcmString._(String value) implements String {
   }
 
   factory AcmString.fromStyles(StylePoints points) {
-    return AcmString('${points.A}-${points.C}-${points.M}');
+    return AcmString(points.acm);
   }
 
   StylePoints get stylePoints {

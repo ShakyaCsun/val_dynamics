@@ -1,0 +1,21 @@
+SynergiesBenchmark(65780, 1000)---------------------------------------(RunTime): 443220.6 us.
+SynergiesBenchmark(42504, 20000)--------------------------------------(RunTime): 10007841.5 us.
+FirstLoadSynergiesBenchmark(65780, 1000)------------------------------(RunTime): 76969.85714285714 us.
+FirstLoadSynergiesBenchmark(42504, 20000)-----------------------------(RunTime): 1540534.0 us.
+SumScoreBenchmark(65780, 1000)----------------------------------------(RunTime): 161.64824 us.
+SumScoreBenchmark(42504, 20000)---------------------------------------(RunTime): 4202.86 us.
+SumScoreTupleBenchmark(65780, 1000)-----------------------------------(RunTime): 123.14350117467775 us.
+SumScoreTupleBenchmark(42504, 20000)----------------------------------(RunTime): 3053.86125 us.
+StyleTypeBenchmark(65780, 1000)---------------------------------------(RunTime): 3520.3883058470765 us.
+StyleTypeBenchmark(42504, 20000)--------------------------------------(RunTime): 508847.0 us.
+Normal Agent MapCreationBenchmark(42)---------------------------------(RunTime): 742970.0 us.
+Canonicalized Agent MapCreationBenchmark(42)--------------------------(RunTime): 15731.48 us.
+Normal AgentCombo MapCreationBenchmark(42)----------------------------(RunTime): 1486517.5 us.
+Canonicalized AgentCombo MapCreationBenchmark(42)---------------------(RunTime): 28189.61111111111 us.
+Normal StylePoints MapCreationBenchmark(42)---------------------------(RunTime): 25371.125 us.
+Canonicalized StylePoints MapCreationBenchmark(42)--------------------(RunTime): 401033.8 us.
+Normal StylePointsCombo MapCreationBenchmark(42)----------------------(RunTime): 359905.1666666667 us.
+Canonicalized StylePointsCombo MapCreationBenchmark(42)---------------(RunTime): 979745.0 us.
+
+Conclusion for MapCreationBenchmark: Normal StylePoints and (StylePoints, StylePoints) records are faster than their
+Canonicalized versions but Agent and AgentCombo see significant performance gains by simplifying to their names.

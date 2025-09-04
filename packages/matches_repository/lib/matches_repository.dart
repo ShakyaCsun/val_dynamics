@@ -3,3 +3,4 @@ library;
 
 export 'src/matches_repository.dart';
 export 'src/models/models.dart';
+export 'src/triangular_interactions_finder.dart';

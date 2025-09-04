@@ -29,9 +29,9 @@ class MatchesRepository {
       nonMirrorMatches.nonMirrorStyledMatches;
 
   final Map<String, ValorantMatches> _cachedMapMatches = {};
-  final Map<String, FastAgentComboMap<ComboSynergyStat>>
-  _cachedMapSynergiesSolo = {};
-  final Map<String, FastAgentComboMap<ComboSynergyStat>>
+  final Map<String, AgentComboMap<ComboSynergyStat>> _cachedMapSynergiesSolo =
+      {};
+  final Map<String, AgentComboMap<ComboSynergyStat>>
   _cachedMapSynergiesComposite = {};
 
   ValorantMatches getMatches({
@@ -155,7 +155,7 @@ class MatchesRepository {
     return styleTypeStats;
   }
 
-  FastAgentComboMap<ComboSynergyStat> getAllComboSynergies({
+  AgentComboMap<ComboSynergyStat> getAllComboSynergies({
     Set<String> maps = const {},
     ComboCriteria criteria = ComboCriteria.composite,
     WinLossFilter winLossFilter = WinLossFilter.all,
@@ -189,14 +189,13 @@ class MatchesRepository {
     );
   }
 
-  FastAgentComboMap<ComboSynergyStat> _getComboSynergies({
+  AgentComboMap<ComboSynergyStat> _getComboSynergies({
     required ValorantMatches matches,
     ComboCriteria criteria = ComboCriteria.composite,
   }) {
-    final agentWRs = FastAgentMap<Score>();
-    final compositionsComboCache =
-        <String, FastAgentComboMap<ComboNonMirror>>{};
-    final comboWRs = FastAgentComboMap<Score>();
+    final agentWRs = AgentMap<Score>();
+    final compositionsComboCache = <String, AgentComboMap<ComboNonMirror>>{};
+    final comboWRs = AgentComboMap<Score>();
 
     for (final match in matches) {
       final ValorantMatch(:scoreOne, :scoreTwo, :nonMirrorAgents, :agentComps) =
@@ -262,7 +261,7 @@ class MatchesRepository {
         }
       }
     }
-    return FastAgentComboMap.fromEntries(
+    return AgentComboMap.fromEntries(
       comboWRs.entries.map((entry) {
         final MapEntry(key: combo, value: comboWR) = entry;
         final (one, two) = combo;
@@ -278,13 +277,13 @@ class MatchesRepository {
     );
   }
 
-  FastAgentComboMap<ComboSynergyStat> _filterSynergies(
-    FastAgentComboMap<ComboSynergyStat> synergyStats, {
+  AgentComboMap<ComboSynergyStat> _filterSynergies(
+    AgentComboMap<ComboSynergyStat> synergyStats, {
     WinLossFilter winLossFilter = WinLossFilter.all,
     (Role, Role) rolesCombo = (Role.unknown, Role.unknown),
     int minRounds = 0,
   }) {
-    return FastAgentComboMap<ComboSynergyStat>.fromEntries(
+    return AgentComboMap<ComboSynergyStat>.fromEntries(
       synergyStats.entries.where((entry) {
         final MapEntry(key: combo, value: ComboSynergyStat(:comboWR)) = entry;
         if (!winLossFilter.check(comboWR)) {

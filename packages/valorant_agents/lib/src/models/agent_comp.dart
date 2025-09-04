@@ -31,12 +31,22 @@ class AgentComp extends Equatable {
   ) : agents = List.unmodifiable(
         [agent1, agent2, agent3, agent4, agent5]..sort(),
       ),
-      stylePoints =
-          agent1.stylePoints +
-          agent2.stylePoints +
-          agent3.stylePoints +
-          agent4.stylePoints +
-          agent5.stylePoints;
+
+      /// Addition of doubles can sometimes cause unexpected [StylePoints] such
+      /// as (aggro: 14.899999999999999, control: 17.5, midrange: 17.6) or
+      /// (aggro: 21.299999999999997, control: 16.7999999999997, midrange: 11.9)
+      /// instead of (aggro: 14.9, control: 17.5, midrange: 17.6) and
+      /// (aggro: 21.3, control: 16.8, midrange 11.9).
+      ///
+      /// Converting to formatted AcmString and back to StylePoints fixes these
+      /// issues.
+      stylePoints = AcmString.fromStyles(
+        agent1.stylePoints +
+            agent2.stylePoints +
+            agent3.stylePoints +
+            agent4.stylePoints +
+            agent5.stylePoints,
+      ).stylePoints;
 
   factory AgentComp.fromAgentNames(
     String agents, {
