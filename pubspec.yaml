@@ -27,7 +27,7 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  flutter_riverpod: ^3.0.0-dev.17
+  flutter_riverpod: ^3.0.0
   flutter_svg: ^2.2.1
   formz: ^0.8.0
   formz_inputs:
@@ -38,7 +38,7 @@ dependencies:
   logging: ^1.3.0
   matches_repository:
     path: ./packages/matches_repository
-  riverpod_annotation: ^3.0.0-dev.17
+  riverpod_annotation: ^3.0.0
   ternary_plot:
     git: https://github.com/ShakyaCsun/ternary_plot.git
   two_dimensional_scrollables: ^0.3.7
@@ -54,10 +54,10 @@ dev_dependencies:
   flutter_gen_runner: ^5.11.0
   flutter_test:
     sdk: flutter
-  freezed: ^3.2.0
+  freezed: ^3.2.3
   go_router_builder: ^4.0.1
-  riverpod_generator: ^3.0.0-dev.17
-  riverpod_lint: ^3.0.0-dev.17
+  riverpod_generator: ^3.0.0
+  riverpod_lint: ^3.0.0
   very_good_analysis: ^9.0.0
 
 dependency_overrides:

@@ -42,7 +42,7 @@ class AddAgents extends _$AddAgents {
               .toList(),
         );
         final name = await ref
-            .read(agentsOverviewNotifierProvider.notifier)
+            .read(agentsOverviewProvider.notifier)
             .addRoster(agents, state.rosterName.value);
 
         state = state.copyWith(

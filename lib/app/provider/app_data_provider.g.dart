@@ -6,6 +6,9 @@ part of 'app_data_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
 @ProviderFor(bundledAgents)
 const bundledAgentsProvider = BundledAgentsProvider._();
 
@@ -51,7 +54,7 @@ final class BundledAgentsProvider
   }
 }
 
-String _$bundledAgentsHash() => r'a4f31ca7cd4e912bd8de8be7e0924c0dc2065537';
+String _$bundledAgentsHash() => r'a01f1fd64d0d40ca651213a381378bcd51c5193d';
 
 @ProviderFor(bundledMatches)
 const bundledMatchesProvider = BundledMatchesProvider._();
@@ -98,20 +101,15 @@ final class BundledMatchesProvider
   }
 }
 
-String _$bundledMatchesHash() => r'dd87da23995bcb59b569a645b167e7a63bff8c80';
+String _$bundledMatchesHash() => r'668ed0b025a4c2e1ef380078339c6358aa22efd9';
 
 @ProviderFor(appDataInitializationStatus)
 const appDataInitializationStatusProvider =
     AppDataInitializationStatusProvider._();
 
 final class AppDataInitializationStatusProvider
-    extends
-        $FunctionalProvider<
-          (String message, bool isInitialized),
-          (String message, bool isInitialized),
-          (String message, bool isInitialized)
-        >
-    with $Provider<(String message, bool isInitialized)> {
+    extends $FunctionalProvider<(String, bool), (String, bool), (String, bool)>
+    with $Provider<(String, bool)> {
   const AppDataInitializationStatusProvider._()
     : super(
         from: null,
@@ -128,30 +126,28 @@ final class AppDataInitializationStatusProvider
 
   @$internal
   @override
-  $ProviderElement<(String message, bool isInitialized)> $createElement(
-    $ProviderPointer pointer,
-  ) => $ProviderElement(pointer);
+  $ProviderElement<(String, bool)> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
 
   @override
-  (String message, bool isInitialized) create(Ref ref) {
+  (String, bool) create(Ref ref) {
     return appDataInitializationStatus(ref);
   }
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue((String message, bool isInitialized) value) {
+  Override overrideWithValue((String, bool) value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride:
-          $SyncValueProvider<(String message, bool isInitialized)>(value),
+      providerOverride: $SyncValueProvider<(String, bool)>(value),
     );
   }
 }
 
 String _$appDataInitializationStatusHash() =>
-    r'b39423b6cf4096572a75818f4bc577b12ab38aab';
+    r'9189381f392c9202d960fe0b8dadd60f050d29fd';
 
 @ProviderFor(AppDataNotifier)
-const appDataNotifierProvider = AppDataNotifierProvider._();
+const appDataProvider = AppDataNotifierProvider._();
 
 final class AppDataNotifierProvider
     extends $NotifierProvider<AppDataNotifier, AppData> {
@@ -160,7 +156,7 @@ final class AppDataNotifierProvider
         from: null,
         argument: null,
         retry: null,
-        name: r'appDataNotifierProvider',
+        name: r'appDataProvider',
         isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
@@ -202,6 +198,3 @@ abstract class _$AppDataNotifier extends $Notifier<AppData> {
     element.handleValue(ref, created);
   }
 }
-
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

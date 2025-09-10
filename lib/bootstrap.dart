@@ -8,7 +8,7 @@ import 'package:vsdat_ui/vsdat_ui.dart';
 
 final _logger = Logger('val_sd_analyzer');
 
-class AppProviderObserver extends ProviderObserver {
+final class AppProviderObserver extends ProviderObserver {
   static final _logger = Logger('AppProviderObserver');
 
   @override

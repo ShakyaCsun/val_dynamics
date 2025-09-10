@@ -28,7 +28,7 @@ class AgentsOverviewView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final agentRosters = ref.watch(
-      agentsOverviewNotifierProvider.select((value) => value.agentDetails),
+      agentsOverviewProvider.select((value) => value.agentDetails),
     );
     final defaultRosterName = ref.watch(defaultRosterNameProvider);
     return AgentsListView(

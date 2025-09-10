@@ -6,6 +6,9 @@ part of 'add_agents_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
 @ProviderFor(AddAgents)
 const addAgentsProvider = AddAgentsProvider._();
 
@@ -38,7 +41,7 @@ final class AddAgentsProvider
   }
 }
 
-String _$addAgentsHash() => r'bc38f74514a04c8a5f9228473ceaf349b3580c36';
+String _$addAgentsHash() => r'f53384065620049f0d81351cf4a29f29fa8fde76';
 
 abstract class _$AddAgents extends $Notifier<AddAgentsForm> {
   AddAgentsForm build();
@@ -58,6 +61,3 @@ abstract class _$AddAgents extends $Notifier<AddAgentsForm> {
     element.handleValue(ref, created);
   }
 }
-
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

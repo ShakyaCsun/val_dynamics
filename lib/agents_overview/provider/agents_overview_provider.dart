@@ -90,13 +90,13 @@ AgentsRepository agentsRepository(Ref ref) {
 @riverpod
 String defaultRosterName(Ref ref) {
   return ref.watch(
-    agentsOverviewNotifierProvider.select((value) => value.defaultRosterName),
+    agentsOverviewProvider.select((value) => value.defaultRosterName),
   );
 }
 
 @riverpod
 List<String> availableRosters(Ref ref) {
   return ref.watch(
-    agentsOverviewNotifierProvider.select((value) => value.availableRosters),
+    agentsOverviewProvider.select((value) => value.availableRosters),
   );
 }

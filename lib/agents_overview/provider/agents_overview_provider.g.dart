@@ -6,8 +6,11 @@ part of 'agents_overview_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
 @ProviderFor(AgentsOverviewNotifier)
-const agentsOverviewNotifierProvider = AgentsOverviewNotifierProvider._();
+const agentsOverviewProvider = AgentsOverviewNotifierProvider._();
 
 final class AgentsOverviewNotifierProvider
     extends $NotifierProvider<AgentsOverviewNotifier, AgentsOverviewState> {
@@ -16,7 +19,7 @@ final class AgentsOverviewNotifierProvider
         from: null,
         argument: null,
         retry: null,
-        name: r'agentsOverviewNotifierProvider',
+        name: r'agentsOverviewProvider',
         isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
@@ -145,7 +148,7 @@ final class DefaultRosterNameProvider
   }
 }
 
-String _$defaultRosterNameHash() => r'1ea4d5b221a1a83c0619a8a0e9620545d8aed593';
+String _$defaultRosterNameHash() => r'af5ea117ef006094f771aaafc0f76318b249c492';
 
 @ProviderFor(availableRosters)
 const availableRostersProvider = AvailableRostersProvider._();
@@ -186,7 +189,4 @@ final class AvailableRostersProvider
   }
 }
 
-String _$availableRostersHash() => r'b1485f6ff44f090b67d1dd19ac95917ce181e9bf';
-
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+String _$availableRostersHash() => r'53bf0318564d060c7fb5d7b079c4d78c9ba125fc';

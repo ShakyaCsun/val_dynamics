@@ -14,24 +14,18 @@ final _logger = Logger('AppDataLogger');
 
 @Riverpod(keepAlive: true)
 Map<String, Agents> bundledAgents(Ref ref) {
-  return ref.watch(
-    appDataNotifierProvider.select((state) => state.bundledAgents),
-  );
+  return ref.watch(appDataProvider.select((state) => state.bundledAgents));
 }
 
 @Riverpod(keepAlive: true)
 Map<String, List<RawMatch>> bundledMatches(Ref ref) {
-  return ref.watch(
-    appDataNotifierProvider.select((state) => state.bundledMatches),
-  );
+  return ref.watch(appDataProvider.select((state) => state.bundledMatches));
 }
 
 @riverpod
 (String message, bool isInitialized) appDataInitializationStatus(Ref ref) {
   return ref.watch(
-    appDataNotifierProvider.select(
-      (state) => (state.message, state.isInitialized),
-    ),
+    appDataProvider.select((state) => (state.message, state.isInitialized)),
   );
 }
 
