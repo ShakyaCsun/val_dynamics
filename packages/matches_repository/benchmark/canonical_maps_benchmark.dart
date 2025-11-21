@@ -45,9 +45,20 @@ class MapCreationBenchmark<T> extends BenchmarkBase {
     ).report();
     MapCreationBenchmark<(Agent, Agent)>(
       mapType: 'Canonicalized AgentCombo',
-      createEmptyMap: () =>
-          CanonicalMap<(Agent, Agent)>((key) => key.comboName),
+      createEmptyMap: AgentComboMap.new,
       getRandom: (random) => (_randomAgent(random), _randomAgent(random)),
+    ).report();
+
+    // AgentComp Maps Comparison
+    MapCreationBenchmark<AgentComp>(
+      mapType: 'Normal AgentComp',
+      createEmptyMap: () => <AgentComp, int>{},
+      getRandom: _randomAgentComp,
+    ).report();
+    MapCreationBenchmark<AgentComp>(
+      mapType: 'Canonicalized AgentComp',
+      createEmptyMap: AgentCompMap.new,
+      getRandom: _randomAgentComp,
     ).report();
 
     // StylePoints Maps Comparison
@@ -63,16 +74,15 @@ class MapCreationBenchmark<T> extends BenchmarkBase {
     ).report();
 
     // StylePointsCombo Maps Comparison
-    MapCreationBenchmark<(StylePoints, StylePoints)>(
-      mapType: 'Normal StylePointsCombo',
-      createEmptyMap: () => <(StylePoints, StylePoints), int>{},
+    MapCreationBenchmark<StylePair>(
+      mapType: 'Normal StylePair',
+      createEmptyMap: () => <StylePair, int>{},
       getRandom: (random) =>
           (_randomStylePoints(random), _randomStylePoints(random)),
     ).report();
-    MapCreationBenchmark<(StylePoints, StylePoints)>(
-      mapType: 'Canonicalized StylePointsCombo',
-      createEmptyMap: () =>
-          CanonicalMap<(StylePoints, StylePoints)>((key) => key.compareKey),
+    MapCreationBenchmark<StylePair>(
+      mapType: 'Canonicalized StylePair',
+      createEmptyMap: () => CanonicalMap<StylePair>((key) => key.compareKey),
       getRandom: (random) =>
           (_randomStylePoints(random), _randomStylePoints(random)),
     ).report();
@@ -102,6 +112,18 @@ Agent _randomAgent(Random random) {
   return defaultRoster[random.nextInt(defaultRoster.length)];
 }
 
+AgentComp _randomAgentComp(Random random) {
+  final defaultRoster = Agents.defaultRoster;
+  final agentNames = <String>{};
+  while (agentNames.length != 5) {
+    agentNames.add(defaultRoster[random.nextInt(defaultRoster.length)].name);
+  }
+  return AgentComp.fromAgentNames(
+    agentNames.join(','),
+    agentsMap: defaultRoster.nameMap,
+  );
+}
+
 StylePoints _randomStylePoints(Random random, [int total = 50]) {
   final aggro = random.nextInt(2 * total ~/ 3);
   final control = random.nextInt(total - aggro);
@@ -113,6 +135,6 @@ StylePoints _randomStylePoints(Random random, [int total = 50]) {
   );
 }
 
-extension on (StylePoints, StylePoints) {
+extension on StylePair {
   String get compareKey => '${$1.acm}>${$2.acm}';
 }

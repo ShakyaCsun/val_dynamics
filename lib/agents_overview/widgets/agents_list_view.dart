@@ -102,8 +102,8 @@ class AgentsListTile extends StatelessWidget {
     return Consumer(
       builder: (context, ref, child) {
         final deleteButton = IconButton(
-          onPressed: () {
-            ref
+          onPressed: () async {
+            await ref
                 .read(agentsOverviewProvider.notifier)
                 .removeRoster(agentsDetail.rosterName);
           },

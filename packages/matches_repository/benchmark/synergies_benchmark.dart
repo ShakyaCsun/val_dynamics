@@ -1,6 +1,3 @@
-// Benchmark file, only using in console environment
-// ignore_for_file: avoid_print
-
 import 'package:collection/collection.dart';
 import 'package:matches_repository/matches_repository.dart';
 import 'package:valorant_agents/valorant_agents.dart';

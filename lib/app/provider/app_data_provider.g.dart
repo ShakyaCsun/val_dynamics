@@ -178,7 +178,7 @@ final class AppDataNotifierProvider
   }
 }
 
-String _$appDataNotifierHash() => r'b979ec5e40626cc6217f3d67bbdfc0b69ebc4db4';
+String _$appDataNotifierHash() => r'7daf58b21d6bbb2faad57619878e27aac09c58a1';
 
 abstract class _$AppDataNotifier extends $Notifier<AppData> {
   AppData build();

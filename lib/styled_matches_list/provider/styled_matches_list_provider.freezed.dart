@@ -55,8 +55,6 @@ abstract mixin class $StyledMatchesSummaryDataCopyWith<$Res> {
   ) = _$StyledMatchesSummaryDataCopyWithImpl;
   @useResult
   $Res call({StylePoints acm, StylePoints opponentAcm, MatchesSummary summary});
-
-  $MatchesSummaryCopyWith<$Res> get summary;
 }
 
 /// @nodoc
@@ -92,16 +90,6 @@ class _$StyledMatchesSummaryDataCopyWithImpl<$Res>
                   as MatchesSummary,
       ),
     );
-  }
-
-  /// Create a copy of StyledMatchesSummaryData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $MatchesSummaryCopyWith<$Res> get summary {
-    return $MatchesSummaryCopyWith<$Res>(_self.summary, (value) {
-      return _then(_self.copyWith(summary: value));
-    });
   }
 }
 
@@ -162,9 +150,6 @@ abstract mixin class _$StyledMatchesSummaryDataCopyWith<$Res>
   @override
   @useResult
   $Res call({StylePoints acm, StylePoints opponentAcm, MatchesSummary summary});
-
-  @override
-  $MatchesSummaryCopyWith<$Res> get summary;
 }
 
 /// @nodoc
@@ -200,15 +185,5 @@ class __$StyledMatchesSummaryDataCopyWithImpl<$Res>
                   as MatchesSummary,
       ),
     );
-  }
-
-  /// Create a copy of StyledMatchesSummaryData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $MatchesSummaryCopyWith<$Res> get summary {
-    return $MatchesSummaryCopyWith<$Res>(_self.summary, (value) {
-      return _then(_self.copyWith(summary: value));
-    });
   }
 }

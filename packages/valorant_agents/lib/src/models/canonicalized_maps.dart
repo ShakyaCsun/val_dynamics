@@ -66,3 +66,34 @@ class AgentComboMap<V> extends CanonicalizedMap<String, (Agent, Agent), V> {
     return agentCombo.comboName;
   }
 }
+
+/// {@template agent_comp_map}
+/// Creates a [Map] that uses [AgentComp] tuple as keys.
+///
+/// The faster map is due to using combo's simplified name string as a
+/// canonicalized key.
+/// Comparing string keys is faster than comparing AgentComp tuples.
+///
+/// Note: This fast AgentComp map won't work in cases where agents can have
+/// same name but are not equal to one another. Thankfully this is not the case
+/// for our current use-cases.
+/// {@endtemplate}
+class AgentCompMap<V> extends CanonicalizedMap<String, AgentComp, V> {
+  /// {@macro agent_comp_map}
+  AgentCompMap() : super(_canonicalize);
+
+  /// Creates a [AgentCompMap] that is initialized with the key/value pairs
+  /// of [other].
+  /// {@macro agent_comp_map}
+  AgentCompMap.from(Map<AgentComp, V> other) : super.from(other, _canonicalize);
+
+  /// Creates a [AgentCompMap] that is initialized with the key/value pairs
+  /// of [entries].
+  /// {@macro agent_comp_map}
+  AgentCompMap.fromEntries(Iterable<MapEntry<AgentComp, V>> entries)
+    : super.fromEntries(entries, _canonicalize);
+
+  static String _canonicalize(AgentComp agentComp) {
+    return '$agentComp';
+  }
+}

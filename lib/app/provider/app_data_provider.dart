@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:agents_repository/agents_repository.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -34,7 +36,7 @@ class AppDataNotifier extends _$AppDataNotifier {
   @override
   AppData build() {
     state = const AppData();
-    initialize();
+    unawaited(initialize());
     return state;
   }
 

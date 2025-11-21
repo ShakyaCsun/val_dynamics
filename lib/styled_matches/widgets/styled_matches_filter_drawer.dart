@@ -36,8 +36,7 @@ class StyledMatchesFilterDrawer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 spacing: 8,
                 children: [
-                  for (final comp in compositions)
-                    CompositionsRow(comp: comp, iconSize: 40),
+                  for (final comp in compositions) CompositionsRow(comp: comp),
                 ],
               );
             },

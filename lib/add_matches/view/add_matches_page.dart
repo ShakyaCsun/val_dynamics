@@ -118,8 +118,8 @@ class AddMatchesButton extends ConsumerWidget {
         ? const CircularProgressIndicator()
         : ElevatedButton(
             onPressed: isValid
-                ? () {
-                    ref.read(addMatchesProvider.notifier).submit();
+                ? () async {
+                    await ref.read(addMatchesProvider.notifier).submit();
                   }
                 : null,
             child: Text(l10n.addMatches),

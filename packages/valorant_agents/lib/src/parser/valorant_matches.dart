@@ -108,14 +108,10 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
     }).toScore;
   }
 
-  Map<(StylePoints, StylePoints), ValorantMatches>
-  groupMatchesByStylisticClash() {
-    return fold(<(StylePoints, StylePoints), ValorantMatches>{}, (
-      matchesGroup,
-      match,
-    ) {
+  Map<StylePair, ValorantMatches> groupMatchesByStylisticClash() {
+    return fold(<StylePair, ValorantMatches>{}, (matchesGroup, match) {
       final key = (match.stylePoints1, match.stylePoints2);
-      final alternateKey = (match.stylePoints2, match.stylePoints1);
+      final alternateKey = key.reversed;
       if (match.isMirrorStyle) {
         matchesGroup.update(
           key,
@@ -199,6 +195,11 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
         );
     }
     return matchesGroup;
+  }
+
+  /// Team One and Two are swapped
+  ValorantMatches get swappedTeams {
+    return ValorantMatches(matches.map((e) => e.reversed));
   }
 
   ValorantMatches get nonMirroredMatches {

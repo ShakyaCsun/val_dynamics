@@ -42,7 +42,7 @@ final class AgentsOverviewNotifierProvider
 }
 
 String _$agentsOverviewNotifierHash() =>
-    r'ae79671ba21db1a6aaeab49f3dc304ab4f06ebbe';
+    r'317bcdfa0a9dbf115db4e81757e3eba9b51412af';
 
 abstract class _$AgentsOverviewNotifier extends $Notifier<AgentsOverviewState> {
   AgentsOverviewState build();
@@ -148,7 +148,7 @@ final class DefaultRosterNameProvider
   }
 }
 
-String _$defaultRosterNameHash() => r'af5ea117ef006094f771aaafc0f76318b249c492';
+String _$defaultRosterNameHash() => r'dd84ac89e778c021dc37308e0c25a3ce0e351bb1';
 
 @ProviderFor(availableRosters)
 const availableRostersProvider = AvailableRostersProvider._();
@@ -189,4 +189,4 @@ final class AvailableRostersProvider
   }
 }
 
-String _$availableRostersHash() => r'53bf0318564d060c7fb5d7b079c4d78c9ba125fc';
+String _$availableRostersHash() => r'fa4fe0bacbf7825d81c83a44253a0f74b789a266';

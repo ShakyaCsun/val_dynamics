@@ -132,8 +132,8 @@ class _SubmitButton extends ConsumerWidget {
     }
     return ElevatedButton(
       onPressed: isValid
-          ? () {
-              ref.read(addAgentsProvider.notifier).submit();
+          ? () async {
+              await ref.read(addAgentsProvider.notifier).submit();
             }
           : null,
       child: Text(l10n.addAgentRatings),

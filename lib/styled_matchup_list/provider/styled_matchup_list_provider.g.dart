@@ -79,7 +79,7 @@ final class StyledMatchupListProvider
   }
 }
 
-String _$styledMatchupListHash() => r'cf57e7f62d6fb34defae498844cc5e9ea85fa8fc';
+String _$styledMatchupListHash() => r'755205fdbcb38b27876ccfac233d86a5a25e776b';
 
 final class StyledMatchupListFamily extends $Family
     with

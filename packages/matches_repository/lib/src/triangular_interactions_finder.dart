@@ -1,14 +1,14 @@
 import 'dart:collection';
 
 import 'package:collection/collection.dart';
+import 'package:matches_repository/matches_repository.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
 extension TriangularInteractionsFinder on ValorantMatches {
-  Map<StyleTriplet, (Score aVsB, Score bVsC, Score cVsA)>
-  getTriangularInteractions({
+  List<NonTransitiveInteraction> getTriangularInteractions({
     double winRate = 0.5,
     int minRounds = 0,
-    Map<(StylePoints, StylePoints), ValorantMatches>? clashMap,
+    Map<StylePair, ValorantMatches>? clashMap,
   }) {
     assert(
       winRate >= 0.5 && winRate <= 1,
@@ -17,7 +17,7 @@ extension TriangularInteractionsFinder on ValorantMatches {
 
     @pragma('vm:prefer-inline')
     bool isValidScore(ScoreData scoreData) {
-      final (stylePoints: _, :score) = scoreData;
+      final (stylePoints: _, score: MatchesSummary(:score)) = scoreData;
       return score.winRate >= winRate && score.played >= minRounds;
     }
 
@@ -25,8 +25,8 @@ extension TriangularInteractionsFinder on ValorantMatches {
     final winsGraph = WinsGraph();
     for (final MapEntry(key: (styleOne, styleTwo), value: matches)
         in styleClashMatches.entries) {
-      final score = matches.collectTeamOneScore();
-      switch (score.scoreType) {
+      final score = MatchesSummary.fromMatches(matches);
+      switch (score.score.scoreType) {
         case ScoreType.veryPositive || ScoreType.positive:
           final scoreData = (stylePoints: styleTwo, score: score);
           if (isValidScore(scoreData)) {
@@ -53,8 +53,7 @@ extension TriangularInteractionsFinder on ValorantMatches {
       equals: (a, b) => a.equivalentTo(b),
       hashCode: (triplet) => triplet.equivalentHash(),
     );
-    final interactionsMap =
-        <StyleTriplet, (Score aVsB, Score bVsC, Score cVsA)>{};
+    final interactions = <NonTransitiveInteraction>[];
     for (final MapEntry(key: a, value: aScoreData) in winsGraph.entries) {
       for (final (stylePoints: b, score: aVsB) in aScoreData) {
         for (final (stylePoints: c, score: bVsC) in winsGraph.getScores(b)) {
@@ -64,17 +63,31 @@ extension TriangularInteractionsFinder on ValorantMatches {
               case final cVsAScore?) {
             final styleTriplet = StyleTriplet(a, b, c);
             if (triplets.add(styleTriplet)) {
-              interactionsMap[styleTriplet] = (aVsB, bVsC, cVsAScore.score);
+              interactions.add(
+                NonTransitiveInteraction(
+                  styles: styleTriplet,
+                  aVsB: aVsB,
+                  bVsC: bVsC,
+                  cVsA: cVsAScore.score,
+                ),
+              );
             }
           }
         }
       }
     }
-    return interactionsMap;
+    return interactions.sorted((a, b) {
+      final aScore = a.total;
+      final bScore = b.total;
+      if (bScore.played == aScore.played) {
+        return bScore.compareTo(aScore);
+      }
+      return bScore.played.compareTo(aScore.played);
+    });
   }
 }
 
-typedef ScoreData = ({StylePoints stylePoints, Score score});
+typedef ScoreData = ({StylePoints stylePoints, MatchesSummary score});
 typedef WinsGraph = Map<StylePoints, List<ScoreData>>;
 
 extension on WinsGraph {

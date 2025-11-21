@@ -11,13 +11,12 @@ class TriangleIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     final iconTheme = IconTheme.of(context);
     final iconSize = size ?? iconTheme.size;
-    return SizedBox(
-      width: iconSize,
-      height: iconSize,
+    return SizedBox.square(
+      dimension: iconSize,
       child: TernaryPlot<int>(
         plotData: TernaryPlotData(
           data: const {},
-          builder: (value) => const SizedBox.shrink(),
+          builder: (_) => const SizedBox.shrink(),
         ),
         areas: TernaryPlotStyles(context).areas(opacity: 1),
       ),

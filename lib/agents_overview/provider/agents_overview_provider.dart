@@ -28,9 +28,9 @@ class AgentsOverviewNotifier extends _$AgentsOverviewNotifier {
     final defaultNameSubscription = agentsRepository.defaultName.listen((name) {
       state = state.copyWith(defaultRosterName: name);
     });
-    ref.onDispose(() {
-      rosterSubscription.cancel();
-      defaultNameSubscription.cancel();
+    ref.onDispose(() async {
+      await rosterSubscription.cancel();
+      await defaultNameSubscription.cancel();
     });
 
     return const AgentsOverviewState(agentDetails: [], defaultRosterName: '');

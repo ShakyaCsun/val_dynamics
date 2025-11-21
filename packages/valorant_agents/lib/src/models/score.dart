@@ -37,6 +37,11 @@ class Score extends Equatable implements Comparable<Score> {
 
   ScoreType get scoreType => ScoreType.fromScore(this);
 
+  bool get tiedOrPositive => switch (scoreType) {
+    ScoreType.veryPositive || ScoreType.positive || ScoreType.tied => true,
+    ScoreType.negative || ScoreType.veryNegative => false,
+  };
+
   @override
   String toString() {
     return winRateFraction;

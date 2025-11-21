@@ -17,6 +17,7 @@ export 'roster_select_button.dart';
 export 'simple_provider.dart';
 export 'slider_text_input.dart';
 export 'style_triangle.dart';
+export 'style_type_icon.dart';
 export 'ternary_plot_hover_info.dart';
 export 'triangle_icon.dart';
 export 'width_constrained_box.dart';

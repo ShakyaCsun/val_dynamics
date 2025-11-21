@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:matches_repository/matches_repository.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 import 'package:vsdat/l10n/l10n.dart';
-import 'package:vsdat/matches_stats/matches_stats.dart';
 import 'package:vsdat/styled_matches_list/styled_matches_list.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';
 
@@ -54,12 +54,12 @@ class StylesMatchesSummaryCard extends StatelessWidget {
       acm: styleOne,
       opponentAcm: styleTwo,
       summary: MatchesSummary(
-        :matchesCount,
-        :scoreOne,
-        :attackScoreOne,
-        :compsOne,
-        :compsTwo,
-        :defenseScoreOne,
+        :count,
+        :score,
+        :attackScore,
+        :compPicksOne,
+        :compPicksTwo,
+        :defenseScore,
       ),
     ) = summaryData;
     return Card.filled(
@@ -73,30 +73,30 @@ class StylesMatchesSummaryCard extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     ColoredAcm(acm: styleOne),
-                    Text(l10n.nDifferentComps(compsOne.length)),
+                    Text(l10n.nDifferentComps(compPicksOne.length)),
                   ],
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(l10n.versusLabel),
-                    Text(l10n.nMatches(matchesCount)),
+                    Text(l10n.nMatches(count)),
                   ],
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     ColoredAcm(acm: styleTwo),
-                    Text(l10n.nDifferentComps(compsTwo.length)),
+                    Text(l10n.nDifferentComps(compPicksTwo.length)),
                   ],
                 ),
               ],
             ),
-            Text(scoreOne.winRatePercent, style: textTheme.titleLarge),
-            Text('${l10n.overallScore}: $scoreOne'),
+            Text(score.winRatePercent, style: textTheme.titleLarge),
+            Text('${l10n.overallScore}: $score'),
             Text(
-              '${l10n.attack}: ${attackScoreOne.roundPercentStat} '
-              '${l10n.defense}: ${defenseScoreOne.roundPercentStat}',
+              '${l10n.attack}: ${attackScore.roundPercentStat} '
+              '${l10n.defense}: ${defenseScore.roundPercentStat}',
             ),
           ],
         ),

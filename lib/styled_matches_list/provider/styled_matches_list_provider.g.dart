@@ -172,7 +172,7 @@ final class StyledMatchesDataListProvider
 }
 
 String _$styledMatchesDataListHash() =>
-    r'94b0011320a0c5ccb22c9818dfbc745907244a8c';
+    r'4a0906f0aea31de672b3c1ebafe6842e629d6772';
 
 final class StyledMatchesDataListFamily extends $Family
     with

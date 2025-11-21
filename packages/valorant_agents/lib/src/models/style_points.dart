@@ -19,6 +19,9 @@ enum Style {
 
 typedef StylePoints = ({double aggro, double control, double midrange});
 
+/// A record pair of [StylePoints].
+typedef StylePair = (StylePoints, StylePoints);
+
 extension StylePointsExtension on StylePoints {
   StylePoints operator +(StylePoints other) {
     return (
@@ -175,22 +178,34 @@ extension StylePointsExtension on StylePoints {
   }
 }
 
+extension StylePairExtension on StylePair {
+  StylePair get reversed => (right, left);
+
+  bool get isMirror => $1 == $2;
+
+  /// The first/left [StylePoints] of the pair
+  StylePoints get left => $1;
+
+  /// The second/right [StylePoints] of the pair
+  StylePoints get right => $2;
+}
+
 /// {@template style_triplet}
 /// A set of three [StylePoints], usually used to represent 3 styles where
 /// 'a' beats 'b', 'b' beats 'c', and 'c' beats 'a'.
 /// {@endtemplate}
 class StyleTriplet extends Equatable {
   /// {@macro style_triplet}
-  StyleTriplet(this.a, this.b, this.c)
-    : bFirst = StyleTriplet(b, c, a),
-      cFirst = StyleTriplet(c, a, b);
+  const StyleTriplet(this.a, this.b, this.c);
 
   final StylePoints a;
   final StylePoints b;
   final StylePoints c;
 
-  final StyleTriplet bFirst;
-  final StyleTriplet cFirst;
+  StyleTriplet get bFirst => StyleTriplet(b, c, a);
+  StyleTriplet get cFirst => StyleTriplet(c, a, b);
+
+  List<StylePair> get stylePairs => [(a, b), (b, c), (c, a)];
 
   @override
   List<Object> get props => [a, b, c];

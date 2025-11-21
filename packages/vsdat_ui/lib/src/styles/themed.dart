@@ -47,4 +47,7 @@ class ThemedValue<T> {
 /// ```
 class ThemedColor extends ThemedValue<Color> {
   const ThemedColor(super.dark, super.light);
+
+  /// White color for dark theme and black for light theme.
+  static const textColor = ThemedColor(Color(0xFFFFFFFF), Color(0xFF000000));
 }

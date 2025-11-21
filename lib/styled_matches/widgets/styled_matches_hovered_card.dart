@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:matches_repository/matches_repository.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 import 'package:vsdat/l10n/l10n.dart';
-import 'package:vsdat/matches_stats/matches_stats.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';
 
 class StyledMatchesHoveredCard extends StatelessWidget {
@@ -21,17 +21,17 @@ class StyledMatchesHoveredCard extends StatelessWidget {
     final l10n = context.l10n;
 
     final MatchesSummary(
-      :attackScoreOne,
-      :scoreOne,
+      :attackScore,
+      :score,
       :mapScore,
-      :compsOne,
-      :compsTwo,
-      :defenseScoreOne,
-      :matchesCount,
+      :compPicksOne,
+      :compPicksTwo,
+      :defenseScore,
+      :count,
     ) = summary;
     final acmOne = stylePoints.acm;
     final opponentAcm = opponentStyle.acm;
-    final scoreDescription = switch (scoreOne.scoreType) {
+    final scoreDescription = switch (score.scoreType) {
       ScoreType.veryPositive => l10n.veryPositiveWinRate(acmOne, opponentAcm),
       ScoreType.positive => l10n.positiveWinRate(acmOne, opponentAcm),
       ScoreType.tied => l10n.tiedWinRate(acmOne, opponentAcm),
@@ -39,16 +39,16 @@ class StyledMatchesHoveredCard extends StatelessWidget {
       ScoreType.veryNegative => l10n.veryNegativeWinRate(acmOne, opponentAcm),
     };
     final compsMatchUp =
-        '${l10n.nDifferentComps(compsOne.length)} ${l10n.versusLabel} '
-        '${l10n.nDifferentComps(compsTwo.length)}';
+        '${l10n.nDifferentComps(compPicksOne.length)} ${l10n.versusLabel} '
+        '${l10n.nDifferentComps(compPicksTwo.length)}';
     return Card.outlined(
       child: ResponsivePadding(
         child: Column(
           children: [
-            Text('$scoreDescription ${scoreOne.roundPercentStat}'),
-            Text('${l10n.nMatches(matchesCount)}: ${mapScore.wonLost}'),
-            Text('${l10n.attack}: ${attackScoreOne.roundPercentStat}'),
-            Text('${l10n.defense}: ${defenseScoreOne.roundPercentStat}'),
+            Text('$scoreDescription ${score.roundPercentStat}'),
+            Text('${l10n.nMatches(count)}: ${mapScore.wonLost}'),
+            Text('${l10n.attack}: ${attackScore.roundPercentStat}'),
+            Text('${l10n.defense}: ${defenseScore.roundPercentStat}'),
             Text(compsMatchUp),
           ],
         ),

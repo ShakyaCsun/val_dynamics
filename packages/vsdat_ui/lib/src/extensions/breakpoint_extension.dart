@@ -448,6 +448,10 @@ int getBreakpointSize(Breakpoint breakpoint) {
 }
 
 extension BuildContextBreakpointsExtension on BuildContext {
+  bool get mediumAndUp {
+    return const Breakpoint.medium(andUp: true).isActive(this);
+  }
+
   bool get mediumLargeAndUp {
     return const Breakpoint.mediumLarge(andUp: true).isActive(this);
   }

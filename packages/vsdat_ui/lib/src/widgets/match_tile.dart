@@ -29,7 +29,7 @@ class MatchTile extends StatelessWidget {
                 children: [
                   Text(nameOne, style: textTheme.titleMedium),
                   ColoredAcm(acm: stylePoints1),
-                  CompositionsRow(comp: compOne, iconSize: 40),
+                  CompositionsRow(comp: compOne),
                 ],
               ),
             ),
@@ -49,7 +49,7 @@ class MatchTile extends StatelessWidget {
                 children: [
                   Text(nameTwo, style: textTheme.titleMedium),
                   ColoredAcm(acm: stylePoints2),
-                  CompositionsRow(comp: compTwo, iconSize: 40),
+                  CompositionsRow(comp: compTwo),
                 ],
               ),
             ),
@@ -61,11 +61,7 @@ class MatchTile extends StatelessWidget {
 }
 
 class CompositionsRow extends StatelessWidget {
-  const CompositionsRow({
-    required this.comp,
-    required this.iconSize,
-    super.key,
-  });
+  const CompositionsRow({required this.comp, this.iconSize = 40, super.key});
 
   final AgentComp comp;
   final double iconSize;
