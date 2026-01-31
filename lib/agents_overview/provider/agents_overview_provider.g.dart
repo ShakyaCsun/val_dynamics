@@ -10,11 +10,11 @@ part of 'agents_overview_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(AgentsOverviewNotifier)
-const agentsOverviewProvider = AgentsOverviewNotifierProvider._();
+final agentsOverviewProvider = AgentsOverviewNotifierProvider._();
 
 final class AgentsOverviewNotifierProvider
     extends $NotifierProvider<AgentsOverviewNotifier, AgentsOverviewState> {
-  const AgentsOverviewNotifierProvider._()
+  AgentsOverviewNotifierProvider._()
     : super(
         from: null,
         argument: null,
@@ -49,7 +49,6 @@ abstract class _$AgentsOverviewNotifier extends $Notifier<AgentsOverviewState> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build();
     final ref = this.ref as $Ref<AgentsOverviewState, AgentsOverviewState>;
     final element =
         ref.element
@@ -59,12 +58,12 @@ abstract class _$AgentsOverviewNotifier extends $Notifier<AgentsOverviewState> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, build);
   }
 }
 
 @ProviderFor(agentsRepository)
-const agentsRepositoryProvider = AgentsRepositoryProvider._();
+final agentsRepositoryProvider = AgentsRepositoryProvider._();
 
 final class AgentsRepositoryProvider
     extends
@@ -74,7 +73,7 @@ final class AgentsRepositoryProvider
           AgentsRepository
         >
     with $Provider<AgentsRepository> {
-  const AgentsRepositoryProvider._()
+  AgentsRepositoryProvider._()
     : super(
         from: null,
         argument: null,
@@ -110,12 +109,12 @@ final class AgentsRepositoryProvider
 String _$agentsRepositoryHash() => r'499e347f42c7a30b920f9ab0ce9c81ca7a818cd7';
 
 @ProviderFor(defaultRosterName)
-const defaultRosterNameProvider = DefaultRosterNameProvider._();
+final defaultRosterNameProvider = DefaultRosterNameProvider._();
 
 final class DefaultRosterNameProvider
     extends $FunctionalProvider<String, String, String>
     with $Provider<String> {
-  const DefaultRosterNameProvider._()
+  DefaultRosterNameProvider._()
     : super(
         from: null,
         argument: null,
@@ -151,12 +150,12 @@ final class DefaultRosterNameProvider
 String _$defaultRosterNameHash() => r'dd84ac89e778c021dc37308e0c25a3ce0e351bb1';
 
 @ProviderFor(availableRosters)
-const availableRostersProvider = AvailableRostersProvider._();
+final availableRostersProvider = AvailableRostersProvider._();
 
 final class AvailableRostersProvider
     extends $FunctionalProvider<List<String>, List<String>, List<String>>
     with $Provider<List<String>> {
-  const AvailableRostersProvider._()
+  AvailableRostersProvider._()
     : super(
         from: null,
         argument: null,

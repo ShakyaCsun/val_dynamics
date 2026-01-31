@@ -10,11 +10,11 @@ part of 'comp_filters_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(CompFilters)
-const compFiltersProvider = CompFiltersFamily._();
+final compFiltersProvider = CompFiltersFamily._();
 
 final class CompFiltersProvider
     extends $NotifierProvider<CompFilters, CompFiltersState> {
-  const CompFiltersProvider._({
+  CompFiltersProvider._({
     required CompFiltersFamily super.from,
     required String super.argument,
   }) : super(
@@ -69,7 +69,7 @@ final class CompFiltersFamily extends $Family
           CompFiltersState,
           String
         > {
-  const CompFiltersFamily._()
+  CompFiltersFamily._()
     : super(
         retry: null,
         name: r'compFiltersProvider',
@@ -93,7 +93,6 @@ abstract class _$CompFilters extends $Notifier<CompFiltersState> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build(rosterName: _$args);
     final ref = this.ref as $Ref<CompFiltersState, CompFiltersState>;
     final element =
         ref.element
@@ -103,6 +102,6 @@ abstract class _$CompFilters extends $Notifier<CompFiltersState> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, () => build(rosterName: _$args));
   }
 }

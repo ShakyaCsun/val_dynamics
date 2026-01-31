@@ -10,11 +10,11 @@ part of 'add_agents_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(AddAgents)
-const addAgentsProvider = AddAgentsProvider._();
+final addAgentsProvider = AddAgentsProvider._();
 
 final class AddAgentsProvider
     extends $NotifierProvider<AddAgents, AddAgentsForm> {
-  const AddAgentsProvider._()
+  AddAgentsProvider._()
     : super(
         from: null,
         argument: null,
@@ -48,7 +48,6 @@ abstract class _$AddAgents extends $Notifier<AddAgentsForm> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build();
     final ref = this.ref as $Ref<AddAgentsForm, AddAgentsForm>;
     final element =
         ref.element
@@ -58,6 +57,6 @@ abstract class _$AddAgents extends $Notifier<AddAgentsForm> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, build);
   }
 }

@@ -10,7 +10,7 @@ part of 'matches_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(matchesRepository)
-const matchesRepositoryProvider = MatchesRepositoryFamily._();
+final matchesRepositoryProvider = MatchesRepositoryFamily._();
 
 final class MatchesRepositoryProvider
     extends
@@ -20,7 +20,7 @@ final class MatchesRepositoryProvider
           MatchesRepository
         >
     with $Provider<MatchesRepository> {
-  const MatchesRepositoryProvider._({
+  MatchesRepositoryProvider._({
     required MatchesRepositoryFamily super.from,
     required String super.argument,
   }) : super(
@@ -76,7 +76,7 @@ String _$matchesRepositoryHash() => r'2570457637d02aa38fa33943af48e7ce4355feb5';
 
 final class MatchesRepositoryFamily extends $Family
     with $FunctionalFamilyOverride<MatchesRepository, String> {
-  const MatchesRepositoryFamily._()
+  MatchesRepositoryFamily._()
     : super(
         retry: null,
         name: r'matchesRepositoryProvider',
@@ -93,12 +93,12 @@ final class MatchesRepositoryFamily extends $Family
 }
 
 @ProviderFor(availableMaps)
-const availableMapsProvider = AvailableMapsFamily._();
+final availableMapsProvider = AvailableMapsFamily._();
 
 final class AvailableMapsProvider
     extends $FunctionalProvider<Set<String>, Set<String>, Set<String>>
     with $Provider<Set<String>> {
-  const AvailableMapsProvider._({
+  AvailableMapsProvider._({
     required AvailableMapsFamily super.from,
     required String super.argument,
   }) : super(
@@ -153,7 +153,7 @@ String _$availableMapsHash() => r'290dccdc7138e2c65994e4988b9ab69286d304ce';
 
 final class AvailableMapsFamily extends $Family
     with $FunctionalFamilyOverride<Set<String>, String> {
-  const AvailableMapsFamily._()
+  AvailableMapsFamily._()
     : super(
         retry: null,
         name: r'availableMapsProvider',
@@ -170,12 +170,12 @@ final class AvailableMapsFamily extends $Family
 }
 
 @ProviderFor(selectedMaps)
-const selectedMapsProvider = SelectedMapsFamily._();
+final selectedMapsProvider = SelectedMapsFamily._();
 
 final class SelectedMapsProvider
     extends $FunctionalProvider<Set<String>, Set<String>, Set<String>>
     with $Provider<Set<String>> {
-  const SelectedMapsProvider._({
+  SelectedMapsProvider._({
     required SelectedMapsFamily super.from,
     required String super.argument,
   }) : super(
@@ -230,7 +230,7 @@ String _$selectedMapsHash() => r'b3c07a8afd429fb9844a36bf209f96556062895a';
 
 final class SelectedMapsFamily extends $Family
     with $FunctionalFamilyOverride<Set<String>, String> {
-  const SelectedMapsFamily._()
+  SelectedMapsFamily._()
     : super(
         retry: null,
         name: r'selectedMapsProvider',
@@ -247,11 +247,11 @@ final class SelectedMapsFamily extends $Family
 }
 
 @ProviderFor(Matches)
-const matchesProvider = MatchesFamily._();
+final matchesProvider = MatchesFamily._();
 
 final class MatchesProvider
     extends $NotifierProvider<Matches, ValorantMatches> {
-  const MatchesProvider._({
+  MatchesProvider._({
     required MatchesFamily super.from,
     required String super.argument,
   }) : super(
@@ -306,7 +306,7 @@ final class MatchesFamily extends $Family
           ValorantMatches,
           String
         > {
-  const MatchesFamily._()
+  MatchesFamily._()
     : super(
         retry: null,
         name: r'matchesProvider',
@@ -330,7 +330,6 @@ abstract class _$Matches extends $Notifier<ValorantMatches> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build(collectionId: _$args);
     final ref = this.ref as $Ref<ValorantMatches, ValorantMatches>;
     final element =
         ref.element
@@ -340,16 +339,16 @@ abstract class _$Matches extends $Notifier<ValorantMatches> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, () => build(collectionId: _$args));
   }
 }
 
 @ProviderFor(MatchesFilter)
-const matchesFilterProvider = MatchesFilterFamily._();
+final matchesFilterProvider = MatchesFilterFamily._();
 
 final class MatchesFilterProvider
     extends $NotifierProvider<MatchesFilter, MatchesFilterState> {
-  const MatchesFilterProvider._({
+  MatchesFilterProvider._({
     required MatchesFilterFamily super.from,
     required String super.argument,
   }) : super(
@@ -404,7 +403,7 @@ final class MatchesFilterFamily extends $Family
           MatchesFilterState,
           String
         > {
-  const MatchesFilterFamily._()
+  MatchesFilterFamily._()
     : super(
         retry: null,
         name: r'matchesFilterProvider',
@@ -428,7 +427,6 @@ abstract class _$MatchesFilter extends $Notifier<MatchesFilterState> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build(collectionId: _$args);
     final ref = this.ref as $Ref<MatchesFilterState, MatchesFilterState>;
     final element =
         ref.element
@@ -438,6 +436,6 @@ abstract class _$MatchesFilter extends $Notifier<MatchesFilterState> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, () => build(collectionId: _$args));
   }
 }

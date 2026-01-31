@@ -10,7 +10,7 @@ part of 'combo_synergies_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(comboSynergies)
-const comboSynergiesProvider = ComboSynergiesFamily._();
+final comboSynergiesProvider = ComboSynergiesFamily._();
 
 final class ComboSynergiesProvider
     extends
@@ -20,7 +20,7 @@ final class ComboSynergiesProvider
           Map<(Agent, Agent), ComboSynergyStat>
         >
     with $Provider<Map<(Agent, Agent), ComboSynergyStat>> {
-  const ComboSynergiesProvider._({
+  ComboSynergiesProvider._({
     required ComboSynergiesFamily super.from,
     required String super.argument,
   }) : super(
@@ -81,7 +81,7 @@ final class ComboSynergiesFamily extends $Family
           Map<(Agent, Agent), ComboSynergyStat>,
           String
         > {
-  const ComboSynergiesFamily._()
+  ComboSynergiesFamily._()
     : super(
         retry: null,
         name: r'comboSynergiesProvider',
@@ -98,7 +98,7 @@ final class ComboSynergiesFamily extends $Family
 }
 
 @ProviderFor(sortedComboSynergiesList)
-const sortedComboSynergiesListProvider = SortedComboSynergiesListFamily._();
+final sortedComboSynergiesListProvider = SortedComboSynergiesListFamily._();
 
 final class SortedComboSynergiesListProvider
     extends
@@ -108,7 +108,7 @@ final class SortedComboSynergiesListProvider
           List<ComboSynergyTableData>
         >
     with $Provider<List<ComboSynergyTableData>> {
-  const SortedComboSynergiesListProvider._({
+  SortedComboSynergiesListProvider._({
     required SortedComboSynergiesListFamily super.from,
     required String super.argument,
   }) : super(
@@ -166,7 +166,7 @@ String _$sortedComboSynergiesListHash() =>
 
 final class SortedComboSynergiesListFamily extends $Family
     with $FunctionalFamilyOverride<List<ComboSynergyTableData>, String> {
-  const SortedComboSynergiesListFamily._()
+  SortedComboSynergiesListFamily._()
     : super(
         retry: null,
         name: r'sortedComboSynergiesListProvider',
@@ -183,11 +183,11 @@ final class SortedComboSynergiesListFamily extends $Family
 }
 
 @ProviderFor(ComboSynergySort)
-const comboSynergySortProvider = ComboSynergySortProvider._();
+final comboSynergySortProvider = ComboSynergySortProvider._();
 
 final class ComboSynergySortProvider
     extends $NotifierProvider<ComboSynergySort, SynergySort> {
-  const ComboSynergySortProvider._()
+  ComboSynergySortProvider._()
     : super(
         from: null,
         argument: null,
@@ -221,7 +221,6 @@ abstract class _$ComboSynergySort extends $Notifier<SynergySort> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build();
     final ref = this.ref as $Ref<SynergySort, SynergySort>;
     final element =
         ref.element
@@ -231,16 +230,16 @@ abstract class _$ComboSynergySort extends $Notifier<SynergySort> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, build);
   }
 }
 
 @ProviderFor(ComboSynergyFilter)
-const comboSynergyFilterProvider = ComboSynergyFilterFamily._();
+final comboSynergyFilterProvider = ComboSynergyFilterFamily._();
 
 final class ComboSynergyFilterProvider
     extends $NotifierProvider<ComboSynergyFilter, SynergiesFilterState> {
-  const ComboSynergyFilterProvider._({
+  ComboSynergyFilterProvider._({
     required ComboSynergyFilterFamily super.from,
     required String super.argument,
   }) : super(
@@ -296,7 +295,7 @@ final class ComboSynergyFilterFamily extends $Family
           SynergiesFilterState,
           String
         > {
-  const ComboSynergyFilterFamily._()
+  ComboSynergyFilterFamily._()
     : super(
         retry: null,
         name: r'comboSynergyFilterProvider',
@@ -320,7 +319,6 @@ abstract class _$ComboSynergyFilter extends $Notifier<SynergiesFilterState> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build(collectionId: _$args);
     final ref = this.ref as $Ref<SynergiesFilterState, SynergiesFilterState>;
     final element =
         ref.element
@@ -330,6 +328,6 @@ abstract class _$ComboSynergyFilter extends $Notifier<SynergiesFilterState> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, () => build(collectionId: _$args));
   }
 }

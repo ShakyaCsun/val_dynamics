@@ -4,17 +4,17 @@ version: 0.1.0+1
 publish_to: none
 
 environment:
-  sdk: ^3.10.0-0
+  sdk: ^3.11.0-0
 
 resolution: workspace
 
 dependencies:
   collection: ^1.19.1
-  equatable: ^2.0.7
+  equatable: ^2.0.8
   valorant_agents:
     path: ../valorant_agents
 
 dev_dependencies:
-  benchmark_harness: ^2.3.1
+  benchmark_harness: ^2.4.0
   mocktail: ^1.0.4
-  test: ^1.26.3
+  test: ^1.28.0

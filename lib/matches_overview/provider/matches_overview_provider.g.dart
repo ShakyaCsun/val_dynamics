@@ -10,11 +10,11 @@ part of 'matches_overview_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(MatchesCollectionList)
-const matchesCollectionListProvider = MatchesCollectionListProvider._();
+final matchesCollectionListProvider = MatchesCollectionListProvider._();
 
 final class MatchesCollectionListProvider
     extends $NotifierProvider<MatchesCollectionList, List<MatchesCollection>> {
-  const MatchesCollectionListProvider._()
+  MatchesCollectionListProvider._()
     : super(
         from: null,
         argument: null,
@@ -50,7 +50,6 @@ abstract class _$MatchesCollectionList
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build();
     final ref =
         this.ref as $Ref<List<MatchesCollection>, List<MatchesCollection>>;
     final element =
@@ -61,6 +60,6 @@ abstract class _$MatchesCollectionList
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, build);
   }
 }

@@ -10,7 +10,7 @@ part of 'app_data_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(bundledAgents)
-const bundledAgentsProvider = BundledAgentsProvider._();
+final bundledAgentsProvider = BundledAgentsProvider._();
 
 final class BundledAgentsProvider
     extends
@@ -20,7 +20,7 @@ final class BundledAgentsProvider
           Map<String, Agents>
         >
     with $Provider<Map<String, Agents>> {
-  const BundledAgentsProvider._()
+  BundledAgentsProvider._()
     : super(
         from: null,
         argument: null,
@@ -57,7 +57,7 @@ final class BundledAgentsProvider
 String _$bundledAgentsHash() => r'a01f1fd64d0d40ca651213a381378bcd51c5193d';
 
 @ProviderFor(bundledMatches)
-const bundledMatchesProvider = BundledMatchesProvider._();
+final bundledMatchesProvider = BundledMatchesProvider._();
 
 final class BundledMatchesProvider
     extends
@@ -67,7 +67,7 @@ final class BundledMatchesProvider
           Map<String, List<RawMatch>>
         >
     with $Provider<Map<String, List<RawMatch>>> {
-  const BundledMatchesProvider._()
+  BundledMatchesProvider._()
     : super(
         from: null,
         argument: null,
@@ -104,13 +104,13 @@ final class BundledMatchesProvider
 String _$bundledMatchesHash() => r'668ed0b025a4c2e1ef380078339c6358aa22efd9';
 
 @ProviderFor(appDataInitializationStatus)
-const appDataInitializationStatusProvider =
+final appDataInitializationStatusProvider =
     AppDataInitializationStatusProvider._();
 
 final class AppDataInitializationStatusProvider
     extends $FunctionalProvider<(String, bool), (String, bool), (String, bool)>
     with $Provider<(String, bool)> {
-  const AppDataInitializationStatusProvider._()
+  AppDataInitializationStatusProvider._()
     : super(
         from: null,
         argument: null,
@@ -147,11 +147,11 @@ String _$appDataInitializationStatusHash() =>
     r'9189381f392c9202d960fe0b8dadd60f050d29fd';
 
 @ProviderFor(AppDataNotifier)
-const appDataProvider = AppDataNotifierProvider._();
+final appDataProvider = AppDataNotifierProvider._();
 
 final class AppDataNotifierProvider
     extends $NotifierProvider<AppDataNotifier, AppData> {
-  const AppDataNotifierProvider._()
+  AppDataNotifierProvider._()
     : super(
         from: null,
         argument: null,
@@ -185,7 +185,6 @@ abstract class _$AppDataNotifier extends $Notifier<AppData> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build();
     final ref = this.ref as $Ref<AppData, AppData>;
     final element =
         ref.element
@@ -195,6 +194,6 @@ abstract class _$AppDataNotifier extends $Notifier<AppData> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, build);
   }
 }

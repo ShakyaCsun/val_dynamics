@@ -10,13 +10,13 @@ part of 'team_comps_detail_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(selectedAgentComps)
-const selectedAgentCompsProvider = SelectedAgentCompsFamily._();
+final selectedAgentCompsProvider = SelectedAgentCompsFamily._();
 
 final class SelectedAgentCompsProvider
     extends
         $FunctionalProvider<List<AgentComp>, List<AgentComp>, List<AgentComp>>
     with $Provider<List<AgentComp>> {
-  const SelectedAgentCompsProvider._({
+  SelectedAgentCompsProvider._({
     required SelectedAgentCompsFamily super.from,
     required ({String rosterName, StylePoints stylePoints}) super.argument,
   }) : super(
@@ -81,7 +81,7 @@ final class SelectedAgentCompsFamily extends $Family
           List<AgentComp>,
           ({String rosterName, StylePoints stylePoints})
         > {
-  const SelectedAgentCompsFamily._()
+  SelectedAgentCompsFamily._()
     : super(
         retry: null,
         name: r'selectedAgentCompsProvider',

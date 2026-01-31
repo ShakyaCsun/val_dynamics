@@ -10,7 +10,7 @@ part of 'team_comps_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(filteredCompositions)
-const filteredCompositionsProvider = FilteredCompositionsFamily._();
+final filteredCompositionsProvider = FilteredCompositionsFamily._();
 
 final class FilteredCompositionsProvider
     extends
@@ -20,7 +20,7 @@ final class FilteredCompositionsProvider
           Iterable<AgentComp>
         >
     with $Provider<Iterable<AgentComp>> {
-  const FilteredCompositionsProvider._({
+  FilteredCompositionsProvider._({
     required FilteredCompositionsFamily super.from,
     required String super.argument,
   }) : super(
@@ -77,7 +77,7 @@ String _$filteredCompositionsHash() =>
 
 final class FilteredCompositionsFamily extends $Family
     with $FunctionalFamilyOverride<Iterable<AgentComp>, String> {
-  const FilteredCompositionsFamily._()
+  FilteredCompositionsFamily._()
     : super(
         retry: null,
         name: r'filteredCompositionsProvider',
@@ -94,7 +94,7 @@ final class FilteredCompositionsFamily extends $Family
 }
 
 @ProviderFor(teamCompsTernaryData)
-const teamCompsTernaryDataProvider = TeamCompsTernaryDataFamily._();
+final teamCompsTernaryDataProvider = TeamCompsTernaryDataFamily._();
 
 final class TeamCompsTernaryDataProvider
     extends
@@ -104,7 +104,7 @@ final class TeamCompsTernaryDataProvider
           Map<AgentCompsTernaryData, TernaryPoint>
         >
     with $Provider<Map<AgentCompsTernaryData, TernaryPoint>> {
-  const TeamCompsTernaryDataProvider._({
+  TeamCompsTernaryDataProvider._({
     required TeamCompsTernaryDataFamily super.from,
     required String super.argument,
   }) : super(
@@ -166,7 +166,7 @@ final class TeamCompsTernaryDataFamily extends $Family
           Map<AgentCompsTernaryData, TernaryPoint>,
           String
         > {
-  const TeamCompsTernaryDataFamily._()
+  TeamCompsTernaryDataFamily._()
     : super(
         retry: null,
         name: r'teamCompsTernaryDataProvider',
@@ -183,12 +183,12 @@ final class TeamCompsTernaryDataFamily extends $Family
 }
 
 @ProviderFor(compositionsReady)
-const compositionsReadyProvider = CompositionsReadyFamily._();
+final compositionsReadyProvider = CompositionsReadyFamily._();
 
 final class CompositionsReadyProvider
     extends $FunctionalProvider<bool, bool, bool>
     with $Provider<bool> {
-  const CompositionsReadyProvider._({
+  CompositionsReadyProvider._({
     required CompositionsReadyFamily super.from,
     required String super.argument,
   }) : super(
@@ -243,7 +243,7 @@ String _$compositionsReadyHash() => r'073d41e77f154dd94f4b964411f4bd7c9b96f76f';
 
 final class CompositionsReadyFamily extends $Family
     with $FunctionalFamilyOverride<bool, String> {
-  const CompositionsReadyFamily._()
+  CompositionsReadyFamily._()
     : super(
         retry: null,
         name: r'compositionsReadyProvider',
@@ -260,11 +260,11 @@ final class CompositionsReadyFamily extends $Family
 }
 
 @ProviderFor(Compositions)
-const compositionsProvider = CompositionsFamily._();
+final compositionsProvider = CompositionsFamily._();
 
 final class CompositionsProvider
     extends $AsyncNotifierProvider<Compositions, CompositionsState> {
-  const CompositionsProvider._({
+  CompositionsProvider._({
     required CompositionsFamily super.from,
     required String super.argument,
   }) : super(
@@ -311,7 +311,7 @@ final class CompositionsFamily extends $Family
           FutureOr<CompositionsState>,
           String
         > {
-  const CompositionsFamily._()
+  CompositionsFamily._()
     : super(
         retry: null,
         name: r'compositionsProvider',
@@ -335,7 +335,6 @@ abstract class _$Compositions extends $AsyncNotifier<CompositionsState> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build(rosterName: _$args);
     final ref =
         this.ref as $Ref<AsyncValue<CompositionsState>, CompositionsState>;
     final element =
@@ -346,6 +345,6 @@ abstract class _$Compositions extends $AsyncNotifier<CompositionsState> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, () => build(rosterName: _$args));
   }
 }

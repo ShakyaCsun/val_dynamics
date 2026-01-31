@@ -10,11 +10,11 @@ part of 'matches_stats_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(MatchesStats)
-const matchesStatsProvider = MatchesStatsFamily._();
+final matchesStatsProvider = MatchesStatsFamily._();
 
 final class MatchesStatsProvider
     extends $NotifierProvider<MatchesStats, List<StyleTypeMatches>> {
-  const MatchesStatsProvider._({
+  MatchesStatsProvider._({
     required MatchesStatsFamily super.from,
     required String super.argument,
   }) : super(
@@ -69,7 +69,7 @@ final class MatchesStatsFamily extends $Family
           List<StyleTypeMatches>,
           String
         > {
-  const MatchesStatsFamily._()
+  MatchesStatsFamily._()
     : super(
         retry: null,
         name: r'matchesStatsProvider',
@@ -93,7 +93,6 @@ abstract class _$MatchesStats extends $Notifier<List<StyleTypeMatches>> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build(collectionId: _$args);
     final ref =
         this.ref as $Ref<List<StyleTypeMatches>, List<StyleTypeMatches>>;
     final element =
@@ -104,12 +103,12 @@ abstract class _$MatchesStats extends $Notifier<List<StyleTypeMatches>> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, () => build(collectionId: _$args));
   }
 }
 
 @ProviderFor(TriangularInteractions)
-const triangularInteractionsProvider = TriangularInteractionsFamily._();
+final triangularInteractionsProvider = TriangularInteractionsFamily._();
 
 final class TriangularInteractionsProvider
     extends
@@ -117,7 +116,7 @@ final class TriangularInteractionsProvider
           TriangularInteractions,
           List<NonTransitiveInteraction>
         > {
-  const TriangularInteractionsProvider._({
+  TriangularInteractionsProvider._({
     required TriangularInteractionsFamily super.from,
     required String super.argument,
   }) : super(
@@ -176,7 +175,7 @@ final class TriangularInteractionsFamily extends $Family
           List<NonTransitiveInteraction>,
           String
         > {
-  const TriangularInteractionsFamily._()
+  TriangularInteractionsFamily._()
     : super(
         retry: null,
         name: r'triangularInteractionsProvider',
@@ -201,7 +200,6 @@ abstract class _$TriangularInteractions
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build(collectionId: _$args);
     final ref =
         this.ref
             as $Ref<
@@ -219,6 +217,6 @@ abstract class _$TriangularInteractions
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, () => build(collectionId: _$args));
   }
 }

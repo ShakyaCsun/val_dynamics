@@ -10,13 +10,13 @@ part of 'styled_matchup_list_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(styledMatchupList)
-const styledMatchupListProvider = StyledMatchupListFamily._();
+final styledMatchupListProvider = StyledMatchupListFamily._();
 
 final class StyledMatchupListProvider
     extends
         $FunctionalProvider<ValorantMatches, ValorantMatches, ValorantMatches>
     with $Provider<ValorantMatches> {
-  const StyledMatchupListProvider._({
+  StyledMatchupListProvider._({
     required StyledMatchupListFamily super.from,
     required ({String collectionId, StylePoints acm, StylePoints opponentAcm})
     super.argument,
@@ -87,7 +87,7 @@ final class StyledMatchupListFamily extends $Family
           ValorantMatches,
           ({String collectionId, StylePoints acm, StylePoints opponentAcm})
         > {
-  const StyledMatchupListFamily._()
+  StyledMatchupListFamily._()
     : super(
         retry: null,
         name: r'styledMatchupListProvider',
