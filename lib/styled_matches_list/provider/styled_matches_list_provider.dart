@@ -1,10 +1,10 @@
 import 'package:collection/collection.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:matches_repository/matches_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 import 'package:vsdat/matches/matches.dart';
-import 'package:vsdat/matches_stats/matches_stats.dart';
 
 part 'styled_matches_list_provider.freezed.dart';
 part 'styled_matches_list_provider.g.dart';
@@ -58,31 +58,14 @@ List<(StyledMatchesSummaryData, ValorantMatches)> styledMatchesDataList(
       })
       .sorted((a, b) {
         final (
-          StyledMatchesSummaryData(
-            acm: _,
-            opponentAcm: _,
-            summary: MatchesSummary(
-              matchesCount: matchesCount,
-              scoreOne: score,
-            ),
-          ),
+          StyledMatchesSummaryData(acm: _, opponentAcm: _, summary: summaryOne),
           _,
         ) = a;
         final (
-          StyledMatchesSummaryData(
-            acm: _,
-            opponentAcm: _,
-            summary: MatchesSummary(
-              matchesCount: otherMatchesCount,
-              scoreOne: otherScore,
-            ),
-          ),
+          StyledMatchesSummaryData(acm: _, opponentAcm: _, summary: summaryTwo),
           _,
         ) = b;
-        if (matchesCount == otherMatchesCount) {
-          return otherScore.compareTo(score);
-        }
-        return otherMatchesCount.compareTo(matchesCount);
+        return summaryTwo.compareTo(summaryOne);
       });
 }
 

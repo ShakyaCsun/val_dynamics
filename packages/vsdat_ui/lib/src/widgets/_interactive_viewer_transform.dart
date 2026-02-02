@@ -8,6 +8,7 @@
 // ignore_for_file: prefer_asserts_with_message, lines_longer_than_80_chars
 // cSpell: disable
 
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart' show clampDouble;
@@ -922,7 +923,7 @@ class _InteractiveViewerState extends State<InteractiveViewer>
             );
         _controller.duration = Duration(milliseconds: (tFinal * 1000).round());
         _animation!.addListener(_handleInertiaAnimation);
-        _controller.forward();
+        unawaited(_controller.forward());
       case _GestureType.scale:
         if (details.scaleVelocity.abs() < 0.1) {
           _currentAxis = null;
@@ -953,7 +954,7 @@ class _InteractiveViewerState extends State<InteractiveViewer>
           milliseconds: (tFinal * 1000).round(),
         );
         _scaleAnimation!.addListener(_handleScaleAnimation);
-        _scaleController.forward();
+        unawaited(_scaleController.forward());
       case _GestureType.rotate || null:
         break;
     }

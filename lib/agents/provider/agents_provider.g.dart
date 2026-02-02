@@ -6,12 +6,15 @@ part of 'agents_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
 @ProviderFor(agents)
-const agentsProvider = AgentsFamily._();
+final agentsProvider = AgentsFamily._();
 
 final class AgentsProvider extends $FunctionalProvider<Agents, Agents, Agents>
     with $Provider<Agents> {
-  const AgentsProvider._({
+  AgentsProvider._({
     required AgentsFamily super.from,
     required String super.argument,
   }) : super(
@@ -66,7 +69,7 @@ String _$agentsHash() => r'bf123aaa9a70a62997255260e04f41ebc5949f0e';
 
 final class AgentsFamily extends $Family
     with $FunctionalFamilyOverride<Agents, String> {
-  const AgentsFamily._()
+  AgentsFamily._()
     : super(
         retry: null,
         name: r'agentsProvider',
@@ -83,11 +86,11 @@ final class AgentsFamily extends $Family
 }
 
 @ProviderFor(SelectedAgent)
-const selectedAgentProvider = SelectedAgentFamily._();
+final selectedAgentProvider = SelectedAgentFamily._();
 
 final class SelectedAgentProvider
     extends $NotifierProvider<SelectedAgent, Agent?> {
-  const SelectedAgentProvider._({
+  SelectedAgentProvider._({
     required SelectedAgentFamily super.from,
     required String super.argument,
   }) : super(
@@ -135,7 +138,7 @@ String _$selectedAgentHash() => r'65a4a711658b47d00291bd585d0639717ab67407';
 
 final class SelectedAgentFamily extends $Family
     with $ClassFamilyOverride<SelectedAgent, Agent?, Agent?, Agent?, String> {
-  const SelectedAgentFamily._()
+  SelectedAgentFamily._()
     : super(
         retry: null,
         name: r'selectedAgentProvider',
@@ -159,7 +162,6 @@ abstract class _$SelectedAgent extends $Notifier<Agent?> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build(rosterName: _$args);
     final ref = this.ref as $Ref<Agent?, Agent?>;
     final element =
         ref.element
@@ -169,9 +171,6 @@ abstract class _$SelectedAgent extends $Notifier<Agent?> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, () => build(rosterName: _$args));
   }
 }
-
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

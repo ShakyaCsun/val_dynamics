@@ -44,8 +44,8 @@ class ValorantMatch extends Equatable {
   late final bool isMirrorComp = teamOne.agents == teamTwo.agents;
   late final bool isMirrorStyle = stylePoints1 == stylePoints2;
 
-  late final FastAgentMap<NonMirror> nonMirrorAgents = () {
-    final agentMap = FastAgentMap<NonMirror>();
+  late final AgentMap<NonMirror> nonMirrorAgents = () {
+    final agentMap = AgentMap<NonMirror>();
     if (isMirrorComp) {
       return agentMap;
     }

@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart';
+import 'package:equatable/equatable.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
 enum Style {
@@ -17,6 +18,9 @@ enum Style {
 }
 
 typedef StylePoints = ({double aggro, double control, double midrange});
+
+/// A record pair of [StylePoints].
+typedef StylePair = (StylePoints, StylePoints);
 
 extension StylePointsExtension on StylePoints {
   StylePoints operator +(StylePoints other) {
@@ -171,5 +175,56 @@ extension StylePointsExtension on StylePoints {
       control: controlPercentage,
       midrange: midrangePercentage,
     );
+  }
+}
+
+extension StylePairExtension on StylePair {
+  StylePair get reversed => (right, left);
+
+  bool get isMirror => $1 == $2;
+
+  /// The first/left [StylePoints] of the pair
+  StylePoints get left => $1;
+
+  /// The second/right [StylePoints] of the pair
+  StylePoints get right => $2;
+}
+
+/// {@template style_triplet}
+/// A set of three [StylePoints], usually used to represent 3 styles where
+/// 'a' beats 'b', 'b' beats 'c', and 'c' beats 'a'.
+/// {@endtemplate}
+class StyleTriplet extends Equatable {
+  /// {@macro style_triplet}
+  const StyleTriplet(this.a, this.b, this.c);
+
+  final StylePoints a;
+  final StylePoints b;
+  final StylePoints c;
+
+  StyleTriplet get bFirst => StyleTriplet(b, c, a);
+  StyleTriplet get cFirst => StyleTriplet(c, a, b);
+
+  List<StylePair> get stylePairs => [(a, b), (b, c), (c, a)];
+
+  @override
+  List<Object> get props => [a, b, c];
+
+  bool equivalentTo(StyleTriplet other) {
+    return other == this || other == bFirst || other == cFirst;
+  }
+
+  bool get isUniqueStyles {
+    return {a.styleType, b.styleType, c.styleType}.length == 3;
+  }
+
+  int equivalentHash() {
+    return [hashCode, bFirst.hashCode, cFirst.hashCode].min;
+  }
+
+  String interactions((Score, Score, Score) scores) {
+    final (ab, bc, ca) = scores;
+    return '${a.acm} beats ${b.acm}: $ab. ${b.acm} beats ${c.acm}: $bc. '
+        '${c.acm} beats ${a.acm}: $ca';
   }
 }

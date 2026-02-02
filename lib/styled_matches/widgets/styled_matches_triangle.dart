@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:matches_repository/matches_repository.dart';
 import 'package:ternary_plot/ternary_plot.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 import 'package:vsdat/app_router/routes.dart';
-import 'package:vsdat/matches_stats/matches_stats.dart';
 import 'package:vsdat/styled_matches/styled_matches.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';
 
@@ -78,7 +78,7 @@ class StyledMatchesTriangle extends StatelessWidget {
         return StyledMatchesHoveredCard(
           stylePoints: highlightStyle,
           opponentStyle: valMatches.first.stylePoints2,
-          summary: MatchesSummary.fromMatches(valMatches),
+          summary: MatchesSummary.calculate(valMatches),
         );
       },
     );

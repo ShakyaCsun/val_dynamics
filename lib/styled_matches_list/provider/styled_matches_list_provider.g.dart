@@ -6,14 +6,17 @@ part of 'styled_matches_list_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
 @ProviderFor(styledMatchesList)
-const styledMatchesListProvider = StyledMatchesListFamily._();
+final styledMatchesListProvider = StyledMatchesListFamily._();
 
 final class StyledMatchesListProvider
     extends
         $FunctionalProvider<ValorantMatches, ValorantMatches, ValorantMatches>
     with $Provider<ValorantMatches> {
-  const StyledMatchesListProvider._({
+  StyledMatchesListProvider._({
     required StyledMatchesListFamily super.from,
     required ({String collectionId, StylePoints acm}) super.argument,
   }) : super(
@@ -76,7 +79,7 @@ final class StyledMatchesListFamily extends $Family
           ValorantMatches,
           ({String collectionId, StylePoints acm})
         > {
-  const StyledMatchesListFamily._()
+  StyledMatchesListFamily._()
     : super(
         retry: null,
         name: r'styledMatchesListProvider',
@@ -98,7 +101,7 @@ final class StyledMatchesListFamily extends $Family
 }
 
 @ProviderFor(styledMatchesDataList)
-const styledMatchesDataListProvider = StyledMatchesDataListFamily._();
+final styledMatchesDataListProvider = StyledMatchesDataListFamily._();
 
 final class StyledMatchesDataListProvider
     extends
@@ -108,7 +111,7 @@ final class StyledMatchesDataListProvider
           List<(StyledMatchesSummaryData, ValorantMatches)>
         >
     with $Provider<List<(StyledMatchesSummaryData, ValorantMatches)>> {
-  const StyledMatchesDataListProvider._({
+  StyledMatchesDataListProvider._({
     required StyledMatchesDataListFamily super.from,
     required ({String collectionId, StylePoints acm}) super.argument,
   }) : super(
@@ -169,7 +172,7 @@ final class StyledMatchesDataListProvider
 }
 
 String _$styledMatchesDataListHash() =>
-    r'94b0011320a0c5ccb22c9818dfbc745907244a8c';
+    r'4a0906f0aea31de672b3c1ebafe6842e629d6772';
 
 final class StyledMatchesDataListFamily extends $Family
     with
@@ -177,7 +180,7 @@ final class StyledMatchesDataListFamily extends $Family
           List<(StyledMatchesSummaryData, ValorantMatches)>,
           ({String collectionId, StylePoints acm})
         > {
-  const StyledMatchesDataListFamily._()
+  StyledMatchesDataListFamily._()
     : super(
         retry: null,
         name: r'styledMatchesDataListProvider',
@@ -197,6 +200,3 @@ final class StyledMatchesDataListFamily extends $Family
   @override
   String toString() => r'styledMatchesDataListProvider';
 }
-
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

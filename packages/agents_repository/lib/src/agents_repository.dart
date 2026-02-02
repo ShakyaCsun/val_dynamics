@@ -12,9 +12,15 @@ class AgentsRepository {
   /// Dynamics 2.0 agent scoring as default and a SD2 rated agents of Champions
   /// 2024.
   AgentsRepository.basic({Map<String, Agents>? agentsCsvs})
-    : _builtInRosterNames = [defaultSD2, champs24SD2, ...?agentsCsvs?.keys] {
+    : _builtInRosterNames = [
+        defaultSD2,
+        champs25SD2,
+        champs24SD2,
+        ...?agentsCsvs?.keys,
+      ] {
     final rosters = {
       defaultSD2: Agents.defaultRoster,
+      champs25SD2: Agents.champs25Roster,
       champs24SD2: Agents.champs24Roster,
       for (final MapEntry(:key, value: agents)
           in (agentsCsvs ?? <String, Agents>{}).entries)
@@ -31,6 +37,9 @@ class AgentsRepository {
 
   /// The default SD2 Roster name
   static const defaultSD2 = 'Default SD2';
+
+  /// The SD2 Roster name for 2025 agents.
+  static const champs25SD2 = '2025 SD2';
 
   /// The SD2 Roster name for 2024 agents.
   static const champs24SD2 = '2024 SD2';

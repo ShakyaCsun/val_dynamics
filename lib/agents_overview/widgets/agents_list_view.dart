@@ -102,9 +102,9 @@ class AgentsListTile extends StatelessWidget {
     return Consumer(
       builder: (context, ref, child) {
         final deleteButton = IconButton(
-          onPressed: () {
-            ref
-                .read(agentsOverviewNotifierProvider.notifier)
+          onPressed: () async {
+            await ref
+                .read(agentsOverviewProvider.notifier)
                 .removeRoster(agentsDetail.rosterName);
           },
           icon: const Icon(Icons.delete_outline),
@@ -112,7 +112,7 @@ class AgentsListTile extends StatelessWidget {
         final setDefaultButton = IconButton(
           onPressed: () {
             ref
-                .read(agentsOverviewNotifierProvider.notifier)
+                .read(agentsOverviewProvider.notifier)
                 .changeDefaultRoster(agentsDetail.rosterName);
           },
           icon: const Icon(Icons.check_box_outlined),

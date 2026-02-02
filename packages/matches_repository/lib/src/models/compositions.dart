@@ -1,4 +1,3 @@
-import 'package:matches_repository/matches_repository.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
 typedef Compositions = ({AgentComp compOne, AgentComp compTwo});
@@ -6,8 +5,8 @@ typedef Compositions = ({AgentComp compOne, AgentComp compTwo});
 extension CompositionsExtension on ({AgentComp compOne, AgentComp compTwo}) {
   String get key => '${compOne.groupedAgentNames}-${compTwo.groupedAgentNames}';
 
-  FastAgentComboMap<ComboNonMirror> calculateAvailableCombos() {
-    final result = FastAgentComboMap<ComboNonMirror>();
+  AgentComboMap<ComboNonMirror> calculateAvailableCombos() {
+    final result = AgentComboMap<ComboNonMirror>();
     if (compOne == compTwo) {
       return result;
     }

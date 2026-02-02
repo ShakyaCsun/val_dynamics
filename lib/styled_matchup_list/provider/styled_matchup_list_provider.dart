@@ -12,6 +12,16 @@ ValorantMatches styledMatchupList(
   required StylePoints acm,
   required StylePoints opponentAcm,
 }) {
+  if (acm == opponentAcm) {
+    final matches = ref.watch(
+      matchesProvider(collectionId: collectionId).select(
+        (value) => value.where(
+          (element) => element.isMirrorStyle && element.stylePoints1 == acm,
+        ),
+      ),
+    );
+    return ValorantMatches(matches);
+  }
   final matches = ref.watch(
     matchesProvider(collectionId: collectionId).select(
       (value) =>

@@ -16,9 +16,15 @@ class MatchesCollectionList extends _$MatchesCollectionList {
     final matchesList = <MatchesCollection>[];
     for (final MapEntry(key: name, value: rawMatches) in matches.entries) {
       switch (name) {
-        case '2024 Game Changers and Ascension.csv':
-        case '2024 July-December.csv':
-        case '2024 VCT Season.csv':
+        case final name when name.startsWith('2025') && name.endsWith('.csv'):
+          matchesList.add(
+            MatchesCollection(
+              collectionName: name.csvFileName,
+              rawMatches: rawMatches,
+              rosterName: AgentsRepository.champs25SD2,
+            ),
+          );
+        case final name when name.startsWith('2024') && name.endsWith('.csv'):
           matchesList.add(
             MatchesCollection(
               collectionName: name.csvFileName,

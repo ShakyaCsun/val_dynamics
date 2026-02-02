@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:vsdat/app_router/routes.dart';
 import 'package:vsdat/l10n/l10n.dart';
 import 'package:vsdat/matches/matches.dart';
@@ -157,7 +158,12 @@ class MatchesNotFoundView extends StatelessWidget {
     return Column(
       children: [
         Text(l10n.noMatchesForCollection(collectionName)),
-        TextButton(onPressed: () {}, child: Text(l10n.backButtonLabel)),
+        TextButton(
+          onPressed: () {
+            context.pop();
+          },
+          child: Text(l10n.backButtonLabel),
+        ),
       ],
     );
   }

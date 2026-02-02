@@ -71,5 +71,58 @@ void main() {
         expect(cache, equals({agents: comp}));
       });
     });
+
+    group('double trouble StylePoints', () {
+      // Reproduction sample for trouble with double/floating point addition
+      // using randomized double values for aggro, control, midrange.
+      const breach = Agent(
+        name: 'Breach',
+        aggro: 6.1,
+        control: 2.9,
+        midrange: 1,
+        role: Role.initiator,
+      );
+      const jett = Agent(
+        name: 'Jett',
+        aggro: 8,
+        control: 2,
+        midrange: 0,
+        role: Role.duelist,
+      );
+      const killjoy = Agent(
+        name: 'Killjoy',
+        aggro: 3,
+        control: 6.3,
+        midrange: 0.7,
+        role: Role.sentinel,
+      );
+      const omen = Agent(
+        name: 'Omen',
+        aggro: 3,
+        control: 5.1,
+        midrange: 1.9,
+        role: Role.controller,
+      );
+      const sova = Agent(
+        name: 'Sova',
+        aggro: 1,
+        control: 6,
+        midrange: 3,
+        role: Role.initiator,
+      );
+      test('handles double addition errors', () {
+        final agentComp = AgentComp(breach, jett, killjoy, omen, sova);
+        const expectedStylePoints = (aggro: 21.1, control: 22.3, midrange: 6.6);
+        expect(agentComp.stylePoints, equals(expectedStylePoints));
+        final addedStylePoints =
+            breach.stylePoints +
+            jett.stylePoints +
+            killjoy.stylePoints +
+            omen.stylePoints +
+            sova.stylePoints;
+        // addedStylePoints has control: 22.299999999999997 so will not be equal
+        expect(addedStylePoints, isNot(equals(expectedStylePoints)));
+      });
+    });
   });
 }

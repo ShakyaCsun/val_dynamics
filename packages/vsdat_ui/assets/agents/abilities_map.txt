@@ -44,9 +44,9 @@ Ability2: Dizzy
 Ability3: Mosh Pit
 Ultimate: Thrash
 Harbor
-Ability1: Cove
-Ability2: High Tide
-Ability3: Cascade
+Ability1: High Tide
+Ability2: Cove
+Ability3: Storm Surge
 Ultimate: Reckoning
 Iso
 Ability1: Undercut
@@ -113,6 +113,11 @@ Ability1: Special Delivery
 Ability2: Guided Salvo
 Ability3: Stealth Drone
 Ultimate: Armageddon
+Veto
+Ability1: Chokehold
+Ability2: Interceptor
+Ability3: Crosscut
+Ultimate: Evolution
 Viper
 Ability1: Poison Cloud
 Ability2: Toxic Screen

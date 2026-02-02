@@ -6,17 +6,20 @@ part of 'agents_overview_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
 @ProviderFor(AgentsOverviewNotifier)
-const agentsOverviewNotifierProvider = AgentsOverviewNotifierProvider._();
+final agentsOverviewProvider = AgentsOverviewNotifierProvider._();
 
 final class AgentsOverviewNotifierProvider
     extends $NotifierProvider<AgentsOverviewNotifier, AgentsOverviewState> {
-  const AgentsOverviewNotifierProvider._()
+  AgentsOverviewNotifierProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
-        name: r'agentsOverviewNotifierProvider',
+        name: r'agentsOverviewProvider',
         isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
@@ -39,14 +42,13 @@ final class AgentsOverviewNotifierProvider
 }
 
 String _$agentsOverviewNotifierHash() =>
-    r'ae79671ba21db1a6aaeab49f3dc304ab4f06ebbe';
+    r'317bcdfa0a9dbf115db4e81757e3eba9b51412af';
 
 abstract class _$AgentsOverviewNotifier extends $Notifier<AgentsOverviewState> {
   AgentsOverviewState build();
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build();
     final ref = this.ref as $Ref<AgentsOverviewState, AgentsOverviewState>;
     final element =
         ref.element
@@ -56,12 +58,12 @@ abstract class _$AgentsOverviewNotifier extends $Notifier<AgentsOverviewState> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, build);
   }
 }
 
 @ProviderFor(agentsRepository)
-const agentsRepositoryProvider = AgentsRepositoryProvider._();
+final agentsRepositoryProvider = AgentsRepositoryProvider._();
 
 final class AgentsRepositoryProvider
     extends
@@ -71,7 +73,7 @@ final class AgentsRepositoryProvider
           AgentsRepository
         >
     with $Provider<AgentsRepository> {
-  const AgentsRepositoryProvider._()
+  AgentsRepositoryProvider._()
     : super(
         from: null,
         argument: null,
@@ -107,12 +109,12 @@ final class AgentsRepositoryProvider
 String _$agentsRepositoryHash() => r'499e347f42c7a30b920f9ab0ce9c81ca7a818cd7';
 
 @ProviderFor(defaultRosterName)
-const defaultRosterNameProvider = DefaultRosterNameProvider._();
+final defaultRosterNameProvider = DefaultRosterNameProvider._();
 
 final class DefaultRosterNameProvider
     extends $FunctionalProvider<String, String, String>
     with $Provider<String> {
-  const DefaultRosterNameProvider._()
+  DefaultRosterNameProvider._()
     : super(
         from: null,
         argument: null,
@@ -145,15 +147,15 @@ final class DefaultRosterNameProvider
   }
 }
 
-String _$defaultRosterNameHash() => r'1ea4d5b221a1a83c0619a8a0e9620545d8aed593';
+String _$defaultRosterNameHash() => r'dd84ac89e778c021dc37308e0c25a3ce0e351bb1';
 
 @ProviderFor(availableRosters)
-const availableRostersProvider = AvailableRostersProvider._();
+final availableRostersProvider = AvailableRostersProvider._();
 
 final class AvailableRostersProvider
     extends $FunctionalProvider<List<String>, List<String>, List<String>>
     with $Provider<List<String>> {
-  const AvailableRostersProvider._()
+  AvailableRostersProvider._()
     : super(
         from: null,
         argument: null,
@@ -186,7 +188,4 @@ final class AvailableRostersProvider
   }
 }
 
-String _$availableRostersHash() => r'b1485f6ff44f090b67d1dd19ac95917ce181e9bf';
-
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+String _$availableRostersHash() => r'fa4fe0bacbf7825d81c83a44253a0f74b789a266';

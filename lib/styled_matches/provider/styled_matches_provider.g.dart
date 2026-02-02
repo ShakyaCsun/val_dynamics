@@ -6,12 +6,15 @@ part of 'styled_matches_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
 @ProviderFor(StyledMatches)
-const styledMatchesProvider = StyledMatchesFamily._();
+final styledMatchesProvider = StyledMatchesFamily._();
 
 final class StyledMatchesProvider
     extends $NotifierProvider<StyledMatches, StyledMatchesState> {
-  const StyledMatchesProvider._({
+  StyledMatchesProvider._({
     required StyledMatchesFamily super.from,
     required ({String collectionId, StylePoints acm}) super.argument,
   }) : super(
@@ -66,7 +69,7 @@ final class StyledMatchesFamily extends $Family
           StyledMatchesState,
           ({String collectionId, StylePoints acm})
         > {
-  const StyledMatchesFamily._()
+  StyledMatchesFamily._()
     : super(
         retry: null,
         name: r'styledMatchesProvider',
@@ -99,7 +102,6 @@ abstract class _$StyledMatches extends $Notifier<StyledMatchesState> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build(collectionId: _$args.collectionId, acm: _$args.acm);
     final ref = this.ref as $Ref<StyledMatchesState, StyledMatchesState>;
     final element =
         ref.element
@@ -109,9 +111,9 @@ abstract class _$StyledMatches extends $Notifier<StyledMatchesState> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(
+      ref,
+      () => build(collectionId: _$args.collectionId, acm: _$args.acm),
+    );
   }
 }
-
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

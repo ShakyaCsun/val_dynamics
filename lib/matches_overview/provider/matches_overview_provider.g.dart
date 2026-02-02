@@ -6,12 +6,15 @@ part of 'matches_overview_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
 @ProviderFor(MatchesCollectionList)
-const matchesCollectionListProvider = MatchesCollectionListProvider._();
+final matchesCollectionListProvider = MatchesCollectionListProvider._();
 
 final class MatchesCollectionListProvider
     extends $NotifierProvider<MatchesCollectionList, List<MatchesCollection>> {
-  const MatchesCollectionListProvider._()
+  MatchesCollectionListProvider._()
     : super(
         from: null,
         argument: null,
@@ -39,7 +42,7 @@ final class MatchesCollectionListProvider
 }
 
 String _$matchesCollectionListHash() =>
-    r'd9e306170c938fb71b32e2655b32e7229ab09cf8';
+    r'50d98f238fce4cd72f8af09f3859ef9f9ef88d0d';
 
 abstract class _$MatchesCollectionList
     extends $Notifier<List<MatchesCollection>> {
@@ -47,7 +50,6 @@ abstract class _$MatchesCollectionList
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build();
     final ref =
         this.ref as $Ref<List<MatchesCollection>, List<MatchesCollection>>;
     final element =
@@ -58,9 +60,6 @@ abstract class _$MatchesCollectionList
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, build);
   }
 }
-
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

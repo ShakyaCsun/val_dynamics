@@ -108,14 +108,10 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
     }).toScore;
   }
 
-  Map<(StylePoints, StylePoints), ValorantMatches>
-  groupMatchesByStylisticClash() {
-    return fold(<(StylePoints, StylePoints), ValorantMatches>{}, (
-      matchesGroup,
-      match,
-    ) {
+  Map<StylePair, ValorantMatches> groupMatchesByStylisticClash() {
+    return fold(<StylePair, ValorantMatches>{}, (matchesGroup, match) {
       final key = (match.stylePoints1, match.stylePoints2);
-      final alternateKey = (match.stylePoints2, match.stylePoints1);
+      final alternateKey = key.reversed;
       if (match.isMirrorStyle) {
         matchesGroup.update(
           key,
@@ -201,6 +197,11 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
     return matchesGroup;
   }
 
+  /// Team One and Two are swapped
+  ValorantMatches get swappedTeams {
+    return ValorantMatches(matches.map((e) => e.reversed));
+  }
+
   ValorantMatches get nonMirroredMatches {
     return ValorantMatches(where((match) => !match.isMirrorComp));
   }
@@ -270,8 +271,8 @@ extension SynergyInMatchesCalculator on ValorantMatches {
   }
 
   /// Get the Non-Mirror Round Win Rate for all [Agent]s that are played
-  FastAgentMap<Score> getAllAgentNmrwr() {
-    final agentNonMirrorScores = FastAgentMap<Score>();
+  AgentMap<Score> getAllAgentNmrwr() {
+    final agentNonMirrorScores = AgentMap<Score>();
     for (final ValorantMatch(:scoreOne, :scoreTwo, :nonMirrorAgents) in this) {
       for (final MapEntry(key: agent, value: nonMirror)
           in nonMirrorAgents.entries) {

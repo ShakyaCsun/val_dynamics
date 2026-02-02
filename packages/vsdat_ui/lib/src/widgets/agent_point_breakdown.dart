@@ -253,14 +253,9 @@ class AbilityIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget buildAbilityIcon(
-      AssetGenImage? icon, {
-      required String fallbackName,
-    }) {
-      return icon?.image(height: size, width: size, color: foregroundColor) ??
-          CircleAvatar(radius: size / 2, child: Text(fallbackName));
+    if (_specialAbilityIcons[ability.name] case final icon?) {
+      return buildAbilityIcon(icon, fallbackName: '');
     }
-
     return switch (ability) {
       AbilityOne() => buildAbilityIcon(
         defaultAbility1Icon(agentName),
@@ -279,6 +274,18 @@ class AbilityIcon extends StatelessWidget {
         fallbackName: 'U',
       ),
     };
+  }
+
+  static final _specialAbilityIcons = <String, AssetGenImage>{
+    'High Tide': ValAssets.agents.harbor.ability1,
+    'Cascade': ValAssets.oldAbilities.cascade,
+    'Cove (Old)': ValAssets.oldAbilities.coveOld,
+    'Reckoning (Old)': ValAssets.oldAbilities.reckoningOld,
+  };
+
+  Widget buildAbilityIcon(AssetGenImage? icon, {required String fallbackName}) {
+    return icon?.image(height: size, width: size, color: foregroundColor) ??
+        CircleAvatar(radius: size / 2, child: Text(fallbackName));
   }
 }
 

@@ -5,9 +5,24 @@ import 'package:collection/collection.dart';
 import 'package:matches_repository/matches_repository.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
+extension StringNameExtension on String {
+  /// Adds dash(-) character to make the String have a length of [count] if the
+  /// original length is less than count. Does nothing otherwise
+  String lengthen([int count = 70]) {
+    if (length >= count) {
+      return this;
+    }
+    return '$this${'-' * (count - length)}';
+  }
+}
+
 abstract class MatchesBenchmarkBase extends BenchmarkBase {
-  MatchesBenchmarkBase(super.name, {int seed = 65780, this.matchesCount = 1000})
-    : random = Random(seed);
+  MatchesBenchmarkBase(
+    String name, {
+    int seed = 65780,
+    this.matchesCount = 1000,
+  }) : random = Random(seed),
+       super(name.lengthen());
 
   final Random random;
   final int matchesCount;

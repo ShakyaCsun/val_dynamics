@@ -1,0 +1,23 @@
+SynergiesBenchmark(65780, 1000)---------------------------------------(RunTime): 645641.25 us.
+SynergiesBenchmark(42504, 20000)--------------------------------------(RunTime): 14277993.5 us.
+FirstLoadSynergiesBenchmark(65780, 1000)------------------------------(RunTime): 121905.375 us.
+FirstLoadSynergiesBenchmark(42504, 20000)-----------------------------(RunTime): 2384915.5 us.
+SumScoreBenchmark(65780, 1000)----------------------------------------(RunTime): 227.84658634538152 us.
+SumScoreBenchmark(42504, 20000)---------------------------------------(RunTime): 4398.194 us.
+SumScoreTupleBenchmark(65780, 1000)-----------------------------------(RunTime): 177.3534991945588 us.
+SumScoreTupleBenchmark(42504, 20000)----------------------------------(RunTime): 2818.48125 us.
+StyleTypeBenchmark(65780, 1000)---------------------------------------(RunTime): 5487.343406593406 us.
+StyleTypeBenchmark(42504, 20000)--------------------------------------(RunTime): 690429.6666666666 us.
+Normal Agent MapCreationBenchmark(42)---------------------------------(RunTime): 1097347.5 us.
+Canonicalized Agent MapCreationBenchmark(42)--------------------------(RunTime): 23041.595505617977 us.
+Normal AgentCombo MapCreationBenchmark(42)----------------------------(RunTime): 2203164.0 us.
+Canonicalized AgentCombo MapCreationBenchmark(42)---------------------(RunTime): 41434.52 us.
+Normal AgentComp MapCreationBenchmark(42)-----------------------------(RunTime): 7223686.5 us.
+Canonicalized AgentComp MapCreationBenchmark(42)----------------------(RunTime): 1403056.5 us.
+Normal StylePoints MapCreationBenchmark(42)---------------------------(RunTime): 38155.22641509434 us.
+Canonicalized StylePoints MapCreationBenchmark(42)--------------------(RunTime): 601426.25 us.
+Normal StylePointsCombo MapCreationBenchmark(42)----------------------(RunTime): 507863.0 us.
+Canonicalized StylePointsCombo MapCreationBenchmark(42)---------------(RunTime): 1450917.0 us.
+
+Conclusion for MapCreationBenchmark: Normal StylePoints and StylePair records are faster than their
+Canonicalized versions but Agent and AgentCombo see significant performance gains by simplifying to their names.

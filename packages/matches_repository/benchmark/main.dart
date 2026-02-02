@@ -1,5 +1,6 @@
 import 'package:benchmark_harness/benchmark_harness.dart';
 
+import 'canonical_maps_benchmark.dart';
 import 'style_type_benchmark.dart';
 import 'sum_score_benchmark.dart';
 import 'synergies_benchmark.dart';
@@ -25,4 +26,5 @@ void main() {
   for (final benchmark in _benchmarks(big: true)) {
     benchmark.report();
   }
+  MapCreationBenchmark.main();
 }

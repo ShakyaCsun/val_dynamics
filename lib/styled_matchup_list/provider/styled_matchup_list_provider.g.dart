@@ -6,14 +6,17 @@ part of 'styled_matchup_list_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
 @ProviderFor(styledMatchupList)
-const styledMatchupListProvider = StyledMatchupListFamily._();
+final styledMatchupListProvider = StyledMatchupListFamily._();
 
 final class StyledMatchupListProvider
     extends
         $FunctionalProvider<ValorantMatches, ValorantMatches, ValorantMatches>
     with $Provider<ValorantMatches> {
-  const StyledMatchupListProvider._({
+  StyledMatchupListProvider._({
     required StyledMatchupListFamily super.from,
     required ({String collectionId, StylePoints acm, StylePoints opponentAcm})
     super.argument,
@@ -76,7 +79,7 @@ final class StyledMatchupListProvider
   }
 }
 
-String _$styledMatchupListHash() => r'cf57e7f62d6fb34defae498844cc5e9ea85fa8fc';
+String _$styledMatchupListHash() => r'755205fdbcb38b27876ccfac233d86a5a25e776b';
 
 final class StyledMatchupListFamily extends $Family
     with
@@ -84,7 +87,7 @@ final class StyledMatchupListFamily extends $Family
           ValorantMatches,
           ({String collectionId, StylePoints acm, StylePoints opponentAcm})
         > {
-  const StyledMatchupListFamily._()
+  StyledMatchupListFamily._()
     : super(
         retry: null,
         name: r'styledMatchupListProvider',
@@ -105,6 +108,3 @@ final class StyledMatchupListFamily extends $Family
   @override
   String toString() => r'styledMatchupListProvider';
 }
-
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

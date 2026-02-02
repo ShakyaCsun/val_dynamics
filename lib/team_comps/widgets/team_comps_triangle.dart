@@ -38,10 +38,10 @@ class TeamCompsTriangle extends StatelessWidget {
           },
           minRadius: 14,
           onHover: hoveredItemsChanged,
-          onTap: (compsDataList) {
+          onTap: (compsDataList) async {
             final currentRoster = context.compRosterName!;
             if (compsDataList.length > 1) {
-              showDialog<void>(
+              await showDialog<void>(
                 context: context,
                 builder: (context) {
                   return SimpleDialog(

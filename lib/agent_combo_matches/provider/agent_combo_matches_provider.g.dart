@@ -6,14 +6,17 @@ part of 'agent_combo_matches_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
 @ProviderFor(agentComboMatches)
-const agentComboMatchesProvider = AgentComboMatchesFamily._();
+final agentComboMatchesProvider = AgentComboMatchesFamily._();
 
 final class AgentComboMatchesProvider
     extends
         $FunctionalProvider<ValorantMatches, ValorantMatches, ValorantMatches>
     with $Provider<ValorantMatches> {
-  const AgentComboMatchesProvider._({
+  AgentComboMatchesProvider._({
     required AgentComboMatchesFamily super.from,
     required ({String collectionId, String comboName}) super.argument,
   }) : super(
@@ -76,7 +79,7 @@ final class AgentComboMatchesFamily extends $Family
           ValorantMatches,
           ({String collectionId, String comboName})
         > {
-  const AgentComboMatchesFamily._()
+  AgentComboMatchesFamily._()
     : super(
         retry: null,
         name: r'agentComboMatchesProvider',
@@ -96,6 +99,3 @@ final class AgentComboMatchesFamily extends $Family
   @override
   String toString() => r'agentComboMatchesProvider';
 }
-
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -17,11 +17,13 @@ class CopyJsonButton extends StatelessWidget {
     return Tooltip(
       message: minimalJson ? l10n.copyMinAgentsHelp : l10n.copyAgentsHelp,
       child: ElevatedButton(
-        onPressed: () {
-          _copyJson();
-          context.showSnackbar(
-            SnackBar(content: Text(l10n.agentsCopiedMessage)),
-          );
+        onPressed: () async {
+          await _copyJson();
+          if (context.mounted) {
+            context.showSnackbar(
+              SnackBar(content: Text(l10n.agentsCopiedMessage)),
+            );
+          }
         },
         child: Text(
           minimalJson ? l10n.copyMinAgentsSample : l10n.copyAgentsSample,
@@ -30,9 +32,9 @@ class CopyJsonButton extends StatelessWidget {
     );
   }
 
-  void _copyJson() {
+  Future<void> _copyJson() async {
     final json = Agents.defaultRoster.toJson(minimal: minimalJson);
     final jsonStr = jsonEncode(json);
-    Clipboard.setData(ClipboardData(text: jsonStr));
+    await Clipboard.setData(ClipboardData(text: jsonStr));
   }
 }

@@ -28,9 +28,9 @@ class AgentsOverviewNotifier extends _$AgentsOverviewNotifier {
     final defaultNameSubscription = agentsRepository.defaultName.listen((name) {
       state = state.copyWith(defaultRosterName: name);
     });
-    ref.onDispose(() {
-      rosterSubscription.cancel();
-      defaultNameSubscription.cancel();
+    ref.onDispose(() async {
+      await rosterSubscription.cancel();
+      await defaultNameSubscription.cancel();
     });
 
     return const AgentsOverviewState(agentDetails: [], defaultRosterName: '');
@@ -90,13 +90,13 @@ AgentsRepository agentsRepository(Ref ref) {
 @riverpod
 String defaultRosterName(Ref ref) {
   return ref.watch(
-    agentsOverviewNotifierProvider.select((value) => value.defaultRosterName),
+    agentsOverviewProvider.select((value) => value.defaultRosterName),
   );
 }
 
 @riverpod
 List<String> availableRosters(Ref ref) {
   return ref.watch(
-    agentsOverviewNotifierProvider.select((value) => value.availableRosters),
+    agentsOverviewProvider.select((value) => value.availableRosters),
   );
 }

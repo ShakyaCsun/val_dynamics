@@ -1,5 +1,13 @@
 import 'package:valorant_agents/valorant_agents.dart';
 
+typedef StyleTypePair = (StyleType, StyleType);
+
+extension StyleTypePairExtension on StyleTypePair {
+  bool get isMirror => $1 == $2;
+
+  StyleTypePair get reversed => ($2, $1);
+}
+
 enum StyleType {
   heavyAggro('Heavy Aggro'),
   heavyControl('Heavy Control'),
@@ -73,4 +81,25 @@ enum StyleType {
   }
 
   final String label;
+
+  StyleType? get beats {
+    return switch (this) {
+      StyleType.heavyAggro => StyleType.heavyControl,
+      StyleType.heavyControl => StyleType.heavyMidrange,
+      StyleType.heavyMidrange => StyleType.heavyAggro,
+      StyleType.aggroSubControl => StyleType.controlSubMidrange,
+      StyleType.aggroSubMidrange => StyleType.controlSubAggro,
+      StyleType.aggroSubHybrid => StyleType.controlSubHybrid,
+      StyleType.controlSubAggro => StyleType.midrangeSubControl,
+      StyleType.controlSubMidrange => StyleType.midrangeSubAggro,
+      StyleType.controlSubHybrid => StyleType.midrangeSubAggro,
+      StyleType.midrangeSubControl => StyleType.aggroSubMidrange,
+      StyleType.midrangeSubAggro => StyleType.aggroControl,
+      StyleType.midrangeSubHybrid => StyleType.aggroSubHybrid,
+      StyleType.aggroControl => StyleType.controlMidrange,
+      StyleType.controlMidrange => StyleType.midrangeAggro,
+      StyleType.midrangeAggro => StyleType.aggroControl,
+      StyleType.center => null,
+    };
+  }
 }

@@ -6,12 +6,15 @@ part of 'add_agents_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
 @ProviderFor(AddAgents)
-const addAgentsProvider = AddAgentsProvider._();
+final addAgentsProvider = AddAgentsProvider._();
 
 final class AddAgentsProvider
     extends $NotifierProvider<AddAgents, AddAgentsForm> {
-  const AddAgentsProvider._()
+  AddAgentsProvider._()
     : super(
         from: null,
         argument: null,
@@ -38,14 +41,13 @@ final class AddAgentsProvider
   }
 }
 
-String _$addAgentsHash() => r'bc38f74514a04c8a5f9228473ceaf349b3580c36';
+String _$addAgentsHash() => r'0ffa3bdd9be76c3ae377a8dc572c5e6d50d1ccc8';
 
 abstract class _$AddAgents extends $Notifier<AddAgentsForm> {
   AddAgentsForm build();
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build();
     final ref = this.ref as $Ref<AddAgentsForm, AddAgentsForm>;
     final element =
         ref.element
@@ -55,9 +57,6 @@ abstract class _$AddAgents extends $Notifier<AddAgentsForm> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, build);
   }
 }
-
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

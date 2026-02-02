@@ -69,8 +69,8 @@ class Compositions extends _$Compositions {
   @override
   Future<CompositionsState> build({required String rosterName}) async {
     final agents = ref.watch(agentsProvider(rosterName: rosterName));
-    ref.onDispose(() {
-      _subscription?.cancel();
+    ref.onDispose(() async {
+      await _subscription?.cancel();
     });
     if (isRunningJs) {
       // If on web, stream the agents loading to try and mitigate UI freeze
