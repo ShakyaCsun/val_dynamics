@@ -252,29 +252,33 @@ class Agent extends Equatable implements Comparable<Agent> {
     midrange: 2,
     role: Role.controller,
     abilityOne: AbilityOne(
-      name: 'Cove',
+      name: 'High Tide',
       aggro: 2,
       control: 1,
-      reasons: ['Plant Facilitation', '', ''],
+      reasons: ['Map Manipulation', 'Short Range', 'Stall'],
     ),
     abilityTwo: AbilityTwo(
-      name: 'High Tide',
+      name: 'Cove',
       aggro: 1,
       control: 1,
       midrange: 1,
-      reasons: ['', 'Stall/Slow', 'Cooldown'],
+      reasons: [
+        'Bottleneck/Plant Facilitation',
+        'Long Range/Entrenchment/One-ways',
+        'Cooldown',
+      ],
     ),
     abilityThree: AbilityThree(
-      name: 'Cascade',
+      name: 'Storm Surge',
       aggro: 1,
       control: 1,
       midrange: 1,
-      reasons: ['', 'Stall/Slow', 'High Volume'],
+      reasons: ['High Potency', 'Stall/Slow', 'Intermediate Range'],
     ),
     ultimateAbility: UltimateAbility(
       name: 'Reckoning',
       aggro: 1,
-      reasons: [''],
+      reasons: ['High Potency'],
     ),
   );
   static const iso = Agent(
@@ -590,6 +594,41 @@ class Agent extends Equatable implements Comparable<Agent> {
       reasons: ['Giga Aggro Move or Die Missiles'],
     ),
   );
+  static const veto = Agent(
+    name: 'Veto',
+    aggro: 2,
+    control: 5,
+    midrange: 3,
+    role: Role.sentinel,
+    abilityOne: AbilityOne(
+      name: 'Chokehold',
+      control: 2,
+      midrange: 1,
+      reasons: [
+        'Non-catalytic Duel Facilitation',
+        'Passive Value',
+        'Intermediate Range',
+      ],
+    ),
+    abilityTwo: AbilityTwo(
+      name: 'Interceptor',
+      aggro: 1,
+      control: 1,
+      midrange: 1,
+      reasons: ['Anti-Utility', 'Pre-placement', 'Cooldown'],
+    ),
+    abilityThree: AbilityThree(
+      name: 'Crosscut',
+      control: 2,
+      midrange: 1,
+      reasons: ['Verticality', 'Pre-placement', 'Rotational Acceleration'],
+    ),
+    ultimateAbility: UltimateAbility(
+      name: 'Evolution',
+      aggro: 1,
+      reasons: ['Anti-Utility/Util Invulnerability'],
+    ),
+  );
   static const viper = Agent(
     name: 'Viper',
     aggro: 3,
@@ -625,8 +664,8 @@ class Agent extends Equatable implements Comparable<Agent> {
   static const vyse = Agent(
     name: 'Vyse',
     aggro: 0,
-    control: 6,
-    midrange: 4,
+    control: 7,
+    midrange: 3,
     role: Role.sentinel,
     abilityOne: AbilityOne(
       name: 'Shear',
@@ -636,9 +675,9 @@ class Agent extends Equatable implements Comparable<Agent> {
     ),
     abilityTwo: AbilityTwo(
       name: 'Arc Rose',
-      control: 1,
-      midrange: 2,
-      reasons: ['Pre-placement', 'Soft Information', 'Cooldown'],
+      control: 2,
+      midrange: 1,
+      reasons: ['Pre-placement', 'Stall', 'Cooldown'],
     ),
     abilityThree: AbilityThree(
       name: 'Razorvine',

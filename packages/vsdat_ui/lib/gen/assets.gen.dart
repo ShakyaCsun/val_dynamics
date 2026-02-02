@@ -87,6 +87,9 @@ class $AssetsAgentsGen {
   /// Directory path: assets/agents/tejo
   $AssetsAgentsTejoGen get tejo => const $AssetsAgentsTejoGen();
 
+  /// Directory path: assets/agents/veto
+  $AssetsAgentsVetoGen get veto => const $AssetsAgentsVetoGen();
+
   /// Directory path: assets/agents/viper
   $AssetsAgentsViperGen get viper => const $AssetsAgentsViperGen();
 
@@ -101,6 +104,25 @@ class $AssetsAgentsGen {
 
   /// List of all assets
   List<String> get values => [abilitiesMap];
+}
+
+class $AssetsOldAbilitiesGen {
+  const $AssetsOldAbilitiesGen();
+
+  /// File path: assets/old_abilities/cascade.png
+  AssetGenImage get cascade =>
+      const AssetGenImage('assets/old_abilities/cascade.png');
+
+  /// File path: assets/old_abilities/cove_old.png
+  AssetGenImage get coveOld =>
+      const AssetGenImage('assets/old_abilities/cove_old.png');
+
+  /// File path: assets/old_abilities/reckoning_old.png
+  AssetGenImage get reckoningOld =>
+      const AssetGenImage('assets/old_abilities/reckoning_old.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [cascade, coveOld, reckoningOld];
 }
 
 class $AssetsRolesGen {
@@ -984,6 +1006,43 @@ class $AssetsAgentsTejoGen {
   ];
 }
 
+class $AssetsAgentsVetoGen {
+  const $AssetsAgentsVetoGen();
+
+  /// File path: assets/agents/veto/ability1.png
+  AssetGenImage get ability1 =>
+      const AssetGenImage('assets/agents/veto/ability1.png');
+
+  /// File path: assets/agents/veto/ability2.png
+  AssetGenImage get ability2 =>
+      const AssetGenImage('assets/agents/veto/ability2.png');
+
+  /// File path: assets/agents/veto/ability3.png
+  AssetGenImage get ability3 =>
+      const AssetGenImage('assets/agents/veto/ability3.png');
+
+  /// File path: assets/agents/veto/icon.png
+  AssetGenImage get icon => const AssetGenImage('assets/agents/veto/icon.png');
+
+  /// File path: assets/agents/veto/portrait.png
+  AssetGenImage get portrait =>
+      const AssetGenImage('assets/agents/veto/portrait.png');
+
+  /// File path: assets/agents/veto/ultimate.png
+  AssetGenImage get ultimate =>
+      const AssetGenImage('assets/agents/veto/ultimate.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
+}
+
 class $AssetsAgentsViperGen {
   const $AssetsAgentsViperGen();
 
@@ -1139,6 +1198,7 @@ class ValAssets {
   static const String package = 'vsdat_ui';
 
   static const $AssetsAgentsGen agents = $AssetsAgentsGen();
+  static const $AssetsOldAbilitiesGen oldAbilities = $AssetsOldAbilitiesGen();
   static const $AssetsRolesGen roles = $AssetsRolesGen();
 }
 

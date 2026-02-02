@@ -53,10 +53,12 @@ flutter:
     - assets/agents/skye/
     - assets/agents/sova/
     - assets/agents/tejo/
+    - assets/agents/veto/
     - assets/agents/viper/
     - assets/agents/vyse/
     - assets/agents/waylay/
     - assets/agents/yoru/
+    - assets/old_abilities/
     - assets/roles/
   uses-material-design: true
 

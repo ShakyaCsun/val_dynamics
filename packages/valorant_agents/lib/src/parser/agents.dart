@@ -1,12 +1,75 @@
 import 'package:valorant_agents/valorant_agents.dart';
 
+const Agent _harborPre11_10 = Agent(
+  name: 'Harbor',
+  aggro: 5,
+  control: 3,
+  midrange: 2,
+  role: Role.controller,
+  abilityOne: AbilityOne(
+    name: 'Cove (Old)',
+    aggro: 2,
+    control: 1,
+    reasons: ['Plant Facilitation', '', ''],
+  ),
+  abilityTwo: AbilityTwo(
+    name: 'High Tide',
+    aggro: 1,
+    control: 1,
+    midrange: 1,
+    reasons: ['Short Range', 'Stall/Slow', 'Cooldown'],
+  ),
+  abilityThree: AbilityThree(
+    name: 'Cascade',
+    aggro: 1,
+    control: 1,
+    midrange: 1,
+    reasons: ['', 'Stall/Slow', 'High Volume'],
+  ),
+  ultimateAbility: UltimateAbility(
+    name: 'Reckoning (Old)',
+    aggro: 1,
+    reasons: [''],
+  ),
+);
+const Agent _vysePre11_08 = Agent(
+  name: 'Vyse',
+  aggro: 0,
+  control: 6,
+  midrange: 4,
+  role: Role.sentinel,
+  abilityOne: AbilityOne(
+    name: 'Shear',
+    control: 2,
+    midrange: 1,
+    reasons: ['Pre-placement', 'Passive Value', 'Soft Information'],
+  ),
+  abilityTwo: AbilityTwo(
+    name: 'Arc Rose',
+    control: 1,
+    midrange: 2,
+    reasons: ['Pre-placement', 'Soft Information', 'Cooldown'],
+  ),
+  abilityThree: AbilityThree(
+    name: 'Razorvine',
+    control: 2,
+    midrange: 1,
+    reasons: ['Pre-placement', 'Stall', 'Intermediate Range'],
+  ),
+  ultimateAbility: UltimateAbility(
+    name: 'Steel Garden',
+    control: 1,
+    reasons: ["Primary Weapon 'Permission' Denied"],
+  ),
+);
+
 /// {@template agents}
 /// [Agents] is just a [List<Agent>] but forces unmodifiable/immutable
 /// list and unique [Agent]s along with helpful extension methods.
 /// {@endtemplate}
 extension type const Agents._(List<Agent> agents) implements List<Agent> {
   /// {@macro agents}
-  Agents(List<Agent> agents) : agents = List.unmodifiable(agents.toSet());
+  Agents(Iterable<Agent> agents) : agents = List.unmodifiable(agents.toSet());
 
   factory Agents.fromCsv(String csv) {
     final (headers, rows) = readCsvWithHeaders(csv);
@@ -39,7 +102,7 @@ extension type const Agents._(List<Agent> agents) implements List<Agent> {
             '${e.message}\nError Line: ${row.join(',')}',
           );
         }
-      }).toList(),
+      }),
     );
   }
 
@@ -130,8 +193,39 @@ extension type const Agents._(List<Agent> agents) implements List<Agent> {
     Agent.skye,
     Agent.sova,
     Agent.tejo,
+    Agent.veto,
     Agent.viper,
     Agent.vyse,
+    Agent.yoru,
+    Agent.waylay,
+  ]);
+
+  static final champs25Roster = Agents([
+    Agent.astra,
+    Agent.breach,
+    Agent.brimstone,
+    Agent.chamber,
+    Agent.clove,
+    Agent.cypher,
+    Agent.deadlock,
+    Agent.fade,
+    Agent.gekko,
+    _harborPre11_10,
+    Agent.iso,
+    Agent.jett,
+    Agent.kayo,
+    Agent.killjoy,
+    Agent.neon,
+    Agent.omen,
+    Agent.phoenix,
+    Agent.raze,
+    Agent.reyna,
+    Agent.sage,
+    Agent.skye,
+    Agent.sova,
+    Agent.tejo,
+    Agent.viper,
+    _vysePre11_08,
     Agent.yoru,
     Agent.waylay,
   ]);
@@ -175,7 +269,7 @@ extension type const Agents._(List<Agent> agents) implements List<Agent> {
     Agent.deadlock,
     Agent.fade,
     Agent.gekko,
-    Agent.harbor,
+    _harborPre11_10,
     Agent.iso,
     Agent.jett,
     Agent.kayo,
@@ -189,7 +283,7 @@ extension type const Agents._(List<Agent> agents) implements List<Agent> {
     Agent.skye,
     Agent.sova,
     Agent.viper,
-    Agent.vyse,
+    _vysePre11_08,
     Agent.yoru,
   ]);
 

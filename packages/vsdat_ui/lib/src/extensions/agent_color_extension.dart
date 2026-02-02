@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
@@ -27,6 +29,7 @@ extension AgentColorExtension on Agent {
       'skye' => const Color(0xFF80F9B6),
       'sova' => const Color(0xFF4068D8),
       'tejo' => const Color(0xFF8E7B3F),
+      'veto' => const Color(0xFF19DFE1),
       'viper' => const Color(0xFF8DD952),
       'vyse' => const Color(0xFF817DDF),
       'waylay' => const Color(0xFF8CC6B5),

@@ -19,6 +19,7 @@ class MatchTile extends StatelessWidget {
       :isMirrorStyle,
     ) = match;
     final textTheme = Theme.of(context).textTheme;
+    final iconSize = context.mediumAndUp ? 40.0 : 25.0;
     return Card(
       child: ResponsivePadding(
         child: Row(
@@ -29,7 +30,7 @@ class MatchTile extends StatelessWidget {
                 children: [
                   Text(nameOne, style: textTheme.titleMedium),
                   ColoredAcm(acm: stylePoints1),
-                  CompositionsRow(comp: compOne),
+                  CompositionsRow(comp: compOne, iconSize: iconSize),
                 ],
               ),
             ),
@@ -49,7 +50,7 @@ class MatchTile extends StatelessWidget {
                 children: [
                   Text(nameTwo, style: textTheme.titleMedium),
                   ColoredAcm(acm: stylePoints2),
-                  CompositionsRow(comp: compTwo),
+                  CompositionsRow(comp: compTwo, iconSize: iconSize),
                 ],
               ),
             ),
@@ -61,23 +62,37 @@ class MatchTile extends StatelessWidget {
 }
 
 class CompositionsRow extends StatelessWidget {
-  const CompositionsRow({required this.comp, this.iconSize = 40, super.key});
+  const CompositionsRow({
+    required this.comp,
+    this.iconSize = 40,
+    this.backgroundColor,
+    super.key,
+  });
 
   final AgentComp comp;
   final double iconSize;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Row(
       mainAxisSize: MainAxisSize.min,
+      spacing: 2,
       children: comp.agentsGroup.fold(<Widget>[], (previousValue, element) {
         return [
           ...previousValue,
           ...element.map(
-            (e) => AgentIcon(
-              agent: e,
-              size: iconSize,
-              backgroundColor: Theme.of(context).colorScheme.tertiaryContainer,
+            (e) => Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: colorScheme.onSecondaryContainer),
+              ),
+              child: AgentIcon(
+                agent: e,
+                size: iconSize,
+                backgroundColor:
+                    backgroundColor ?? colorScheme.secondaryContainer,
+              ),
             ),
           ),
           const Text('-'),

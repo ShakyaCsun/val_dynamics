@@ -37,9 +37,7 @@ class AddAgents extends _$AddAgents {
         final agentsJson = await state.jsonFile.value!.readAsString();
         final agentsList = jsonDecode(agentsJson) as List<dynamic>;
         final agents = Agents(
-          agentsList
-              .map((e) => Agent.fromJson(e as Map<String, dynamic>))
-              .toList(),
+          agentsList.map((e) => Agent.fromJson(e as Map<String, dynamic>)),
         );
         final name = await ref
             .read(agentsOverviewProvider.notifier)
