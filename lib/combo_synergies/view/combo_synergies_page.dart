@@ -85,7 +85,7 @@ class ComboSynergiesTriangle extends StatelessWidget {
           maxItems: 10,
           builder:
               (
-                BuildContext context,
+                context,
                 void Function(List<ComboData>) hoveredItemsChanged,
               ) {
                 return Consumer(

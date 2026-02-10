@@ -41,7 +41,7 @@ final class AddAgentsProvider
   }
 }
 
-String _$addAgentsHash() => r'0ffa3bdd9be76c3ae377a8dc572c5e6d50d1ccc8';
+String _$addAgentsHash() => r'c98835770762beb4310a4c44218ad78beb9f535d';
 
 abstract class _$AddAgents extends $Notifier<AddAgentsForm> {
   AddAgentsForm build();

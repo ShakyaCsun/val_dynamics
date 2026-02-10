@@ -42,7 +42,7 @@ final class MatchesCollectionListProvider
 }
 
 String _$matchesCollectionListHash() =>
-    r'50d98f238fce4cd72f8af09f3859ef9f9ef88d0d';
+    r'05d37c5a6cb2844eabd16d908594e48a970d24a8';
 
 abstract class _$MatchesCollectionList
     extends $Notifier<List<MatchesCollection>> {
