@@ -1168,7 +1168,7 @@ class _InteractiveViewerState extends State<InteractiveViewer>
       assert(widget.builder != null);
       assert(!widget.constrained);
       child = LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
+        builder: (context, constraints) {
           final matrix = _transformer.value;
           return _InteractiveViewerBuilt(
             childKey: _childKey,

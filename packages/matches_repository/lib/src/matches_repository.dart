@@ -50,10 +50,14 @@ class MatchesRepository {
       return filter.apply(mapMatches);
     }
     final excludeMaps = availableMaps.difference(maps);
-    final filterCondition = maps.length > excludeMaps.length
-        ? (ValorantMatch match) => !excludeMaps.contains(match.mapName)
-        : (ValorantMatch match) => maps.contains(match.mapName);
-    final mapMatches = ValorantMatches(matches.where(filterCondition));
+    final isExcludedMapsShorter = excludeMaps.length < maps.length;
+    final mapMatches = ValorantMatches(
+      matches.where((match) {
+        return isExcludedMapsShorter
+            ? !excludeMaps.contains(match.mapName)
+            : maps.contains(match.mapName);
+      }),
+    );
     _cachedMapMatches[cacheKey] = mapMatches;
 
     return filter.apply(mapMatches);
