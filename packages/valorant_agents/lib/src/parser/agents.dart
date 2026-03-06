@@ -1,5 +1,19 @@
 import 'package:valorant_agents/valorant_agents.dart';
 
+/// Gekko SD2 score before Mosh Pit was changed to be reclaimable in Patch 12.03
+const Agent _gekkoPre12_03 = Agent(
+  name: 'Gekko',
+  aggro: 2,
+  control: 1,
+  midrange: 7,
+  role: Role.initiator,
+  abilityOne: AbilityOne(name: 'Wingman', reasons: ['', '', '']),
+  abilityTwo: AbilityTwo(name: 'Dizzy', reasons: ['', '', '']),
+  abilityThree: AbilityThree(name: 'Mosh Pit', reasons: ['', '', '']),
+  ultimateAbility: UltimateAbility(name: 'Thrash', reasons: ['']),
+);
+
+/// Harbor SD2 score before the rework in Patch 11.10
 const Agent _harborPre11_10 = Agent(
   name: 'Harbor',
   aggro: 5,
@@ -32,6 +46,9 @@ const Agent _harborPre11_10 = Agent(
     reasons: [''],
   ),
 );
+
+/// Vyse SD2 score before Patch 11.08 where Arc Rose gave soft information on
+/// enemies flashed.
 const Agent _vysePre11_08 = Agent(
   name: 'Vyse',
   aggro: 0,
@@ -209,7 +226,7 @@ extension type const Agents._(List<Agent> agents) implements List<Agent> {
     Agent.cypher,
     Agent.deadlock,
     Agent.fade,
-    Agent.gekko,
+    _gekkoPre12_03,
     _harborPre11_10,
     Agent.iso,
     Agent.jett,
@@ -268,7 +285,7 @@ extension type const Agents._(List<Agent> agents) implements List<Agent> {
     Agent.cypher,
     Agent.deadlock,
     Agent.fade,
-    Agent.gekko,
+    _gekkoPre12_03,
     _harborPre11_10,
     Agent.iso,
     Agent.jett,

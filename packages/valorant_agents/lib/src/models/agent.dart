@@ -236,9 +236,9 @@ class Agent extends Equatable implements Comparable<Agent> {
   );
   static const gekko = Agent(
     name: 'Gekko',
-    aggro: 2,
+    aggro: 1,
     control: 1,
-    midrange: 7,
+    midrange: 8,
     role: Role.initiator,
     abilityOne: AbilityOne(name: 'Wingman', reasons: ['', '', '']),
     abilityTwo: AbilityTwo(name: 'Dizzy', reasons: ['', '', '']),
@@ -248,8 +248,8 @@ class Agent extends Equatable implements Comparable<Agent> {
   static const harbor = Agent(
     name: 'Harbor',
     aggro: 5,
-    control: 3,
-    midrange: 2,
+    control: 2,
+    midrange: 3,
     role: Role.controller,
     abilityOne: AbilityOne(
       name: 'High Tide',
@@ -271,9 +271,12 @@ class Agent extends Equatable implements Comparable<Agent> {
     abilityThree: AbilityThree(
       name: 'Storm Surge',
       aggro: 1,
-      control: 1,
-      midrange: 1,
-      reasons: ['High Potency', 'Stall/Slow', 'Intermediate Range'],
+      midrange: 2,
+      reasons: [
+        'High Potency',
+        'Intermediate Range',
+        'Soft Information\nNote: Storm Surge was a 1-1-1 ability with a control point for Stall/Slow before the soft info was added in Patch 12.02',
+      ],
     ),
     ultimateAbility: UltimateAbility(
       name: 'Reckoning',
