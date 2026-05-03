@@ -713,7 +713,8 @@ class _InteractiveViewerState extends State<InteractiveViewer>
       widget.maxScale,
     );
     final clampedScale = clampedTotalScale / currentScale;
-    return matrix.clone()..scaleByVector3(Vector3.all(clampedScale));
+    return matrix.clone()
+      ..scaleByDouble(clampedScale, clampedScale, clampedScale, 1);
   }
 
   // Return a new matrix representing the given matrix after applying the given
@@ -911,16 +912,10 @@ class _InteractiveViewerState extends State<InteractiveViewer>
           details.velocity.pixelsPerSecond.distance,
           widget.interactionEndFrictionCoefficient,
         );
-        _animation =
-            Tween<Offset>(
-              begin: translation,
-              end: Offset(
-                frictionSimulationX.finalX,
-                frictionSimulationY.finalX,
-              ),
-            ).animate(
-              CurvedAnimation(parent: _controller, curve: Curves.decelerate),
-            );
+        _animation = Tween<Offset>(
+          begin: translation,
+          end: Offset(frictionSimulationX.finalX, frictionSimulationY.finalX),
+        ).chain(CurveTween(curve: Curves.decelerate)).animate(_controller);
         _controller.duration = Duration(milliseconds: (tFinal * 1000).round());
         _animation!.addListener(_handleInertiaAnimation);
         unawaited(_controller.forward());
@@ -940,16 +935,10 @@ class _InteractiveViewerState extends State<InteractiveViewer>
           widget.interactionEndFrictionCoefficient,
           effectivelyMotionless: 0.1,
         );
-        _scaleAnimation =
-            Tween<double>(
-              begin: scale,
-              end: frictionSimulation.x(tFinal),
-            ).animate(
-              CurvedAnimation(
-                parent: _scaleController,
-                curve: Curves.decelerate,
-              ),
-            );
+        _scaleAnimation = Tween<double>(
+          begin: scale,
+          end: frictionSimulation.x(tFinal),
+        ).chain(CurveTween(curve: Curves.decelerate)).animate(_scaleController);
         _scaleController.duration = Duration(
           milliseconds: (tFinal * 1000).round(),
         );

@@ -60,6 +60,9 @@ class $AssetsAgentsGen {
   /// Directory path: assets/agents/killjoy
   $AssetsAgentsKilljoyGen get killjoy => const $AssetsAgentsKilljoyGen();
 
+  /// Directory path: assets/agents/miks
+  $AssetsAgentsMiksGen get miks => const $AssetsAgentsMiksGen();
+
   /// Directory path: assets/agents/neon
   $AssetsAgentsNeonGen get neon => const $AssetsAgentsNeonGen();
 
@@ -660,6 +663,43 @@ class $AssetsAgentsKilljoyGen {
   /// File path: assets/agents/killjoy/ultimate.png
   AssetGenImage get ultimate =>
       const AssetGenImage('assets/agents/killjoy/ultimate.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+    ability1,
+    ability2,
+    ability3,
+    icon,
+    portrait,
+    ultimate,
+  ];
+}
+
+class $AssetsAgentsMiksGen {
+  const $AssetsAgentsMiksGen();
+
+  /// File path: assets/agents/miks/ability1.png
+  AssetGenImage get ability1 =>
+      const AssetGenImage('assets/agents/miks/ability1.png');
+
+  /// File path: assets/agents/miks/ability2.png
+  AssetGenImage get ability2 =>
+      const AssetGenImage('assets/agents/miks/ability2.png');
+
+  /// File path: assets/agents/miks/ability3.png
+  AssetGenImage get ability3 =>
+      const AssetGenImage('assets/agents/miks/ability3.png');
+
+  /// File path: assets/agents/miks/icon.png
+  AssetGenImage get icon => const AssetGenImage('assets/agents/miks/icon.png');
+
+  /// File path: assets/agents/miks/portrait.png
+  AssetGenImage get portrait =>
+      const AssetGenImage('assets/agents/miks/portrait.png');
+
+  /// File path: assets/agents/miks/ultimate.png
+  AssetGenImage get ultimate =>
+      const AssetGenImage('assets/agents/miks/ultimate.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [

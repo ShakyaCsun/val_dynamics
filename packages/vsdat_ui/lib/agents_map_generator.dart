@@ -39,6 +39,7 @@ String generate({required String funcName, required String property}) {
     'jett',
     'kayo',
     'killjoy',
+    'miks',
     'neon',
     'omen',
     'phoenix',

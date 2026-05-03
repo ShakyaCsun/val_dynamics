@@ -68,6 +68,11 @@ Ability1: ALARMBOT
 Ability2: TURRET
 Ability3: Nanoswarm
 Ultimate: Lockdown
+Miks
+Ability1: Harmonize
+Ability2: Waveform
+Ability3: M-pulse
+Ultimate: Bassquake
 Neon
 Ability1: Relay Bolt
 Ability2: High Gear

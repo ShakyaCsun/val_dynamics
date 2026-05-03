@@ -84,10 +84,7 @@ class ComboSynergiesTriangle extends StatelessWidget {
         TernaryPlotHoverInfo<ComboData>(
           maxItems: 10,
           builder:
-              (
-                context,
-                void Function(List<ComboData>) hoveredItemsChanged,
-              ) {
+              (context, void Function(List<ComboData>) hoveredItemsChanged) {
                 return Consumer(
                   builder: (context, ref, child) {
                     final plotData = ref.watch(
