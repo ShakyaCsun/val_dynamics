@@ -5,7 +5,7 @@ publish_to: none
 
 environment:
   sdk: ^3.12.0-0
-  flutter: '>=3.42.0-0'
+  flutter: '>=3.44.0-0'
 
 resolution: workspace
 
@@ -21,11 +21,11 @@ dependencies:
   vector_math: ^2.2.0
 
 dev_dependencies:
-  build_runner: ^2.12.2
-  flutter_gen_runner: ^5.13.0
+  build_runner: ^2.15.0
+  flutter_gen_runner: ^5.14.1
   flutter_test:
     sdk: flutter
-  mocktail: ^1.0.4
+  mocktail: ^1.0.5
 
 flutter:
   assets:
@@ -44,6 +44,7 @@ flutter:
     - assets/agents/jett/
     - assets/agents/kayo/
     - assets/agents/killjoy/
+    - assets/agents/miks/
     - assets/agents/neon/
     - assets/agents/omen/
     - assets/agents/phoenix/
