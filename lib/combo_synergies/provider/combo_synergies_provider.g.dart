@@ -220,7 +220,7 @@ abstract class _$ComboSynergySort extends $Notifier<SynergySort> {
   SynergySort build();
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<SynergySort, SynergySort>;
     final element =
         ref.element
@@ -230,7 +230,7 @@ abstract class _$ComboSynergySort extends $Notifier<SynergySort> {
               Object?,
               Object?
             >;
-    element.handleCreate(ref, build);
+    return element.handleCreate(ref, build);
   }
 }
 
@@ -318,7 +318,7 @@ abstract class _$ComboSynergyFilter extends $Notifier<SynergiesFilterState> {
   SynergiesFilterState build({required String collectionId});
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<SynergiesFilterState, SynergiesFilterState>;
     final element =
         ref.element
@@ -328,6 +328,6 @@ abstract class _$ComboSynergyFilter extends $Notifier<SynergiesFilterState> {
               Object?,
               Object?
             >;
-    element.handleCreate(ref, () => build(collectionId: _$args));
+    return element.handleCreate(ref, () => build(collectionId: _$args));
   }
 }

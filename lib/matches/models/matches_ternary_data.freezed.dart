@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'matches_ternary_data.dart';
@@ -9,6 +9,7 @@ part of 'matches_ternary_data.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 T _$identity<T>(T value) => value;
 
 /// @nodoc
@@ -113,7 +114,7 @@ class _$MatchesTernaryDataCopyWithImpl<$Res>
     Object? oppositionCompositions = null,
   }) {
     return _then(
-      _self.copyWith(
+      MatchesTernaryData(
         stylePoints: null == stylePoints
             ? _self.stylePoints
             : stylePoints // ignore: cast_nullable_to_non_nullable
@@ -156,8 +157,8 @@ class _MatchesTernaryData extends MatchesTernaryData {
     required this.score,
     required this.attackScore,
     required this.defenseScore,
-    required final Set<AgentComp> compositions,
-    required final Set<AgentComp> oppositionCompositions,
+    required Set<AgentComp> compositions,
+    required Set<AgentComp> oppositionCompositions,
   }) : _compositions = compositions,
        _oppositionCompositions = oppositionCompositions,
        super._();

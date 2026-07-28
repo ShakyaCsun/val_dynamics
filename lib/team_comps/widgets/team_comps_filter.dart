@@ -66,9 +66,8 @@ class TeamCompsFilter extends ConsumerWidget {
                     onAgentTap: (agent) {
                       ref
                           .read(
-                            compFiltersProvider(
-                              rosterName: rosterName,
-                            ).notifier,
+                            compFiltersProvider(rosterName: rosterName)
+                                .notifier,
                           )
                           .toggleAgent(agent);
                     },
@@ -121,9 +120,8 @@ class AgentsRow extends StatelessWidget {
                   key: ValueKey('Agent-${agent.name}_${agent.stylePoints.acm}'),
                   agent: agent,
                   status: ref.watch(
-                    compFiltersProvider(
-                      rosterName: context.compRosterName!,
-                    ).select((state) => state.agentFilters[agent]!),
+                    compFiltersProvider(rosterName: context.compRosterName!)
+                        .select((state) => state.agentFilters[agent]!),
                   ),
                   onTap: () => onAgentTap(agent),
                 );
@@ -142,9 +140,8 @@ class RoleRangeSlider extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final rosterName = context.compRosterName!;
     final roles = ref.watch(
-      compFiltersProvider(
-        rosterName: rosterName,
-      ).select((state) => state.roles),
+      compFiltersProvider(rosterName: rosterName)
+          .select((state) => state.roles),
     );
     final textTheme = Theme.of(context).textTheme;
     return Column(
@@ -157,9 +154,8 @@ class RoleRangeSlider extends ConsumerWidget {
               Consumer(
                 builder: (context, ref, _) {
                   final range = ref.watch(
-                    compFiltersProvider(
-                      rosterName: rosterName,
-                    ).select((state) => state.roleFilters[role]!),
+                    compFiltersProvider(rosterName: rosterName)
+                        .select((state) => state.roleFilters[role]!),
                   );
                   return RangeSlider(
                     values: RangeValues(
@@ -169,9 +165,8 @@ class RoleRangeSlider extends ConsumerWidget {
                     onChanged: (value) {
                       ref
                           .read(
-                            compFiltersProvider(
-                              rosterName: rosterName,
-                            ).notifier,
+                            compFiltersProvider(rosterName: rosterName)
+                                .notifier,
                           )
                           .changeRoleRange(
                             role,

@@ -52,9 +52,8 @@ class AgentsBodyView extends ConsumerWidget {
     final hasSpace = context.largeAndUp;
     final rosterName = context.getProperty<String>();
     final agentSelected = ref.watch(
-      selectedAgentProvider(
-        rosterName: rosterName,
-      ).select((value) => value != null),
+      selectedAgentProvider(rosterName: rosterName)
+          .select((value) => value != null),
     );
     ref.listen(selectedAgentProvider(rosterName: rosterName), (
       previous,
@@ -165,9 +164,8 @@ class AgentsTriangleView extends StatelessWidget {
                 return Consumer(
                   builder: (context, ref, child) {
                     final isSelected = ref.watch(
-                      selectedAgentProvider(
-                        rosterName: rosterName,
-                      ).select((value) => value == agent),
+                      selectedAgentProvider(rosterName: rosterName)
+                          .select((value) => value == agent),
                     );
                     return AgentIndicator(
                       agent: agent,

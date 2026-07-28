@@ -92,7 +92,7 @@ abstract class _$MatchesStats extends $Notifier<List<StyleTypeMatches>> {
   List<StyleTypeMatches> build({required String collectionId});
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref =
         this.ref as $Ref<List<StyleTypeMatches>, List<StyleTypeMatches>>;
     final element =
@@ -103,7 +103,7 @@ abstract class _$MatchesStats extends $Notifier<List<StyleTypeMatches>> {
               Object?,
               Object?
             >;
-    element.handleCreate(ref, () => build(collectionId: _$args));
+    return element.handleCreate(ref, () => build(collectionId: _$args));
   }
 }
 
@@ -199,7 +199,7 @@ abstract class _$TriangularInteractions
   List<NonTransitiveInteraction> build({required String collectionId});
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref =
         this.ref
             as $Ref<
@@ -217,6 +217,6 @@ abstract class _$TriangularInteractions
               Object?,
               Object?
             >;
-    element.handleCreate(ref, () => build(collectionId: _$args));
+    return element.handleCreate(ref, () => build(collectionId: _$args));
   }
 }

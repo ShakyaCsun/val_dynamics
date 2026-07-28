@@ -20,6 +20,7 @@ extension AgentColorExtension on Agent {
       'jett' => const Color(0xFF78BEC7),
       'kayo' || 'kay/o' => const Color(0xFF4A4FE1),
       'killjoy' => const Color(0xFFFFFBC1),
+      'miks' => const Color(0xFFFDB788),
       'neon' => const Color(0xFFC8FFFF),
       'omen' => const Color(0xFF765ACA),
       'phoenix' => const Color(0xFFD05F5B),

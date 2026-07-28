@@ -13,9 +13,8 @@ class MinMatchesInput extends StatelessWidget {
     return Consumer(
       builder: (context, ref, child) {
         final minMatches = ref.watch(
-          matchesFilterProvider(
-            collectionId: collectionName,
-          ).select((state) => state.minMatches),
+          matchesFilterProvider(collectionId: collectionName)
+              .select((state) => state.minMatches),
         );
         return SliderTextInput(
           currentValue: minMatches,

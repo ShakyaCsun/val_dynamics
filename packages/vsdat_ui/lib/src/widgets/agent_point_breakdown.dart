@@ -85,9 +85,8 @@ class _AgentBreakdownBottomState extends State<AgentBreakdownBottom> {
             child: Padding(
               padding: const EdgeInsets.only(bottom: 16),
               child:
-                  defaultAgentPortrait(
-                    widget.agent.name,
-                  )?.image(fit: BoxFit.fitHeight) ??
+                  defaultAgentPortrait(widget.agent.name)
+                      ?.image(fit: BoxFit.fitHeight) ??
                   const _FallbackAgentPortrait(),
             ),
           ),

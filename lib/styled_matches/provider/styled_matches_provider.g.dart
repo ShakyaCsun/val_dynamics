@@ -101,7 +101,7 @@ abstract class _$StyledMatches extends $Notifier<StyledMatchesState> {
   });
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<StyledMatchesState, StyledMatchesState>;
     final element =
         ref.element
@@ -111,7 +111,7 @@ abstract class _$StyledMatches extends $Notifier<StyledMatchesState> {
               Object?,
               Object?
             >;
-    element.handleCreate(
+    return element.handleCreate(
       ref,
       () => build(collectionId: _$args.collectionId, acm: _$args.acm),
     );

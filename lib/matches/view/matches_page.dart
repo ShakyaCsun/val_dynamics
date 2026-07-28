@@ -63,9 +63,8 @@ class MatchesBody extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final collectionName = context.getProperty<String>();
     final isEmptyMatches = ref.watch(
-      matchesProvider(
-        collectionId: collectionName,
-      ).select((state) => state.isEmpty),
+      matchesProvider(collectionId: collectionName)
+          .select((state) => state.isEmpty),
     );
 
     if (isEmptyMatches) {
@@ -120,15 +119,13 @@ class MatchesTriangleView extends StatelessWidget {
           builder: (context, ref, child) {
             final collectionName = context.getProperty<String>();
             final minMatches = ref.watch(
-              matchesFilterProvider(
-                collectionId: collectionName,
-              ).select((state) => state.minMatches),
+              matchesFilterProvider(collectionId: collectionName)
+                  .select((state) => state.minMatches),
             );
             return MatchesTriangle(
               matches: ref.watch(
-                matchesProvider(
-                  collectionId: collectionName,
-                ).select((value) => value.filteredPlotData(minMatches)),
+                matchesProvider(collectionId: collectionName)
+                    .select((value) => value.filteredPlotData(minMatches)),
               ),
               onTap: (tappedMatches) {
                 final matches = tappedMatches.first;

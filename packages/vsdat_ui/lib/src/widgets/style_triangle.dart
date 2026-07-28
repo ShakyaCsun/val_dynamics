@@ -50,9 +50,8 @@ class StyleTriangle<T> extends StatelessWidget {
             minPadding: breakpoint.padding + minRadius,
             ternaryLabels: showLabels ? ternaryPlotStyles.label() : null,
             gridLines: 4,
-            gridLineColor: Theme.of(
-              context,
-            ).colorScheme.onSurface.withAlpha(150),
+            gridLineColor: Theme.of(context).colorScheme.onSurface
+                .withAlpha(150),
           ),
           areas: [...ternaryPlotStyles.areas(), ...?areas],
           onPointHovered: onHover,

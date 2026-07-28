@@ -329,7 +329,7 @@ abstract class _$Matches extends $Notifier<ValorantMatches> {
   ValorantMatches build({required String collectionId});
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<ValorantMatches, ValorantMatches>;
     final element =
         ref.element
@@ -339,7 +339,7 @@ abstract class _$Matches extends $Notifier<ValorantMatches> {
               Object?,
               Object?
             >;
-    element.handleCreate(ref, () => build(collectionId: _$args));
+    return element.handleCreate(ref, () => build(collectionId: _$args));
   }
 }
 
@@ -426,7 +426,7 @@ abstract class _$MatchesFilter extends $Notifier<MatchesFilterState> {
   MatchesFilterState build({required String collectionId});
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<MatchesFilterState, MatchesFilterState>;
     final element =
         ref.element
@@ -436,6 +436,6 @@ abstract class _$MatchesFilter extends $Notifier<MatchesFilterState> {
               Object?,
               Object?
             >;
-    element.handleCreate(ref, () => build(collectionId: _$args));
+    return element.handleCreate(ref, () => build(collectionId: _$args));
   }
 }

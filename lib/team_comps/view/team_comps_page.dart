@@ -34,18 +34,17 @@ class TeamCompsPage extends StatelessWidget {
             );
             final description = switch (compsReady) {
               true => ref.watch(
-                filteredCompositionsProvider(rosterName: rosterName).select((
-                  comps,
-                ) {
-                  final compsCount = comps.length;
-                  if (compsCount == 0) {
-                    return context.l10n.noCompsForFilter;
-                  }
-                  return context.l10n.nCompsOfDifferentStyle(
-                    compsCount,
-                    comps.stylesCount,
-                  );
-                }),
+                filteredCompositionsProvider(rosterName: rosterName)
+                    .select((comps) {
+                      final compsCount = comps.length;
+                      if (compsCount == 0) {
+                        return context.l10n.noCompsForFilter;
+                      }
+                      return context.l10n.nCompsOfDifferentStyle(
+                        compsCount,
+                        comps.stylesCount,
+                      );
+                    }),
               ),
               false => rosterName,
             };

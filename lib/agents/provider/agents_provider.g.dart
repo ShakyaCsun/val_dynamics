@@ -161,7 +161,7 @@ abstract class _$SelectedAgent extends $Notifier<Agent?> {
   Agent? build({required String rosterName});
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<Agent?, Agent?>;
     final element =
         ref.element
@@ -171,6 +171,6 @@ abstract class _$SelectedAgent extends $Notifier<Agent?> {
               Object?,
               Object?
             >;
-    element.handleCreate(ref, () => build(rosterName: _$args));
+    return element.handleCreate(ref, () => build(rosterName: _$args));
   }
 }
