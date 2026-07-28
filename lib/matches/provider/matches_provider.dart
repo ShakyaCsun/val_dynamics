@@ -56,18 +56,16 @@ MatchesRepository matchesRepository(Ref ref, {required String collectionId}) {
 @riverpod
 Set<String> availableMaps(Ref ref, {required String collectionName}) {
   return ref.watch(
-    matchesRepositoryProvider(
-      collectionId: collectionName,
-    ).select((state) => state.availableMaps),
+    matchesRepositoryProvider(collectionId: collectionName)
+        .select((state) => state.availableMaps),
   );
 }
 
 @riverpod
 Set<String> selectedMaps(Ref ref, {required String collectionName}) {
   return ref.watch(
-    matchesFilterProvider(
-      collectionId: collectionName,
-    ).select((state) => state.maps),
+    matchesFilterProvider(collectionId: collectionName)
+        .select((state) => state.maps),
   );
 }
 

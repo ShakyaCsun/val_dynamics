@@ -39,9 +39,8 @@ class MatchesOverviewView extends ConsumerWidget {
           child: MatchesCollectionTile(
             collection: collection,
             onTap: () {
-              MatchesRoute(
-                collectionName: collection.collectionName,
-              ).go(context);
+              MatchesRoute(collectionName: collection.collectionName)
+                  .go(context);
             },
             rosterNames: ref.watch(availableRostersProvider),
             onRosterChange: (rosterName) {

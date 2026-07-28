@@ -1,5 +1,38 @@
 import 'package:valorant_agents/valorant_agents.dart';
 
+// Waylay SD2 score before Saturate changed from INSTANT to EQUIP in Patch 12.06
+const _waylayPre12_06 = Agent(
+  name: 'Waylay',
+  // Man's just guessing
+  aggro: 7,
+  control: 2,
+  midrange: 1,
+  role: Role.duelist,
+  abilityOne: AbilityOne(
+    name: 'Lightspeed',
+    aggro: 2,
+    control: 1,
+    reasons: ['Dive', 'Explosiveness', 'Access to Verticality'],
+  ),
+  abilityTwo: AbilityTwo(
+    name: 'Refract',
+    aggro: 2,
+    midrange: 1,
+    reasons: ['Untradeability', 'Kill Reset', 'Intermediate Range'],
+  ),
+  abilityThree: AbilityThree(
+    name: 'Saturate',
+    aggro: 2,
+    control: 1,
+    reasons: ['Fast Cast', 'Short Range', 'Non-catalytic Duel Facilitation'],
+  ),
+  ultimateAbility: UltimateAbility(
+    name: 'Convergent Paths',
+    aggro: 1,
+    reasons: ['Explosive and Self-capitalizable'],
+  ),
+);
+
 /// Gekko SD2 score before Mosh Pit was changed to be reclaimable in Patch 12.03
 const Agent _gekkoPre12_03 = Agent(
   name: 'Gekko',
@@ -124,10 +157,11 @@ extension type const Agents._(List<Agent> agents) implements List<Agent> {
   }
 
   List<Map<String, dynamic>> toJson({bool minimal = false}) {
-    return [
-      for (final agent in agents)
-        minimal ? agent.toMinimalJson() : agent.toJson(),
-    ];
+    final mapper = switch (minimal) {
+      true => (Agent agent) => agent.toMinimalJson(),
+      false => (Agent agent) => agent.toJson(),
+    };
+    return List.unmodifiableOf(agents.map(mapper));
   }
 
   /// All [Agent] have the same [Agent.totalPoints] allocated.
@@ -201,6 +235,7 @@ extension type const Agents._(List<Agent> agents) implements List<Agent> {
     Agent.jett,
     Agent.kayo,
     Agent.killjoy,
+    Agent.miks,
     Agent.neon,
     Agent.omen,
     Agent.phoenix,
@@ -244,7 +279,7 @@ extension type const Agents._(List<Agent> agents) implements List<Agent> {
     Agent.viper,
     _vysePre11_08,
     Agent.yoru,
-    Agent.waylay,
+    _waylayPre12_06,
   ]);
 
   static final champs24Roster = Agents([

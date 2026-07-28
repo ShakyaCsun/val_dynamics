@@ -44,9 +44,8 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
                 availableMapsProvider(collectionName: collectionName),
               );
               final selectedMaps = ref.watch(
-                comboSynergyFilterProvider(
-                  collectionId: collectionName,
-                ).select((state) => state.selectedMaps),
+                comboSynergyFilterProvider(collectionId: collectionName)
+                    .select((state) => state.selectedMaps),
               );
               return FilterChipsWrap(
                 options: mapNames.toList(),
@@ -54,9 +53,8 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
                 onSelect: (mapName) {
                   ref
                       .read(
-                        comboSynergyFilterProvider(
-                          collectionId: collectionName,
-                        ).notifier,
+                        comboSynergyFilterProvider(collectionId: collectionName)
+                            .notifier,
                       )
                       .toggleMap(mapName);
                 },
@@ -71,9 +69,8 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
           child: Consumer(
             builder: (context, ref, child) {
               final selectedFilter = ref.watch(
-                comboSynergyFilterProvider(
-                  collectionId: collectionName,
-                ).select((state) => state.comboCriteria),
+                comboSynergyFilterProvider(collectionId: collectionName)
+                    .select((state) => state.comboCriteria),
               );
               return SegmentedButton<ComboCriteria>(
                 segments: [
@@ -113,9 +110,8 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
           child: Consumer(
             builder: (context, ref, child) {
               final selectedFilter = ref.watch(
-                comboSynergyFilterProvider(
-                  collectionId: collectionName,
-                ).select((state) => state.winLossFilter),
+                comboSynergyFilterProvider(collectionId: collectionName)
+                    .select((state) => state.winLossFilter),
               );
               return SegmentedButton<WinLossFilter>(
                 segments: [
@@ -163,9 +159,8 @@ class ComboSynergiesFilterDrawer extends StatelessWidget {
               return DropdownButtonFormField<(Role, Role)>(
                 decoration: const InputDecoration(border: OutlineInputBorder()),
                 initialValue: ref.watch(
-                  comboSynergyFilterProvider(
-                    collectionId: collectionName,
-                  ).select((state) => state.rolesCombo),
+                  comboSynergyFilterProvider(collectionId: collectionName)
+                      .select((state) => state.rolesCombo),
                 ),
                 items: allRoleCombos.map((roleCombo) {
                   final roleComboText = switch (roleCombo) {
@@ -209,18 +204,16 @@ class MinRoundsInput extends StatelessWidget {
     return Consumer(
       builder: (context, ref, child) {
         final minRounds = ref.watch(
-          comboSynergyFilterProvider(
-            collectionId: collectionName,
-          ).select((state) => state.minRounds),
+          comboSynergyFilterProvider(collectionId: collectionName)
+              .select((state) => state.minRounds),
         );
         return SliderTextInput(
           currentValue: minRounds,
           onChanged: (value) {
             ref
                 .read(
-                  comboSynergyFilterProvider(
-                    collectionId: collectionName,
-                  ).notifier,
+                  comboSynergyFilterProvider(collectionId: collectionName)
+                      .notifier,
                 )
                 .changeMinRounds(value);
           },

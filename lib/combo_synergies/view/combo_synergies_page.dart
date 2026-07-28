@@ -88,9 +88,8 @@ class ComboSynergiesTriangle extends StatelessWidget {
                 return Consumer(
                   builder: (context, ref, child) {
                     final plotData = ref.watch(
-                      comboSynergiesProvider(
-                        collectionId: collectionName,
-                      ).select((state) => state.plotData),
+                      comboSynergiesProvider(collectionId: collectionName)
+                          .select((state) => state.plotData),
                     );
                     return StyleTriangle(
                       data: plotData,
@@ -172,9 +171,9 @@ class _ComboSynergiesTableState extends State<ComboSynergiesTable> {
               columnCount: 7,
               rowCount: tableData.length + 1,
               columnBuilder: (index) {
-                final borderColor = Theme.of(
-                  context,
-                ).colorScheme.outlineVariant;
+                final borderColor = Theme.of(context)
+                    .colorScheme
+                    .outlineVariant;
                 return TableSpan(
                   foregroundDecoration: TableSpanDecoration(
                     border: SpanBorder(
@@ -186,9 +185,9 @@ class _ComboSynergiesTableState extends State<ComboSynergiesTable> {
               },
               rowBuilder: (index) {
                 if (index == 0) {
-                  final borderColor = Theme.of(
-                    context,
-                  ).colorScheme.outlineVariant;
+                  final borderColor = Theme.of(context)
+                      .colorScheme
+                      .outlineVariant;
                   return TableSpan(
                     backgroundDecoration: TableSpanDecoration(
                       border: TableSpanBorder(
@@ -198,9 +197,9 @@ class _ComboSynergiesTableState extends State<ComboSynergiesTable> {
                     extent: const FixedSpanExtent(64),
                   );
                 }
-                final evenColor = Theme.of(
-                  context,
-                ).colorScheme.surfaceContainer;
+                final evenColor = Theme.of(context)
+                    .colorScheme
+                    .surfaceContainer;
                 return TableSpan(
                   backgroundDecoration: TableSpanDecoration(
                     color: index.isOdd ? evenColor : null,

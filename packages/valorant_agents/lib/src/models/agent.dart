@@ -356,6 +356,36 @@ class Agent extends Equatable implements Comparable<Agent> {
     abilityThree: AbilityThree(name: 'Nanoswarm', reasons: ['', '', '']),
     ultimateAbility: UltimateAbility(name: 'Lockdown', reasons: ['']),
   );
+  static const miks = Agent(
+    name: 'Miks',
+    aggro: 3,
+    control: 1,
+    midrange: 6,
+    role: Role.controller,
+    abilityOne: AbilityOne(
+      name: 'Harmonize',
+      aggro: 1,
+      midrange: 2,
+      reasons: ['Self Stim', 'External Kill Reset', 'External Buff'],
+    ),
+    abilityTwo: AbilityTwo(
+      name: 'Waveform',
+      aggro: 1,
+      control: 1,
+      midrange: 1,
+      reasons: ['Burst Smokes', 'High Duration/Stall value', 'Cooldown'],
+    ),
+    abilityThree: AbilityThree(
+      name: 'M-pulse',
+      midrange: 3,
+      reasons: ['Multi-modality', 'Healing', 'Low Potency Catalytic Util'],
+    ),
+    ultimateAbility: UltimateAbility(
+      name: 'Bassquake',
+      aggro: 1,
+      reasons: ['High Potency Catalytic Util'],
+    ),
+  );
   static const neon = Agent(
     name: 'Neon',
     aggro: 7,
@@ -506,7 +536,7 @@ class Agent extends Equatable implements Comparable<Agent> {
       name: 'Slow Orb',
       control: 2,
       midrange: 1,
-      reasons: ['Stall', 'More Stall', 'Intermediate Range'],
+      reasons: ['Stall', 'Anti-Dive', 'Intermediate Range'],
     ),
     abilityTwo: AbilityTwo(
       name: 'Healing Orb',
@@ -715,9 +745,9 @@ class Agent extends Equatable implements Comparable<Agent> {
     ),
     abilityThree: AbilityThree(
       name: 'Saturate',
-      aggro: 2,
-      control: 1,
-      reasons: ['Fast Cast', 'Short Range', 'Non-catalytic Duel Facilitation'],
+      aggro: 1,
+      control: 2,
+      reasons: ['Short Range', 'Non-catalytic Duel Facilitation', 'Stall'],
     ),
     ultimateAbility: UltimateAbility(
       name: 'Convergent Paths',

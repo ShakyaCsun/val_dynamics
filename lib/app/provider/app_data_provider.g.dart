@@ -184,7 +184,7 @@ abstract class _$AppDataNotifier extends $Notifier<AppData> {
   AppData build();
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<AppData, AppData>;
     final element =
         ref.element
@@ -194,6 +194,6 @@ abstract class _$AppDataNotifier extends $Notifier<AppData> {
               Object?,
               Object?
             >;
-    element.handleCreate(ref, build);
+    return element.handleCreate(ref, build);
   }
 }

@@ -11,9 +11,8 @@ class MatchesStats extends _$MatchesStats {
   @override
   List<StyleTypeMatches> build({required String collectionId}) {
     return ref.watch(
-      matchesProvider(
-        collectionId: collectionId,
-      ).select((state) => state.styleTypeClashes),
+      matchesProvider(collectionId: collectionId)
+          .select((state) => state.styleTypeClashes),
     );
   }
 }
@@ -23,9 +22,8 @@ class TriangularInteractions extends _$TriangularInteractions {
   @override
   List<NonTransitiveInteraction> build({required String collectionId}) {
     return ref.watch(
-      matchesProvider(
-        collectionId: collectionId,
-      ).select((state) => state.getTriangularInteractions()),
+      matchesProvider(collectionId: collectionId)
+          .select((state) => state.getTriangularInteractions()),
     );
   }
 }

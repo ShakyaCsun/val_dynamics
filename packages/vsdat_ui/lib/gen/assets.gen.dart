@@ -1232,9 +1232,7 @@ class $AssetsAgentsYoruGen {
   ];
 }
 
-class ValAssets {
-  const ValAssets._();
-
+abstract final class ValAssets {
   static const String package = 'vsdat_ui';
 
   static const $AssetsAgentsGen agents = $AssetsAgentsGen();

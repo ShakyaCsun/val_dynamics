@@ -37,9 +37,8 @@ class MatchesFilterDrawer extends StatelessWidget {
                 onSelect: (mapName) {
                   ref
                       .read(
-                        matchesFilterProvider(
-                          collectionId: collectionName,
-                        ).notifier,
+                        matchesFilterProvider(collectionId: collectionName)
+                            .notifier,
                       )
                       .toggleMap(mapName);
                 },
@@ -54,9 +53,8 @@ class MatchesFilterDrawer extends StatelessWidget {
           child: Consumer(
             builder: (context, ref, child) {
               final selectedFilter = ref.watch(
-                matchesFilterProvider(
-                  collectionId: collectionName,
-                ).select((state) => state.filter),
+                matchesFilterProvider(collectionId: collectionName)
+                    .select((state) => state.filter),
               );
               return SegmentedButton<MatchUpFilter>(
                 segments: [
@@ -75,9 +73,8 @@ class MatchesFilterDrawer extends StatelessWidget {
                   if (filterSet.isNotEmpty) {
                     ref
                         .read(
-                          matchesFilterProvider(
-                            collectionId: collectionName,
-                          ).notifier,
+                          matchesFilterProvider(collectionId: collectionName)
+                              .notifier,
                         )
                         .changeMatchUpFilter(filterSet.first);
                   }

@@ -49,7 +49,7 @@ abstract class _$MatchesCollectionList
   List<MatchesCollection> build();
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref =
         this.ref as $Ref<List<MatchesCollection>, List<MatchesCollection>>;
     final element =
@@ -60,6 +60,6 @@ abstract class _$MatchesCollectionList
               Object?,
               Object?
             >;
-    element.handleCreate(ref, build);
+    return element.handleCreate(ref, build);
   }
 }

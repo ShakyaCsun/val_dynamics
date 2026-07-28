@@ -334,7 +334,7 @@ abstract class _$Compositions extends $AsyncNotifier<CompositionsState> {
   FutureOr<CompositionsState> build({required String rosterName});
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref =
         this.ref as $Ref<AsyncValue<CompositionsState>, CompositionsState>;
     final element =
@@ -345,6 +345,6 @@ abstract class _$Compositions extends $AsyncNotifier<CompositionsState> {
               Object?,
               Object?
             >;
-    element.handleCreate(ref, () => build(rosterName: _$args));
+    return element.handleCreate(ref, () => build(rosterName: _$args));
   }
 }

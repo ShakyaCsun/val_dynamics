@@ -10,6 +10,7 @@ List<RouteBase> get $appRoutes => [$teamCompsRedirectRoute, $homeScreenRoute];
 
 RouteBase get $teamCompsRedirectRoute => GoRouteData.$route(
   path: '/comps',
+  hasOverriddenOnExit: false,
   factory: $TeamCompsRedirectRoute._fromState,
 );
 
@@ -39,18 +40,22 @@ RouteBase get $homeScreenRoute => ShellRouteData.$route(
   routes: [
     GoRouteData.$route(
       path: '/',
+      hasOverriddenOnExit: false,
       factory: $AgentsOverviewRoute._fromState,
       routes: [
         GoRouteData.$route(
           path: 'agents/add',
+          hasOverriddenOnExit: false,
           factory: $AddAgentsRoute._fromState,
         ),
         GoRouteData.$route(
           path: 'agents/:rosterName',
+          hasOverriddenOnExit: false,
           factory: $AgentsRoute._fromState,
           routes: [
             GoRouteData.$route(
               path: 'stats',
+              hasOverriddenOnExit: false,
               factory: $AgentsStatRoute._fromState,
             ),
           ],
@@ -59,51 +64,66 @@ RouteBase get $homeScreenRoute => ShellRouteData.$route(
     ),
     GoRouteData.$route(
       path: '/comps/:rosterName',
+      hasOverriddenOnExit: false,
       factory: $TeamCompsRoute._fromState,
       routes: [
         GoRouteData.$route(
           path: 'filter',
+          hasOverriddenOnExit: false,
           factory: $TeamCompsFilterRoute._fromState,
         ),
         GoRouteData.$route(
           path: 'details/:acm',
+          hasOverriddenOnExit: false,
           factory: $TeamCompsDetailRoute._fromState,
         ),
       ],
     ),
     GoRouteData.$route(
       path: '/matches',
+      hasOverriddenOnExit: false,
       factory: $MatchesOverviewRoute._fromState,
       routes: [
-        GoRouteData.$route(path: 'add', factory: $AddMatchesRoute._fromState),
+        GoRouteData.$route(
+          path: 'add',
+          hasOverriddenOnExit: false,
+          factory: $AddMatchesRoute._fromState,
+        ),
         GoRouteData.$route(
           path: ':collectionName',
+          hasOverriddenOnExit: false,
           factory: $MatchesRoute._fromState,
           routes: [
             GoRouteData.$route(
               path: 'synergies',
+              hasOverriddenOnExit: false,
               factory: $ComboSynergiesRoute._fromState,
               routes: [
                 GoRouteData.$route(
                   path: ':comboName',
+                  hasOverriddenOnExit: false,
                   factory: $AgentComboMatchesRoute._fromState,
                 ),
               ],
             ),
             GoRouteData.$route(
               path: 'stats',
+              hasOverriddenOnExit: false,
               factory: $MatchesStatsRoute._fromState,
             ),
             GoRouteData.$route(
               path: 'acm/:acm',
+              hasOverriddenOnExit: false,
               factory: $StyledMatchesRoute._fromState,
               routes: [
                 GoRouteData.$route(
                   path: 'matches',
+                  hasOverriddenOnExit: false,
                   factory: $StyledMatchesListRoute._fromState,
                 ),
                 GoRouteData.$route(
                   path: 'vs/:opponentAcm',
+                  hasOverriddenOnExit: false,
                   factory: $StyledMatchupListRoute._fromState,
                 ),
               ],

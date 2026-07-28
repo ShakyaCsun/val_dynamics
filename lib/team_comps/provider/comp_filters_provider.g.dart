@@ -92,7 +92,7 @@ abstract class _$CompFilters extends $Notifier<CompFiltersState> {
   CompFiltersState build({required String rosterName});
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<CompFiltersState, CompFiltersState>;
     final element =
         ref.element
@@ -102,6 +102,6 @@ abstract class _$CompFilters extends $Notifier<CompFiltersState> {
               Object?,
               Object?
             >;
-    element.handleCreate(ref, () => build(rosterName: _$args));
+    return element.handleCreate(ref, () => build(rosterName: _$args));
   }
 }

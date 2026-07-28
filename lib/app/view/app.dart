@@ -117,9 +117,8 @@ class ValSD2HomeScreen extends ConsumerWidget {
       }
     }
 
-    final showNavigationRail = const Breakpoint.medium(
-      andUp: true,
-    ).isActive(context);
+    final showNavigationRail = const Breakpoint.medium(andUp: true)
+        .isActive(context);
     return Scaffold(
       body: Row(
         children: [

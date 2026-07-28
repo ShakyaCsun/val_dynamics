@@ -40,15 +40,13 @@ Map<AgentCompsTernaryData, TernaryPoint> teamCompsTernaryData(
   final filters = ref.watch(compFiltersProvider(rosterName: rosterName));
   if (filters.hasDefaultFilters) {
     return ref.watch(
-      compositionsProvider(
-        rosterName: rosterName,
-      ).select((value) => value.requireValue.ternaryData),
+      compositionsProvider(rosterName: rosterName)
+          .select((value) => value.requireValue.ternaryData),
     );
   }
   return ref.watch(
-    filteredCompositionsProvider(
-      rosterName: rosterName,
-    ).select((value) => value.asTernaryData),
+    filteredCompositionsProvider(rosterName: rosterName)
+        .select((value) => value.asTernaryData),
   );
 }
 
@@ -146,7 +144,7 @@ abstract class CompositionsState with _$CompositionsState {
               comps.add(AgentComp(agent1, agent2, agent3, agent4, agent5));
               if (i % atEvery == 0) {
                 yield comps;
-                await Future<void>.delayed(Duration.zero);
+                await Future.pause();
                 comps.clear();
               }
             }

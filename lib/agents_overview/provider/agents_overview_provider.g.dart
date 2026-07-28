@@ -48,7 +48,7 @@ abstract class _$AgentsOverviewNotifier extends $Notifier<AgentsOverviewState> {
   AgentsOverviewState build();
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<AgentsOverviewState, AgentsOverviewState>;
     final element =
         ref.element
@@ -58,7 +58,7 @@ abstract class _$AgentsOverviewNotifier extends $Notifier<AgentsOverviewState> {
               Object?,
               Object?
             >;
-    element.handleCreate(ref, build);
+    return element.handleCreate(ref, build);
   }
 }
 
