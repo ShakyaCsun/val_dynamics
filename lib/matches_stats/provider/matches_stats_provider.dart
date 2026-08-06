@@ -37,7 +37,7 @@ enum MatchUpNote {
   mirrorType('≈'),
   none('');
 
-  const MatchUpNote(this.symbol);
+  MatchUpNote(this.symbol);
 
   factory MatchUpNote.fromStyles(StylePoints styleOne, StylePoints styleTwo) {
     if (styleOne.prey == styleTwo) {

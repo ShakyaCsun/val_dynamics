@@ -726,9 +726,8 @@ class Agent extends Equatable implements Comparable<Agent> {
   );
   static const waylay = Agent(
     name: 'Waylay',
-    // Man's just guessing
-    aggro: 7,
-    control: 2,
+    aggro: 6,
+    control: 3,
     midrange: 1,
     role: Role.duelist,
     abilityOne: AbilityOne(

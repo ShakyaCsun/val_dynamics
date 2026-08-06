@@ -7,7 +7,7 @@ enum Style {
   control('Control'),
   midrange('Midrange');
 
-  const Style(this.label);
+  Style(this.label);
 
   final String label;
 

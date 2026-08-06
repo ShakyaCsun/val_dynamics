@@ -5,7 +5,7 @@ enum Role implements Comparable<Role> {
   controller('Controller'),
   unknown('Unknown');
 
-  const Role(this.value);
+  Role(this.value);
 
   factory Role.fromJson(String json) {
     return switch (json.toLowerCase()) {
