@@ -26,7 +26,7 @@ enum StyleType {
   midrangeAggro('Midrange Aggro'),
   center('Central Tri-breed');
 
-  const StyleType(this.label);
+  StyleType(this.label);
 
   factory StyleType.fromStylePoints(StylePoints points) {
     final (:aggro, :control, :midrange) = points.normalized;

@@ -3,7 +3,6 @@ import 'package:valorant_agents/valorant_agents.dart';
 // Waylay SD2 score before Saturate changed from INSTANT to EQUIP in Patch 12.06
 const _waylayPre12_06 = Agent(
   name: 'Waylay',
-  // Man's just guessing
   aggro: 7,
   control: 2,
   midrange: 1,

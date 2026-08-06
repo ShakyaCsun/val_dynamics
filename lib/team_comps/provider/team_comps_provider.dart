@@ -83,7 +83,7 @@ class Compositions extends _$Compositions {
       return CompositionsState.empty(agents: agents);
     }
 
-    return CompositionsState.initial(agents: agents);
+    return await CompositionsState.initial(agents: agents);
   }
 
   StreamSubscription<List<AgentComp>>? _subscription;

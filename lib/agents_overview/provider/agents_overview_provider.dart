@@ -41,7 +41,9 @@ class AgentsOverviewNotifier extends _$AgentsOverviewNotifier {
   }
 
   Future<String> addRoster(Agents roster, String name) async {
-    return ref.read(agentsRepositoryProvider).addNewAgentRoster(roster, name);
+    return await ref
+        .read(agentsRepositoryProvider)
+        .addNewAgentRoster(roster, name);
   }
 
   Future<void> removeRoster(String name) async {
