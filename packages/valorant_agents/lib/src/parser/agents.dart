@@ -3,8 +3,8 @@ import 'package:valorant_agents/valorant_agents.dart';
 // Waylay SD2 score before Saturate changed from INSTANT to EQUIP in Patch 12.06
 const _waylayPre12_06 = Agent(
   name: 'Waylay',
-  aggro: 7,
-  control: 2,
+  aggro: 8,
+  control: 1,
   midrange: 1,
   role: Role.duelist,
   abilityOne: AbilityOne(
@@ -21,9 +21,8 @@ const _waylayPre12_06 = Agent(
   ),
   abilityThree: AbilityThree(
     name: 'Saturate',
-    aggro: 2,
-    control: 1,
-    reasons: ['Fast Cast', 'Short Range', 'Non-catalytic Duel Facilitation'],
+    aggro: 3,
+    reasons: ['Fast Cast', 'Short Range', 'Self-capitalizable Catalytic Util'],
   ),
   ultimateAbility: UltimateAbility(
     name: 'Convergent Paths',

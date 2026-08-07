@@ -726,8 +726,8 @@ class Agent extends Equatable implements Comparable<Agent> {
   );
   static const waylay = Agent(
     name: 'Waylay',
-    aggro: 6,
-    control: 3,
+    aggro: 7,
+    control: 2,
     midrange: 1,
     role: Role.duelist,
     abilityOne: AbilityOne(
@@ -744,9 +744,9 @@ class Agent extends Equatable implements Comparable<Agent> {
     ),
     abilityThree: AbilityThree(
       name: 'Saturate',
-      aggro: 1,
-      control: 2,
-      reasons: ['Short Range', 'Non-catalytic Duel Facilitation', 'Stall'],
+      aggro: 2,
+      control: 1,
+      reasons: ['Short Range', 'Self-capitalizable Catalytic Util', 'Stall'],
     ),
     ultimateAbility: UltimateAbility(
       name: 'Convergent Paths',
