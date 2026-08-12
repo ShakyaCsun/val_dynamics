@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:ternary_plot/ternary_plot.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';
 

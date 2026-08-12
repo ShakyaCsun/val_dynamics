@@ -300,7 +300,7 @@ final class CompositionsProvider
   }
 }
 
-String _$compositionsHash() => r'4f96d3d79e887685b30d17a50826a862e573d458';
+String _$compositionsHash() => r'd272973c4ac44a1e2eb1c1db1c0cf7242ab3feee';
 
 final class CompositionsFamily extends $Family
     with

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 import 'package:vsdat/l10n/l10n.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';

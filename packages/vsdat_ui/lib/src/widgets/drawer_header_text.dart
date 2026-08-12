@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class DrawerHeaderText extends StatelessWidget {
   const DrawerHeaderText(this.label, {super.key});

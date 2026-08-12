@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart' hide InteractiveViewer;
+import 'package:material_ui/material_ui.dart' hide InteractiveViewer;
 import 'package:vsdat_ui/src/widgets/_interactive_viewer_transform.dart'
     show InteractiveViewer;
 

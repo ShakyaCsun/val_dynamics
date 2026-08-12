@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:vsdat/agents_overview/agents_overview.dart';
 import 'package:vsdat/l10n/l10n.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';

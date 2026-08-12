@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// {@template themed_value}
 /// Helper class that helps to resolve a value based on the current app

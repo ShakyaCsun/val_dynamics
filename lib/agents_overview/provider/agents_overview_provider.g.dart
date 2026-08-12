@@ -42,7 +42,7 @@ final class AgentsOverviewNotifierProvider
 }
 
 String _$agentsOverviewNotifierHash() =>
-    r'317bcdfa0a9dbf115db4e81757e3eba9b51412af';
+    r'a0cf03599f2be96bca5f2f0bba459791f7ca57fa';
 
 abstract class _$AgentsOverviewNotifier extends $Notifier<AgentsOverviewState> {
   AgentsOverviewState build();
