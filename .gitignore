@@ -5,9 +5,11 @@
 *.swp
 .DS_Store
 .atom/
+.build/
 .buildlog/
 .history
 .svn/
+.swiftpm/
 migrate_working_dir/
 
 # IntelliJ related
@@ -23,12 +25,11 @@ migrate_working_dir/
 **/doc/api/
 **/ios/Flutter/.last_build_id
 .dart_tool/
-.flutter-plugins
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
 /build/
-pubspec_overrides.yaml
+/coverage/
 
 # Symbolication related
 app.*.symbols
@@ -41,5 +42,9 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# Experimental Widget-Previews related
+# Widget Preview related
+.widget_preview/
+
+# Additional Ignores
+pubspec_overrides.yaml
 /lib/preview*.dart

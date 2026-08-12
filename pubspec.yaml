@@ -6,8 +6,8 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.13.0-0
-  flutter: '>=3.47.0-0'
+  sdk: ^3.14.0-0
+  flutter: '>=3.48.0-0'
 
 workspace:
   - packages/agents_repository
@@ -29,11 +29,11 @@ dependencies:
     sdk: flutter
   flutter_riverpod: ^3.4.2
   flutter_svg: ^2.3.0
-  formz: ^0.8.0
+  formz: ^0.8.1
   formz_inputs:
     path: ./packages/formz_inputs
   freezed_annotation: ^3.1.0
-  go_router: ^17.4.0
+  go_router: ^17.5.0
   intl: ^0.20.3
   logging: ^1.3.0
   matches_repository:
