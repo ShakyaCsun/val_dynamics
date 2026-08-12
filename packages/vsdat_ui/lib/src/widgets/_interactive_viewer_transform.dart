@@ -12,8 +12,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart' show clampDouble;
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart' hide InteractiveViewer;
 import 'package:flutter/physics.dart';
+import 'package:material_ui/material_ui.dart' hide InteractiveViewer;
 import 'package:vector_math/vector_math_64.dart' show Matrix4, Quad, Vector3;
 
 /// A widget that enables pan and zoom interactions with its child.

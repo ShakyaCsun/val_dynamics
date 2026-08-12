@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
 extension AgentColorExtension on Agent {

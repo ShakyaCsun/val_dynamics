@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:matches_repository/matches_repository.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:vsdat/matches_stats/matches_stats.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';
 

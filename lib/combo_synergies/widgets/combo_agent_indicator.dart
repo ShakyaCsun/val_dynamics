@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:vsdat/combo_synergies/combo_synergies.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';
 

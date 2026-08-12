@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:vsdat/agents_overview/agents_overview.dart';
 import 'package:vsdat/app_router/routes.dart';

@@ -4,13 +4,13 @@ version: 0.1.0+1
 publish_to: none
 
 environment:
-  sdk: ^3.13.0-0
+  sdk: ^3.14.0-0
 
 resolution: workspace
 
 dependencies:
   cross_file: ^0.3.5+4
-  formz: ^0.8.0
+  formz: ^0.8.1
 
 dev_dependencies:
   mocktail: ^1.0.5

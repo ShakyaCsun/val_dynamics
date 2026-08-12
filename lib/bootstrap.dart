@@ -1,9 +1,9 @@
 import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logging/logging.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';
 
 final _logger = Logger('val_sd_analyzer');
