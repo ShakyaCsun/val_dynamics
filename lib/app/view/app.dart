@@ -24,7 +24,12 @@ class App extends ConsumerWidget {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       builder: (context, child) {
-        return AppDataLoader(child: child!);
+        // This is a temporary migration utility intended for use only while
+        // dependencies are being migrated to package:material_ui.
+        // ignore: deprecated_member_use
+        return MaterialUiCompatibilityBridge(
+          child: AppDataLoader(child: child!),
+        );
       },
     );
   }
