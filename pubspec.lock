@@ -222,10 +222,10 @@ packages:
     dependency: transitive
     description:
       name: cupertino_ui
-      sha256: "58191e8c198d274d299b4a92e5fa9bf1abf1d870067cf064b67f2217957aefe9"
+      sha256: "7ed8ce4159d342eec4c65f4ea6eec57adaf9365404378541f38efc1da20a5b3d"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.3+1"
+    version: "1.0.0"
   dart_style:
     dependency: transitive
     description:
@@ -610,10 +610,10 @@ packages:
     dependency: "direct main"
     description:
       name: material_ui
-      sha256: ba53669b1fac77c3481ffba90833e2d847f2510faba8781a1bbe11e8f2c71a94
+      sha256: d9b4f6c69b80bc83d0a14357c86e4c14c8076e807ae73cf2960c8560f623995f
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.3+1"
+    version: "1.0.0"
   meta:
     dependency: transitive
     description:
@@ -896,7 +896,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "90739cb128ae5e0d5b8a6d6677415a86239d6bfe"
+      resolved-ref: "7b7484135ce393262ae37c7d88037bf8571346a7"
       url: "https://github.com/ShakyaCsun/ternary_plot.git"
     source: git
     version: "0.1.0+1"
