@@ -28,7 +28,7 @@ class TeamCompsTriangle extends StatelessWidget {
           data: teamCompsData,
           builder: (datum, radius) {
             final maxedComp = datum.count == maxComps;
-            return CircleIndicator.bordered(
+            return CircleIndicator(
               borderColor: maxedComp
                   ? colorScheme.primary
                   : ValColors.forStyleType(datum.stylePoints.styleType),

@@ -18,14 +18,7 @@ formatter:
 
 linter:
   rules:
-    async_return_with_no_await: true
-    empty_container_bodies: true
-    initialize_in_field_declaration: true
     no_raw_types: true
     no_dynamic_casts: true
     public_member_api_docs: false
-    unnecessary_await_in_return: false # Conflicts with `async_return_with_no_await`
-    unnecessary_const_in_enum_constructor: true
-    unnecessary_primary_constructor_body: true
-    use_declaring_parameters: true
-    use_null_aware_elements: true
+    unnecessary_type_name_in_constructor: false

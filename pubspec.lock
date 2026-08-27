@@ -29,10 +29,10 @@ packages:
     dependency: transitive
     description:
       name: archive
-      sha256: a96e8b390886ee8abb49b7bd3ac8df6f451c621619f52a26e815fdcf568959ff
+      sha256: ace891da0862b0e4cabbb064ee3fd87b2728b898949fdb366d83fe98342c9f19
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.9"
+    version: "4.2.0"
   args:
     dependency: transitive
     description:
@@ -189,10 +189,10 @@ packages:
     dependency: transitive
     description:
       name: cross_file
-      sha256: "92c9c43c383bfa1c32079d3bc492d55d6d4318044b7b47edaff8971cbb555c51"
+      sha256: f141ea4f277af142a0356955707f6556f37b03947d39d55585981a06ca437bd6
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.5+4"
+    version: "0.3.5+5"
   crypto:
     dependency: transitive
     description:
@@ -222,18 +222,18 @@ packages:
     dependency: transitive
     description:
       name: cupertino_ui
-      sha256: "7ed8ce4159d342eec4c65f4ea6eec57adaf9365404378541f38efc1da20a5b3d"
+      sha256: "2137c0d41f3b62cc4d3d2495e6c354bd6b6133cd21c6bb155736cc31dbd49a11"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.0"
+    version: "1.0.1"
   dart_style:
     dependency: transitive
     description:
       name: dart_style
-      sha256: "3f88fc9c96c568d631356507355a2d1e983ee000c9ac008bdcb39b5bf53ce777"
+      sha256: "82ade9fc4273f29ed673e33166944465225b4f7fc5d4aaef48605cc751c18fc1"
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.12"
+    version: "3.1.13"
   dartx:
     dependency: transitive
     description:
@@ -418,10 +418,10 @@ packages:
     dependency: "direct dev"
     description:
       name: freezed
-      sha256: "9ec135696554923c59339d46dd50adbaf81099be06ffda0fb9c06f410aea9137"
+      sha256: "27585a6c2b9ac28ffb7b45d87fd1502332af1eb90e1c9f5eb1acb24c71d26e17"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.0-dev.3"
+    version: "4.0.0"
   freezed_annotation:
     dependency: "direct main"
     description:
@@ -450,10 +450,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: d7a3576cb312649eaa51f2356450aed686085fb58fcdebda5b359aa951eef7ea
+      sha256: "2e7fcb9ac4d52ec06cd940552f12e66ee71fccbcadb09a067cb9fe20462b5bf3"
       url: "https://pub.dev"
     source: hosted
-    version: "17.5.0"
+    version: "18.0.0"
   go_router_builder:
     dependency: "direct dev"
     description:
@@ -506,10 +506,10 @@ packages:
     dependency: transitive
     description:
       name: image
-      sha256: "6300175e00616bbc832e2fc91bfa4d776af5402c81c7151bee6905bb08473c52"
+      sha256: "1976370a4df3091bb0f72409c187ad1f9132a818bc6b95ca59c0bae1c75c688e"
       url: "https://pub.dev"
     source: hosted
-    version: "4.9.1"
+    version: "4.9.2"
   image_size_getter:
     dependency: transitive
     description:
@@ -610,10 +610,10 @@ packages:
     dependency: "direct main"
     description:
       name: material_ui
-      sha256: d9b4f6c69b80bc83d0a14357c86e4c14c8076e807ae73cf2960c8560f623995f
+      sha256: "7ba1ca315d50a004791dbab290417c52a61466d56db2822fe3c5c2994903110c"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.0"
+    version: "1.1.0"
   meta:
     dependency: transitive
     description:
@@ -831,10 +831,10 @@ packages:
     dependency: transitive
     description:
       name: source_maps
-      sha256: "190222579a448b03896e0ca6eca5998fa810fda630c1d65e2f78b3f638f54812"
+      sha256: "14c2945847669b44089bb1222f66873d7ff7103c58911917f2a63c5a62327898"
       url: "https://pub.dev"
     source: hosted
-    version: "0.10.13"
+    version: "0.10.14"
   source_span:
     dependency: transitive
     description:
@@ -1056,18 +1056,18 @@ packages:
     dependency: "direct dev"
     description:
       name: very_good_analysis
-      sha256: "481af67ab5877af20325251dc215a4ebac7666a1c8cf09198ffd457bc612b33d"
+      sha256: f69b70a2f9c4794bd2a9c8e4b9fd14e38e647da2701ae8795ab7218590176bd5
       url: "https://pub.dev"
     source: hosted
-    version: "10.3.0"
+    version: "11.0.0-rc.1"
   vm_service:
     dependency: transitive
     description:
       name: vm_service
-      sha256: "0016aef94fc66495ac78af5859181e3f3bf2026bd8eecc72b9565601e19ab360"
+      sha256: "5f37239c4851efcef929cea7824e76df7f2f0970aef85d66bbc430afa40e72f0"
       url: "https://pub.dev"
     source: hosted
-    version: "15.2.0"
+    version: "15.3.0"
   watcher:
     dependency: transitive
     description:

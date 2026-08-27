@@ -31,18 +31,18 @@ class StyledMatchesTriangle extends StatelessWidget {
           final matchesCount = datum.length;
           final color = datum.collectTeamOneScore().color;
           if (highlight) {
-            return CircleAvatar(
+            return CircleIndicator(
               radius: radius,
-              backgroundColor: Theme.of(context).colorScheme.primary,
-              foregroundColor: Theme.of(context).colorScheme.onPrimary,
-              child: Text(matchesCount > 0 ? '$matchesCount' : 'H'),
+              color: Theme.of(context).colorScheme.primary,
+              textColor: Theme.of(context).colorScheme.onPrimary,
+              text: matchesCount > 0 ? '$matchesCount' : 'H',
             );
           }
-          return CircleAvatar(
+          return CircleIndicator(
             radius: radius,
-            backgroundColor: color,
-            foregroundColor: color.onColor,
-            child: Text('$matchesCount'),
+            color: color,
+            textColor: color.onColor,
+            text: '$matchesCount',
           );
         },
         onHover: hoveredItemsChanged,

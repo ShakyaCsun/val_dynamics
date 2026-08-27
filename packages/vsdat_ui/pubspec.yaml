@@ -14,7 +14,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_portal: ^1.1.4
-  material_ui: ^1.0.0
+  material_ui: ^1.1.0
   ternary_plot:
     git: https://github.com/ShakyaCsun/ternary_plot.git
   valorant_agents:

@@ -9,7 +9,7 @@ extension type ValorantMatches._(List<ValorantMatch> matches)
   /// [ValorantMatches] is just a [List<ValorantMatch>] but forces
   /// unmodifiable/immutable list along with helpful extension methods.
   ValorantMatches(Iterable<ValorantMatch> matches)
-    : matches = List.unmodifiable(matches);
+    : matches = List.unmodifiableOf(matches);
 
   factory ValorantMatches.fromCsv(
     String csv, {

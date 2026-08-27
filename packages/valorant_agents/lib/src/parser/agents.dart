@@ -117,7 +117,7 @@ const Agent _vysePre11_08 = Agent(
 /// {@endtemplate}
 extension type const Agents._(List<Agent> agents) implements List<Agent> {
   /// {@macro agents}
-  Agents(Iterable<Agent> agents) : agents = List.unmodifiable(agents.toSet());
+  Agents(Iterable<Agent> agents) : agents = List.unmodifiableOf(agents.toSet());
 
   factory Agents.fromCsv(String csv) {
     final (headers, rows) = readCsvWithHeaders(csv);

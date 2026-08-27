@@ -17,6 +17,8 @@ List<BenchmarkBase> _benchmarks({bool big = false}) {
     if (big) SumScoreBenchmark(seed: seed, matchesCount: count),
     SumScoreTupleBenchmark(),
     if (big) SumScoreTupleBenchmark(seed: seed, matchesCount: count),
+    MatchesSummaryBenchmark(),
+    if (big) MatchesSummaryBenchmark(seed: seed, matchesCount: count),
     StyleTypeBenchmark(),
     if (big) StyleTypeBenchmark(seed: seed, matchesCount: count),
   ];

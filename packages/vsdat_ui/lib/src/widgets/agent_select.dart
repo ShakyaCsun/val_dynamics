@@ -115,45 +115,45 @@ class _AgentSelectState extends State<AgentSelect> {
         ),
       ),
       margin: const EdgeInsets.all(4),
-      child: GestureDetector(
-        onTap: widget.onTap,
-        child: MouseRegion(
-          onEnter: (event) {
-            setState(() {
-              isHovered = true;
-            });
-          },
-          onExit: (event) {
-            setState(() {
-              isHovered = false;
-            });
-          },
-          child: AnimatedContainer(
-            duration: borderAnimationDuration,
-            decoration: BoxDecoration(
-              border: BoxBorder.all(width: isHovered ? 2 : 4),
-              color: stateColor(
-                normalColor.withAlpha(alphaValue),
-                core: coreColor.withAlpha(alphaValue),
-                excluded: excludedColor.withAlpha(alphaValue),
-                normalHovered: coreColor.withAlpha(alphaValue),
-                coreHovered: excludedColor.withAlpha(alphaValue),
-                excludedHovered: normalColor.withAlpha(alphaValue),
-              ),
-            ),
-            child: ClipRect(
-              child: Stack(
-                children: [
-                  Positioned.fill(
+      child: AnimatedContainer(
+        duration: borderAnimationDuration,
+        decoration: BoxDecoration(
+          border: BoxBorder.all(width: isHovered ? 2 : 4),
+          color: stateColor(
+            normalColor.withAlpha(alphaValue),
+            core: coreColor.withAlpha(alphaValue),
+            excluded: excludedColor.withAlpha(alphaValue),
+            normalHovered: coreColor.withAlpha(alphaValue),
+            coreHovered: excludedColor.withAlpha(alphaValue),
+            excludedHovered: normalColor.withAlpha(alphaValue),
+          ),
+        ),
+        child: GestureDetector(
+          onTap: widget.onTap,
+          child: MouseRegion(
+            onEnter: (event) {
+              setState(() {
+                isHovered = true;
+              });
+            },
+            onExit: (event) {
+              setState(() {
+                isHovered = false;
+              });
+            },
+            child: Stack(
+              children: [
+                Positioned.fill(
+                  child: ClipRect(
                     child: AnimatedScale(
                       scale: isHovered ? 1.1 : 1,
                       duration: Durations.short2,
                       child: AgentPortrait(agent: widget.agent),
                     ),
                   ),
-                  ?statusIndicator,
-                ],
-              ),
+                ),
+                ?statusIndicator,
+              ],
             ),
           ),
         ),
