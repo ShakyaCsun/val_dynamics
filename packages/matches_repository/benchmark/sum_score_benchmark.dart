@@ -1,3 +1,4 @@
+import 'package:matches_repository/src/models/matches_summary.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
 import 'matches.dart';
@@ -37,5 +38,22 @@ class SumScoreTupleBenchmark extends MatchesBenchmarkBase {
     matches.fold((0, 0), (score, match) {
       return score + match.scoreOne.tuple;
     }).toScore;
+  }
+}
+
+class MatchesSummaryBenchmark extends MatchesBenchmarkBase {
+  MatchesSummaryBenchmark({super.seed, super.matchesCount})
+    : super('MatchesSummaryBenchmark($seed, $matchesCount)');
+
+  late final ValorantMatches matches;
+
+  @override
+  void setup() {
+    matches = generateMatchesRepository(random, matchesCount).matches;
+  }
+
+  @override
+  void run() {
+    MatchesSummary.calculate(matches);
   }
 }

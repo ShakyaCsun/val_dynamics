@@ -1,39 +1,17 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:vsdat_ui/vsdat_ui.dart';
 
-class CircleIndicator extends StatelessWidget {
+class CircleIndicator extends ImplicitlyAnimatedWidget {
   const CircleIndicator({
-    this.color,
     super.key,
+    this.color,
     this.text,
     this.image,
     this.radius,
     this.textColor,
     this.borderColor,
     this.borderWidth,
-  });
-
-  const CircleIndicator.filled({
-    required Color this.color,
-    this.borderWidth,
-    super.key,
-    this.text,
-    this.image,
-    this.radius,
-    this.textColor,
-    this.borderColor,
-  });
-
-  const CircleIndicator.bordered({
-    required Color this.borderColor,
-    this.borderWidth,
-    this.color,
-    super.key,
-    this.text,
-    this.image,
-    this.radius,
-    this.textColor,
-  });
+  }) : super(duration: kThemeChangeDuration, curve: Easing.standard);
 
   final Color? color;
   final String? text;
@@ -44,35 +22,56 @@ class CircleIndicator extends StatelessWidget {
   final double? borderWidth;
 
   @override
+  AnimatedWidgetBaseState<CircleIndicator> createState() =>
+      _CircleIndicatorState();
+}
+
+class _CircleIndicatorState extends AnimatedWidgetBaseState<CircleIndicator> {
+  BoxConstraintsTween? _constraints;
+
+  @override
+  void forEachTween(TweenVisitor<dynamic> visitor) {
+    final diameter = (widget.radius ?? 16) * 2;
+    _constraints = visitor(
+      _constraints,
+      BoxConstraints.tight(Size.square(diameter)),
+      (dynamic value) => BoxConstraintsTween(begin: value as BoxConstraints),
+    ) as BoxConstraintsTween?;
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final diameter = (radius ?? 16) * 2;
+    final animation = this.animation;
+    final CircleIndicator(
+      :borderColor,
+      :borderWidth,
+      :color,
+      :image,
+      :text,
+      :textColor,
+    ) = widget;
+
     final theme = Theme.of(context);
     final effectiveForegroundColor =
         textColor ??
-        (color == null ? theme.colorScheme.onSurface : color!.onColor);
+        (color == null ? theme.colorScheme.onSurface : color.onColor);
     final textStyle = theme.textTheme.labelLarge!.copyWith(
       color: effectiveForegroundColor,
     );
-    return AnimatedContainer(
-      constraints: BoxConstraints(
-        minHeight: diameter,
-        minWidth: diameter,
-        maxWidth: diameter,
-        maxHeight: diameter,
-      ),
-      duration: kThemeChangeDuration,
+    return Container(
+      constraints: _constraints?.evaluate(animation),
       decoration: BoxDecoration(
         color: color,
         shape: BoxShape.circle,
         border: borderColor != null
-            ? Border.all(color: borderColor!, width: borderWidth ?? 1.0)
+            ? Border.all(color: borderColor, width: borderWidth ?? 1.0)
             : null,
       ),
       foregroundDecoration: image != null
           ? BoxDecoration(
-              image: DecorationImage(image: image!, fit: BoxFit.cover),
+              image: DecorationImage(image: image, fit: BoxFit.cover),
               border: borderColor != null
-                  ? Border.all(color: borderColor!, width: borderWidth ?? 1.0)
+                  ? Border.all(color: borderColor, width: borderWidth ?? 1.0)
                   : null,
               shape: BoxShape.circle,
             )
@@ -83,9 +82,9 @@ class CircleIndicator extends StatelessWidget {
               // Need to disable text scaling here so that the text doesn't
               // escape the avatar when the textScaleFactor is large.
               child: MediaQuery.withNoTextScaling(
-                child: IconTheme(
-                  data: theme.iconTheme.copyWith(color: textStyle.color),
-                  child: DefaultTextStyle(style: textStyle, child: Text(text!)),
+                child: DefaultTextStyle(
+                  style: textStyle,
+                  child: FittedBox(child: Text(text)),
                 ),
               ),
             ),

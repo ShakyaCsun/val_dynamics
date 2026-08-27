@@ -1,4 +1,6 @@
+import 'package:collection/collection.dart';
 import 'package:equatable/equatable.dart';
+import 'package:meta/meta.dart';
 import 'package:valorant_agents/valorant_agents.dart';
 
 sealed class AgentsParserException extends Equatable implements Exception {
@@ -28,25 +30,16 @@ class AgentComp extends Equatable {
     Agent agent3,
     Agent agent4,
     Agent agent5,
-  ) : agents = List.unmodifiable(
+  ) : agents = List.unmodifiableOf(
         [agent1, agent2, agent3, agent4, agent5]..sort(),
       ),
-
-      /// Addition of doubles can sometimes cause unexpected [StylePoints] such
-      /// as (aggro: 14.899999999999999, control: 17.5, midrange: 17.6) or
-      /// (aggro: 21.299999999999997, control: 16.7999999999997, midrange: 11.9)
-      /// instead of (aggro: 14.9, control: 17.5, midrange: 17.6) and
-      /// (aggro: 21.3, control: 16.8, midrange 11.9).
-      ///
-      /// Converting to formatted AcmString and back to StylePoints fixes these
-      /// issues.
-      stylePoints = AcmString.fromStyles(
-        agent1.stylePoints +
-            agent2.stylePoints +
-            agent3.stylePoints +
-            agent4.stylePoints +
-            agent5.stylePoints,
-      ).stylePoints;
+      stylePoints =
+          (agent1.stylePoints +
+                  agent2.stylePoints +
+                  agent3.stylePoints +
+                  agent4.stylePoints +
+                  agent5.stylePoints)
+              .clean;
 
   factory AgentComp.fromAgentNames(
     String agents, {
@@ -78,6 +71,56 @@ class AgentComp extends Equatable {
     );
   }
 
+  /// Create a raw [AgentComp] by providing agents and stylePoints manually.
+  ///
+  /// Useful for creating multiple [AgentComp]s at once with custom stylePoints
+  /// calculation logic.
+  @visibleForTesting
+  AgentComp.raw({required this.agents, required this.stylePoints})
+    : assert(agents.length == 5, 'AgentComp must have 5 agents'),
+      assert(
+        agents.isSorted(),
+        'Agents in AgentComp are required to be sorted',
+      );
+
+  static Iterable<AgentComp> _generate(Agents agents) sync* {
+    final sortedAgents = agents.sorted();
+    for (final (one, agent1) in sortedAgents.indexed) {
+      for (final (two, agent2) in sortedAgents.skip(one + 1).indexed) {
+        for (final (three, agent3)
+            in sortedAgents.skip(one + two + 2).indexed) {
+          for (final (four, agent4)
+              in sortedAgents.skip(one + two + three + 3).indexed) {
+            // Small optimization by caching sum of four agents' stylePoints
+            final fourSum =
+                agent1.stylePoints +
+                agent2.stylePoints +
+                agent3.stylePoints +
+                agent4.stylePoints;
+            for (final agent5 in sortedAgents.skip(
+              one + two + three + four + 4,
+            )) {
+              yield AgentComp.raw(
+                agents: List.unmodifiableOf([
+                  agent1,
+                  agent2,
+                  agent3,
+                  agent4,
+                  agent5,
+                ]),
+                stylePoints: (fourSum + agent5.stylePoints).clean,
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+
+  static List<AgentComp> generateAllComps(Agents agents) {
+    return List.unmodifiableOf(_generate(agents));
+  }
+
   final List<Agent> agents;
 
   final StylePoints stylePoints;
@@ -86,7 +129,7 @@ class AgentComp extends Equatable {
     agents.map((e) => e.name),
   );
 
-  late final Map<Role, int> roleCounts = Map.unmodifiable({
+  late final Map<Role, int> roleCounts = Map.unmodifiableOf({
     for (final group in agentsGroup) group.first.role: group.length,
   });
 
@@ -146,5 +189,23 @@ extension AgentsMapExtension on Map<String, Agent> {
       default:
         throw AgentNotFoundException('Agent $name not found');
     }
+  }
+}
+
+extension on StylePoints {
+  /// Addition of doubles can sometimes cause unexpected [StylePoints] such
+  /// as (aggro: 14.899999999999999, control: 17.5, midrange: 17.6) or
+  /// (aggro: 21.299999999999997, control: 16.7999999999997, midrange: 11.9)
+  /// instead of (aggro: 14.9, control: 17.5, midrange: 17.6) and
+  /// (aggro: 21.3, control: 16.8, midrange 11.9).
+  ///
+  /// Parsing the formatted string back to double, ensures that what you see is
+  /// what you get
+  StylePoints get clean {
+    return (
+      aggro: parseDouble(A),
+      control: parseDouble(C),
+      midrange: parseDouble(M),
+    );
   }
 }

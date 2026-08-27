@@ -22,11 +22,11 @@ class MatchesTriangle extends StatelessWidget {
         builder: (datum, radius) {
           final matchesCount = datum.length;
           final color = datum.collectTeamOneScore().color;
-          return CircleAvatar(
+          return CircleIndicator(
             radius: radius,
-            backgroundColor: color,
-            foregroundColor: color.onColor,
-            child: Text('$matchesCount'),
+            color: color,
+            textColor: color.onColor,
+            text: '$matchesCount',
           );
         },
         onHover: hoveredItemsChanged,
