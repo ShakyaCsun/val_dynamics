@@ -112,17 +112,17 @@ class $AssetsAgentsGen {
 class $AssetsOldAbilitiesGen {
   const $AssetsOldAbilitiesGen();
 
-  /// File path: assets/old_abilities/cascade.png
+  /// File path: assets/old_abilities/cascade.webp
   AssetGenImage get cascade =>
-      const AssetGenImage('assets/old_abilities/cascade.png');
+      const AssetGenImage('assets/old_abilities/cascade.webp');
 
-  /// File path: assets/old_abilities/cove_old.png
+  /// File path: assets/old_abilities/cove_old.webp
   AssetGenImage get coveOld =>
-      const AssetGenImage('assets/old_abilities/cove_old.png');
+      const AssetGenImage('assets/old_abilities/cove_old.webp');
 
-  /// File path: assets/old_abilities/reckoning_old.png
+  /// File path: assets/old_abilities/reckoning_old.webp
   AssetGenImage get reckoningOld =>
-      const AssetGenImage('assets/old_abilities/reckoning_old.png');
+      const AssetGenImage('assets/old_abilities/reckoning_old.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [cascade, coveOld, reckoningOld];
@@ -131,20 +131,20 @@ class $AssetsOldAbilitiesGen {
 class $AssetsRolesGen {
   const $AssetsRolesGen();
 
-  /// File path: assets/roles/controller.png
+  /// File path: assets/roles/controller.webp
   AssetGenImage get controller =>
-      const AssetGenImage('assets/roles/controller.png');
+      const AssetGenImage('assets/roles/controller.webp');
 
-  /// File path: assets/roles/duelist.png
-  AssetGenImage get duelist => const AssetGenImage('assets/roles/duelist.png');
+  /// File path: assets/roles/duelist.webp
+  AssetGenImage get duelist => const AssetGenImage('assets/roles/duelist.webp');
 
-  /// File path: assets/roles/initiator.png
+  /// File path: assets/roles/initiator.webp
   AssetGenImage get initiator =>
-      const AssetGenImage('assets/roles/initiator.png');
+      const AssetGenImage('assets/roles/initiator.webp');
 
-  /// File path: assets/roles/sentinel.png
+  /// File path: assets/roles/sentinel.webp
   AssetGenImage get sentinel =>
-      const AssetGenImage('assets/roles/sentinel.png');
+      const AssetGenImage('assets/roles/sentinel.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [controller, duelist, initiator, sentinel];
@@ -153,34 +153,40 @@ class $AssetsRolesGen {
 class $AssetsAgentsAstraGen {
   const $AssetsAgentsAstraGen();
 
-  /// File path: assets/agents/astra/ability1.png
+  /// File path: assets/agents/astra/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/astra/ability1.png');
+      const AssetGenImage('assets/agents/astra/ability1.webp');
 
-  /// File path: assets/agents/astra/ability2.png
+  /// File path: assets/agents/astra/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/astra/ability2.png');
+      const AssetGenImage('assets/agents/astra/ability2.webp');
 
-  /// File path: assets/agents/astra/ability3.png
+  /// File path: assets/agents/astra/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/astra/ability3.png');
+      const AssetGenImage('assets/agents/astra/ability3.webp');
 
-  /// File path: assets/agents/astra/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/agents/astra/icon.png');
+  /// File path: assets/agents/astra/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/astra/display-icon.webp');
 
-  /// File path: assets/agents/astra/portrait.png
+  /// File path: assets/agents/astra/icon.webp
+  AssetGenImage get icon =>
+      const AssetGenImage('assets/agents/astra/icon.webp');
+
+  /// File path: assets/agents/astra/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/astra/portrait.png');
+      const AssetGenImage('assets/agents/astra/portrait.webp');
 
-  /// File path: assets/agents/astra/ultimate.png
+  /// File path: assets/agents/astra/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/astra/ultimate.png');
+      const AssetGenImage('assets/agents/astra/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -190,35 +196,40 @@ class $AssetsAgentsAstraGen {
 class $AssetsAgentsBreachGen {
   const $AssetsAgentsBreachGen();
 
-  /// File path: assets/agents/breach/ability1.png
+  /// File path: assets/agents/breach/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/breach/ability1.png');
+      const AssetGenImage('assets/agents/breach/ability1.webp');
 
-  /// File path: assets/agents/breach/ability2.png
+  /// File path: assets/agents/breach/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/breach/ability2.png');
+      const AssetGenImage('assets/agents/breach/ability2.webp');
 
-  /// File path: assets/agents/breach/ability3.png
+  /// File path: assets/agents/breach/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/breach/ability3.png');
+      const AssetGenImage('assets/agents/breach/ability3.webp');
 
-  /// File path: assets/agents/breach/icon.png
+  /// File path: assets/agents/breach/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/breach/display-icon.webp');
+
+  /// File path: assets/agents/breach/icon.webp
   AssetGenImage get icon =>
-      const AssetGenImage('assets/agents/breach/icon.png');
+      const AssetGenImage('assets/agents/breach/icon.webp');
 
-  /// File path: assets/agents/breach/portrait.png
+  /// File path: assets/agents/breach/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/breach/portrait.png');
+      const AssetGenImage('assets/agents/breach/portrait.webp');
 
-  /// File path: assets/agents/breach/ultimate.png
+  /// File path: assets/agents/breach/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/breach/ultimate.png');
+      const AssetGenImage('assets/agents/breach/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -228,35 +239,40 @@ class $AssetsAgentsBreachGen {
 class $AssetsAgentsBrimstoneGen {
   const $AssetsAgentsBrimstoneGen();
 
-  /// File path: assets/agents/brimstone/ability1.png
+  /// File path: assets/agents/brimstone/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/brimstone/ability1.png');
+      const AssetGenImage('assets/agents/brimstone/ability1.webp');
 
-  /// File path: assets/agents/brimstone/ability2.png
+  /// File path: assets/agents/brimstone/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/brimstone/ability2.png');
+      const AssetGenImage('assets/agents/brimstone/ability2.webp');
 
-  /// File path: assets/agents/brimstone/ability3.png
+  /// File path: assets/agents/brimstone/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/brimstone/ability3.png');
+      const AssetGenImage('assets/agents/brimstone/ability3.webp');
 
-  /// File path: assets/agents/brimstone/icon.png
+  /// File path: assets/agents/brimstone/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/brimstone/display-icon.webp');
+
+  /// File path: assets/agents/brimstone/icon.webp
   AssetGenImage get icon =>
-      const AssetGenImage('assets/agents/brimstone/icon.png');
+      const AssetGenImage('assets/agents/brimstone/icon.webp');
 
-  /// File path: assets/agents/brimstone/portrait.png
+  /// File path: assets/agents/brimstone/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/brimstone/portrait.png');
+      const AssetGenImage('assets/agents/brimstone/portrait.webp');
 
-  /// File path: assets/agents/brimstone/ultimate.png
+  /// File path: assets/agents/brimstone/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/brimstone/ultimate.png');
+      const AssetGenImage('assets/agents/brimstone/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -266,35 +282,40 @@ class $AssetsAgentsBrimstoneGen {
 class $AssetsAgentsChamberGen {
   const $AssetsAgentsChamberGen();
 
-  /// File path: assets/agents/chamber/ability1.png
+  /// File path: assets/agents/chamber/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/chamber/ability1.png');
+      const AssetGenImage('assets/agents/chamber/ability1.webp');
 
-  /// File path: assets/agents/chamber/ability2.png
+  /// File path: assets/agents/chamber/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/chamber/ability2.png');
+      const AssetGenImage('assets/agents/chamber/ability2.webp');
 
-  /// File path: assets/agents/chamber/ability3.png
+  /// File path: assets/agents/chamber/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/chamber/ability3.png');
+      const AssetGenImage('assets/agents/chamber/ability3.webp');
 
-  /// File path: assets/agents/chamber/icon.png
+  /// File path: assets/agents/chamber/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/chamber/display-icon.webp');
+
+  /// File path: assets/agents/chamber/icon.webp
   AssetGenImage get icon =>
-      const AssetGenImage('assets/agents/chamber/icon.png');
+      const AssetGenImage('assets/agents/chamber/icon.webp');
 
-  /// File path: assets/agents/chamber/portrait.png
+  /// File path: assets/agents/chamber/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/chamber/portrait.png');
+      const AssetGenImage('assets/agents/chamber/portrait.webp');
 
-  /// File path: assets/agents/chamber/ultimate.png
+  /// File path: assets/agents/chamber/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/chamber/ultimate.png');
+      const AssetGenImage('assets/agents/chamber/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -304,34 +325,40 @@ class $AssetsAgentsChamberGen {
 class $AssetsAgentsCloveGen {
   const $AssetsAgentsCloveGen();
 
-  /// File path: assets/agents/clove/ability1.png
+  /// File path: assets/agents/clove/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/clove/ability1.png');
+      const AssetGenImage('assets/agents/clove/ability1.webp');
 
-  /// File path: assets/agents/clove/ability2.png
+  /// File path: assets/agents/clove/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/clove/ability2.png');
+      const AssetGenImage('assets/agents/clove/ability2.webp');
 
-  /// File path: assets/agents/clove/ability3.png
+  /// File path: assets/agents/clove/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/clove/ability3.png');
+      const AssetGenImage('assets/agents/clove/ability3.webp');
 
-  /// File path: assets/agents/clove/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/agents/clove/icon.png');
+  /// File path: assets/agents/clove/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/clove/display-icon.webp');
 
-  /// File path: assets/agents/clove/portrait.png
+  /// File path: assets/agents/clove/icon.webp
+  AssetGenImage get icon =>
+      const AssetGenImage('assets/agents/clove/icon.webp');
+
+  /// File path: assets/agents/clove/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/clove/portrait.png');
+      const AssetGenImage('assets/agents/clove/portrait.webp');
 
-  /// File path: assets/agents/clove/ultimate.png
+  /// File path: assets/agents/clove/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/clove/ultimate.png');
+      const AssetGenImage('assets/agents/clove/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -341,35 +368,40 @@ class $AssetsAgentsCloveGen {
 class $AssetsAgentsCypherGen {
   const $AssetsAgentsCypherGen();
 
-  /// File path: assets/agents/cypher/ability1.png
+  /// File path: assets/agents/cypher/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/cypher/ability1.png');
+      const AssetGenImage('assets/agents/cypher/ability1.webp');
 
-  /// File path: assets/agents/cypher/ability2.png
+  /// File path: assets/agents/cypher/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/cypher/ability2.png');
+      const AssetGenImage('assets/agents/cypher/ability2.webp');
 
-  /// File path: assets/agents/cypher/ability3.png
+  /// File path: assets/agents/cypher/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/cypher/ability3.png');
+      const AssetGenImage('assets/agents/cypher/ability3.webp');
 
-  /// File path: assets/agents/cypher/icon.png
+  /// File path: assets/agents/cypher/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/cypher/display-icon.webp');
+
+  /// File path: assets/agents/cypher/icon.webp
   AssetGenImage get icon =>
-      const AssetGenImage('assets/agents/cypher/icon.png');
+      const AssetGenImage('assets/agents/cypher/icon.webp');
 
-  /// File path: assets/agents/cypher/portrait.png
+  /// File path: assets/agents/cypher/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/cypher/portrait.png');
+      const AssetGenImage('assets/agents/cypher/portrait.webp');
 
-  /// File path: assets/agents/cypher/ultimate.png
+  /// File path: assets/agents/cypher/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/cypher/ultimate.png');
+      const AssetGenImage('assets/agents/cypher/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -379,35 +411,40 @@ class $AssetsAgentsCypherGen {
 class $AssetsAgentsDeadlockGen {
   const $AssetsAgentsDeadlockGen();
 
-  /// File path: assets/agents/deadlock/ability1.png
+  /// File path: assets/agents/deadlock/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/deadlock/ability1.png');
+      const AssetGenImage('assets/agents/deadlock/ability1.webp');
 
-  /// File path: assets/agents/deadlock/ability2.png
+  /// File path: assets/agents/deadlock/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/deadlock/ability2.png');
+      const AssetGenImage('assets/agents/deadlock/ability2.webp');
 
-  /// File path: assets/agents/deadlock/ability3.png
+  /// File path: assets/agents/deadlock/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/deadlock/ability3.png');
+      const AssetGenImage('assets/agents/deadlock/ability3.webp');
 
-  /// File path: assets/agents/deadlock/icon.png
+  /// File path: assets/agents/deadlock/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/deadlock/display-icon.webp');
+
+  /// File path: assets/agents/deadlock/icon.webp
   AssetGenImage get icon =>
-      const AssetGenImage('assets/agents/deadlock/icon.png');
+      const AssetGenImage('assets/agents/deadlock/icon.webp');
 
-  /// File path: assets/agents/deadlock/portrait.png
+  /// File path: assets/agents/deadlock/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/deadlock/portrait.png');
+      const AssetGenImage('assets/agents/deadlock/portrait.webp');
 
-  /// File path: assets/agents/deadlock/ultimate.png
+  /// File path: assets/agents/deadlock/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/deadlock/ultimate.png');
+      const AssetGenImage('assets/agents/deadlock/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -417,34 +454,39 @@ class $AssetsAgentsDeadlockGen {
 class $AssetsAgentsFadeGen {
   const $AssetsAgentsFadeGen();
 
-  /// File path: assets/agents/fade/ability1.png
+  /// File path: assets/agents/fade/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/fade/ability1.png');
+      const AssetGenImage('assets/agents/fade/ability1.webp');
 
-  /// File path: assets/agents/fade/ability2.png
+  /// File path: assets/agents/fade/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/fade/ability2.png');
+      const AssetGenImage('assets/agents/fade/ability2.webp');
 
-  /// File path: assets/agents/fade/ability3.png
+  /// File path: assets/agents/fade/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/fade/ability3.png');
+      const AssetGenImage('assets/agents/fade/ability3.webp');
 
-  /// File path: assets/agents/fade/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/agents/fade/icon.png');
+  /// File path: assets/agents/fade/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/fade/display-icon.webp');
 
-  /// File path: assets/agents/fade/portrait.png
+  /// File path: assets/agents/fade/icon.webp
+  AssetGenImage get icon => const AssetGenImage('assets/agents/fade/icon.webp');
+
+  /// File path: assets/agents/fade/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/fade/portrait.png');
+      const AssetGenImage('assets/agents/fade/portrait.webp');
 
-  /// File path: assets/agents/fade/ultimate.png
+  /// File path: assets/agents/fade/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/fade/ultimate.png');
+      const AssetGenImage('assets/agents/fade/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -454,34 +496,40 @@ class $AssetsAgentsFadeGen {
 class $AssetsAgentsGekkoGen {
   const $AssetsAgentsGekkoGen();
 
-  /// File path: assets/agents/gekko/ability1.png
+  /// File path: assets/agents/gekko/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/gekko/ability1.png');
+      const AssetGenImage('assets/agents/gekko/ability1.webp');
 
-  /// File path: assets/agents/gekko/ability2.png
+  /// File path: assets/agents/gekko/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/gekko/ability2.png');
+      const AssetGenImage('assets/agents/gekko/ability2.webp');
 
-  /// File path: assets/agents/gekko/ability3.png
+  /// File path: assets/agents/gekko/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/gekko/ability3.png');
+      const AssetGenImage('assets/agents/gekko/ability3.webp');
 
-  /// File path: assets/agents/gekko/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/agents/gekko/icon.png');
+  /// File path: assets/agents/gekko/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/gekko/display-icon.webp');
 
-  /// File path: assets/agents/gekko/portrait.png
+  /// File path: assets/agents/gekko/icon.webp
+  AssetGenImage get icon =>
+      const AssetGenImage('assets/agents/gekko/icon.webp');
+
+  /// File path: assets/agents/gekko/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/gekko/portrait.png');
+      const AssetGenImage('assets/agents/gekko/portrait.webp');
 
-  /// File path: assets/agents/gekko/ultimate.png
+  /// File path: assets/agents/gekko/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/gekko/ultimate.png');
+      const AssetGenImage('assets/agents/gekko/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -491,35 +539,40 @@ class $AssetsAgentsGekkoGen {
 class $AssetsAgentsHarborGen {
   const $AssetsAgentsHarborGen();
 
-  /// File path: assets/agents/harbor/ability1.png
+  /// File path: assets/agents/harbor/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/harbor/ability1.png');
+      const AssetGenImage('assets/agents/harbor/ability1.webp');
 
-  /// File path: assets/agents/harbor/ability2.png
+  /// File path: assets/agents/harbor/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/harbor/ability2.png');
+      const AssetGenImage('assets/agents/harbor/ability2.webp');
 
-  /// File path: assets/agents/harbor/ability3.png
+  /// File path: assets/agents/harbor/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/harbor/ability3.png');
+      const AssetGenImage('assets/agents/harbor/ability3.webp');
 
-  /// File path: assets/agents/harbor/icon.png
+  /// File path: assets/agents/harbor/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/harbor/display-icon.webp');
+
+  /// File path: assets/agents/harbor/icon.webp
   AssetGenImage get icon =>
-      const AssetGenImage('assets/agents/harbor/icon.png');
+      const AssetGenImage('assets/agents/harbor/icon.webp');
 
-  /// File path: assets/agents/harbor/portrait.png
+  /// File path: assets/agents/harbor/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/harbor/portrait.png');
+      const AssetGenImage('assets/agents/harbor/portrait.webp');
 
-  /// File path: assets/agents/harbor/ultimate.png
+  /// File path: assets/agents/harbor/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/harbor/ultimate.png');
+      const AssetGenImage('assets/agents/harbor/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -529,34 +582,39 @@ class $AssetsAgentsHarborGen {
 class $AssetsAgentsIsoGen {
   const $AssetsAgentsIsoGen();
 
-  /// File path: assets/agents/iso/ability1.png
+  /// File path: assets/agents/iso/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/iso/ability1.png');
+      const AssetGenImage('assets/agents/iso/ability1.webp');
 
-  /// File path: assets/agents/iso/ability2.png
+  /// File path: assets/agents/iso/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/iso/ability2.png');
+      const AssetGenImage('assets/agents/iso/ability2.webp');
 
-  /// File path: assets/agents/iso/ability3.png
+  /// File path: assets/agents/iso/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/iso/ability3.png');
+      const AssetGenImage('assets/agents/iso/ability3.webp');
 
-  /// File path: assets/agents/iso/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/agents/iso/icon.png');
+  /// File path: assets/agents/iso/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/iso/display-icon.webp');
 
-  /// File path: assets/agents/iso/portrait.png
+  /// File path: assets/agents/iso/icon.webp
+  AssetGenImage get icon => const AssetGenImage('assets/agents/iso/icon.webp');
+
+  /// File path: assets/agents/iso/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/iso/portrait.png');
+      const AssetGenImage('assets/agents/iso/portrait.webp');
 
-  /// File path: assets/agents/iso/ultimate.png
+  /// File path: assets/agents/iso/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/iso/ultimate.png');
+      const AssetGenImage('assets/agents/iso/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -566,34 +624,39 @@ class $AssetsAgentsIsoGen {
 class $AssetsAgentsJettGen {
   const $AssetsAgentsJettGen();
 
-  /// File path: assets/agents/jett/ability1.png
+  /// File path: assets/agents/jett/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/jett/ability1.png');
+      const AssetGenImage('assets/agents/jett/ability1.webp');
 
-  /// File path: assets/agents/jett/ability2.png
+  /// File path: assets/agents/jett/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/jett/ability2.png');
+      const AssetGenImage('assets/agents/jett/ability2.webp');
 
-  /// File path: assets/agents/jett/ability3.png
+  /// File path: assets/agents/jett/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/jett/ability3.png');
+      const AssetGenImage('assets/agents/jett/ability3.webp');
 
-  /// File path: assets/agents/jett/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/agents/jett/icon.png');
+  /// File path: assets/agents/jett/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/jett/display-icon.webp');
 
-  /// File path: assets/agents/jett/portrait.png
+  /// File path: assets/agents/jett/icon.webp
+  AssetGenImage get icon => const AssetGenImage('assets/agents/jett/icon.webp');
+
+  /// File path: assets/agents/jett/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/jett/portrait.png');
+      const AssetGenImage('assets/agents/jett/portrait.webp');
 
-  /// File path: assets/agents/jett/ultimate.png
+  /// File path: assets/agents/jett/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/jett/ultimate.png');
+      const AssetGenImage('assets/agents/jett/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -603,34 +666,39 @@ class $AssetsAgentsJettGen {
 class $AssetsAgentsKayoGen {
   const $AssetsAgentsKayoGen();
 
-  /// File path: assets/agents/kayo/ability1.png
+  /// File path: assets/agents/kayo/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/kayo/ability1.png');
+      const AssetGenImage('assets/agents/kayo/ability1.webp');
 
-  /// File path: assets/agents/kayo/ability2.png
+  /// File path: assets/agents/kayo/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/kayo/ability2.png');
+      const AssetGenImage('assets/agents/kayo/ability2.webp');
 
-  /// File path: assets/agents/kayo/ability3.png
+  /// File path: assets/agents/kayo/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/kayo/ability3.png');
+      const AssetGenImage('assets/agents/kayo/ability3.webp');
 
-  /// File path: assets/agents/kayo/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/agents/kayo/icon.png');
+  /// File path: assets/agents/kayo/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/kayo/display-icon.webp');
 
-  /// File path: assets/agents/kayo/portrait.png
+  /// File path: assets/agents/kayo/icon.webp
+  AssetGenImage get icon => const AssetGenImage('assets/agents/kayo/icon.webp');
+
+  /// File path: assets/agents/kayo/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/kayo/portrait.png');
+      const AssetGenImage('assets/agents/kayo/portrait.webp');
 
-  /// File path: assets/agents/kayo/ultimate.png
+  /// File path: assets/agents/kayo/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/kayo/ultimate.png');
+      const AssetGenImage('assets/agents/kayo/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -640,35 +708,40 @@ class $AssetsAgentsKayoGen {
 class $AssetsAgentsKilljoyGen {
   const $AssetsAgentsKilljoyGen();
 
-  /// File path: assets/agents/killjoy/ability1.png
+  /// File path: assets/agents/killjoy/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/killjoy/ability1.png');
+      const AssetGenImage('assets/agents/killjoy/ability1.webp');
 
-  /// File path: assets/agents/killjoy/ability2.png
+  /// File path: assets/agents/killjoy/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/killjoy/ability2.png');
+      const AssetGenImage('assets/agents/killjoy/ability2.webp');
 
-  /// File path: assets/agents/killjoy/ability3.png
+  /// File path: assets/agents/killjoy/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/killjoy/ability3.png');
+      const AssetGenImage('assets/agents/killjoy/ability3.webp');
 
-  /// File path: assets/agents/killjoy/icon.png
+  /// File path: assets/agents/killjoy/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/killjoy/display-icon.webp');
+
+  /// File path: assets/agents/killjoy/icon.webp
   AssetGenImage get icon =>
-      const AssetGenImage('assets/agents/killjoy/icon.png');
+      const AssetGenImage('assets/agents/killjoy/icon.webp');
 
-  /// File path: assets/agents/killjoy/portrait.png
+  /// File path: assets/agents/killjoy/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/killjoy/portrait.png');
+      const AssetGenImage('assets/agents/killjoy/portrait.webp');
 
-  /// File path: assets/agents/killjoy/ultimate.png
+  /// File path: assets/agents/killjoy/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/killjoy/ultimate.png');
+      const AssetGenImage('assets/agents/killjoy/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -678,34 +751,39 @@ class $AssetsAgentsKilljoyGen {
 class $AssetsAgentsMiksGen {
   const $AssetsAgentsMiksGen();
 
-  /// File path: assets/agents/miks/ability1.png
+  /// File path: assets/agents/miks/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/miks/ability1.png');
+      const AssetGenImage('assets/agents/miks/ability1.webp');
 
-  /// File path: assets/agents/miks/ability2.png
+  /// File path: assets/agents/miks/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/miks/ability2.png');
+      const AssetGenImage('assets/agents/miks/ability2.webp');
 
-  /// File path: assets/agents/miks/ability3.png
+  /// File path: assets/agents/miks/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/miks/ability3.png');
+      const AssetGenImage('assets/agents/miks/ability3.webp');
 
-  /// File path: assets/agents/miks/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/agents/miks/icon.png');
+  /// File path: assets/agents/miks/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/miks/display-icon.webp');
 
-  /// File path: assets/agents/miks/portrait.png
+  /// File path: assets/agents/miks/icon.webp
+  AssetGenImage get icon => const AssetGenImage('assets/agents/miks/icon.webp');
+
+  /// File path: assets/agents/miks/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/miks/portrait.png');
+      const AssetGenImage('assets/agents/miks/portrait.webp');
 
-  /// File path: assets/agents/miks/ultimate.png
+  /// File path: assets/agents/miks/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/miks/ultimate.png');
+      const AssetGenImage('assets/agents/miks/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -715,34 +793,39 @@ class $AssetsAgentsMiksGen {
 class $AssetsAgentsNeonGen {
   const $AssetsAgentsNeonGen();
 
-  /// File path: assets/agents/neon/ability1.png
+  /// File path: assets/agents/neon/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/neon/ability1.png');
+      const AssetGenImage('assets/agents/neon/ability1.webp');
 
-  /// File path: assets/agents/neon/ability2.png
+  /// File path: assets/agents/neon/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/neon/ability2.png');
+      const AssetGenImage('assets/agents/neon/ability2.webp');
 
-  /// File path: assets/agents/neon/ability3.png
+  /// File path: assets/agents/neon/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/neon/ability3.png');
+      const AssetGenImage('assets/agents/neon/ability3.webp');
 
-  /// File path: assets/agents/neon/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/agents/neon/icon.png');
+  /// File path: assets/agents/neon/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/neon/display-icon.webp');
 
-  /// File path: assets/agents/neon/portrait.png
+  /// File path: assets/agents/neon/icon.webp
+  AssetGenImage get icon => const AssetGenImage('assets/agents/neon/icon.webp');
+
+  /// File path: assets/agents/neon/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/neon/portrait.png');
+      const AssetGenImage('assets/agents/neon/portrait.webp');
 
-  /// File path: assets/agents/neon/ultimate.png
+  /// File path: assets/agents/neon/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/neon/ultimate.png');
+      const AssetGenImage('assets/agents/neon/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -752,34 +835,39 @@ class $AssetsAgentsNeonGen {
 class $AssetsAgentsOmenGen {
   const $AssetsAgentsOmenGen();
 
-  /// File path: assets/agents/omen/ability1.png
+  /// File path: assets/agents/omen/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/omen/ability1.png');
+      const AssetGenImage('assets/agents/omen/ability1.webp');
 
-  /// File path: assets/agents/omen/ability2.png
+  /// File path: assets/agents/omen/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/omen/ability2.png');
+      const AssetGenImage('assets/agents/omen/ability2.webp');
 
-  /// File path: assets/agents/omen/ability3.png
+  /// File path: assets/agents/omen/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/omen/ability3.png');
+      const AssetGenImage('assets/agents/omen/ability3.webp');
 
-  /// File path: assets/agents/omen/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/agents/omen/icon.png');
+  /// File path: assets/agents/omen/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/omen/display-icon.webp');
 
-  /// File path: assets/agents/omen/portrait.png
+  /// File path: assets/agents/omen/icon.webp
+  AssetGenImage get icon => const AssetGenImage('assets/agents/omen/icon.webp');
+
+  /// File path: assets/agents/omen/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/omen/portrait.png');
+      const AssetGenImage('assets/agents/omen/portrait.webp');
 
-  /// File path: assets/agents/omen/ultimate.png
+  /// File path: assets/agents/omen/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/omen/ultimate.png');
+      const AssetGenImage('assets/agents/omen/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -789,35 +877,40 @@ class $AssetsAgentsOmenGen {
 class $AssetsAgentsPhoenixGen {
   const $AssetsAgentsPhoenixGen();
 
-  /// File path: assets/agents/phoenix/ability1.png
+  /// File path: assets/agents/phoenix/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/phoenix/ability1.png');
+      const AssetGenImage('assets/agents/phoenix/ability1.webp');
 
-  /// File path: assets/agents/phoenix/ability2.png
+  /// File path: assets/agents/phoenix/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/phoenix/ability2.png');
+      const AssetGenImage('assets/agents/phoenix/ability2.webp');
 
-  /// File path: assets/agents/phoenix/ability3.png
+  /// File path: assets/agents/phoenix/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/phoenix/ability3.png');
+      const AssetGenImage('assets/agents/phoenix/ability3.webp');
 
-  /// File path: assets/agents/phoenix/icon.png
+  /// File path: assets/agents/phoenix/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/phoenix/display-icon.webp');
+
+  /// File path: assets/agents/phoenix/icon.webp
   AssetGenImage get icon =>
-      const AssetGenImage('assets/agents/phoenix/icon.png');
+      const AssetGenImage('assets/agents/phoenix/icon.webp');
 
-  /// File path: assets/agents/phoenix/portrait.png
+  /// File path: assets/agents/phoenix/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/phoenix/portrait.png');
+      const AssetGenImage('assets/agents/phoenix/portrait.webp');
 
-  /// File path: assets/agents/phoenix/ultimate.png
+  /// File path: assets/agents/phoenix/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/phoenix/ultimate.png');
+      const AssetGenImage('assets/agents/phoenix/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -827,34 +920,39 @@ class $AssetsAgentsPhoenixGen {
 class $AssetsAgentsRazeGen {
   const $AssetsAgentsRazeGen();
 
-  /// File path: assets/agents/raze/ability1.png
+  /// File path: assets/agents/raze/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/raze/ability1.png');
+      const AssetGenImage('assets/agents/raze/ability1.webp');
 
-  /// File path: assets/agents/raze/ability2.png
+  /// File path: assets/agents/raze/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/raze/ability2.png');
+      const AssetGenImage('assets/agents/raze/ability2.webp');
 
-  /// File path: assets/agents/raze/ability3.png
+  /// File path: assets/agents/raze/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/raze/ability3.png');
+      const AssetGenImage('assets/agents/raze/ability3.webp');
 
-  /// File path: assets/agents/raze/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/agents/raze/icon.png');
+  /// File path: assets/agents/raze/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/raze/display-icon.webp');
 
-  /// File path: assets/agents/raze/portrait.png
+  /// File path: assets/agents/raze/icon.webp
+  AssetGenImage get icon => const AssetGenImage('assets/agents/raze/icon.webp');
+
+  /// File path: assets/agents/raze/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/raze/portrait.png');
+      const AssetGenImage('assets/agents/raze/portrait.webp');
 
-  /// File path: assets/agents/raze/ultimate.png
+  /// File path: assets/agents/raze/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/raze/ultimate.png');
+      const AssetGenImage('assets/agents/raze/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -864,34 +962,40 @@ class $AssetsAgentsRazeGen {
 class $AssetsAgentsReynaGen {
   const $AssetsAgentsReynaGen();
 
-  /// File path: assets/agents/reyna/ability1.png
+  /// File path: assets/agents/reyna/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/reyna/ability1.png');
+      const AssetGenImage('assets/agents/reyna/ability1.webp');
 
-  /// File path: assets/agents/reyna/ability2.png
+  /// File path: assets/agents/reyna/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/reyna/ability2.png');
+      const AssetGenImage('assets/agents/reyna/ability2.webp');
 
-  /// File path: assets/agents/reyna/ability3.png
+  /// File path: assets/agents/reyna/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/reyna/ability3.png');
+      const AssetGenImage('assets/agents/reyna/ability3.webp');
 
-  /// File path: assets/agents/reyna/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/agents/reyna/icon.png');
+  /// File path: assets/agents/reyna/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/reyna/display-icon.webp');
 
-  /// File path: assets/agents/reyna/portrait.png
+  /// File path: assets/agents/reyna/icon.webp
+  AssetGenImage get icon =>
+      const AssetGenImage('assets/agents/reyna/icon.webp');
+
+  /// File path: assets/agents/reyna/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/reyna/portrait.png');
+      const AssetGenImage('assets/agents/reyna/portrait.webp');
 
-  /// File path: assets/agents/reyna/ultimate.png
+  /// File path: assets/agents/reyna/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/reyna/ultimate.png');
+      const AssetGenImage('assets/agents/reyna/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -901,34 +1005,39 @@ class $AssetsAgentsReynaGen {
 class $AssetsAgentsSageGen {
   const $AssetsAgentsSageGen();
 
-  /// File path: assets/agents/sage/ability1.png
+  /// File path: assets/agents/sage/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/sage/ability1.png');
+      const AssetGenImage('assets/agents/sage/ability1.webp');
 
-  /// File path: assets/agents/sage/ability2.png
+  /// File path: assets/agents/sage/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/sage/ability2.png');
+      const AssetGenImage('assets/agents/sage/ability2.webp');
 
-  /// File path: assets/agents/sage/ability3.png
+  /// File path: assets/agents/sage/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/sage/ability3.png');
+      const AssetGenImage('assets/agents/sage/ability3.webp');
 
-  /// File path: assets/agents/sage/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/agents/sage/icon.png');
+  /// File path: assets/agents/sage/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/sage/display-icon.webp');
 
-  /// File path: assets/agents/sage/portrait.png
+  /// File path: assets/agents/sage/icon.webp
+  AssetGenImage get icon => const AssetGenImage('assets/agents/sage/icon.webp');
+
+  /// File path: assets/agents/sage/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/sage/portrait.png');
+      const AssetGenImage('assets/agents/sage/portrait.webp');
 
-  /// File path: assets/agents/sage/ultimate.png
+  /// File path: assets/agents/sage/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/sage/ultimate.png');
+      const AssetGenImage('assets/agents/sage/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -938,34 +1047,39 @@ class $AssetsAgentsSageGen {
 class $AssetsAgentsSkyeGen {
   const $AssetsAgentsSkyeGen();
 
-  /// File path: assets/agents/skye/ability1.png
+  /// File path: assets/agents/skye/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/skye/ability1.png');
+      const AssetGenImage('assets/agents/skye/ability1.webp');
 
-  /// File path: assets/agents/skye/ability2.png
+  /// File path: assets/agents/skye/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/skye/ability2.png');
+      const AssetGenImage('assets/agents/skye/ability2.webp');
 
-  /// File path: assets/agents/skye/ability3.png
+  /// File path: assets/agents/skye/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/skye/ability3.png');
+      const AssetGenImage('assets/agents/skye/ability3.webp');
 
-  /// File path: assets/agents/skye/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/agents/skye/icon.png');
+  /// File path: assets/agents/skye/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/skye/display-icon.webp');
 
-  /// File path: assets/agents/skye/portrait.png
+  /// File path: assets/agents/skye/icon.webp
+  AssetGenImage get icon => const AssetGenImage('assets/agents/skye/icon.webp');
+
+  /// File path: assets/agents/skye/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/skye/portrait.png');
+      const AssetGenImage('assets/agents/skye/portrait.webp');
 
-  /// File path: assets/agents/skye/ultimate.png
+  /// File path: assets/agents/skye/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/skye/ultimate.png');
+      const AssetGenImage('assets/agents/skye/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -975,34 +1089,39 @@ class $AssetsAgentsSkyeGen {
 class $AssetsAgentsSovaGen {
   const $AssetsAgentsSovaGen();
 
-  /// File path: assets/agents/sova/ability1.png
+  /// File path: assets/agents/sova/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/sova/ability1.png');
+      const AssetGenImage('assets/agents/sova/ability1.webp');
 
-  /// File path: assets/agents/sova/ability2.png
+  /// File path: assets/agents/sova/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/sova/ability2.png');
+      const AssetGenImage('assets/agents/sova/ability2.webp');
 
-  /// File path: assets/agents/sova/ability3.png
+  /// File path: assets/agents/sova/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/sova/ability3.png');
+      const AssetGenImage('assets/agents/sova/ability3.webp');
 
-  /// File path: assets/agents/sova/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/agents/sova/icon.png');
+  /// File path: assets/agents/sova/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/sova/display-icon.webp');
 
-  /// File path: assets/agents/sova/portrait.png
+  /// File path: assets/agents/sova/icon.webp
+  AssetGenImage get icon => const AssetGenImage('assets/agents/sova/icon.webp');
+
+  /// File path: assets/agents/sova/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/sova/portrait.png');
+      const AssetGenImage('assets/agents/sova/portrait.webp');
 
-  /// File path: assets/agents/sova/ultimate.png
+  /// File path: assets/agents/sova/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/sova/ultimate.png');
+      const AssetGenImage('assets/agents/sova/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -1012,34 +1131,39 @@ class $AssetsAgentsSovaGen {
 class $AssetsAgentsTejoGen {
   const $AssetsAgentsTejoGen();
 
-  /// File path: assets/agents/tejo/ability1.png
+  /// File path: assets/agents/tejo/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/tejo/ability1.png');
+      const AssetGenImage('assets/agents/tejo/ability1.webp');
 
-  /// File path: assets/agents/tejo/ability2.png
+  /// File path: assets/agents/tejo/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/tejo/ability2.png');
+      const AssetGenImage('assets/agents/tejo/ability2.webp');
 
-  /// File path: assets/agents/tejo/ability3.png
+  /// File path: assets/agents/tejo/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/tejo/ability3.png');
+      const AssetGenImage('assets/agents/tejo/ability3.webp');
 
-  /// File path: assets/agents/tejo/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/agents/tejo/icon.png');
+  /// File path: assets/agents/tejo/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/tejo/display-icon.webp');
 
-  /// File path: assets/agents/tejo/portrait.png
+  /// File path: assets/agents/tejo/icon.webp
+  AssetGenImage get icon => const AssetGenImage('assets/agents/tejo/icon.webp');
+
+  /// File path: assets/agents/tejo/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/tejo/portrait.png');
+      const AssetGenImage('assets/agents/tejo/portrait.webp');
 
-  /// File path: assets/agents/tejo/ultimate.png
+  /// File path: assets/agents/tejo/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/tejo/ultimate.png');
+      const AssetGenImage('assets/agents/tejo/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -1049,34 +1173,39 @@ class $AssetsAgentsTejoGen {
 class $AssetsAgentsVetoGen {
   const $AssetsAgentsVetoGen();
 
-  /// File path: assets/agents/veto/ability1.png
+  /// File path: assets/agents/veto/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/veto/ability1.png');
+      const AssetGenImage('assets/agents/veto/ability1.webp');
 
-  /// File path: assets/agents/veto/ability2.png
+  /// File path: assets/agents/veto/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/veto/ability2.png');
+      const AssetGenImage('assets/agents/veto/ability2.webp');
 
-  /// File path: assets/agents/veto/ability3.png
+  /// File path: assets/agents/veto/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/veto/ability3.png');
+      const AssetGenImage('assets/agents/veto/ability3.webp');
 
-  /// File path: assets/agents/veto/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/agents/veto/icon.png');
+  /// File path: assets/agents/veto/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/veto/display-icon.webp');
 
-  /// File path: assets/agents/veto/portrait.png
+  /// File path: assets/agents/veto/icon.webp
+  AssetGenImage get icon => const AssetGenImage('assets/agents/veto/icon.webp');
+
+  /// File path: assets/agents/veto/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/veto/portrait.png');
+      const AssetGenImage('assets/agents/veto/portrait.webp');
 
-  /// File path: assets/agents/veto/ultimate.png
+  /// File path: assets/agents/veto/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/veto/ultimate.png');
+      const AssetGenImage('assets/agents/veto/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -1086,34 +1215,40 @@ class $AssetsAgentsVetoGen {
 class $AssetsAgentsViperGen {
   const $AssetsAgentsViperGen();
 
-  /// File path: assets/agents/viper/ability1.png
+  /// File path: assets/agents/viper/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/viper/ability1.png');
+      const AssetGenImage('assets/agents/viper/ability1.webp');
 
-  /// File path: assets/agents/viper/ability2.png
+  /// File path: assets/agents/viper/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/viper/ability2.png');
+      const AssetGenImage('assets/agents/viper/ability2.webp');
 
-  /// File path: assets/agents/viper/ability3.png
+  /// File path: assets/agents/viper/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/viper/ability3.png');
+      const AssetGenImage('assets/agents/viper/ability3.webp');
 
-  /// File path: assets/agents/viper/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/agents/viper/icon.png');
+  /// File path: assets/agents/viper/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/viper/display-icon.webp');
 
-  /// File path: assets/agents/viper/portrait.png
+  /// File path: assets/agents/viper/icon.webp
+  AssetGenImage get icon =>
+      const AssetGenImage('assets/agents/viper/icon.webp');
+
+  /// File path: assets/agents/viper/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/viper/portrait.png');
+      const AssetGenImage('assets/agents/viper/portrait.webp');
 
-  /// File path: assets/agents/viper/ultimate.png
+  /// File path: assets/agents/viper/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/viper/ultimate.png');
+      const AssetGenImage('assets/agents/viper/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -1123,34 +1258,39 @@ class $AssetsAgentsViperGen {
 class $AssetsAgentsVyseGen {
   const $AssetsAgentsVyseGen();
 
-  /// File path: assets/agents/vyse/ability1.png
+  /// File path: assets/agents/vyse/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/vyse/ability1.png');
+      const AssetGenImage('assets/agents/vyse/ability1.webp');
 
-  /// File path: assets/agents/vyse/ability2.png
+  /// File path: assets/agents/vyse/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/vyse/ability2.png');
+      const AssetGenImage('assets/agents/vyse/ability2.webp');
 
-  /// File path: assets/agents/vyse/ability3.png
+  /// File path: assets/agents/vyse/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/vyse/ability3.png');
+      const AssetGenImage('assets/agents/vyse/ability3.webp');
 
-  /// File path: assets/agents/vyse/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/agents/vyse/icon.png');
+  /// File path: assets/agents/vyse/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/vyse/display-icon.webp');
 
-  /// File path: assets/agents/vyse/portrait.png
+  /// File path: assets/agents/vyse/icon.webp
+  AssetGenImage get icon => const AssetGenImage('assets/agents/vyse/icon.webp');
+
+  /// File path: assets/agents/vyse/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/vyse/portrait.png');
+      const AssetGenImage('assets/agents/vyse/portrait.webp');
 
-  /// File path: assets/agents/vyse/ultimate.png
+  /// File path: assets/agents/vyse/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/vyse/ultimate.png');
+      const AssetGenImage('assets/agents/vyse/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -1160,35 +1300,40 @@ class $AssetsAgentsVyseGen {
 class $AssetsAgentsWaylayGen {
   const $AssetsAgentsWaylayGen();
 
-  /// File path: assets/agents/waylay/ability1.png
+  /// File path: assets/agents/waylay/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/waylay/ability1.png');
+      const AssetGenImage('assets/agents/waylay/ability1.webp');
 
-  /// File path: assets/agents/waylay/ability2.png
+  /// File path: assets/agents/waylay/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/waylay/ability2.png');
+      const AssetGenImage('assets/agents/waylay/ability2.webp');
 
-  /// File path: assets/agents/waylay/ability3.png
+  /// File path: assets/agents/waylay/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/waylay/ability3.png');
+      const AssetGenImage('assets/agents/waylay/ability3.webp');
 
-  /// File path: assets/agents/waylay/icon.png
+  /// File path: assets/agents/waylay/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/waylay/display-icon.webp');
+
+  /// File path: assets/agents/waylay/icon.webp
   AssetGenImage get icon =>
-      const AssetGenImage('assets/agents/waylay/icon.png');
+      const AssetGenImage('assets/agents/waylay/icon.webp');
 
-  /// File path: assets/agents/waylay/portrait.png
+  /// File path: assets/agents/waylay/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/waylay/portrait.png');
+      const AssetGenImage('assets/agents/waylay/portrait.webp');
 
-  /// File path: assets/agents/waylay/ultimate.png
+  /// File path: assets/agents/waylay/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/waylay/ultimate.png');
+      const AssetGenImage('assets/agents/waylay/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,
@@ -1198,34 +1343,39 @@ class $AssetsAgentsWaylayGen {
 class $AssetsAgentsYoruGen {
   const $AssetsAgentsYoruGen();
 
-  /// File path: assets/agents/yoru/ability1.png
+  /// File path: assets/agents/yoru/ability1.webp
   AssetGenImage get ability1 =>
-      const AssetGenImage('assets/agents/yoru/ability1.png');
+      const AssetGenImage('assets/agents/yoru/ability1.webp');
 
-  /// File path: assets/agents/yoru/ability2.png
+  /// File path: assets/agents/yoru/ability2.webp
   AssetGenImage get ability2 =>
-      const AssetGenImage('assets/agents/yoru/ability2.png');
+      const AssetGenImage('assets/agents/yoru/ability2.webp');
 
-  /// File path: assets/agents/yoru/ability3.png
+  /// File path: assets/agents/yoru/ability3.webp
   AssetGenImage get ability3 =>
-      const AssetGenImage('assets/agents/yoru/ability3.png');
+      const AssetGenImage('assets/agents/yoru/ability3.webp');
 
-  /// File path: assets/agents/yoru/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/agents/yoru/icon.png');
+  /// File path: assets/agents/yoru/display-icon.webp
+  AssetGenImage get displayIcon =>
+      const AssetGenImage('assets/agents/yoru/display-icon.webp');
 
-  /// File path: assets/agents/yoru/portrait.png
+  /// File path: assets/agents/yoru/icon.webp
+  AssetGenImage get icon => const AssetGenImage('assets/agents/yoru/icon.webp');
+
+  /// File path: assets/agents/yoru/portrait.webp
   AssetGenImage get portrait =>
-      const AssetGenImage('assets/agents/yoru/portrait.png');
+      const AssetGenImage('assets/agents/yoru/portrait.webp');
 
-  /// File path: assets/agents/yoru/ultimate.png
+  /// File path: assets/agents/yoru/ultimate.webp
   AssetGenImage get ultimate =>
-      const AssetGenImage('assets/agents/yoru/ultimate.png');
+      const AssetGenImage('assets/agents/yoru/ultimate.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     ability1,
     ability2,
     ability3,
+    displayIcon,
     icon,
     portrait,
     ultimate,

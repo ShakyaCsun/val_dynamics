@@ -30,21 +30,32 @@ mixin _$StyledMatchesSummaryData {
 
   @override
   bool operator ==(Object other) {
+    final _this = this as StyledMatchesSummaryData;
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is StyledMatchesSummaryData &&
-            (identical(other.acm, acm) || other.acm == acm) &&
-            (identical(other.opponentAcm, opponentAcm) ||
-                other.opponentAcm == opponentAcm) &&
-            (identical(other.summary, summary) || other.summary == summary));
+            (identical(other.acm, _this.acm) || other.acm == _this.acm) &&
+            (identical(other.opponentAcm, _this.opponentAcm) ||
+                other.opponentAcm == _this.opponentAcm) &&
+            (identical(other.summary, _this.summary) ||
+                other.summary == _this.summary));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, acm, opponentAcm, summary);
+  int get hashCode {
+    final _this = this as StyledMatchesSummaryData;
+    return Object.hash(
+      runtimeType,
+      _this.acm,
+      _this.opponentAcm,
+      _this.summary,
+    );
+  }
 
   @override
   String toString() {
-    return 'StyledMatchesSummaryData(acm: $acm, opponentAcm: $opponentAcm, summary: $summary)';
+    final _this = this as StyledMatchesSummaryData;
+    return 'StyledMatchesSummaryData(acm: ${_this.acm}, opponentAcm: ${_this.opponentAcm}, summary: ${_this.summary})';
   }
 }
 
@@ -133,7 +144,9 @@ class _StyledMatchesSummaryData implements StyledMatchesSummaryData {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, acm, opponentAcm, summary);
+  int get hashCode {
+    return Object.hash(runtimeType, acm, opponentAcm, summary);
+  }
 
   @override
   String toString() {

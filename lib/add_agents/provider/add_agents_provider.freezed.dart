@@ -118,8 +118,9 @@ class UnknownAgentsError implements AddAgentsError {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode {
+    return Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  }
 
   @override
   String toString() {

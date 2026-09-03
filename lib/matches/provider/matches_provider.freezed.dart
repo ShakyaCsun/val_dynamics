@@ -30,26 +30,32 @@ mixin _$MatchesFilterState {
 
   @override
   bool operator ==(Object other) {
+    final _this = this as MatchesFilterState;
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is MatchesFilterState &&
-            (identical(other.filter, filter) || other.filter == filter) &&
-            const DeepCollectionEquality().equals(other.maps, maps) &&
-            (identical(other.minMatches, minMatches) ||
-                other.minMatches == minMatches));
+            (identical(other.filter, _this.filter) ||
+                other.filter == _this.filter) &&
+            const DeepCollectionEquality().equals(other.maps, _this.maps) &&
+            (identical(other.minMatches, _this.minMatches) ||
+                other.minMatches == _this.minMatches));
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    filter,
-    const DeepCollectionEquality().hash(maps),
-    minMatches,
-  );
+  int get hashCode {
+    final _this = this as MatchesFilterState;
+    return Object.hash(
+      runtimeType,
+      _this.filter,
+      const DeepCollectionEquality().hash(_this.maps),
+      _this.minMatches,
+    );
+  }
 
   @override
   String toString() {
-    return 'MatchesFilterState(filter: $filter, maps: $maps, minMatches: $minMatches)';
+    final _this = this as MatchesFilterState;
+    return 'MatchesFilterState(filter: ${_this.filter}, maps: ${_this.maps}, minMatches: ${_this.minMatches})';
   }
 }
 
@@ -138,18 +144,20 @@ class _MatchesState implements MatchesFilterState {
         (other.runtimeType == runtimeType &&
             other is _MatchesState &&
             (identical(other.filter, filter) || other.filter == filter) &&
-            const DeepCollectionEquality().equals(other._maps, _maps) &&
+            const DeepCollectionEquality().equals(other.maps, _maps) &&
             (identical(other.minMatches, minMatches) ||
                 other.minMatches == minMatches));
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    filter,
-    const DeepCollectionEquality().hash(_maps),
-    minMatches,
-  );
+  int get hashCode {
+    return Object.hash(
+      runtimeType,
+      filter,
+      const DeepCollectionEquality().hash(_maps),
+      minMatches,
+    );
+  }
 
   @override
   String toString() {

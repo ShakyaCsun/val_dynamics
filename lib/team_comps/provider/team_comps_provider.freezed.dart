@@ -14,7 +14,6 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$CompositionsState implements DiagnosticableTreeMixin {
-  Map<AgentCompsTernaryData, TernaryPoint> get ternaryData;
   Agents get agents;
   List<AgentComp> get allCompositions;
 
@@ -30,40 +29,46 @@ mixin _$CompositionsState implements DiagnosticableTreeMixin {
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    final _this = this as CompositionsState;
     properties
       ..add(DiagnosticsProperty('type', 'CompositionsState'))
-      ..add(DiagnosticsProperty('ternaryData', ternaryData))
-      ..add(DiagnosticsProperty('agents', agents))
-      ..add(DiagnosticsProperty('allCompositions', allCompositions));
+      ..add(DiagnosticsProperty('ternaryData', _this.ternaryData))
+      ..add(DiagnosticsProperty('agents', _this.agents))
+      ..add(DiagnosticsProperty('allCompositions', _this.allCompositions));
   }
 
   @override
   bool operator ==(Object other) {
+    final _this = this as CompositionsState;
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is CompositionsState &&
             const DeepCollectionEquality().equals(
               other.ternaryData,
-              ternaryData,
+              _this.ternaryData,
             ) &&
-            const DeepCollectionEquality().equals(other.agents, agents) &&
+            const DeepCollectionEquality().equals(other.agents, _this.agents) &&
             const DeepCollectionEquality().equals(
               other.allCompositions,
-              allCompositions,
+              _this.allCompositions,
             ));
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(ternaryData),
-    const DeepCollectionEquality().hash(agents),
-    const DeepCollectionEquality().hash(allCompositions),
-  );
+  int get hashCode {
+    final _this = this as CompositionsState;
+    return Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_this.ternaryData),
+      const DeepCollectionEquality().hash(_this.agents),
+      const DeepCollectionEquality().hash(_this.allCompositions),
+    );
+  }
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CompositionsState(ternaryData: $ternaryData, agents: $agents, allCompositions: $allCompositions)';
+    final _this = this as CompositionsState;
+    return 'CompositionsState(ternaryData: ${_this.ternaryData}, agents: ${_this.agents}, allCompositions: ${_this.allCompositions})';
   }
 }
 
@@ -148,17 +153,19 @@ class _CompositionsState extends CompositionsState
             other is _CompositionsState &&
             const DeepCollectionEquality().equals(other.agents, agents) &&
             const DeepCollectionEquality().equals(
-              other._allCompositions,
+              other.allCompositions,
               _allCompositions,
             ));
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(agents),
-    const DeepCollectionEquality().hash(_allCompositions),
-  );
+  int get hashCode {
+    return Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(agents),
+      const DeepCollectionEquality().hash(_allCompositions),
+    );
+  }
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -220,27 +227,33 @@ mixin _$RoleRange implements DiagnosticableTreeMixin {
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    final _this = this as RoleRange;
     properties
       ..add(DiagnosticsProperty('type', 'RoleRange'))
-      ..add(DiagnosticsProperty('min', min))
-      ..add(DiagnosticsProperty('max', max));
+      ..add(DiagnosticsProperty('min', _this.min))
+      ..add(DiagnosticsProperty('max', _this.max));
   }
 
   @override
   bool operator ==(Object other) {
+    final _this = this as RoleRange;
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is RoleRange &&
-            (identical(other.min, min) || other.min == min) &&
-            (identical(other.max, max) || other.max == max));
+            (identical(other.min, _this.min) || other.min == _this.min) &&
+            (identical(other.max, _this.max) || other.max == _this.max));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, min, max);
+  int get hashCode {
+    final _this = this as RoleRange;
+    return Object.hash(runtimeType, _this.min, _this.max);
+  }
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RoleRange(min: $min, max: $max)';
+    final _this = this as RoleRange;
+    return 'RoleRange(min: ${_this.min}, max: ${_this.max})';
   }
 }
 
@@ -319,7 +332,9 @@ class _RoleRange extends RoleRange with DiagnosticableTreeMixin {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, min, max);
+  int get hashCode {
+    return Object.hash(runtimeType, min, max);
+  }
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {

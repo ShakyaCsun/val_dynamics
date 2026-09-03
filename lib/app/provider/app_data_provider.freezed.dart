@@ -28,33 +28,40 @@ mixin _$AppData {
 
   @override
   bool operator ==(Object other) {
+    final _this = this as AppData;
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is AppData &&
             const DeepCollectionEquality().equals(
               other.bundledAgents,
-              bundledAgents,
+              _this.bundledAgents,
             ) &&
             const DeepCollectionEquality().equals(
               other.bundledMatches,
-              bundledMatches,
+              _this.bundledMatches,
             ) &&
-            (identical(other.message, message) || other.message == message) &&
-            (identical(other.status, status) || other.status == status));
+            (identical(other.message, _this.message) ||
+                other.message == _this.message) &&
+            (identical(other.status, _this.status) ||
+                other.status == _this.status));
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(bundledAgents),
-    const DeepCollectionEquality().hash(bundledMatches),
-    message,
-    status,
-  );
+  int get hashCode {
+    final _this = this as AppData;
+    return Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_this.bundledAgents),
+      const DeepCollectionEquality().hash(_this.bundledMatches),
+      _this.message,
+      _this.status,
+    );
+  }
 
   @override
   String toString() {
-    return 'AppData(bundledAgents: $bundledAgents, bundledMatches: $bundledMatches, message: $message, status: $status)';
+    final _this = this as AppData;
+    return 'AppData(bundledAgents: ${_this.bundledAgents}, bundledMatches: ${_this.bundledMatches}, message: ${_this.message}, status: ${_this.status})';
   }
 }
 
@@ -161,11 +168,11 @@ class _AppData implements AppData {
         (other.runtimeType == runtimeType &&
             other is _AppData &&
             const DeepCollectionEquality().equals(
-              other._bundledAgents,
+              other.bundledAgents,
               _bundledAgents,
             ) &&
             const DeepCollectionEquality().equals(
-              other._bundledMatches,
+              other.bundledMatches,
               _bundledMatches,
             ) &&
             (identical(other.message, message) || other.message == message) &&
@@ -173,13 +180,15 @@ class _AppData implements AppData {
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(_bundledAgents),
-    const DeepCollectionEquality().hash(_bundledMatches),
-    message,
-    status,
-  );
+  int get hashCode {
+    return Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_bundledAgents),
+      const DeepCollectionEquality().hash(_bundledMatches),
+      message,
+      status,
+    );
+  }
 
   @override
   String toString() {

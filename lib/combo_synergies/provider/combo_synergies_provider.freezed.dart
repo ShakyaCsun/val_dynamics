@@ -32,36 +32,41 @@ mixin _$SynergiesFilterState {
 
   @override
   bool operator ==(Object other) {
+    final _this = this as SynergiesFilterState;
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is SynergiesFilterState &&
-            (identical(other.winLossFilter, winLossFilter) ||
-                other.winLossFilter == winLossFilter) &&
+            (identical(other.winLossFilter, _this.winLossFilter) ||
+                other.winLossFilter == _this.winLossFilter) &&
             const DeepCollectionEquality().equals(
               other.selectedMaps,
-              selectedMaps,
+              _this.selectedMaps,
             ) &&
-            (identical(other.rolesCombo, rolesCombo) ||
-                other.rolesCombo == rolesCombo) &&
-            (identical(other.comboCriteria, comboCriteria) ||
-                other.comboCriteria == comboCriteria) &&
-            (identical(other.minRounds, minRounds) ||
-                other.minRounds == minRounds));
+            (identical(other.rolesCombo, _this.rolesCombo) ||
+                other.rolesCombo == _this.rolesCombo) &&
+            (identical(other.comboCriteria, _this.comboCriteria) ||
+                other.comboCriteria == _this.comboCriteria) &&
+            (identical(other.minRounds, _this.minRounds) ||
+                other.minRounds == _this.minRounds));
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    winLossFilter,
-    const DeepCollectionEquality().hash(selectedMaps),
-    rolesCombo,
-    comboCriteria,
-    minRounds,
-  );
+  int get hashCode {
+    final _this = this as SynergiesFilterState;
+    return Object.hash(
+      runtimeType,
+      _this.winLossFilter,
+      const DeepCollectionEquality().hash(_this.selectedMaps),
+      _this.rolesCombo,
+      _this.comboCriteria,
+      _this.minRounds,
+    );
+  }
 
   @override
   String toString() {
-    return 'SynergiesFilterState(winLossFilter: $winLossFilter, selectedMaps: $selectedMaps, rolesCombo: $rolesCombo, comboCriteria: $comboCriteria, minRounds: $minRounds)';
+    final _this = this as SynergiesFilterState;
+    return 'SynergiesFilterState(winLossFilter: ${_this.winLossFilter}, selectedMaps: ${_this.selectedMaps}, rolesCombo: ${_this.rolesCombo}, comboCriteria: ${_this.comboCriteria}, minRounds: ${_this.minRounds})';
   }
 }
 
@@ -177,7 +182,7 @@ class _SynergiesState extends SynergiesFilterState {
             (identical(other.winLossFilter, winLossFilter) ||
                 other.winLossFilter == winLossFilter) &&
             const DeepCollectionEquality().equals(
-              other._selectedMaps,
+              other.selectedMaps,
               _selectedMaps,
             ) &&
             (identical(other.rolesCombo, rolesCombo) ||
@@ -189,14 +194,16 @@ class _SynergiesState extends SynergiesFilterState {
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    winLossFilter,
-    const DeepCollectionEquality().hash(_selectedMaps),
-    rolesCombo,
-    comboCriteria,
-    minRounds,
-  );
+  int get hashCode {
+    return Object.hash(
+      runtimeType,
+      winLossFilter,
+      const DeepCollectionEquality().hash(_selectedMaps),
+      rolesCombo,
+      comboCriteria,
+      minRounds,
+    );
+  }
 
   @override
   String toString() {
@@ -283,23 +290,33 @@ mixin _$ComboData {
 
   @override
   bool operator ==(Object other) {
+    final _this = this as ComboData;
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is ComboData &&
-            (identical(other.agentOne, agentOne) ||
-                other.agentOne == agentOne) &&
-            (identical(other.agentTwo, agentTwo) ||
-                other.agentTwo == agentTwo) &&
-            (identical(other.synergyStat, synergyStat) ||
-                other.synergyStat == synergyStat));
+            (identical(other.agentOne, _this.agentOne) ||
+                other.agentOne == _this.agentOne) &&
+            (identical(other.agentTwo, _this.agentTwo) ||
+                other.agentTwo == _this.agentTwo) &&
+            (identical(other.synergyStat, _this.synergyStat) ||
+                other.synergyStat == _this.synergyStat));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, agentOne, agentTwo, synergyStat);
+  int get hashCode {
+    final _this = this as ComboData;
+    return Object.hash(
+      runtimeType,
+      _this.agentOne,
+      _this.agentTwo,
+      _this.synergyStat,
+    );
+  }
 
   @override
   String toString() {
-    return 'ComboData(agentOne: $agentOne, agentTwo: $agentTwo, synergyStat: $synergyStat)';
+    final _this = this as ComboData;
+    return 'ComboData(agentOne: ${_this.agentOne}, agentTwo: ${_this.agentTwo}, synergyStat: ${_this.synergyStat})';
   }
 }
 
@@ -384,7 +401,9 @@ class _ComboData extends ComboData {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, agentOne, agentTwo, synergyStat);
+  int get hashCode {
+    return Object.hash(runtimeType, agentOne, agentTwo, synergyStat);
+  }
 
   @override
   String toString() {

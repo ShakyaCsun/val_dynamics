@@ -29,23 +29,31 @@ mixin _$StyledMatchesState {
 
   @override
   bool operator ==(Object other) {
+    final _this = this as StyledMatchesState;
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is StyledMatchesState &&
-            const DeepCollectionEquality().equals(other.matches, matches) &&
-            (identical(other.acm, acm) || other.acm == acm));
+            const DeepCollectionEquality().equals(
+              other.matches,
+              _this.matches,
+            ) &&
+            (identical(other.acm, _this.acm) || other.acm == _this.acm));
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(matches),
-    acm,
-  );
+  int get hashCode {
+    final _this = this as StyledMatchesState;
+    return Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_this.matches),
+      _this.acm,
+    );
+  }
 
   @override
   String toString() {
-    return 'StyledMatchesState(matches: $matches, acm: $acm)';
+    final _this = this as StyledMatchesState;
+    return 'StyledMatchesState(matches: ${_this.matches}, acm: ${_this.acm})';
   }
 }
 
@@ -116,11 +124,13 @@ class _StyledMatchesState extends StyledMatchesState {
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(matches),
-    acm,
-  );
+  int get hashCode {
+    return Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(matches),
+      acm,
+    );
+  }
 
   @override
   String toString() {

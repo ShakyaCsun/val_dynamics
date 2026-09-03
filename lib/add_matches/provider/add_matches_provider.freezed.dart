@@ -104,7 +104,9 @@ class InvalidMatchesCsvError implements AddMatchesError {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message);
+  int get hashCode {
+    return Object.hash(runtimeType, message);
+  }
 
   @override
   String toString() {
@@ -169,8 +171,9 @@ class UnknownMatchesError implements AddMatchesError {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode {
+    return Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  }
 
   @override
   String toString() {

@@ -34,43 +34,49 @@ mixin _$MatchesTernaryData {
 
   @override
   bool operator ==(Object other) {
+    final _this = this as MatchesTernaryData;
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is MatchesTernaryData &&
-            (identical(other.stylePoints, stylePoints) ||
-                other.stylePoints == stylePoints) &&
-            (identical(other.matchesCount, matchesCount) ||
-                other.matchesCount == matchesCount) &&
-            (identical(other.score, score) || other.score == score) &&
-            (identical(other.attackScore, attackScore) ||
-                other.attackScore == attackScore) &&
-            (identical(other.defenseScore, defenseScore) ||
-                other.defenseScore == defenseScore) &&
+            (identical(other.stylePoints, _this.stylePoints) ||
+                other.stylePoints == _this.stylePoints) &&
+            (identical(other.matchesCount, _this.matchesCount) ||
+                other.matchesCount == _this.matchesCount) &&
+            (identical(other.score, _this.score) ||
+                other.score == _this.score) &&
+            (identical(other.attackScore, _this.attackScore) ||
+                other.attackScore == _this.attackScore) &&
+            (identical(other.defenseScore, _this.defenseScore) ||
+                other.defenseScore == _this.defenseScore) &&
             const DeepCollectionEquality().equals(
               other.compositions,
-              compositions,
+              _this.compositions,
             ) &&
             const DeepCollectionEquality().equals(
               other.oppositionCompositions,
-              oppositionCompositions,
+              _this.oppositionCompositions,
             ));
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    stylePoints,
-    matchesCount,
-    score,
-    attackScore,
-    defenseScore,
-    const DeepCollectionEquality().hash(compositions),
-    const DeepCollectionEquality().hash(oppositionCompositions),
-  );
+  int get hashCode {
+    final _this = this as MatchesTernaryData;
+    return Object.hash(
+      runtimeType,
+      _this.stylePoints,
+      _this.matchesCount,
+      _this.score,
+      _this.attackScore,
+      _this.defenseScore,
+      const DeepCollectionEquality().hash(_this.compositions),
+      const DeepCollectionEquality().hash(_this.oppositionCompositions),
+    );
+  }
 
   @override
   String toString() {
-    return 'MatchesTernaryData(stylePoints: $stylePoints, matchesCount: $matchesCount, score: $score, attackScore: $attackScore, defenseScore: $defenseScore, compositions: $compositions, oppositionCompositions: $oppositionCompositions)';
+    final _this = this as MatchesTernaryData;
+    return 'MatchesTernaryData(stylePoints: ${_this.stylePoints}, matchesCount: ${_this.matchesCount}, score: ${_this.score}, attackScore: ${_this.attackScore}, defenseScore: ${_this.defenseScore}, compositions: ${_this.compositions}, oppositionCompositions: ${_this.oppositionCompositions})';
   }
 }
 
@@ -213,26 +219,28 @@ class _MatchesTernaryData extends MatchesTernaryData {
             (identical(other.defenseScore, defenseScore) ||
                 other.defenseScore == defenseScore) &&
             const DeepCollectionEquality().equals(
-              other._compositions,
+              other.compositions,
               _compositions,
             ) &&
             const DeepCollectionEquality().equals(
-              other._oppositionCompositions,
+              other.oppositionCompositions,
               _oppositionCompositions,
             ));
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    stylePoints,
-    matchesCount,
-    score,
-    attackScore,
-    defenseScore,
-    const DeepCollectionEquality().hash(_compositions),
-    const DeepCollectionEquality().hash(_oppositionCompositions),
-  );
+  int get hashCode {
+    return Object.hash(
+      runtimeType,
+      stylePoints,
+      matchesCount,
+      score,
+      attackScore,
+      defenseScore,
+      const DeepCollectionEquality().hash(_compositions),
+      const DeepCollectionEquality().hash(_oppositionCompositions),
+    );
+  }
 
   @override
   String toString() {

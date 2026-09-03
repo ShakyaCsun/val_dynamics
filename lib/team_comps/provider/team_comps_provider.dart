@@ -143,7 +143,6 @@ abstract class CompositionsState with _$CompositionsState {
     yield comps;
   }
 
-  @override
   late final Map<AgentCompsTernaryData, TernaryPoint> ternaryData =
       allCompositions.asTernaryData;
 }

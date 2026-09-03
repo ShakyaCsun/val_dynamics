@@ -39,6 +39,41 @@ AssetGenImage? defaultAgentIcon(String agent) {
   };
 }
 
+AssetGenImage? defaultAgentDisplayIcon(String agent) {
+  return switch (agent.toLowerCase()) {
+    'astra' => ValAssets.agents.astra.displayIcon,
+    'breach' => ValAssets.agents.breach.displayIcon,
+    'brimstone' => ValAssets.agents.brimstone.displayIcon,
+    'chamber' => ValAssets.agents.chamber.displayIcon,
+    'clove' => ValAssets.agents.clove.displayIcon,
+    'cypher' => ValAssets.agents.cypher.displayIcon,
+    'deadlock' => ValAssets.agents.deadlock.displayIcon,
+    'fade' => ValAssets.agents.fade.displayIcon,
+    'gekko' => ValAssets.agents.gekko.displayIcon,
+    'harbor' => ValAssets.agents.harbor.displayIcon,
+    'iso' => ValAssets.agents.iso.displayIcon,
+    'jett' => ValAssets.agents.jett.displayIcon,
+    'kayo' || 'kay/o' => ValAssets.agents.kayo.displayIcon,
+    'killjoy' => ValAssets.agents.killjoy.displayIcon,
+    'miks' => ValAssets.agents.miks.displayIcon,
+    'neon' => ValAssets.agents.neon.displayIcon,
+    'omen' => ValAssets.agents.omen.displayIcon,
+    'phoenix' => ValAssets.agents.phoenix.displayIcon,
+    'raze' => ValAssets.agents.raze.displayIcon,
+    'reyna' => ValAssets.agents.reyna.displayIcon,
+    'sage' => ValAssets.agents.sage.displayIcon,
+    'skye' => ValAssets.agents.skye.displayIcon,
+    'sova' => ValAssets.agents.sova.displayIcon,
+    'tejo' => ValAssets.agents.tejo.displayIcon,
+    'veto' => ValAssets.agents.veto.displayIcon,
+    'viper' => ValAssets.agents.viper.displayIcon,
+    'vyse' => ValAssets.agents.vyse.displayIcon,
+    'waylay' => ValAssets.agents.waylay.displayIcon,
+    'yoru' => ValAssets.agents.yoru.displayIcon,
+    _ => null,
+  };
+}
+
 AssetGenImage? defaultAgentPortrait(String agent) {
   return switch (agent.toLowerCase()) {
     'astra' => ValAssets.agents.astra.portrait,

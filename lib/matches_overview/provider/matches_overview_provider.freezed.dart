@@ -30,30 +30,35 @@ mixin _$MatchesCollection {
 
   @override
   bool operator ==(Object other) {
+    final _this = this as MatchesCollection;
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is MatchesCollection &&
-            (identical(other.collectionName, collectionName) ||
-                other.collectionName == collectionName) &&
+            (identical(other.collectionName, _this.collectionName) ||
+                other.collectionName == _this.collectionName) &&
             const DeepCollectionEquality().equals(
               other.rawMatches,
-              rawMatches,
+              _this.rawMatches,
             ) &&
-            (identical(other.rosterName, rosterName) ||
-                other.rosterName == rosterName));
+            (identical(other.rosterName, _this.rosterName) ||
+                other.rosterName == _this.rosterName));
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    collectionName,
-    const DeepCollectionEquality().hash(rawMatches),
-    rosterName,
-  );
+  int get hashCode {
+    final _this = this as MatchesCollection;
+    return Object.hash(
+      runtimeType,
+      _this.collectionName,
+      const DeepCollectionEquality().hash(_this.rawMatches),
+      _this.rosterName,
+    );
+  }
 
   @override
   String toString() {
-    return 'MatchesCollection(collectionName: $collectionName, rawMatches: $rawMatches, rosterName: $rosterName)';
+    final _this = this as MatchesCollection;
+    return 'MatchesCollection(collectionName: ${_this.collectionName}, rawMatches: ${_this.rawMatches}, rosterName: ${_this.rosterName})';
   }
 }
 
@@ -146,7 +151,7 @@ class _MatchesCollection extends MatchesCollection {
             (identical(other.collectionName, collectionName) ||
                 other.collectionName == collectionName) &&
             const DeepCollectionEquality().equals(
-              other._rawMatches,
+              other.rawMatches,
               _rawMatches,
             ) &&
             (identical(other.rosterName, rosterName) ||
@@ -154,12 +159,14 @@ class _MatchesCollection extends MatchesCollection {
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    collectionName,
-    const DeepCollectionEquality().hash(_rawMatches),
-    rosterName,
-  );
+  int get hashCode {
+    return Object.hash(
+      runtimeType,
+      collectionName,
+      const DeepCollectionEquality().hash(_rawMatches),
+      rosterName,
+    );
+  }
 
   @override
   String toString() {

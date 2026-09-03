@@ -30,31 +30,36 @@ mixin _$CompFiltersState {
 
   @override
   bool operator ==(Object other) {
+    final _this = this as CompFiltersState;
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is CompFiltersState &&
             const DeepCollectionEquality().equals(
               other.agentFilters,
-              agentFilters,
+              _this.agentFilters,
             ) &&
             const DeepCollectionEquality().equals(
               other.roleFilters,
-              roleFilters,
+              _this.roleFilters,
             ) &&
-            const DeepCollectionEquality().equals(other.roles, roles));
+            const DeepCollectionEquality().equals(other.roles, _this.roles));
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(agentFilters),
-    const DeepCollectionEquality().hash(roleFilters),
-    const DeepCollectionEquality().hash(roles),
-  );
+  int get hashCode {
+    final _this = this as CompFiltersState;
+    return Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_this.agentFilters),
+      const DeepCollectionEquality().hash(_this.roleFilters),
+      const DeepCollectionEquality().hash(_this.roles),
+    );
+  }
 
   @override
   String toString() {
-    return 'CompFiltersState(agentFilters: $agentFilters, roleFilters: $roleFilters, roles: $roles)';
+    final _this = this as CompFiltersState;
+    return 'CompFiltersState(agentFilters: ${_this.agentFilters}, roleFilters: ${_this.roleFilters}, roles: ${_this.roles})';
   }
 }
 
@@ -158,23 +163,25 @@ class _CompFiltersState extends CompFiltersState {
         (other.runtimeType == runtimeType &&
             other is _CompFiltersState &&
             const DeepCollectionEquality().equals(
-              other._agentFilters,
+              other.agentFilters,
               _agentFilters,
             ) &&
             const DeepCollectionEquality().equals(
-              other._roleFilters,
+              other.roleFilters,
               _roleFilters,
             ) &&
-            const DeepCollectionEquality().equals(other._roles, _roles));
+            const DeepCollectionEquality().equals(other.roles, _roles));
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(_agentFilters),
-    const DeepCollectionEquality().hash(_roleFilters),
-    const DeepCollectionEquality().hash(_roles),
-  );
+  int get hashCode {
+    return Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_agentFilters),
+      const DeepCollectionEquality().hash(_roleFilters),
+      const DeepCollectionEquality().hash(_roles),
+    );
+  }
 
   @override
   String toString() {
