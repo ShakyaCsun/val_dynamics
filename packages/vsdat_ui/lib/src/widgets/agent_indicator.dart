@@ -20,7 +20,7 @@ class AgentIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     final icon = switch (agent.iconUrl) {
       final url? => NetworkImage(url),
-      null => defaultAgentIcon(agent.name)?.provider(),
+      null => defaultAgentDisplayIcon(agent.name)?.provider(),
     };
     final hasIcon = icon != null;
     final indicator = CircleIndicator(
@@ -29,13 +29,10 @@ class AgentIndicator extends StatelessWidget {
       image: icon ?? defaultRoleIcons(agent.role)?.provider(),
       text: hasIcon ? null : agent.name[0],
     );
-    if (isSelected) {
-      return CircleAvatar(
-        radius: radius + 3,
-        backgroundColor: Theme.of(context).colorScheme.onSurface,
-        child: indicator,
-      );
-    }
-    return indicator;
+    return CircleAvatar(
+      radius: radius + (isSelected ? 5 : 2),
+      backgroundColor: agent.borderColor,
+      child: indicator,
+    );
   }
 }
