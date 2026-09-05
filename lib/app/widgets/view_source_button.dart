@@ -1,4 +1,3 @@
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:url_launcher/link.dart';
 import 'package:vsdat/gen/gen.dart';
@@ -19,15 +18,11 @@ class ViewSourceButton extends StatelessWidget {
         icon: Builder(
           builder: (context) {
             final iconSize = IconTheme.of(context).size;
-            final isLightTheme =
-                Theme.of(context).colorScheme.brightness == Brightness.light;
-            return SvgPicture.asset(
-              isLightTheme
-                  ? Assets.icons.githubMark
-                  : Assets.icons.githubMarkWhite,
-              width: iconSize,
-              height: iconSize,
-            );
+            final svgIcon = switch (Theme.of(context).colorScheme.brightness) {
+              .dark => Assets.icons.githubMarkWhite,
+              .light => Assets.icons.githubMark,
+            };
+            return svgIcon.svg(width: iconSize, height: iconSize);
           },
         ),
       ),
